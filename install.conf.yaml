@@ -1,0 +1,30 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+    shell:
+      quiet: true
+      stdin: true
+
+- clean: ['~']
+
+- link:
+    ~/.config/nvim/init.vim: .config/nvim/init.vim
+    ~/.config/tmuxinator/: .config/tmuxinator/
+    ~/.tmux.conf: .tmux.conf
+    ~/.zsh/: .zsh/
+    ~/.zshrc: .zshrc
+
+- shell:
+  - [if (lsb_release -i | grep -io 'ubuntu'); then sudo apt update; fi, (Ubuntu) Update apt sources]
+  - [if (lsb_release -i | grep -io 'ubuntu'); then sudo apt install -y neovim; fi, (Ubuntu) Install neovim]
+  - [if (lsb_release -i | grep -io 'ubuntu'); then sudo apt install -y zsh; fi, (Ubuntu) Install zsh]
+  - [if (lsb_release -i | grep -io 'ubuntu'); then sudo apt install -y tmux tmuxinator; fi, (Ubuntu) Install tmux]
+  - [if (lsb_release -i | grep -io 'ubuntu'); then sudo apt install -y neofetch; fi, (Ubuntu) Install neofetch]
+
+- shell:
+  - command: chsh -s $(which zsh)
+    description: Apply zsh for user
+    stderr: true
+  - command: echo "You need to logout to use default shell"
+    stdout: true
