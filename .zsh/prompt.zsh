@@ -13,7 +13,7 @@ autoload -U colors && colors
 
 function set_prompt {
   EXIT=$?
-  PS1=$'\n'" %F{blue}%~%f:%F{green}$(env LANG=C ls -l|grep -v "total"|wc -l)%F{yellow}$(git_current_branch)%f %(!.#.$) "
+  PS1=$'\n'" %F{blue}%~%f:%F{green}$(env LANG=C ls -l|grep -v "total"|wc -l|xargs)%F{yellow}$(git_current_branch)%f %(!.#.$) "
   PS2=' > '
   VENV=''
   if [[ -n $VIRTUAL_ENV ]]; then
