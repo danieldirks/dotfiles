@@ -5,7 +5,7 @@ My dotfiles.
 ## Setup
 
 ```bash
-./bootstrap.sh
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply danieldirks
 ```
 
 To update, run `chezmoi update`.
