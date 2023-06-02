@@ -1,6 +1,0 @@
-alias :q='exit'
-alias hg='history | grep'
-alias ls='ls --color=auto'
-alias ll='ls -Alh --color=always'
-alias mux='tmuxinator Default'
-alias vim='nvim'
