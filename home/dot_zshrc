@@ -33,7 +33,7 @@ antigen bundle jeffreytse/zsh-vi-mode
 
 case `uname` in
   Darwin)
-    antigen bundle osx
+    antigen bundle macos
   ;;
   Linux)
   ;;
