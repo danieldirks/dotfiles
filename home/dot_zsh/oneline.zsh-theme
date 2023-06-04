@@ -3,25 +3,28 @@ function get_cluster_short() {
 }
 
 
-ZSH_GIT_PROMPT_FORCE_BLANK=true
+# git-prompt
+#ZSH_GIT_PROMPT_FORCE_BLANK=true
 #ZSH_GIT_PROMPT_SHOW_STASH=true
 ZSH_THEME_GIT_PROMPT_PREFIX=' '
 ZSH_THEME_GIT_PROMPT_SUFFIX='%f'
-ZSH_THEME_GIT_PROMPT_SEPARATOR=' '
+ZSH_THEME_GIT_PROMPT_SEPARATOR=''
 ZSH_THEME_GIT_PROMPT_DETACHED="%F{yellow}:"
 ZSH_THEME_GIT_PROMPT_BRANCH='%F{yellow}'
 ZSH_THEME_GIT_PROMPT_BEHIND='%F{yellow}↓'
 ZSH_THEME_GIT_PROMPT_AHEAD='%F{yellow}↑'
 ZSH_THEME_GIT_PROMPT_UNMERGED='%F{yellow}✖'
-ZSH_THEME_GIT_PROMPT_STAGED='%F{yellow}●'
-ZSH_THEME_GIT_PROMPT_UNSTAGED='%F{yellow}+'
-ZSH_THEME_GIT_PROMPT_UNTRACKED='%F{yellow}…'
+ZSH_THEME_GIT_PROMPT_STAGED='%F{yellow}+'
+ZSH_THEME_GIT_PROMPT_UNSTAGED='%F{yellow}*'
+ZSH_THEME_GIT_PROMPT_UNTRACKED='%F{yellow}.'
 ZSH_THEME_GIT_PROMPT_STASHED='%F{yellow}⚑'
-ZSH_THEME_GIT_PROMPT_CLEAN='%F{yellow}✔'
+ZSH_THEME_GIT_PROMPT_CLEAN=''
 
-ZSH_THEME_VIRTUALENV_PREFIX='🐍%F{magenta}'
+# virtualenv
+ZSH_THEME_VIRTUALENV_PREFIX='🐍 %F{magenta}'
 ZSH_THEME_VIRTUALENV_SUFFIX='%f'
 
+# kube-ps1
 KUBE_PS1_PREFIX=''
 KUBE_PS1_PREFIX_COLOR='blue'
 KUBE_PS1_SYMBOL_ENABLE=false
@@ -30,7 +33,7 @@ KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
 KUBE_PS1_CTX_COLOR='blue'
 KUBE_PS1_NS_ENABLE=false
 KUBE_PS1_NS_COLOR='blue'
-KUBE_PS1_SUFFIX=' '
+KUBE_PS1_SUFFIX='  '
 
 
 PS1='%F{blue}%1~%f:%F{cyan}$(env LANG=C ls -l|grep -v "total"|wc -l|xargs)%f'
@@ -40,4 +43,4 @@ PS2="› "
 
 RPS1=''
 RPS1+='$(kube_ps1)'
-RPS1+='${$(virtualenv_prompt_info):-"💻%m"}'
+RPS1+='${$(virtualenv_prompt_info):-"💻 %m"}'
