@@ -21,6 +21,7 @@ antigen bundle aliases
 antigen bundle git
 #antigen bundle git-prompt
 antigen bundle woefe/git-prompt.zsh
+antigen bundle command-not-found
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle kubectl
