@@ -85,7 +85,7 @@ call plug#end()
 
 
 " gitgutter
-let g:gitgutter_highlight_lines = 1  " highlight whole line
+let g:gitgutter_highlight_lines = 0  " highlight whole line
 let g:gitgutter_override_sign_column_highlight = 0  " don't change signcolumn color
 
 " undotree
@@ -96,7 +96,7 @@ endif
 
 " airline
 "let g:airline_theme='powerlineish' " theme
-let g:airline_powerline_fonts = 1 " use powerline fonts if installed
+"let g:airline_powerline_fonts = 1 " use powerline fonts if installed
 let g:airline#extensions#tabline#enabled = 1 " show line on top
 let g:airline#extensions#tabline#formatter = 'unique_tail' " show only filename in tabline
 " custom line number section
