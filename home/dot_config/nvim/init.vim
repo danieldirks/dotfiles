@@ -70,16 +70,15 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'preservim/nerdcommenter'  " comment shortcuts
-Plug 'chrisbra/csv.vim'  " csv support
-Plug 'editorconfig/editorconfig-vim'  " http://editorconfig.org/
-Plug 'tpope/vim-fugitive'  " git integration
-Plug 'airblade/vim-gitgutter'  " git visualizations
-Plug 'mbbill/undotree'
-Plug 'vim-airline/vim-airline'  " statusline
-Plug 'vim-airline/vim-airline-themes'
-Plug 'arcticicestudio/nord-vim'
-Plug 'edkolev/tmuxline.vim'  " uses same airline theme in tmux
+Plug 'preservim/nerdcommenter'          " comment shortcuts
+Plug 'editorconfig/editorconfig-vim'    " http://editorconfig.org/
+Plug 'tpope/vim-fugitive'               " git integration
+Plug 'airblade/vim-gitgutter'           " git visualizations
+Plug 'mbbill/undotree'                  " undo tracking
+"Plug 'vim-airline/vim-airline'         " statusline
+Plug 'itchyny/lightline.vim'            " statusline
+Plug 'itchyny/vim-gitbranch'            " git branch for statusline
+Plug 'arcticicestudio/nord-vim'         " nord theme
 Plug 'nathanaelkane/vim-indent-guides'  " indent highlighting
 call plug#end()
 
@@ -95,23 +94,34 @@ if has("persistent_undo")
 endif
 
 " airline
-"let g:airline_theme='powerlineish' " theme
-"let g:airline_powerline_fonts = 1 " use powerline fonts if installed
-let g:airline#extensions#tabline#enabled = 1 " show line on top
-let g:airline#extensions#tabline#formatter = 'unique_tail' " show only filename in tabline
-" custom line number section
-function! MyLineNumber()
-  return substitute(line('.'), '\d\@<=\(\(\d\{3\}\)\+\)$', ',&', 'g'). '/'.substitute(line('$'), '\d\@<=\(\(\d\{3\}\)\+\)$', ',&', 'g')
-endfunction
-call airline#parts#define('linenr', {'function': 'MyLineNumber', 'accents': 'bold'})
-let g:airline_section_z = airline#section#create(['%3p%%: ', 'linenr', ':%3v'])
-let g:airline_skip_empty_sections = 1 " hide empty sections visible with powerline font
-" symbols
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = 'ro'
+"let g:airline_theme='nord' " theme
+""let g:airline_powerline_fonts = 1 " use powerline fonts if installed
+"let g:airline#extensions#tabline#enabled = 1 " show line on top
+"let g:airline#extensions#tabline#formatter = 'unique_tail' " show only filename in tabline
+"" custom line number section
+"function! MyLineNumber()
+"    return substitute(line('.'), '\d\@<=\(\(\d\{3\}\)\+\)$', ',&', 'g'). '/'.substitute(line('$'), '\d\@<=\(\(\d\{3\}\)\+\)$', ',&', 'g')
+"endfunction
+"call airline#parts#define('linenr', {'function': 'MyLineNumber', 'accents': 'bold'})
+"let g:airline_section_z = airline#section#create(['%3p%%: ', 'linenr', ':%3v'])
+"let g:airline_skip_empty_sections = 1 " hide empty sections visible with powerline font
+"" symbols
+"if !exists('g:airline_symbols')
+"  let g:airline_symbols = {}
+"endif
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = 'ro'
+
+" lightline
+let g:lightline = {
+  \ 'colorscheme': 'nord',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'gitbranch#name'
+  \ },
+  \ }
 
 " indent guides
 let g:indent_guides_enable_on_vim_startup = 1

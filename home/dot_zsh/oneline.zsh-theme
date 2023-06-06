@@ -43,4 +43,5 @@ PS2="› "
 
 RPS1=''
 RPS1+='$(if command -v kubectl &> /dev/null; then kube_ps1; fi)'
-RPS1+='${$(virtualenv_prompt_info):-"💻 %m"}'
+#RPS1+='${$(virtualenv_prompt_info):-"💻 %m"}'
+RPS1+='${$(virtualenv_prompt_info):-}'
