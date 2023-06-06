@@ -1,9 +1,11 @@
 {{- if eq .osid "linux-ubuntu" -}}
 #!/bin/sh
-sudo apt install -y zsh neovim tmux tmuxinator neofetch
+sudo apt install -y zsh neovim tmux tmuxinator neofetch git curl
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo chsh -s $(which zsh) ${USER}
 {{- else if eq .osid "darwin" -}}
 #!/bin/sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install zsh neovim tmux tmuxinator neofetch
+brew install zsh neovim tmux tmuxinator neofetch git curl
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 {{- end -}}

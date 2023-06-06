@@ -19,7 +19,6 @@ antigen use oh-my-zsh
 
 antigen bundle aliases
 antigen bundle git
-#antigen bundle git-prompt
 antigen bundle woefe/git-prompt.zsh
 antigen bundle command-not-found
 antigen bundle docker
@@ -27,17 +26,19 @@ antigen bundle docker-compose
 antigen bundle kubectl
 antigen bundle kube-ps1
 antigen bundle virtualenv
+antigen bundle tmux
+antigen bundle tmuxinator
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle jeffreytse/zsh-vi-mode
 
 case `uname` in
-  Darwin)
-    antigen bundle macos
-  ;;
-  Linux)
-  ;;
+    Darwin)
+        antigen bundle macos
+        ;;
+    Linux)
+        ;;
 esac
 
 antigen theme ~/.zsh oneline.zsh-theme --no-local-clone
