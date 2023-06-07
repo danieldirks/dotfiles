@@ -1,0 +1,8 @@
+{{ if eq .osid "windows" -}}
+**  # ignore all
+!AppData/**
+{{- else -}}
+AppData/**
+{{- end }}
+
+!.chezmoiscripts/**  # always include scripts

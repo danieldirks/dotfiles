@@ -1,0 +1,19 @@
+{{- if eq .osid "darwin" -}}
+#!/bin/sh
+
+HIGHLIGHT='\e[0;33m'
+RESET='\e[0m'
+
+# homebrew
+echo "${HIGHLIGHT}Installing homebrew...${RESET}"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# packages
+echo "${HIGHLIGHT}Installing packages...${RESET}"
+brew install zsh neovim tmux tmuxinator neofetch git curl
+
+# tmux plugin manager
+echo "${HIGHLIGHT}Installing tpm...${RESET}"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
+
+{{- end -}}
