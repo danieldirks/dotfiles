@@ -12,8 +12,14 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
     codespaces = {{ $codespaces }}
 
     # git email
-    {{- $email := promptStringOnce . "email" "Email address" }}
+    {{ if not $codespaces }}
+    {{-   $email := promptStringOnce . "email" "Email address" }}
     email = {{ $email | quote }}
+    {{- end }}
 
-    # when true installs system packages by using sudo or elevated privileges
+    # flag to install system packages
+    {{ if $codespaces }}
+    systemSetup = true
+    {{- else }}
     systemSetup = {{ promptBool "Install system packages" true }}
+    {{- end }}
