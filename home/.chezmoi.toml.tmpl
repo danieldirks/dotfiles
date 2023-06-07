@@ -1,13 +1,17 @@
-{{- $osid := .chezmoi.os -}}
-{{- if hasKey .chezmoi.osRelease "id" -}}
-{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
-{{- end -}}
-
-# user prompts
-{{- $email := promptStringOnce . "email" "Email address" }}
-
-
 [data]
+    # os variable and flags for wsl and codespaces
+    {{- $osid := .chezmoi.os }}
+    {{- if hasKey .chezmoi.osRelease "id" }}
+    {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id }}
+    {{- end }}
     osid = {{ $osid | quote }}
+    wsl = {{ (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
+    {{- $codespaces:= env "CODESPACES" | not | not }}
+    codespaces = {{ $codespaces }}
+
+    # git email
+    {{- $email := promptStringOnce . "email" "Email address" }}
     email = {{ $email | quote }}
+
+    # when true installs system packages by using sudo or elevated privileges
     systemSetup = {{ promptBool "Install system packages" true }}
