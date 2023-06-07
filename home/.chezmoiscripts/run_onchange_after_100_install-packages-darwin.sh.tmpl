@@ -10,6 +10,16 @@ echo -e "${HIGHLIGHT}Installing homebrew...${RESET}"
 
 # packages
 echo -e "${HIGHLIGHT}Installing packages...${RESET}"
-brew install zsh neovim tmux tmuxinator neofetch git curl
+brew bundle --no-lock --file=/dev/stdin <<EOF
+brew "zsh"
+brew "neovim"
+brew "tmux"
+brew "tmuxinator"
+brew "neofetch"
+brew "git"
+brew "curl"
+cask "vscode"
+cask "google-chrome"
+EOF
 
 {{- end -}}
