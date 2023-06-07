@@ -1,4 +1,4 @@
-{{- if eq .osid "linux-ubuntu" -}}
+{{- if (and (eq .osid "linux-ubuntu") (eq .systemSetup true)) -}}
 #!/usr/bin/env bash
 
 HIGHLIGHT='\033[0;33m'
@@ -11,9 +11,5 @@ sudo apt install -y zsh neovim tmux tmuxinator neofetch git curl
 # zsh
 echo -e "${HIGHLIGHT}Setting up zsh...${RESET}"
 sudo chsh -s $(which zsh) ${USER}
-
-# tmux plugin manager
-echo -e "${HIGHLIGHT}Installing tpm...${RESET}"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
 
 {{- end -}}

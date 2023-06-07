@@ -1,0 +1,11 @@
+{{- if (or (eq .osid "linux-ubuntu") (eq .osid "darwin")) -}}
+#!/usr/bin/env bash
+
+HIGHLIGHT='\033[0;33m'
+RESET='\033[0m'
+
+# tmux plugin manager
+echo -e "${HIGHLIGHT}Installing tpm...${RESET}"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
+
+{{- end -}}

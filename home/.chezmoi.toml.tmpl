@@ -3,5 +3,11 @@
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
+# user prompts
+{{- $email := promptStringOnce . "email" "Email address" }}
+
+
 [data]
     osid = {{ $osid | quote }}
+    email = {{ $email | quote }}
+    systemSetup = {{ promptBool "Install system packages" true }}

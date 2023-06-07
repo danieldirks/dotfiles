@@ -1,4 +1,4 @@
-{{- if eq .osid "darwin" -}}
+{{- if (and (eq .osid "darwin") (eq .systemSetup true)) -}}
 #!/usr/bin/env zsh
 
 HIGHLIGHT='\e[0;33m'
@@ -11,9 +11,5 @@ echo -e "${HIGHLIGHT}Installing homebrew...${RESET}"
 # packages
 echo -e "${HIGHLIGHT}Installing packages...${RESET}"
 brew install zsh neovim tmux tmuxinator neofetch git curl
-
-# tmux plugin manager
-echo -e "${HIGHLIGHT}Installing tpm...${RESET}"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
 
 {{- end -}}
