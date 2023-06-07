@@ -1,0 +1,11 @@
+{{- if (and (eq .osid "windows") (eq .systemSetup true)) -}}
+
+# chocolatey
+Write-Host "Installing chocolatey..." -ForegroundColor Yellow
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+# packages
+Write-Host "Installing packages..." -ForegroundColor Yellow
+choco install -y hyper vscode
+
+{{- end -}}
