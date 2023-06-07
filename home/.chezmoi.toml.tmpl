@@ -1,3 +1,5 @@
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
 [data]
     # os variable and flags for wsl and codespaces
     {{- $osid := .chezmoi.os }}
