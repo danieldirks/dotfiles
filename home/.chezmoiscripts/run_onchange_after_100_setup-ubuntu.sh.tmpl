@@ -1,19 +1,19 @@
 {{- if eq .osid "linux-ubuntu" -}}
 #!/usr/bin/env bash
 
-HIGHLIGHT='\e[0;33m'
-RESET='\e[0m'
+HIGHLIGHT='\033[0;33m'
+RESET='\033[0m'
 
 # packages
-echo "${HIGHLIGHT}Installing packages...${RESET}"
+echo -e "${HIGHLIGHT}Installing packages...${RESET}"
 sudo apt install -y zsh neovim tmux tmuxinator neofetch git curl
 
 # zsh
-echo "${HIGHLIGHT}Setting up zsh...${RESET}"
+echo -e "${HIGHLIGHT}Setting up zsh...${RESET}"
 sudo chsh -s $(which zsh) ${USER}
 
 # tmux plugin manager
-echo "${HIGHLIGHT}Installing tpm...${RESET}"
+echo -e "${HIGHLIGHT}Installing tpm...${RESET}"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
 
 {{- end -}}
