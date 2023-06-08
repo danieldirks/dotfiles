@@ -1,0 +1,48 @@
+[packages.macos]
+    formulae = [
+        "zsh",
+        "neovim",
+        "tmux",
+        "tmuxinator",
+        "neofetch",
+        "git",
+        "curl",
+    ]
+
+    casks = [
+        "google-chrome",
+        "visual-studio-code",
+    ]
+
+
+[packages.ubuntu]
+    apt = [
+        "zsh",
+        "neovim",
+        "tmux",
+        "tmuxinator",
+        "neofetch",
+        "git",
+        "curl",
+    ]
+
+[packages.windows]
+    chocolatey = [
+        "hyper",
+        "vscode",
+    ]
+
+[packages.vscode]
+    list = [
+        # code
+        "bierner.github-markdown-preview",
+        # tools
+        "eamodio.gitlens",
+        "GitHub.copilot",
+        "pnp.polacode",
+        "esbenp.prettier-vscode",
+        # look & feel
+        "arcticicestudio.nord-visual-studio-code",
+        "equinusocio.vsc-material-theme-icons",
+        "vscodevim.vim",
+    ]

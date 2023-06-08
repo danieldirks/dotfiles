@@ -1,16 +1,34 @@
+# environment dependent
+{{ if .headless -}}
+.config/Code
+.hyper.js
+AppData/Roaming/Code
+AppData/Roaming/Hyper
+Library/Application Support/Code
+{{ end -}}
+
+{{ if not .full -}}
+.chezmoiscripts/system/*
+{{ end -}}
+
+
+# os dependent
 {{ if eq .osid "windows" -}}
-**  # ignore all
-!AppData/**
-{{- else -}}
-AppData/**
+.config/*
+!.config/git
+.hyper.js
+.tmux.conf
+.zprofile
+.zshrc
+Library
 {{- end }}
 
 {{ if eq .osid "darwin" -}}
-dot_config/Code/**
-{{- else -}}
-Library/**
+.config/Code
+AppData
 {{- end }}
 
-# always include chezmoi files
-!.chezmoiscripts/**
-!.chezmoitemplates/**
+{{ if eq .chezmoi.os "linux" -}}
+AppData
+Library
+{{- end }}

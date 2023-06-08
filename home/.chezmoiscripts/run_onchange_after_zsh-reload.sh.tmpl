@@ -1,0 +1,13 @@
+{{- if (or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin")) -}}
+#!/usr/bin/env zsh
+
+# rerun script when one of the files change
+# oneline.zsh-theme hash: {{ include ".config/zsh/oneline.zsh-theme" | sha256sum }}
+# .zshrc hash: {{ include ".zshrc" | sha256sum }}
+
+# reload zsh plugins and themes
+echo "Reloading zsh..."
+source ~/.zshrc
+antigen reset
+
+{{- end -}}

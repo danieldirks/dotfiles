@@ -1,0 +1,6 @@
+{{- if ne .osid "windows" }}
+[".config/tmux/plugins"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm"
+    refreshPeriod = "168h"
+{{- end }}

@@ -1,0 +1,9 @@
+{{- if ne .osid "windows" -}}
+#!/usr/bin/env bash
+
+echo 'Setting up VSCode...'
+{{ range .packages.vscode.list | sortAlpha | uniq -}}
+code --force --install-extension {{ . | quote }}
+{{ end -}}
+
+{{- end -}}

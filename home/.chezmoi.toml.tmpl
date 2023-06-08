@@ -1,25 +1,43 @@
+{{/* os detection */}}
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{/* environment detection */}}
+{{- $codespaces := env "CODESPACES" | not | not -}}
+{{- $wsl := (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
+
+{{/* user flags */}}
+{{- $headless := false -}}{{/* headless setup */}}
+{{- $full := false -}}{{/* full system setup */}}
+{{- if $codespaces -}}
+{{-   $headless = true -}}
+{{-   $full = false -}}
+{{- end -}}
+{{- if stdinIsATTY -}}
+{{-   $headless = promptBoolOnce . "headless" "headless" false -}}
+{{-   $full = promptBoolOnce . "full" "full system" false -}}
+{{- end -}}
+
+{{/* email prompt */}}
+{{- $email := "" -}}
+{{- if stdinIsATTY -}}
+{{-   $email = promptStringOnce . "email" "Email address" -}}
+{{- end -}}
+
+
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 
 [data]
-    # os variable and flags for wsl and codespaces
-    {{- $osid := .chezmoi.os }}
-    {{- if hasKey .chezmoi.osRelease "id" }}
-    {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id }}
-    {{- end }}
+    # environment
     osid = {{ $osid | quote }}
-    wsl = {{ (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
-    {{- $codespaces:= env "CODESPACES" | not | not }}
     codespaces = {{ $codespaces }}
+    wsl = {{ $wsl }}
 
-    # git email
-    {{ if not $codespaces }}
-    {{-   $email := promptStringOnce . "email" "Email address" }}
+    # flags
+    headless = {{ $headless }}
+    full = {{ $full }}
+
+    # variables
     email = {{ $email | quote }}
-    {{- end }}
-
-    # flag to install system packages
-    {{ if $codespaces }}
-    systemSetup = true
-    {{- else }}
-    systemSetup = {{ promptBool "Install system packages" true }}
-    {{- end }}

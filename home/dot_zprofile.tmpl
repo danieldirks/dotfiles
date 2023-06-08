@@ -1,5 +1,5 @@
-#!/bin/sh
 path+=("$HOME/.local/bin")
-{{- if eq .osid "darwin" }}
+
+{{ if eq .osid "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
-{{- end }}
+{{ end }}

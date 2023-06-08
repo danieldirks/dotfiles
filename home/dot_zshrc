@@ -12,7 +12,7 @@ SAVEHIST=1000  # max lines saved in HISTFILE
 HISTSIZE=1000  # lenght of loaded hist in memory
 
 # antigen
-ZSH_BASE=$HOME/.zsh
+ZSH_BASE=$HOME/.config/zsh
 source $ZSH_BASE/antigen/antigen.zsh
 
 antigen use oh-my-zsh
@@ -41,7 +41,7 @@ case `uname` in
         ;;
 esac
 
-antigen theme ~/.zsh oneline.zsh-theme --no-local-clone
+antigen theme ~/.config/zsh oneline.zsh-theme --no-local-clone
 
 antigen apply
 

@@ -1,0 +1,8 @@
+{{- if eq .osid "windows" -}}
+
+Write-Host "Setting up VSCode..."
+{{ range .packages.vscode.list | sortAlpha | uniq -}}
+code --force --install-extension {{ . | quote }}
+{{ end -}}
+
+{{- end -}}
