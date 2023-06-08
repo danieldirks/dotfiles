@@ -1,0 +1,5 @@
+{{- if eq .osid "windows" -}}
+Write-Host "Setting up VSCode..." -ForegroundColor Yellow
+{{ template "vscode-setup.sh" . -}}
+
+{{- end -}}

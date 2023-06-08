@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # code
 code --force --install-extension bierner.github-markdown-preview
 
