@@ -1,6 +1,7 @@
 {{- if ne .osid "windows" }}
-[".config/tmux/plugins"]
-    type = "git-repo"
-    url = "https://github.com/tmux-plugins/tpm"
+[".config/tmux/plugins/tpm"]
+    type = "archive"
+    url = "https://github.com/tmux-plugins/tpm/archive/master.tar.gz"
+    stripComponents = 1
     refreshPeriod = "168h"
-{{- end }}
+{{ end }}
