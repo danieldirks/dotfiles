@@ -1,8 +1,14 @@
 {{ if eq .osid "windows" -}}
 **  # ignore all
-!AppData/**
+!AppData/
 {{- else -}}
-AppData/**
+AppData/
+{{- end }}
+
+{{ if eq .osid "darwin" -}}
+dot_config/Code/
+{{- else -}}
+Library/
 {{- end }}
 
 # always include chezmoi files

@@ -1,0 +1,37 @@
+{
+    "workbench.colorTheme": "Nord",
+    "workbench.iconTheme": "eq-material-theme-icons",
+    "git.autofetch": true,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 5,
+    "workbench.editor.limit.perEditorGroup": true,
+    "workbench.editor.limit.excludeDirty": true,
+    "files.autoSave": "afterDelay",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+            "path": "zsh",
+            "args": ["-l"],
+            "icon": "terminal"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "WSL",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "path": "powershell",
+            "icon": "terminal-powershell"
+        },
+        "WSL": {
+            "path": "wsl.exe",
+            "icon": "terminal-linux"
+        }
+    }
+}
