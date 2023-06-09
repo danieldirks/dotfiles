@@ -1,12 +1,12 @@
 [packages.macos]
     headless.formulae = [
-        "zsh",
+        "curl",
+        "git",
+        "neofetch",
         "neovim",
         "tmux",
         "tmuxinator",
-        "neofetch",
-        "git",
-        "curl",
+        "zsh",
     ]
     headless.casks = []
     gui.formulae = []
@@ -18,13 +18,13 @@
 [packages.ubuntu]
     gui.apt = []
     headless.apt = [
-        "zsh",
+        "curl",
+        "git",
+        "neofetch",
         "neovim",
         "tmux",
         "tmuxinator",
-        "neofetch",
-        "git",
-        "curl",
+        "zsh",
     ]
 
 [packages.windows]
@@ -36,14 +36,20 @@
 
 [plugins]
     vscode = [
-        # code
+        ### code
         "bierner.github-markdown-preview",
-        # tools
+        ### environment
+        "GitHub.codespaces",
+        "ms-azuretools.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        ### tools
         "eamodio.gitlens",
-        "GitHub.copilot",
-        "pnp.polacode",
         "esbenp.prettier-vscode",
-        # look & feel
+        "GitHub.copilot",
+        "GitHub.vscode-pull-request-github",
+        "pnp.polacode",
+        ### look & feel
         "arcticicestudio.nord-visual-studio-code",
         "equinusocio.vsc-material-theme-icons",
         "vscodevim.vim",
