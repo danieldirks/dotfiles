@@ -1,47 +1,49 @@
 {
-    "breadcrumbs.enabled": true,
-    "editor.formatOnPaste": true,
-    "editor.guides.bracketPairs": true,
-    "editor.inlineSuggest.enabled": true,
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 2000,
-    "git.autofetch": true,
-    "git.enableSmartCommit": true,
-    "security.workspace.trust.untrustedFiles": "open",
-    "terminal.integrated.defaultProfile.linux": "zsh",
-    "terminal.integrated.defaultProfile.windows": "WSL",
-    "terminal.integrated.profiles.linux": {
-        "bash": {
-            "path": "bash",
-            "icon": "terminal-bash"
-        },
-        "tmux": {
-            "path": "tmux",
-            "icon": "terminal-tmux"
-        },
-        "zsh": {
-            "path": "zsh",
-            "args": ["-l"],
-            "icon": "terminal"
-        }
+  "breadcrumbs.enabled": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.guides.bracketPairs": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.tabCompletion": "on",
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 2000,
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.windows": "WSL",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash"
     },
-    "terminal.integrated.profiles.windows": {
-        "PowerShell": {
-            "path": "powershell",
-            "icon": "terminal-powershell"
-        },
-        "WSL": {
-            "path": "wsl.exe",
-            "icon": "terminal-linux"
-        }
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
     },
-    "window.title": "${activeEditorShort}${separator}${rootName}",
-    "workbench.colorTheme": "Nord",
-    "workbench.editor.limit.enabled": true,
-    "workbench.editor.limit.value": 5,
-    "workbench.editor.limit.perEditorGroup": true,
-    "workbench.editor.limit.excludeDirty": true,
-    "workbench.iconTheme": "eq-material-theme-icons",
-    "workbench.tree.renderIndentGuides": "always",
-    "workbench.tree.indent": 10
+    "zsh": {
+      "path": "zsh",
+      "args": ["-l"],
+      "icon": "terminal"
+    }
+  },
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "path": "powershell",
+      "icon": "terminal-powershell"
+    },
+    "WSL": {
+      "path": "wsl.exe",
+      "icon": "terminal-linux"
+    }
+  },
+  "window.title": "${activeEditorShort}${separator}${rootName}",
+  "workbench.colorTheme": "Nord",
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 5,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.limit.excludeDirty": true,
+  "workbench.iconTheme": "eq-material-theme-icons",
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.tree.indent": 10
 }

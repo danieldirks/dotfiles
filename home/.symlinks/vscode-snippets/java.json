@@ -1,0 +1,7 @@
+{
+  "println": {
+    "prefix": ["println", "echo", "sysout"],
+    "description": "System.out.println().",
+    "body": ["System.out.println(\"${1:Hello world!}\");"]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "figure": {
+    "prefix": ["figure", "image"],
+    "description": "Figure environment.",
+    "body": [
+      "\\begin{figure}[h]",
+      "\\centering",
+      "\\includegraphics[width=0.9\\textwidth]{${1:path}\\}",
+      "\\caption[${3:short description}]{${2:long description}}",
+      "\\label{fig:${4:label}}",
+      "\\end{figure}"
+    ]
+  }
+}

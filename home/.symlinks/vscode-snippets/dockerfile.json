@@ -1,0 +1,24 @@
+{
+  "Spring Boot Dockerfile": {
+    "prefix": ["spring", "java", "openjdk", "dockerfile"],
+    "description": "An alpine dockerfile for spring boot applications.",
+    "body": [
+      "FROM ${1:eclipse-temurin:17-jre-alpine}",
+      "",
+      "WORKDIR /app",
+      "COPY ./app.jar app.jar",
+      "COPY ./application.yml application.yml",
+      "",
+      "RUN apk add curl ${2:bash}",
+      "$0",
+      "RUN adduser -D app",
+      "USER app",
+      "",
+      "ENV SPRING_PROFILE='${3:dev}'",
+      "",
+      "EXPOSE 8080",
+      "HEALTHCHECK --interval=10s --timeout=5s --start-period=5s --retries=10 CMD curl --fail 127.0.0.1:8080 || exit 1",
+      "CMD java -Dspring.profiles.active=\\${SPRING_PROFILE\\} -jar app.jar"
+    ]
+  }
+}
