@@ -1,5 +1,0 @@
-#!/bin/bash
-
-{{ range .plugins.vscode | sortAlpha | uniq -}}
-code --force --install-extension {{ . | quote }}
-{{ end -}}

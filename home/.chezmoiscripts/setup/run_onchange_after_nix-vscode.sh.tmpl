@@ -1,4 +1,4 @@
-{{- if (and (ne .osid "windows") (not .headless) (not .codespaces)) -}}
+{{- if (and (ne .osid "windows") (not .headless)) -}}
 #!/bin/sh
 
 echo 'Setting up VSCode...'
