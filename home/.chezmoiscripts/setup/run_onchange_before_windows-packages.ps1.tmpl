@@ -1,5 +1,6 @@
 {{- if eq .osid "windows" -}}
 
+# open elevated shell if not already running as admin
 if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
   if ([int](Get-CimInstance -Class Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber) -ge 6000) {
     # add -NoExit to keep elevated shell open after exit
@@ -13,6 +14,11 @@ Write-Host "Installing chocolatey..."
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 Write-Host "Installing packages..."
-choco install -y {{ join " " (.packages.windows.chocolatey | sortAlpha | uniq) }}
+{{- if .packages.windows.headless.chocolatey }}
+choco install -y {{ join " " (.packages.windows.headless.chocolatey | sortAlpha | uniq) }}
+{{- end }}
+{{- if (and (not .headless) .packages.windows.gui.chocolatey) }}
+choco install -y {{ join " " (.packages.windows.gui.chocolatey | sortAlpha | uniq) }}
+{{- end }}
 
 {{- end -}}

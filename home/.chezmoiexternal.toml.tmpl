@@ -1,4 +1,5 @@
-{{- if ne .osid "windows" }}
+{{- if not .safe -}}
+{{-   if ne .osid "windows" -}}
 [".config/tmux/plugins/tpm"]
     type = "archive"
     url = "https://github.com/tmux-plugins/tpm/archive/master.tar.gz"
@@ -8,4 +9,5 @@
     type = "file"
     url = "https://raw.githubusercontent.com/zsh-users/antigen/develop/bin/antigen.zsh"
     refreshPeriod = "168h"
-{{ end }}
+{{-   end -}}
+{{- end -}}

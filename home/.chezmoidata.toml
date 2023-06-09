@@ -1,5 +1,5 @@
 [packages.macos]
-    formulae = [
+    headless.formulae = [
         "zsh",
         "neovim",
         "tmux",
@@ -8,15 +8,16 @@
         "git",
         "curl",
     ]
-
-    casks = [
+    headless.casks = []
+    gui.formulae = []
+    gui.casks = [
         "google-chrome",
         "visual-studio-code",
     ]
 
-
 [packages.ubuntu]
-    apt = [
+    gui.apt = []
+    headless.apt = [
         "zsh",
         "neovim",
         "tmux",
@@ -27,13 +28,14 @@
     ]
 
 [packages.windows]
-    chocolatey = [
+    headless.chocolatey = []
+    gui.chocolatey = [
         "hyper",
         "vscode",
     ]
 
-[packages.vscode]
-    list = [
+[plugins]
+    vscode = [
         # code
         "bierner.github-markdown-preview",
         # tools

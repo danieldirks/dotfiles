@@ -1,0 +1,39 @@
+{{- if eq .osid "darwin" -}}
+#!/bin/sh
+
+echo 'Installing homebrew...'
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo -e 'Installing packages...'
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{- if .packages.macos.headless.formulae }}
+{{-   range .packages.macos.headless.formulae | sortAlpha | uniq }}
+brew {{ . | quote }}
+{{-   end }}
+{{- end }}
+
+{{- if .packages.macos.headless.casks }}
+{{-   range .packages.macos.headless.casks | sortAlpha | uniq }}
+cask {{ . | quote }}
+{{-   end }}
+{{- end }}
+
+
+{{- if not .headless }}
+
+{{-   if .packages.macos.gui.formulae }}
+{{-     range .packages.macos.gui.formulae | sortAlpha | uniq }}
+brew {{ . | quote }}
+{{-     end }}
+{{-   end }}
+
+{{-   if .packages.macos.gui.casks }}
+{{-     range .packages.macos.gui.casks | sortAlpha | uniq }}
+cask {{ . | quote }}
+{{-     end }}
+{{-   end }}
+
+{{- end }}
+EOF
+
+{{- end -}}

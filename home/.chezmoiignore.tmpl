@@ -1,14 +1,15 @@
-# environment dependent
+# flag dependent
 {{ if .headless -}}
 .config/Code
+.local/bin/setup-vscode
 .hyper.js
 AppData/Roaming/Code
 AppData/Roaming/Hyper
 Library/Application Support/Code
 {{ end -}}
 
-{{ if not .full -}}
-.chezmoiscripts/system/*
+{{ if .safe -}}
+.chezmoiscripts/setup/*
 {{ end -}}
 
 
@@ -16,6 +17,7 @@ Library/Application Support/Code
 {{ if eq .osid "windows" -}}
 .config/*
 !.config/git
+.local/*
 .hyper.js
 .zprofile
 .zshrc

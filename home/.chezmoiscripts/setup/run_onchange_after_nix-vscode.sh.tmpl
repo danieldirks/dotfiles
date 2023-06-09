@@ -1,0 +1,9 @@
+{{- if (and (ne .osid "windows") (not .headless) (not .codespaces)) -}}
+#!/bin/sh
+
+echo 'Setting up VSCode...'
+{{ range .plugins.vscode | sortAlpha | uniq -}}
+code --force --install-extension {{ . | quote }}
+{{ end -}}
+
+{{- end -}}

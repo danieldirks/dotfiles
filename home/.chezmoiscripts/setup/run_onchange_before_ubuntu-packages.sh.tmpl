@@ -1,0 +1,16 @@
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/sh
+
+echo 'Installing packages...'
+sudo apt-get update
+{{- if .packages.ubuntu.headless.apt }}
+sudo apt-get install -y {{ join " " (.packages.ubuntu.headless.apt | sortAlpha | uniq) }}
+{{- end }}
+{{- if (and (not .headless) .packages.ubuntu.gui.apt) }}
+sudo apt-get install -y {{ join " " (.packages.ubuntu.gui.apt | sortAlpha | uniq) }}
+{{- end }}
+
+echo 'Setting up zsh...'
+sudo chsh -s $(which zsh) ${USER}
+
+{{- end -}}
