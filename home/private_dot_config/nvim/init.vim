@@ -70,16 +70,15 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'preservim/nerdcommenter'          " comment shortcuts
-Plug 'editorconfig/editorconfig-vim'    " http://editorconfig.org/
-Plug 'tpope/vim-fugitive'               " git integration
 Plug 'airblade/vim-gitgutter'           " git visualizations
-Plug 'mbbill/undotree'                  " undo tracking
-"Plug 'vim-airline/vim-airline'         " statusline
+Plug 'arcticicestudio/nord-vim'         " nord theme
+Plug 'editorconfig/editorconfig-vim'    " http://editorconfig.org/
 Plug 'itchyny/lightline.vim'            " statusline
 Plug 'itchyny/vim-gitbranch'            " git branch for statusline
-Plug 'arcticicestudio/nord-vim'         " nord theme
-Plug 'nathanaelkane/vim-indent-guides'  " indent highlighting
+Plug 'mbbill/undotree'                  " undo tracking
+"Plug 'nathanaelkane/vim-indent-guides'  " indent highlighting
+Plug 'preservim/nerdcommenter'          " comment shortcuts
+Plug 'tpope/vim-fugitive'               " git integration
 call plug#end()
 
 
