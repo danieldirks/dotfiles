@@ -49,6 +49,8 @@
         "GitHub.copilot",
         "GitHub.vscode-pull-request-github",
         "pnp.polacode",
+        "usernamehw.errorlens",
+        "wayou.vscode-todo-highlight",
         ### look & feel
         "arcticicestudio.nord-visual-studio-code",
         "equinusocio.vsc-material-theme-icons",

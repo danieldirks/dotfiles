@@ -1,7 +1,13 @@
 {
+    "breadcrumbs.enabled": true,
+    "editor.formatOnPaste": true,
+    "editor.guides.bracketPairs": true,
     "editor.inlineSuggest.enabled": true,
     "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 2000,
     "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "security.workspace.trust.untrustedFiles": "open",
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.defaultProfile.windows": "WSL",
     "terminal.integrated.profiles.linux": {
@@ -29,10 +35,13 @@
             "icon": "terminal-linux"
         }
     },
+    "window.title": "${activeEditorShort}${separator}${rootName}",
     "workbench.colorTheme": "Nord",
     "workbench.editor.limit.enabled": true,
     "workbench.editor.limit.value": 5,
     "workbench.editor.limit.perEditorGroup": true,
     "workbench.editor.limit.excludeDirty": true,
-    "workbench.iconTheme": "eq-material-theme-icons"
+    "workbench.iconTheme": "eq-material-theme-icons",
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.tree.indent": 10
 }
