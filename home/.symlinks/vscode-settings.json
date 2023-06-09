@@ -1,29 +1,24 @@
 {
-    "workbench.colorTheme": "Nord",
-    "workbench.iconTheme": "eq-material-theme-icons",
-    "git.autofetch": true,
-    "workbench.editor.limit.enabled": true,
-    "workbench.editor.limit.value": 5,
-    "workbench.editor.limit.perEditorGroup": true,
-    "workbench.editor.limit.excludeDirty": true,
+    "editor.inlineSuggest.enabled": true,
     "files.autoSave": "afterDelay",
+    "git.autofetch": true,
     "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.defaultProfile.windows": "WSL",
     "terminal.integrated.profiles.linux": {
-        "zsh": {
-            "path": "zsh",
-            "args": ["-l"],
-            "icon": "terminal"
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
         },
         "tmux": {
             "path": "tmux",
             "icon": "terminal-tmux"
         },
-        "bash": {
-            "path": "bash",
-            "icon": "terminal-bash"
+        "zsh": {
+            "path": "zsh",
+            "args": ["-l"],
+            "icon": "terminal"
         }
     },
-    "terminal.integrated.defaultProfile.windows": "WSL",
     "terminal.integrated.profiles.windows": {
         "PowerShell": {
             "path": "powershell",
@@ -33,5 +28,11 @@
             "path": "wsl.exe",
             "icon": "terminal-linux"
         }
-    }
+    },
+    "workbench.colorTheme": "Nord",
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 5,
+    "workbench.editor.limit.perEditorGroup": true,
+    "workbench.editor.limit.excludeDirty": true,
+    "workbench.iconTheme": "eq-material-theme-icons"
 }
