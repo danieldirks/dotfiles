@@ -2,12 +2,12 @@
 HI='\033[33m'
 CL='\033[0m'
 {{ if eq .osid "linux-ubuntu" -}}
-echo -e "${HI}sudo apt-get update${CL}"
-sudo apt-get update
-echo -e "${HI}sudo apt-get upgrade${CL}"
-sudo apt-get upgrade
-echo -e "${HI}sudo apt-get autoremove${CL}"
-sudo apt-get autoremove
+echo -e "${HI}sudo apt update${CL}"
+sudo apt update
+echo -e "${HI}sudo apt upgrade${CL}"
+sudo apt upgrade
+echo -e "${HI}sudo apt autoremove${CL}"
+sudo apt autoremove
 {{- else if eq .osid "darwin" -}}
 echo -e "${HI}brew update${CL}"
 brew update
