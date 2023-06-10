@@ -3,6 +3,10 @@
         "curl",
         "fd",
         "git",
+        "helm",
+        "k9s",
+        "kubernetes-cli",
+        "minikube",
         "neofetch",
         "neovim",
         "tmux",
@@ -32,7 +36,12 @@
         "tmuxinator",
         "zsh",
     ]
-    headless.snaps = []
+    headless.snaps = [
+        "helm",
+        "k9s",
+        "kubectl",
+        "minikube",
+    ]
     gui.apt = [
         "keepassxc",
     ]
