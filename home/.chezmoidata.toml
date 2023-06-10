@@ -11,26 +11,38 @@
     headless.casks = []
     gui.formulae = []
     gui.casks = [
-        "google-chrome",
+        "docker",
+        "hyper",
+        "keepassxc",
         "visual-studio-code",
     ]
 
 [packages.ubuntu]
-    gui.apt = []
     headless.apt = [
+        "ca-certificates",
         "curl",
+        # docker
         "git",
+        "gnupg",
         "neofetch",
         "neovim",
         "tmux",
         "tmuxinator",
         "zsh",
     ]
+    headless.snaps = []
+    gui.apt = [
+        "keepassxc",
+    ]
+    gui.snaps = [
+        "--classic code",
+    ]
 
 [packages.windows]
     headless.chocolatey = []
     gui.chocolatey = [
         "hyper",
+        "keepassxc",
         "vscode",
     ]
 
