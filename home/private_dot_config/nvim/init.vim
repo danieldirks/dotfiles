@@ -30,6 +30,13 @@ augroup END
 set cursorline  " highlight current line
 set noshowmode  " hide mode in bottom status bar
 
+" set yank to use system clipboard
+if has("unnamedplus")
+    set clipboard=unnamedplus
+else
+    set clipboard=unnamed
+endif
+
 
 """""""""""""""""""""
 " filetype specific "
