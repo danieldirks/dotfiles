@@ -48,3 +48,12 @@ antigen apply
 # defaults
 export EDITOR='nvim'
 source $ZSH_BASE/aliases.zsh
+
+# set dircolors for ls and fd
+if command -v dircolors > /dev/null; then
+    test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+    zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+else
+    export CLICOLOR=1
+    zstyle ':completion:*:default' list-colors ''
+fi

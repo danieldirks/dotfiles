@@ -1,6 +1,7 @@
 [packages.macos]
     headless.formulae = [
         "curl",
+        "fd",
         "git",
         "neofetch",
         "neovim",
@@ -22,6 +23,7 @@
         "ca-certificates",
         "curl",
         # docker
+        "fd-find",
         "git",
         "gnupg",
         "neofetch",

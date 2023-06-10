@@ -5,3 +5,10 @@ source $BASH_BASE/prompt.bash
 # defaults
 export EDITOR='nvim'
 source $BASH_BASE/aliases.bash
+
+# set dircolors for ls and fd
+if command -v dircolors > /dev/null; then
+    test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+else
+    export CLICOLOR=1
+fi
