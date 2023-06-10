@@ -11,7 +11,7 @@
   "git.enableSmartCommit": true,
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.defaultProfile.linux": "zsh",
-  "terminal.integrated.defaultProfile.windows": "WSL",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
   "terminal.integrated.profiles.linux": {
     "bash": {
       "path": "bash",
