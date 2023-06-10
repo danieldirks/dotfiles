@@ -4,6 +4,7 @@
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorSurroundingLines": 5,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "Cascadia Code, Consolas, 'Courier New', monospace",
   "editor.formatOnPaste": true,
   "editor.guides.bracketPairs": true,
   "editor.inlineSuggest.enabled": true,

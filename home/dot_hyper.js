@@ -3,7 +3,7 @@ module.exports = {
         bell: false,
         defaultSSHApp: true,
         fontSize: 16,
-        fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+        fontFamily: 'Cascadia Code, Consolas, "Courier New", monospace',
     },
     plugins: ["nord-hyper"],
 };
