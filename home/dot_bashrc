@@ -1,0 +1,7 @@
+BASH_BASE=$HOME/.config/bash
+
+source $BASH_BASE/prompt.bash
+
+# defaults
+export EDITOR='nvim'
+source $BASH_BASE/aliases.bash
