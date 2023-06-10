@@ -1,6 +1,15 @@
 {{- if eq .osid "linux-ubuntu" -}}
 #!/bin/sh
 
+{{- if .wsl }}
+echo 'Testing systemd support...'
+if ! ps --no-headers -o comm 1 | grep -q "systemd"; then
+    echo "[boot]\nsystemd=true" | sudo tee /etc/wsl.conf > /dev/null
+    echo "Activating systemd. Please restart WSL and try again."
+    exit 1
+fi
+{{- end }}
+
 echo 'Installing packages...'
 sudo apt-get update
 {{- if .packages.ubuntu.headless.apt }}

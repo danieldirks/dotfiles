@@ -8,6 +8,8 @@ echo -e "${HI}sudo apt upgrade${CL}"
 sudo apt upgrade
 echo -e "${HI}sudo apt autoremove${CL}"
 sudo apt autoremove
+echo -e "${HI}sudo snap refresh${CL}"
+sudo snap refresh
 {{- else if eq .osid "darwin" -}}
 echo -e "${HI}brew update${CL}"
 brew update
