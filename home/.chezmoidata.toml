@@ -24,7 +24,6 @@
 
 [packages.ubuntu]
     headless.apt = [
-        "ca-certificates",
         "curl",
         # docker
         "fd-find",
@@ -37,9 +36,9 @@
         "zsh",
     ]
     headless.snaps = [
-        "helm",
+        "--classic helm",
         "k9s",
-        "kubectl",
+        "--classic kubectl",
         "minikube",
     ]
     gui.apt = [
