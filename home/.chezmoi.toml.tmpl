@@ -17,19 +17,17 @@
 {{/* user flags */}}
 {{- $headless := false -}}{{/* headless setup */}}
 {{- $safe     := false -}}{{/* safe mode, i.e. no setup from external resources */}}
-{{- $autoconf := false -}}
 {{- if $codespaces -}}
 {{-   $headless = true -}}
 {{-   $safe = false -}}
-{{-   $autoconf = true -}}
 {{- end -}}
 {{- if $wsl -}}
 {{-   $headless = true -}}
-{{-   $safe = false -}}
-{{-   $autoconf = true -}}
 {{- end -}}
-{{- if (and (not $autoconf) stdinIsATTY) -}}
+{{- if (and (not $headless) stdinIsATTY) -}}
 {{-   $headless = promptBoolOnce . "headless" "headless" false -}}
+{{- end -}}
+{{- if (and (not $safe) stdinIsATTY) -}}
 {{-   $safe = promptBoolOnce . "safe" "safe mode" false -}}
 {{- end -}}
 
