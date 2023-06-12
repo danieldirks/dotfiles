@@ -17,20 +17,21 @@ source $ZSH_BASE/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
+antigen bundle djui/alias-tips
 antigen bundle aliases
-antigen bundle git
-antigen bundle woefe/git-prompt.zsh
 antigen bundle command-not-found
 antigen bundle docker
 antigen bundle docker-compose
-antigen bundle kubectl
+antigen bundle git
 antigen bundle kube-ps1
-antigen bundle virtualenv
+antigen bundle kubectl
 antigen bundle tmux
 antigen bundle tmuxinator
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle virtualenv
+antigen bundle woefe/git-prompt.zsh
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle jeffreytse/zsh-vi-mode
 
 case `uname` in
