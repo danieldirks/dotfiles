@@ -15,6 +15,7 @@
   "files.autoSaveDelay": 2000,
   "git.autofetch": true,
   "git.enableSmartCommit": true,
+  "redhat.telemetry.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.defaultProfile.windows": "PowerShell",
