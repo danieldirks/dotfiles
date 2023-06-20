@@ -17,22 +17,24 @@ source $ZSH_BASE/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
-antigen bundle djui/alias-tips
-antigen bundle aliases
+antigen bundle aliases  # show and search aliases with `acs`
 antigen bundle command-not-found
+antigen bundle djui/alias-tips  # show aliases for entered commands
 antigen bundle docker
 antigen bundle docker-compose
+antigen bundle dotenv  # load .env on cd
 antigen bundle git
+antigen bundle jeffreytse/zsh-vi-mode  # better vi keybindings
 antigen bundle kube-ps1
 antigen bundle kubectl
 antigen bundle tmux
 antigen bundle tmuxinator
 antigen bundle virtualenv
+antigen bundle vscode
 antigen bundle woefe/git-prompt.zsh
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle jeffreytse/zsh-vi-mode
 
 case `uname` in
     Darwin)
