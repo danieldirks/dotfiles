@@ -23,12 +23,24 @@
     ]
 
 [packages.ubuntu]
+    repositories = [
+        { name = "docker", key = "https://download.docker.com/linux/ubuntu/gpg", url = "https://download.docker.com/linux/ubuntu", dist = "$(. /etc/os-release && echo \"$VERSION_CODENAME\")", comp = "stable" },
+        { name = "kubernetes", key = "https://packages.cloud.google.com/apt/doc/apt-key.gpg", url = "https://apt.kubernetes.io/", dist = "kubernetes-xenial", comp = "main" },
+        { name = "helm", key = "https://baltocdn.com/helm/signing.asc", url = "https://baltocdn.com/helm/stable/debian/", dist = "all", comp = "main" },
+    ]
     headless.apt = [
         "curl",
-        # docker
+        "containerd.io",          # docker repo
+        "docker-buildx-plugin",   # docker repo
+        "docker-ce",              # docker repo
+        "docker-ce-cli",          # docker repo
+        "docker-compose-plugin",  # docker repo
         "fd-find",
         "git",
         "gnupg",
+        "helm",                   # helm repo
+        "kubectl",                # kubernetes repo
+        # minikube in .chezmoiexternal
         "neofetch",
         "neovim",
         "tmux",
@@ -36,10 +48,7 @@
         "zsh",
     ]
     headless.snaps = [
-        "--classic helm",
         "k9s",
-        "--classic kubectl",
-        "minikube",
     ]
     gui.apt = [
         "keepassxc",

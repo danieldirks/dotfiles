@@ -1,5 +1,5 @@
 {{- if not .safe -}}
-{{-   if ne .osid "windows" -}}
+{{-   if ne .osid "windows" }}
 [".config/tmux/plugins/tpm"]
     type = "archive"
     url = "https://github.com/tmux-plugins/tpm/archive/master.tar.gz"
@@ -16,6 +16,14 @@
 [".config/Xresources/nord"]
     type = "file"
     url = "https://raw.githubusercontent.com/nordtheme/xresources/develop/src/nord"
+    refreshPeriod = "168h"
+{{-   end }}
+
+{{-   if eq .osid "linux-ubuntu" }}
+[".local/bin/minikube"]
+    type = "file"
+    url = "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
+    executable = true
     refreshPeriod = "168h"
 {{-   end -}}
 {{- end -}}
