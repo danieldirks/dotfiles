@@ -1,6 +1,8 @@
 [packages.macos]
     headless.formulae = [
         "ack",
+        "bat",
+        "btop",
         "curl",
         "fd",
         "fzf",
@@ -34,6 +36,8 @@
     ]
     headless.apt = [
         "ack",
+        "bat",
+        "btop",
         "curl",
         "containerd.io",          # docker repo
         "docker-buildx-plugin",   # docker repo
