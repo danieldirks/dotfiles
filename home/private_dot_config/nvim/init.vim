@@ -82,6 +82,7 @@ Plug 'arcticicestudio/nord-vim'         " nord theme
 Plug 'editorconfig/editorconfig-vim'    " http://editorconfig.org/
 Plug 'itchyny/lightline.vim'            " statusline
 Plug 'itchyny/vim-gitbranch'            " git branch for statusline
+Plug 'junegunn/fzf'                     " fzf integration with :FZF
 Plug 'mbbill/undotree'                  " undo tracking
 "Plug 'nathanaelkane/vim-indent-guides'  " indent highlighting
 Plug 'preservim/nerdcommenter'          " comment shortcuts
