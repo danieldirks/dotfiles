@@ -3,8 +3,8 @@ BASH_BASE=$HOME/.config/bash
 source $BASH_BASE/prompt.bash
 
 # defaults
-export EDITOR='nvim'
-source $BASH_BASE/aliases.bash
+source $BASH_BASE/aliases.sh
+source $BASH_BASE/variables.sh
 
 # set dircolors for ls and fd
 if command -v dircolors > /dev/null; then
