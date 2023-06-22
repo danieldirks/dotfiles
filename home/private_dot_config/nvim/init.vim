@@ -87,6 +87,7 @@ Plug 'mbbill/undotree'                  " undo tracking
 Plug 'mileszs/ack.vim'                  " ack/ag search
 "Plug 'nathanaelkane/vim-indent-guides'  " indent highlighting
 Plug 'preservim/nerdcommenter'          " comment shortcuts
+Plug 'tpope/vim-dispatch'               " runs tasks in background
 Plug 'tpope/vim-fugitive'               " git integration
 call plug#end()
 
@@ -138,6 +139,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case'
 endif
+let g:ack_use_dispatch = 1
 cnoreabbrev ag Ack
 cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
