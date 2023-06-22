@@ -1,23 +1,26 @@
 #!/bin/bash
 HI='\033[33m'
 CL='\033[0m'
+echo -e "${HI}update${CL}"
 {{ if eq .osid "linux-ubuntu" -}}
-echo -e "${HI}sudo apt update${CL}"
+echo -e "\n${HI}sudo apt update${CL}"
 sudo apt update
-echo -e "${HI}sudo apt upgrade${CL}"
+echo -e "\n${HI}sudo apt upgrade${CL}"
 sudo apt upgrade
-echo -e "${HI}sudo apt autoremove${CL}"
+echo -e "\n${HI}sudo apt autoremove${CL}"
 sudo apt autoremove
-echo -e "${HI}sudo snap refresh${CL}"
+echo -e "\n${HI}sudo snap refresh${CL}"
 sudo snap refresh
+echo -e "\n${HI}do-release-upgrade -c${CL}"
+do-release-upgrade -c
 {{- else if eq .osid "darwin" -}}
-echo -e "${HI}brew update${CL}"
+echo -e "\n${HI}brew update${CL}"
 brew update
-echo -e "${HI}brew upgrade${CL}"
+echo -e "\n${HI}brew upgrade${CL}"
 brew upgrade
 {{- end }}
 
-echo -e "${HI}chezmoi update${CL}"
+echo -e "\n${HI}chezmoi update${CL}"
 chezmoi update
-echo -e "${HI}chezmoi git status${CL}"
+echo -e "\n${HI}chezmoi git status${CL}"
 chezmoi git status
