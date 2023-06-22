@@ -11,8 +11,22 @@ HISTFILE=~/.zsh_history
 SAVEHIST=1000  # max lines saved in HISTFILE
 HISTSIZE=1000  # lenght of loaded hist in memory
 
-# antigen
 ZSH_BASE=$HOME/.config/zsh
+
+# defaults
+source $ZSH_BASE/aliases.sh
+source $ZSH_BASE/variables.sh
+
+# set dircolors for ls and fd
+if command -v dircolors > /dev/null; then
+    test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+    zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+else
+    export CLICOLOR=1
+    zstyle ':completion:*:default' list-colors ''
+fi
+
+# antigen
 source $ZSH_BASE/antigen/antigen.zsh
 
 antigen use oh-my-zsh
@@ -48,16 +62,3 @@ esac
 antigen theme ~/.config/zsh oneline.zsh-theme --no-local-clone
 
 antigen apply
-
-# defaults
-source $ZSH_BASE/aliases.sh
-source $ZSH_BASE/variables.sh
-
-# set dircolors for ls and fd
-if command -v dircolors > /dev/null; then
-    test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
-    zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-else
-    export CLICOLOR=1
-    zstyle ':completion:*:default' list-colors ''
-fi
