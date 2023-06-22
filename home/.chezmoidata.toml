@@ -1,5 +1,6 @@
 [packages.macos]
     headless.formulae = [
+        "ack",
         "curl",
         "fd",
         "fzf",
@@ -10,6 +11,7 @@
         "minikube",
         "neofetch",
         "neovim",
+        "the_silver_searcher",
         "tldr",
         "tmux",
         "tmuxinator",
@@ -31,6 +33,7 @@
         { name = "helm", key = "https://baltocdn.com/helm/signing.asc", url = "https://baltocdn.com/helm/stable/debian/", dist = "all", comp = "main" },
     ]
     headless.apt = [
+        "ack",
         "curl",
         "containerd.io",          # docker repo
         "docker-buildx-plugin",   # docker repo
@@ -46,6 +49,7 @@
         # minikube in .chezmoiexternal
         "neofetch",
         "neovim",
+        "silversearcher-ag",
         "tldr",
         "tmux",
         "tmuxinator",

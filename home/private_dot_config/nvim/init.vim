@@ -84,6 +84,7 @@ Plug 'itchyny/lightline.vim'            " statusline
 Plug 'itchyny/vim-gitbranch'            " git branch for statusline
 Plug 'junegunn/fzf'                     " fzf integration with :FZF
 Plug 'mbbill/undotree'                  " undo tracking
+Plug 'mileszs/ack.vim'                  " ack/ag search
 "Plug 'nathanaelkane/vim-indent-guides'  " indent highlighting
 Plug 'preservim/nerdcommenter'          " comment shortcuts
 Plug 'tpope/vim-fugitive'               " git integration
@@ -132,6 +133,15 @@ let g:lightline = {
 
 " indent guides
 let g:indent_guides_enable_on_vim_startup = 1
+
+" ack - use the silver searcher if available
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --smart-case'
+endif
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
 
 " theming
 colorscheme nord
