@@ -14,7 +14,7 @@ echo 'Adding repositories...'
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg apt-transport-https
 {{- range .packages.ubuntu.repositories }}
-curl -fsSL {{ .key | quote }} | sudo gpg --dearmor -o /etc/apt/keyrings/{{ .name }}.gpg
+curl -fsSL {{ .key | quote }} | sudo gpg --yes --dearmor -o /etc/apt/keyrings/{{ .name }}.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/{{ .name }}.gpg] {{ .url }} {{ .dist }} {{ .comp }}" | sudo tee /etc/apt/sources.list.d/{{ .name }}.list
 {{- end }}
 
