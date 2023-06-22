@@ -2,6 +2,7 @@
     headless.formulae = [
         "curl",
         "fd",
+        "fzf",
         "git",
         "helm",
         "k9s",
@@ -9,6 +10,7 @@
         "minikube",
         "neofetch",
         "neovim",
+        "tldr",
         "tmux",
         "tmuxinator",
         "zsh",
@@ -36,6 +38,7 @@
         "docker-ce-cli",          # docker repo
         "docker-compose-plugin",  # docker repo
         "fd-find",
+        "fzf",
         "git",
         "gnupg",
         "helm",                   # helm repo
@@ -43,6 +46,7 @@
         # minikube in .chezmoiexternal
         "neofetch",
         "neovim",
+        "tldr",
         "tmux",
         "tmuxinator",
         "zsh",

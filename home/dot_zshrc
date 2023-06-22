@@ -23,6 +23,7 @@ antigen bundle djui/alias-tips  # show aliases for entered commands
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle dotenv  # load .env on cd
+antigen bundle fzf
 antigen bundle git
 antigen bundle jeffreytse/zsh-vi-mode  # better vi keybindings
 antigen bundle kube-ps1
