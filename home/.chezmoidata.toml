@@ -4,9 +4,11 @@
         "bat",
         "btop",
         "curl",
+        "exiftool",
         "fd",
         "fzf",
         "git",
+        "git-delta",
         "helm",
         "k9s",
         "kubernetes-cli",
@@ -17,6 +19,7 @@
         "tldr",
         "tmux",
         "tmuxinator",
+        "viu",
         "zsh",
     ]
     headless.casks = []
@@ -50,6 +53,7 @@
         "gnupg",
         "helm",                   # helm repo
         "kubectl",                # kubernetes repo
+        "libimage-exiftool-perl",
         # minikube in .chezmoiexternal
         "neofetch",
         "neovim",

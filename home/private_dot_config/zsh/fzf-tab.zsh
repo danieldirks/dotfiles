@@ -18,7 +18,6 @@ zstyle ':fzf-tab:*' fzf-bindings 'space:accept'  # accept on space
 zstyle ':fzf-tab:*' accept-line enter  # directly run on enter
 
 
-
 ###################
 ### integration ###
 ###################
@@ -27,8 +26,8 @@ zstyle ':fzf-tab:*' accept-line enter  # directly run on enter
 zstyle ':fzf-tab:complete:*:options' fzf-preview
 zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
 
-# cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'fd -d1 --hidden . $realpath'  # cd preview
+# file preview
+zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'  # (Q) is to unquote i.e. remove \
 
 # variables
 zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview 'echo ${(P)word}'
