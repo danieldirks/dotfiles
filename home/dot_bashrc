@@ -2,9 +2,6 @@ BASH_BASE=$HOME/.config/bash
 
 source $BASH_BASE/prompt.bash
 
-# defaults
-source $BASH_BASE/aliases.sh
-source $BASH_BASE/variables.sh
 
 # set dircolors for ls and fd
 if command -v dircolors > /dev/null; then
@@ -12,3 +9,6 @@ if command -v dircolors > /dev/null; then
 else
     export CLICOLOR=1
 fi
+
+
+source $BASH_BASE/aliases.bash

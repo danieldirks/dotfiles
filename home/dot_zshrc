@@ -6,41 +6,29 @@ setopt autocd
 
 ttyctl -f
 
+ZSH_BASE=$HOME/.config/zsh
+
 # history
 HISTFILE=~/.zsh_history
 SAVEHIST=1000  # max lines saved in HISTFILE
 HISTSIZE=1000  # lenght of loaded hist in memory
 
-ZSH_BASE=$HOME/.config/zsh
-
-# defaults
-source $ZSH_BASE/aliases.sh
-source $ZSH_BASE/variables.sh
-
-# set dircolors for ls and fd
-if command -v dircolors > /dev/null; then
-    test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
-    zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-else
-    export CLICOLOR=1
-    zstyle ':completion:*:default' list-colors ''
-fi
 
 # antigen
 source $ZSH_BASE/antigen/antigen.zsh
-
 antigen use oh-my-zsh
+antigen theme ~/.config/zsh oneline.zsh-theme --no-local-clone
 
-antigen bundle aliases  # show and search aliases with `acs`
-antigen bundle Aloxaf/fzf-tab  # fzf tab completion
+antigen bundle aliases                      # show and search aliases with `acs`
+antigen bundle Aloxaf/fzf-tab               # fzf tab completion
 antigen bundle command-not-found
-antigen bundle djui/alias-tips  # show aliases for entered commands
+antigen bundle djui/alias-tips              # show aliases for entered commands
 antigen bundle docker
 antigen bundle docker-compose
-antigen bundle dotenv  # load .env on cd
+antigen bundle dotenv                       # load .env on cd
 antigen bundle fzf
 antigen bundle git
-antigen bundle jeffreytse/zsh-vi-mode  # better vi keybindings
+antigen bundle jeffreytse/zsh-vi-mode       # better vi keybindings
 antigen bundle kube-ps1
 antigen bundle kubectl
 antigen bundle tmux
@@ -61,6 +49,21 @@ case `uname` in
         ;;
 esac
 
-antigen theme ~/.config/zsh oneline.zsh-theme --no-local-clone
+
+# set dircolors for ls and fd
+if command -v dircolors > /dev/null; then
+    test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+    zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+else
+    export CLICOLOR=1
+    zstyle ':completion:*:default' list-colors ''
+fi
+
+
+export EDITOR='nvim'
+
+source $ZSH_BASE/aliases.zsh
+source $ZSH_BASE/fzf-tab.zsh
+source ~/.config/fzf/fzf.sh
 
 antigen apply
