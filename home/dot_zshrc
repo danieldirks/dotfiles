@@ -17,7 +17,6 @@ HISTSIZE=1000  # lenght of loaded hist in memory
 # antigen
 source $ZSH_BASE/antigen/antigen.zsh
 antigen use oh-my-zsh
-antigen theme ~/.config/zsh oneline.zsh-theme --no-local-clone
 
 antigen bundle aliases                      # show and search aliases with `acs`
 antigen bundle Aloxaf/fzf-tab               # fzf tab completion
@@ -48,6 +47,8 @@ case `uname` in
     Linux)
         ;;
 esac
+
+antigen theme ~/.config/zsh oneline.zsh-theme --no-local-clone
 
 
 # set dircolors for ls and fd
