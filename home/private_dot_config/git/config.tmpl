@@ -1,3 +1,43 @@
 [user]
     name = Daniel Dirks
     email = {{ .email }}
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    blame-code-style = "syntax"
+    blame-palette = "black brightblack"
+    blame-separator-format = " {n:^4} "
+    commit-decoration-style = blue
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = "blue ol ul"
+    hunk-header-file-style = "yellow"
+    hunk-header-line-number-style = "blue"
+    hunk-header-style = "file line-number"
+    hunk-label = ""
+    hyperlinks = true
+    line-numbers = true
+    line-numbers-left-format = "{nm:^4}"
+    line-numbers-minus-style = "red"
+    line-numbers-plus-style = "green"
+    line-numbers-right-format = "{np:^4} "
+    minus-emph-style = "normal red"
+    minus-non-emph-style = "red"
+    minus-style = "normal red"
+    navigate = true                 # n and N to jump
+    plus-emph-style = "normal green"
+    plus-non-emph-style = "green"
+    plus-style = "normal green"
+    #side-by-side = true
+    syntax-theme = Nord
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
