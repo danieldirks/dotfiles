@@ -19,7 +19,6 @@
         "tldr",
         "tmux",
         "tmuxinator",
-        "viu",
         "zsh",
     ]
     headless.casks = []

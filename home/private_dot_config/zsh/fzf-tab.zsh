@@ -1,4 +1,5 @@
 zstyle ':fzf-tab:*' prefix ''  # hide colorized prefix
+zstyle ':fzf-tab:*' fzf-min-height 24
 zstyle ':fzf-tab:*' default-color $'\033[37m'  # default color white
 
 # groups

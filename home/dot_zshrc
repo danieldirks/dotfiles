@@ -18,8 +18,10 @@ HISTSIZE=1000  # lenght of loaded hist in memory
 source $ZSH_BASE/antigen/antigen.zsh
 antigen use oh-my-zsh
 
+antigen bundle ag
 antigen bundle aliases                      # show and search aliases with `acs`
 antigen bundle Aloxaf/fzf-tab               # fzf tab completion
+antigen bundle catimg
 antigen bundle command-not-found
 antigen bundle djui/alias-tips              # show aliases for entered commands
 antigen bundle docker
