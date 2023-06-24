@@ -30,9 +30,9 @@ zstyle ':fzf-tab:complete:(-parameter-|-brace-parameter-|export|unset|expand):*'
 
 # git
 zstyle ':completion:*:git-checkout:*' sort false  # ignore order on git checkout
-zstyle ':fzf-tab:complete:git-diff:*' fzf-preview 'git diff $word | delta'
 zstyle ':fzf-tab:complete:git-(add|restore):*' fzf-preview 'git diff $realpath | delta'
-zstyle ':fzf-tab:complete:git-(checkout|branch):*' fzf-preview 'git log --graph --oneline --color=always $word'
+zstyle ':fzf-tab:complete:git-diff:*' fzf-preview 'git diff $word | delta'
+zstyle ':fzf-tab:complete:git-(checkout|branch|log):*' fzf-preview 'git log --graph --oneline --color=always $word'
 
 # systemd
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
