@@ -10,15 +10,14 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"-m\
     --prompt=\"» \" --pointer=\"›\" --marker=\"›\" \
     --bind ctrl-j:down,ctrl-k:up \
     --scroll-off=5 \
-    --border=none \
-    --preview-window=right,border-left --preview \"less {}\""
+    --preview-window=right,border-left" #--preview \"less {}\""
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS"
 
-export FZF_CTRL_R_OPTS="$FZF_DEFAULT_OPTS --preview-window=hidden"
+export FZF_CTRL_R_OPTS="$FZF_DEFAULT_OPTSn"
 
 export FZF_ALT_C_COMMAND="fd --type directory --hidden --exclude .git"
-export FZF_ALT_C_OPTS="$FZF_DEFAULT_OPTS --preview-window=hidden"
+export FZF_ALT_C_OPTS="$FZF_DEFAULT_OPTS"
 
 export FZF_TMUX=1
