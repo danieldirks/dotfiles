@@ -73,7 +73,9 @@
     ]
 
 [packages.windows]
-    headless.chocolatey = []
+    headless.chocolatey = [
+        "chezmoi",
+    ]
     gui.chocolatey = [
         "hyper",
         "keepassxc",
