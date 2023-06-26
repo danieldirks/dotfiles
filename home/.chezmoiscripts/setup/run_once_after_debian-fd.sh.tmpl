@@ -1,7 +1,0 @@
-{{- if (or (eq .osid "linux-ubuntu") (eq .osid "linux-debian")) -}}
-#!/bin/bash
-
-echo 'Linking fd...'
-ln -s $(which fdfind) ~/.local/bin/fd
-
-{{- end -}}
