@@ -1,26 +1,44 @@
 #!/bin/bash
+
+set -e
+
 HI='\033[33m'
 CL='\033[0m'
+
 echo -e "${HI}update${CL}"
+
+
 {{ if eq .osid "linux-ubuntu" -}}
+
 echo -e "\n${HI}sudo apt update${CL}"
 sudo apt update
+
 echo -e "\n${HI}sudo apt upgrade${CL}"
 sudo apt upgrade
+
 echo -e "\n${HI}sudo apt autoremove${CL}"
 sudo apt autoremove
+
 echo -e "\n${HI}sudo snap refresh${CL}"
 sudo snap refresh
+
 echo -e "\n${HI}do-release-upgrade -c${CL}"
-do-release-upgrade -c
+do-release-upgrade -c || true
+
 {{- else if eq .osid "darwin" -}}
+
 echo -e "\n${HI}brew update${CL}"
 brew update
+
 echo -e "\n${HI}brew upgrade${CL}"
 brew upgrade
+
 {{- end }}
+
 
 echo -e "\n${HI}chezmoi update${CL}"
 chezmoi update
+
 echo -e "\n${HI}chezmoi git status${CL}"
 chezmoi git status
+
