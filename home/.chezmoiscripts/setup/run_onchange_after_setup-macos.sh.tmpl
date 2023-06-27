@@ -1,0 +1,40 @@
+#!/bin/bash
+
+HI='\033[33m'
+CL='\033[0m'
+
+set -e
+
+echo -e "${HI}SETUP [MacOS]${CL}"
+
+
+#############
+### shell ###
+#############
+
+echo -e "${HI}setup shell${CL}"
+
+sudo chsh -s $(which zsh) ${USER}
+
+
+{{- if not .headless }}
+##############
+### vscode ###
+##############
+
+echo -e "${HI}setup vscode${CL}"
+
+{{-   range .plugins.vscode | sortAlpha | uniq }}
+code --force --install-extension {{ . | quote }}
+{{-   end }}
+
+{{- end }}
+
+
+############
+### tldr ###
+############
+
+echo -e "${HI}setup tldr${CL}"
+
+tldr --update

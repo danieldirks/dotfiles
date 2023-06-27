@@ -1,10 +1,21 @@
-{{- if eq .osid "darwin" -}}
-#!/bin/sh
+#!/bin/bash
 
-echo 'Installing homebrew...'
+HI='\033[33m'
+CL='\033[0m'
+
+set -e
+
+echo -e "${HI}INSTALL [MacOS]${CL}"
+
+
+################
+### homebrew ###
+################
+
+echo -e "${HI}install homebrew packages${CL}"
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-echo -e 'Installing packages...'
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{- if .packages.macos.headless.formulae }}
 {{-   range .packages.macos.headless.formulae | sortAlpha | uniq }}
@@ -35,5 +46,3 @@ cask {{ . | quote }}
 
 {{- end }}
 EOF
-
-{{- end -}}

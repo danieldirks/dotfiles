@@ -1,8 +1,0 @@
-{{- if (and (eq .osid "windows") (not .headless)) -}}
-
-Write-Host "Setting up VSCode..."
-{{ range .plugins.vscode | sortAlpha | uniq -}}
-code --force --install-extension {{ . | quote }}
-{{ end -}}
-
-{{- end -}}

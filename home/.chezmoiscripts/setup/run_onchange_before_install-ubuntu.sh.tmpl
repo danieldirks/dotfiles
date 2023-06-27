@@ -1,16 +1,36 @@
-{{- if eq .osid "linux-ubuntu" -}}
-#!/bin/sh
+#!/bin/bash
+
+HI='\033[33m'
+CL='\033[0m'
+
+set -e
+
+echo -e "${HI}INSTALL [Ubuntu]${CL}"
+
 
 {{- if .wsl }}
-echo 'Testing systemd support...'
+#############
+### setup ###
+#############
+
+echo -e "${HI}test systemd${CL}"
+
 if ! ps --no-headers -o comm 1 | grep -q "systemd"; then
     echo "[boot]\nsystemd=true" | sudo tee /etc/wsl.conf > /dev/null
     echo "Activating systemd. Please restart WSL and try again."
     exit 1
 fi
+
 {{- end }}
 
-echo 'Adding repositories...'
+
+###########
+### apt ###
+###########
+
+echo -e "${HI}install apt packages${CL}"
+
+# add repositories
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg apt-transport-https
 {{- range .packages.ubuntu.repositories }}
@@ -18,28 +38,36 @@ curl -fsSL {{ .key | quote }} | sudo gpg --yes --dearmor -o /etc/apt/keyrings/{{
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/{{ .name }}.gpg] {{ .url }} {{ .dist }} {{ .comp }}" | sudo tee /etc/apt/sources.list.d/{{ .name }}.list
 {{- end }}
 
-echo 'Installing packages...'
 sudo apt-get update
 {{- if .packages.ubuntu.headless.apt }}
+# headless
 sudo apt-get install -y {{ join " " (.packages.ubuntu.headless.apt | sortAlpha | uniq) }}
 {{- end }}
+
 {{- if (and (not .headless) .packages.ubuntu.gui.apt) }}
+# non-headless
 sudo apt-get install -y {{ join " " (.packages.ubuntu.gui.apt | sortAlpha | uniq) }}
 {{- end }}
 
-echo 'Installing snaps...'
+
+############
+### snap ###
+############
+
+echo -e "${HI}install snap packages${CL}"
+
 {{- if .packages.ubuntu.headless.snaps }}
+# headless
 {{-   range .packages.ubuntu.headless.snaps | sortAlpha | uniq }}
 sudo snap install {{ . }}
 {{-   end }}
 {{- end }}
+
 {{- if (and (not .headless) .packages.ubuntu.gui.snaps) }}
+# non-headless
 {{-   range .packages.ubuntu.gui.snaps | sortAlpha | uniq }}
 sudo snap install {{ . }}
 {{-   end }}
 {{- end }}
 
-echo 'Setting up zsh...'
-sudo chsh -s $(which zsh) ${USER}
 
-{{- end -}}
