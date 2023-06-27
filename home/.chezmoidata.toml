@@ -1,6 +1,7 @@
 [packages.macos]
     headless.formulae = [
         "ack",
+        "asdf",
         "bat",
         "btop",
         "curl",
@@ -38,6 +39,7 @@
     ]
     headless.apt = [
         "ack",
+        # asdf in .chezmoiscripts/setup/run_onchange_before_install-ubuntu.sh.tmpl
         "bat",
         "btop",
         "curl",

@@ -71,3 +71,13 @@ sudo snap install {{ . }}
 {{- end }}
 
 
+############
+### asdf ###
+############
+
+echo -e "${HI}install asdf${CL}"
+
+if [ ! -d ~/.asdf ]
+then
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+fi
