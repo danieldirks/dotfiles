@@ -5,16 +5,27 @@ CL='\033[0m'
 
 set -e
 
-echo -e "${HI}SETUP [MacOS]${CL}"
+echo -e "\n${HI}SETUP [MacOS]${CL}"
 
 
 #############
 ### shell ###
 #############
 
-echo -e "${HI}setup shell${CL}"
+echo -e "\n${HI}setup shell${CL}"
 
 sudo chsh -s $(which zsh) ${USER}
+
+
+############
+### asdf ###
+############
+
+echo -e "\n${HI}setup asdf${CL}"
+
+asdf plugin add java || true
+asdf plugin add gradle || true
+asdf plugin add python || true
 
 
 {{- if not .headless }}
@@ -22,7 +33,7 @@ sudo chsh -s $(which zsh) ${USER}
 ### vscode ###
 ##############
 
-echo -e "${HI}setup vscode${CL}"
+echo -e "\n${HI}setup vscode${CL}"
 
 {{-   range .plugins.vscode | sortAlpha | uniq }}
 code --force --install-extension {{ . | quote }}
@@ -35,6 +46,8 @@ code --force --install-extension {{ . | quote }}
 ### tldr ###
 ############
 
-echo -e "${HI}setup tldr${CL}"
+echo -e "\n${HI}setup tldr${CL}"
 
-tldr --update
+if [ ! -d ~/.local/share/tldr ]; then
+    tldr --update
+fi

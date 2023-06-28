@@ -5,21 +5,22 @@ CL='\033[0m'
 
 set -e
 
-echo -e "${HI}INSTALL [Ubuntu]${CL}"
+echo -e "\n${HI}INSTALL [Ubuntu]${CL}"
 
 
-{{- if .wsl }}
+{{ if .wsl -}}
 #############
 ### setup ###
 #############
 
-echo -e "${HI}test systemd${CL}"
+echo -e "\n${HI}test systemd${CL}"
 
 if ! ps --no-headers -o comm 1 | grep -q "systemd"; then
     echo "[boot]\nsystemd=true" | sudo tee /etc/wsl.conf > /dev/null
     echo "Activating systemd. Please restart WSL and try again."
     exit 1
 fi
+echo "ok"
 
 {{- end }}
 
@@ -28,7 +29,7 @@ fi
 ### apt ###
 ###########
 
-echo -e "${HI}install apt packages${CL}"
+echo -e "\n${HI}install apt packages${CL}"
 
 # add repositories
 sudo apt-get update
@@ -54,7 +55,7 @@ sudo apt-get install -y {{ join " " (.packages.ubuntu.gui.apt | sortAlpha | uniq
 ### snap ###
 ############
 
-echo -e "${HI}install snap packages${CL}"
+echo -e "\n${HI}install snap packages${CL}"
 
 {{- if .packages.ubuntu.headless.snaps }}
 # headless
@@ -75,7 +76,7 @@ sudo snap install {{ . }}
 ### asdf ###
 ############
 
-echo -e "${HI}install asdf${CL}"
+echo -e "\n${HI}install asdf${CL}"
 
 if [ ! -d ~/.asdf ]
 then

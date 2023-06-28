@@ -5,25 +5,36 @@ CL='\033[0m'
 
 set -e
 
-echo -e "${HI}SETUP [Ubuntu]${CL}"
+echo -e "\n${HI}SETUP [Ubuntu]${CL}"
 
 
 #############
 ### links ###
 #############
 
-echo -e "${HI}link commands${CL}"
+echo -e "\n${HI}link commands${CL}"
 
 ln -fs $(which fdfind) ~/.local/bin/fd
 ln -fs $(which batcat) ~/.local/bin/bat
 
 
-{{- if not .codespaces }}
+############
+### asdf ###
+############
+
+echo -e "\n${HI}setup asdf${CL}"
+
+asdf plugin add java || true
+asdf plugin add gradle || true
+asdf plugin add python || true
+
+
+{{ if not .codespaces -}}
 ##############
 ### docker ###
 ##############
 
-echo -e "${HI}setup docker${CL}"
+echo -e "\n${HI}setup docker${CL}"
 
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
@@ -33,15 +44,17 @@ sudo usermod -aG docker $USER
 {{- end }}
 
 
+{{ if not .headless -}}
 ##############
 ### vscode ###
 ##############
 
-{{- if not .headless }}
 echo -e "\n${HI}setup vscode${CL}"
+
 {{-   range .plugins.vscode | sortAlpha | uniq }}
 code --force --install-extension {{ . | quote }}
 {{-   end }}
+
 {{- end }}
 
 
@@ -49,7 +62,7 @@ code --force --install-extension {{ . | quote }}
 ### tldr ###
 ############
 
-echo -e "${HI}setup tldr${CL}"
+echo -e "\n${HI}setup tldr${CL}"
 
 if [ ! -d ~/.local/share/tldr ]; then
     tldr --update
