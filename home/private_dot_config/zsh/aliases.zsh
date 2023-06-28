@@ -1,12 +1,15 @@
 alias :q='exit'
 alias hg='history | grep'
 alias ls='ls --color=auto'
-alias ll='ls -Alh --color=always'
 alias nv='nvim'
 
-# defaults
+# overwrites
 alias vim='nvim'
 alias cat='bat --style=plain'
+
+# exa
+alias ls='exa'
+alias ll='exa -la@ --git'
 
 # chezmoi
 alias ca='chezmoi apply'

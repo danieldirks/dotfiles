@@ -5,6 +5,7 @@
         "bat",
         "btop",
         "curl",
+        "exa",
         "exiftool",
         "fd",
         "fzf",
@@ -48,6 +49,7 @@
         "docker-ce",              # docker repo
         "docker-ce-cli",          # docker repo
         "docker-compose-plugin",  # docker repo
+        "exa",
         "fd-find",
         "fzf",
         "git",
