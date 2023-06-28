@@ -82,3 +82,16 @@ if [ ! -d ~/.asdf ]
 then
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 fi
+
+
+#################
+### git delta ###
+#################
+
+echo -e "\n${HI}install git delta${CL}"
+
+DELTA_TAG=$(curl --silent "https://api.github.com/repos/dandavison/delta/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+echo "Latest release: ${DELTA_TAG}"
+wget -q "https://github.com/dandavison/delta/releases/download/${DELTA_TAG}/git-delta_${DELTA_TAG}_amd64.deb"
+sudo dpkg -i git-delta_${DELTA_TAG}_amd64.deb
+rm git-delta_${DELTA_TAG}_amd64.deb
