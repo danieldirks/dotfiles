@@ -2,6 +2,7 @@
 
 My dotfiles.
 
+
 ## Setup
 
 ```bash
@@ -17,6 +18,11 @@ bin/chezmoi init --apply danieldirks
 
 System packages and binaries [on their website](https://www.chezmoi.io/install/). To update dotfiles, run `chezmoi update`.
 
+
 ### Safe mode
 
-In safe mode, the setup has to be done manually. See [.chezmoidata.toml](home/.chezmoidata.toml), [.chezmoiexternal.toml.tmpl](home/.chezmoiexternal.toml.tmpl) and [.chezmoiscripts/setup/](home/.chezmoiscripts/setup/) for external resources and package installation.
+In safe mode setup scripts are skipped. To generate and run setup scripts manually, select the files from [.chezmoiscripts/setup](home/.chezmoiscripts/setup/) and run:
+
+```sh
+cat <path/to/file>.tmpl | chezmoi execute-template > script
+```

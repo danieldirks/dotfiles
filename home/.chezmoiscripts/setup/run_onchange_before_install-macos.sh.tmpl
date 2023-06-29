@@ -37,3 +37,24 @@ casks {{ . | quote }}
 {{-   end }}
 {{- end }}
 EOF
+
+
+##############
+### custom ###
+##############
+
+# antigen
+echo -e "\n${HI}install antigen${CL}"
+curl -o ~/.config/zsh/antigen/antigen.zsh https://raw.githubusercontent.com/zsh-users/antigen/develop/bin/antigen.zsh
+
+# dircolors (nord)
+echo -e "\n${HI}install dircolors${CL}"
+curl -o ~/.dir_colors https://raw.githubusercontent.com/nordtheme/dircolors/develop/src/dir_colors
+
+# tpm
+echo -e "\n${HI}install tpm${CL}"
+wget -c https://github.com/tmux-plugins/tpm/archive/master.tar.gz -O - | tar -xz -C ~/.config/tmux/plugins/tpm
+
+# Xresources (nord)
+echo -e "\n${HI}install Xresources${CL}"
+curl -o ~/.config/Xresources/nord https://raw.githubusercontent.com/nordtheme/xresources/develop/src/nord
