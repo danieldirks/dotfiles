@@ -5,44 +5,35 @@ CL='\033[0m'
 
 set -e
 
-echo -e "\n${HI}INSTALL [MacOS]${CL}"
-
 
 ################
-### homebrew ###
+### packages ###
 ################
 
-echo -e "\n${HI}install homebrew packages${CL}"
-
+echo -e "\n${HI}install homebrew${CL}"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+echo -e "\n${HI}install packages${CL}"
 brew bundle --no-lock --file=/dev/stdin <<EOF
-{{- if .packages.macos.headless.formulae }}
-{{-   range .packages.macos.headless.formulae | sortAlpha | uniq }}
+{{ if .packages.macos.headless.formulae -}}
+{{   range .packages.macos.headless.formulae | sortAlpha | uniq -}}
+brew {{ . | quote }}
+{{-   end }}
+{{- end }}
+{{ if (and (not .headless) .packages.macos.gui.formulae) -}}
+{{   range .packages.macos.gui.formulae | sortAlpha | uniq -}}
 brew {{ . | quote }}
 {{-   end }}
 {{- end }}
 
-{{- if .packages.macos.headless.casks }}
-{{-   range .packages.macos.headless.casks | sortAlpha | uniq }}
+{{ if .packages.macos.headless.casks -}}
+{{   range .packages.macos.headless.casks | sortAlpha | uniq -}}
 cask {{ . | quote }}
 {{-   end }}
 {{- end }}
-
-
-{{- if not .headless }}
-
-{{-   if .packages.macos.gui.formulae }}
-{{-     range .packages.macos.gui.formulae | sortAlpha | uniq }}
-brew {{ . | quote }}
-{{-     end }}
+{{ if (and (not .headless) .packages.macos.gui.casks) -}}
+{{   range .packages.macos.gui.casks | sortAlpha | uniq -}}
+casks {{ . | quote }}
 {{-   end }}
-
-{{-   if .packages.macos.gui.casks }}
-{{-     range .packages.macos.gui.casks | sortAlpha | uniq }}
-cask {{ . | quote }}
-{{-     end }}
-{{-   end }}
-
 {{- end }}
 EOF

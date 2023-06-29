@@ -2,7 +2,7 @@
 ### flags ###
 #############
 
-{{- if .headless }}
+{{ if .headless -}}
 .config/Code
 .hyper.js
 AppData/Roaming/Code
@@ -10,9 +10,9 @@ AppData/Roaming/Hyper
 Library/Application Support/Code
 {{- end }}
 
-{{- if .safe }}
+{{ if .safe -}}
 .chezmoiscripts/setup/*
-{{- else }}
+{{- else -}}
 install
 {{- end }}
 
@@ -21,14 +21,22 @@ install
 ### os ###
 ##########
 
-{{- if eq .osid "linux-ubuntu" }}
+{{ if eq .osid "linux-ubuntu" -}}
 AppData
 Library
-{{- else }}
+{{- else -}}
 .chezmoiscripts/setup/*ubuntu.sh*
 {{- end }}
 
-{{- if eq .osid "windows" }}
+{{ if eq .osid "darwin" -}}
+.config/Code
+AppData
+{{- else -}}
+.chezmoiscripts/setup/*macos.sh*
+{{- end }}
+
+{{ if eq .osid "windows" -}}
+.chezmoiscripts/run_onchange_after_zsh-reload.sh.tmpl
 .config/*
 !.config/git
 .local/*
@@ -38,13 +46,6 @@ Library
 .zprofile
 .zshrc
 Library
-{{- else }}
+{{- else -}}
 .chezmoiscripts/setup/*windows.ps1*
-{{- end }}
-
-{{- if eq .osid "darwin" }}
-.config/Code
-AppData
-{{- else }}
-.chezmoiscripts/setup/*macos.sh*
 {{- end }}

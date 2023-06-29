@@ -5,16 +5,10 @@ CL='\033[0m'
 
 set -e
 
-echo -e "\n${HI}INSTALL [Ubuntu]${CL}"
-
 
 {{ if .wsl -}}
-#############
-### setup ###
-#############
-
+# systemd
 echo -e "\n${HI}test systemd${CL}"
-
 if ! ps --no-headers -o comm 1 | grep -q "systemd"; then
     echo "[boot]\nsystemd=true" | sudo tee /etc/wsl.conf > /dev/null
     echo "Activating systemd. Please restart WSL and try again."
@@ -25,13 +19,12 @@ echo "ok"
 {{- end }}
 
 
-###########
-### apt ###
-###########
+################
+### packages ###
+################
 
-echo -e "\n${HI}install apt packages${CL}"
-
-# add repositories
+# apt repositories
+echo -e "\n${HI}add repositories${CL}"
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg apt-transport-https
 {{- range .packages.ubuntu.repositories }}
@@ -39,57 +32,43 @@ curl -fsSL {{ .key | quote }} | sudo gpg --yes --dearmor -o /etc/apt/keyrings/{{
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/{{ .name }}.gpg] {{ .url }} {{ .dist }} {{ .comp }}" | sudo tee /etc/apt/sources.list.d/{{ .name }}.list
 {{- end }}
 
+# apt packages
+echo -e "\n${HI}install packages${CL}"
 sudo apt-get update
-{{- if .packages.ubuntu.headless.apt }}
-# headless
+{{ if .packages.ubuntu.headless.apt -}}
 sudo apt-get install -y {{ join " " (.packages.ubuntu.headless.apt | sortAlpha | uniq) }}
 {{- end }}
-
-{{- if (and (not .headless) .packages.ubuntu.gui.apt) }}
-# non-headless
+{{ if (and (not .headless) .packages.ubuntu.gui.apt) -}}
 sudo apt-get install -y {{ join " " (.packages.ubuntu.gui.apt | sortAlpha | uniq) }}
 {{- end }}
 
-
-############
-### snap ###
-############
-
-echo -e "\n${HI}install snap packages${CL}"
-
-{{- if .packages.ubuntu.headless.snaps }}
-# headless
-{{-   range .packages.ubuntu.headless.snaps | sortAlpha | uniq }}
+# snaps
+echo -e "\n${HI}install snaps${CL}"
+{{ if .packages.ubuntu.headless.snaps -}}
+{{   range .packages.ubuntu.headless.snaps | sortAlpha | uniq -}}
 sudo snap install {{ . }}
 {{-   end }}
 {{- end }}
-
-{{- if (and (not .headless) .packages.ubuntu.gui.snaps) }}
-# non-headless
-{{-   range .packages.ubuntu.gui.snaps | sortAlpha | uniq }}
+{{ if (and (not .headless) .packages.ubuntu.gui.snaps) -}}
+{{   range .packages.ubuntu.gui.snaps | sortAlpha | uniq -}}
 sudo snap install {{ . }}
 {{-   end }}
 {{- end }}
 
 
-############
-### asdf ###
-############
+##############
+### custom ###
+##############
 
+# asdf
 echo -e "\n${HI}install asdf${CL}"
-
 if [ ! -d ~/.asdf ]
 then
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 fi
 
-
-#################
-### git delta ###
-#################
-
-echo -e "\n${HI}install git delta${CL}"
-
+# git-delta
+echo -e "\n${HI}install git-delta${CL}"
 DELTA_TAG=$(curl --silent "https://api.github.com/repos/dandavison/delta/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 echo "Latest release: ${DELTA_TAG}"
 wget -q "https://github.com/dandavison/delta/releases/download/${DELTA_TAG}/git-delta_${DELTA_TAG}_amd64.deb"

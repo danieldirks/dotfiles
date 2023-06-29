@@ -5,65 +5,42 @@ CL='\033[0m'
 
 set -e
 
-echo -e "\n${HI}SETUP [Ubuntu]${CL}"
 
 
-#############
-### links ###
-#############
+# zsh
+echo -e "\n${HI}setup zsh${CL}"
+sudo chsh -s $(which zsh) ${USER}
 
-echo -e "\n${HI}link commands${CL}"
-
+# ubuntu fixes
+echo -e "\n${HI}fix commands${CL}"
 ln -fs $(which fdfind) ~/.local/bin/fd
 ln -fs $(which batcat) ~/.local/bin/bat
 
-
-############
-### asdf ###
-############
-
+# asdf
 echo -e "\n${HI}setup asdf${CL}"
-
 asdf plugin add java || true
 asdf plugin add gradle || true
 asdf plugin add python || true
 
+#tldr
+echo -e "\n${HI}setup tldr${CL}"
+if [ ! -d ~/.local/share/tldr ]; then
+    tldr --update
+fi
 
 {{ if not .codespaces -}}
-##############
-### docker ###
-##############
-
+#docker
 echo -e "\n${HI}setup docker${CL}"
-
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
 sudo groupadd docker || true
 sudo usermod -aG docker $USER
-
 {{- end }}
 
-
-{{ if not .headless -}}
-##############
-### vscode ###
-##############
-
+{{  if not .headless -}}
+# vscode
 echo -e "\n${HI}setup vscode${CL}"
-
-{{-   range .plugins.vscode | sortAlpha | uniq }}
+{{    range .plugins.vscode | sortAlpha | uniq -}}
 code --force --install-extension {{ . | quote }}
 {{-   end }}
-
 {{- end }}
-
-
-############
-### tldr ###
-############
-
-echo -e "\n${HI}setup tldr${CL}"
-
-if [ ! -d ~/.local/share/tldr ]; then
-    tldr --update
-fi

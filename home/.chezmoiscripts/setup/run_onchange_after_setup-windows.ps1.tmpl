@@ -1,15 +1,7 @@
-Write-Host -ForegroundColor Yellow "SETUP [Windows]"
-
-
-{{- if not .headless }}
-##############
-### vscode ###
-##############
-
-Write-Host -ForegroundColor Yellow "install choco packages"
-
-{{-   range .plugins.vscode | sortAlpha | uniq }}
+{{  if not .headless -}}
+# vscode
+Write-Host -ForegroundColor Yellow "setup vscode"
+{{    range .plugins.vscode | sortAlpha | uniq -}}
 code --force --install-extension {{ . | quote }}
 {{-   end }}
-
 {{- end }}

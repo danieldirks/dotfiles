@@ -1,16 +1,19 @@
-{{- if (or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin")) -}}
 #!/bin/bash
 
 # rerun script when one of the files change
 # oneline.zsh-theme hash: {{ include "private_dot_config/zsh/oneline.zsh-theme" | sha256sum }}
 # .zshrc hash: {{ include "dot_zshrc" | sha256sum }}
 
+HI='\033[33m'
+CL='\033[0m'
+
+set -e
+
+
+echo -e "\n${HI}reload zsh${CL}"
 if command -v zsh &> /dev/null; then
     # reload zsh plugins and themes
-    echo "Reloading zsh..."
     /usr/bin/env zsh -c "source ~/.zshrc && antigen reset"
 else
-    echo "zsh not found"
+    echo -e "\033[31mzsh not found${CL}"
 fi
-
-{{- end -}}

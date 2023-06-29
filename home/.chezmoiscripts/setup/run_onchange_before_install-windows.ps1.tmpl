@@ -1,10 +1,3 @@
-Write-Host -ForegroundColor Yellow "INSTALL [Windows]"
-
-
-#############
-### setup ###
-#############
-
 # open elevated shell if not already running as admin
 if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
   if ([int](Get-CimInstance -Class Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber) -ge 6000) {
@@ -16,20 +9,17 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 }
 
 
-#############
-### choco ###
-#############
+################
+### packages ###
+################
 
-Write-Host -ForegroundColor Yellow "install choco packages"
-
+Write-Host -ForegroundColor Yellow "install choco"
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
-{{- if .packages.windows.headless.chocolatey }}
-# headless
+Write-Host -ForegroundColor Yellow "install packages"
+{{ if .packages.windows.headless.chocolatey -}}
 choco install -y {{ join " " (.packages.windows.headless.chocolatey | sortAlpha | uniq) }}
 {{- end }}
-
-{{- if (and (not .headless) .packages.windows.gui.chocolatey) }}
-# non-headless
+{{ if (and (not .headless) .packages.windows.gui.chocolatey) -}}
 choco install -y {{ join " " (.packages.windows.gui.chocolatey | sortAlpha | uniq) }}
 {{- end }}
