@@ -1,6 +1,6 @@
 {{  if not .headless -}}
 # vscode
-Write-Host -ForegroundColor Yellow "setup vscode"
+Write-Host -ForegroundColor Yellow "`nsetup vscode"
 {{    range .plugins.vscode | sortAlpha | uniq -}}
 code --force --install-extension {{ . | quote }}
 {{-   end }}

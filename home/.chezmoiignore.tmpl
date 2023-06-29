@@ -12,8 +12,6 @@ Library/Application Support/Code
 
 {{ if .safe -}}
 .chezmoiscripts/setup/*
-{{- else -}}
-install
 {{- end }}
 
 
@@ -21,22 +19,23 @@ install
 ### os ###
 ##########
 
+.chezmoiscripts/setup/*
+
 {{ if eq .osid "linux-ubuntu" -}}
+!.chezmoiscripts/setup/*ubuntu.sh*
 AppData
 Library
-{{- else -}}
-.chezmoiscripts/setup/*ubuntu.sh*
 {{- end }}
 
 {{ if eq .osid "darwin" -}}
+!.chezmoiscripts/setup/*macos.sh*
 .config/Code
 AppData
-{{- else -}}
-.chezmoiscripts/setup/*macos.sh*
 {{- end }}
 
 {{ if eq .osid "windows" -}}
-.chezmoiscripts/run_onchange_after_zsh-reload.sh.tmpl
+!.chezmoiscripts/setup/*windows.ps1*
+.chezmoiscripts/zsh-reload.sh
 .config/*
 !.config/git
 .local/*
@@ -46,6 +45,4 @@ AppData
 .zprofile
 .zshrc
 Library
-{{- else -}}
-.chezmoiscripts/setup/*windows.ps1*
 {{- end }}
