@@ -1,3 +1,8 @@
+[system]
+    locale = "en-DE"
+    region = "de-DE"
+    geoid = "0x5e"
+
 [packages.macos]
     headless.formulae = [
         "ack",

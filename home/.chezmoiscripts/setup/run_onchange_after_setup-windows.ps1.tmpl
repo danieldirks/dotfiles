@@ -9,6 +9,12 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 }
 
 
+# locale
+Write-Host -ForegroundColor Yellow "`nset locale"
+Set-WinUserLanguageList -Force {{ .system.locale }}
+Set-WinHomeLocation -GeoId {{ .system.geoid }}
+Set-Culture {{ .system.region }}
+
 # add bin folder to path
 Write-Host -ForegroundColor Yellow "`nsetup bin folder"
 $bin = "$env:USERPROFILE\bin"
