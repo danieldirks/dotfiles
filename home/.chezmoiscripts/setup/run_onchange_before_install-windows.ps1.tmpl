@@ -13,13 +13,14 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 ### packages ###
 ################
 
-Write-Host -ForegroundColor Yellow "install choco"
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-
 Write-Host -ForegroundColor Yellow "`ninstall packages"
-{{ if .packages.windows.headless.chocolatey -}}
-choco install -y {{ join " " (.packages.windows.headless.chocolatey | sortAlpha | uniq) }}
+{{ if .packages.windows.headless.winget -}}
+{{   range .packages.windows.headless.winget | sortAlpha | uniq -}}
+winget install --accept-package-agreements --accept-source-agreements -e --id {{ . }}
+{{   end }}
 {{- end }}
-{{ if (and (not .headless) .packages.windows.gui.chocolatey) -}}
-choco install -y {{ join " " (.packages.windows.gui.chocolatey | sortAlpha | uniq) }}
+{{ if (and (not .headless) .packages.windows.gui.winget) -}}
+{{   range .packages.windows.gui.winget | sortAlpha | uniq -}}
+winget install --accept-package-agreements --accept-source-agreements -e --id {{ . }}
+{{   end }}
 {{- end }}

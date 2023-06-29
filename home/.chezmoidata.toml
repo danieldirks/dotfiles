@@ -77,13 +77,13 @@
     ]
 
 [packages.windows]
-    headless.chocolatey = [
-        "chezmoi",
+    headless.winget = [
+        "twpayne.chezmoi",
     ]
-    gui.chocolatey = [
-        "hyper",
-        "keepassxc",
-        "vscode",
+    gui.winget = [
+        #"Vercel.Hyper",
+        "KeePassXCTeam.KeePassXC",
+        "Microsoft.VisualStudioCode",
     ]
 
 [plugins]
