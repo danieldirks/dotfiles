@@ -45,12 +45,12 @@ sudo apt-get install -y {{ join " " (.packages.ubuntu.gui.apt | sortAlpha | uniq
 # snaps
 echo -e "\n${HI}install snaps${CL}"
 {{ if .packages.ubuntu.headless.snaps -}}
-{{   range .packages.ubuntu.headless.snaps | sortAlpha | uniq -}}
+{{-   range .packages.ubuntu.headless.snaps | sortAlpha | uniq }}
 sudo snap install {{ . }}
 {{-   end }}
 {{- end }}
 {{ if (and (not .headless) .packages.ubuntu.gui.snaps) -}}
-{{   range .packages.ubuntu.gui.snaps | sortAlpha | uniq -}}
+{{-   range .packages.ubuntu.gui.snaps | sortAlpha | uniq }}
 sudo snap install {{ . }}
 {{-   end }}
 {{- end }}

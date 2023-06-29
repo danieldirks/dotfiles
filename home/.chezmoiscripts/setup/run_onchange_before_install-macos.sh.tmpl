@@ -15,25 +15,25 @@ echo -e "\n${HI}install homebrew${CL}"
 
 echo -e "\n${HI}install packages${CL}"
 brew bundle --no-lock --file=/dev/stdin <<EOF
-{{ if .packages.macos.headless.formulae -}}
-{{   range .packages.macos.headless.formulae | sortAlpha | uniq -}}
+{{- if .packages.macos.headless.formulae }}
+{{-   range .packages.macos.headless.formulae | sortAlpha | uniq }}
 brew {{ . | quote }}
 {{-   end }}
 {{- end }}
-{{ if (and (not .headless) .packages.macos.gui.formulae) -}}
-{{   range .packages.macos.gui.formulae | sortAlpha | uniq -}}
+{{- if (and (not .headless) .packages.macos.gui.formulae) }}
+{{-   range .packages.macos.gui.formulae | sortAlpha | uniq }}
 brew {{ . | quote }}
 {{-   end }}
 {{- end }}
 
-{{ if .packages.macos.headless.casks -}}
-{{   range .packages.macos.headless.casks | sortAlpha | uniq -}}
+{{- if .packages.macos.headless.casks }}
+{{-   range .packages.macos.headless.casks | sortAlpha | uniq }}
 cask {{ . | quote }}
-{{-   end }}
+{{   end }}
 {{- end }}
-{{ if (and (not .headless) .packages.macos.gui.casks) -}}
-{{   range .packages.macos.gui.casks | sortAlpha | uniq -}}
-casks {{ . | quote }}
+{{- if (and (not .headless) .packages.macos.gui.casks) }}
+{{-   range .packages.macos.gui.casks | sortAlpha | uniq }}
+cask {{ . | quote }}
 {{-   end }}
 {{- end }}
 EOF

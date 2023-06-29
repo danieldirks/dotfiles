@@ -25,7 +25,7 @@ fi
 {{  if not .headless -}}
 # vscode
 echo -e "\n${HI}setup vscode${CL}"
-{{    range .plugins.vscode | sortAlpha | uniq -}}
+{{-   range .plugins.vscode | sortAlpha | uniq }}
 code --force --install-extension {{ . | quote }}
 {{-   end }}
 {{- end }}
