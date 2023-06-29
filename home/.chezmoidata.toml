@@ -81,9 +81,15 @@
         "twpayne.chezmoi",
     ]
     gui.winget = [
-        #"Vercel.Hyper",
+        "9MTFTXSJ9M7F --source msstore  # RoundedTB",
+        "9NCBCSZSJRSB --source msstore  # Spotify",
+        "9PDXGNCFSCZV --source msstore  # Ubuntu (WSL)",
+        "Google.Chrome",
         "KeePassXCTeam.KeePassXC",
+        "Logseq.Logseq",
         "Microsoft.VisualStudioCode",
+        "Nextcloud.NextcloudDesktop",
+        #"Vercel.Hyper",
     ]
 
 [plugins]
