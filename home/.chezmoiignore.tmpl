@@ -24,6 +24,7 @@ Library/Application Support/Code
 {{ if eq .osid "linux-ubuntu" -}}
 !.chezmoiscripts/setup/*ubuntu.sh*
 AppData
+bin
 Library
 {{- end }}
 
@@ -31,6 +32,7 @@ Library
 !.chezmoiscripts/setup/*macos.sh*
 .config/Code
 AppData
+bin
 {{- end }}
 
 {{ if eq .osid "windows" -}}
