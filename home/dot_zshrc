@@ -1,5 +1,6 @@
-autoload -Uz compinit promptinit
+autoload -Uz compinit bashcompinit promptinit
 compinit
+bashcompinit
 promptinit
 
 setopt autocd
