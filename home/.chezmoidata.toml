@@ -83,6 +83,7 @@
 
 [packages.windows]
     headless.winget = [
+        "dandavison.delta",
         "twpayne.chezmoi",
     ]
     gui.winget = [
