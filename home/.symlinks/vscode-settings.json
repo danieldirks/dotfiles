@@ -1,5 +1,7 @@
 {
+  "boot-java.rewrite.reconcile": true,
   "breadcrumbs.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "on",
