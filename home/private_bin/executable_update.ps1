@@ -2,8 +2,8 @@
 ### windows ###
 ###############
 
-Write-Host -ForegroundColor Yellow "`nwinget update --all"
-winget update --all
+Write-Host -ForegroundColor Yellow "`nwinget update"
+winget update --all --include-unknown
 
 
 ###############

@@ -7,10 +7,6 @@
 
 {{ if eq .osid "linux-ubuntu" -}}
 
-{{ if not .safe -}}
-!.chezmoiscripts/setup/*ubuntu.sh*
-{{- end }}
-
 AppData
 bin
 Library
@@ -18,6 +14,10 @@ Library
 {{ if .headless -}}
 .config/Code
 .hyper.js
+{{- end }}
+
+{{ if not .safe -}}
+!.chezmoiscripts/setup/*ubuntu.sh*
 {{- end }}
 
 {{- end }}
@@ -29,10 +29,6 @@ Library
 
 {{ if eq .osid "darwin" -}}
 
-{{ if not .safe -}}
-!.chezmoiscripts/setup/*macos.sh*
-{{- end }}
-
 .config/Code
 AppData
 bin
@@ -40,6 +36,10 @@ bin
 {{ if .headless -}}
 .config/Code
 .hyper.js
+{{- end }}
+
+{{ if not .safe -}}
+!.chezmoiscripts/setup/*macos.sh*
 {{- end }}
 
 {{- end }}
@@ -50,10 +50,6 @@ bin
 ###############
 
 {{ if eq .osid "windows" -}}
-
-{{ if not .safe -}}
-!.chezmoiscripts/setup/*windows.ps1*
-{{- end }}
 
 .chezmoiscripts/zsh-reload.sh
 .config/*
@@ -70,6 +66,10 @@ Library
 AppData/Roaming/Code
 AppData/Roaming/Hyper
 Library/Application Support/Code
+{{- end }}
+
+{{ if not .safe -}}
+!.chezmoiscripts/setup/*windows.ps1*
 {{- end }}
 
 {{- end }}
