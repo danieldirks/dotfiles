@@ -134,7 +134,13 @@
         "Logseq.Logseq",
         "Microsoft.VisualStudioCode",
         "Nextcloud.NextcloudDesktop",
+        "Spotify.Spotify",
         #"Vercel.Hyper",
+    ]
+    gaming.winget = [
+        "Discord.Discord",
+        "GOG.Galaxy",
+        "Valve.Steam",
     ]
 
 [plugins]

@@ -29,6 +29,13 @@ winget install --accept-package-agreements --accept-source-agreements -e --id {{
 {{-   end }}
 {{- end }}
 
+{{ if (and .gaming .packages.windows.gaming.winget) -}}
+{{-   range .packages.windows.gaming.winget | sortAlpha | uniq }}
+Write-Host -ForegroundColor Blue "`n{{ . }}"
+winget install --accept-package-agreements --accept-source-agreements -e --id {{ . }}
+{{-   end }}
+{{- end }}
+
 
 ###########
 ### wsl ###
