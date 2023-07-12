@@ -1,7 +1,46 @@
+################
+### settings ###
+################
+
 [system]
     locale = "en-DE"
     region = "de-DE"
     geoid = "0x5e"
+
+
+##############
+### design ###
+##############
+
+[colors]
+    background           = "#2E3440"  # nord0
+    background_element   = "#3B4252"  # nord1
+    background_highlight = "#434C5E"  # nord2
+    background_text      = "#4C566A"  # nord3
+
+    foreground_element   = "#D8DEE9"  # nord4
+    foreground_muted     = "#E5E9F0"  # nord5
+    foreground           = "#ECEFF4"  # nord6
+
+    primary_highlight    = "#8FBCBB"  # nord7
+    primary              = "#88C0D0"  # nord8
+    secondary            = "#81A1C1"  # nord9
+    tertiary             = "#5E81AC"  # nord10
+
+    black                = "#3B4252"  # nord1
+    white                = "#ECEFF4"  # nord6
+    red                  = "#BF616A"  # nord11
+    orange               = "#D08770"  # nord12
+    yellow               = "#EBCB8B"  # nord13
+    green                = "#A3BE8C"  # nord14
+    magenta              = "#B48EAD"  # nord15
+    cyan                 = "#88C0D0"  # nord5
+    blue                 = "#81A1C1"  # nord9
+
+
+#############
+### setup ###
+#############
 
 [packages.macos]
     headless.formulae = [
