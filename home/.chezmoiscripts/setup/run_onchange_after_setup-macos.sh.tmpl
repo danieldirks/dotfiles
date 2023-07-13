@@ -1,10 +1,29 @@
 #!/bin/bash
 
+# rerun script when one of the files change
+# wallpaper.svg.tmpl hash: {{ include "private_dot_config/wallpaper/wallpaper.svg.tmpl" | sha256sum }}
+
 HI='\033[33m'
 CL='\033[0m'
 
 set -e
 
+
+################
+### settings ###
+################
+
+# wallpaper
+echo -e "\n${HI}set wallpaper${CL}"
+convert ~/.config/wallpaper/wallpaper.svg ~/.config/wallpaper/wallpaper.jpg
+automator -i "{{ .chezmoi.homeDir }}/.config/wallpaper/wallpaper.jpg" {{ .chezmoi.homeDir }}/.config/automator/setWallpaper.workflow
+
+killall Dock
+
+
+####################
+### applications ###
+####################
 
 # zsh
 echo -e "\n${HI}setup zsh${CL}"
