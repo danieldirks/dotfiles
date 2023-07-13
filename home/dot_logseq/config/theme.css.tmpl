@@ -1,0 +1,129 @@
+.dark-theme, html[data-theme=dark] {
+  --ls-primary-background-color:          {{ .colors.background }};
+  --ls-secondary-background-color:        {{ .colors.backgroundElement }};
+  --ls-tertiary-background-color:         {{ .colors.backgroundHighlight }};
+  --ls-quaternary-background-color:       {{ .colors.backgroundHighlight }};
+  --ls-table-tr-even-background-color:    {{ .colors.background }};
+  --ls-page-properties-background-color:  {{ .colors.backgroundHighlight }};
+  --ls-block-properties-background-color: {{ .colors.backgroundHighlight }};
+  --color-level-1:                        {{ .colors.background }};
+  --color-level-2:                        {{ .colors.background }};
+  --color-level-3:                        {{ .colors.background }};
+  --color-level-4:                        {{ .colors.background }};
+  --color-level-5:                        {{ .colors.background }};
+  --color-level-6:                        {{ .colors.background }};
+
+  --ls-border-color:                      {{ .colors.backgroundElement }};
+  --ls-secondary-border-color:            {{ .colors.background }};
+  --ls-tertiary-border-color:             {{ .colors.background }};
+
+  --ls-active-primary-color:              {{ .colors.primary }};
+  --ls-active-secondary-color:            {{ .colors.primary }};
+  --ls-block-ref-link-text-color:         {{ .colors.primary }};
+
+  --ls-guideline-color:                   {{ .colors.backgroundElement }};
+  --ls-block-bullet-color:                {{ .colors.backgroundText }};
+  --ls-block-bullet-border-color:         {{ .colors.backgroundElement }};
+  --ls-block-highlight-color:             {{ .colors.backgroundHighlight }};
+
+  --ls-title-text-color:                  {{ .colors.foreground }};
+  --ls-primary-text-color:                {{ .colors.foreground }};
+  --ls-secondary-text-color:              {{ .colors.foreground }};
+
+  --ls-link-text-color:                   {{ .colors.primary }};
+  --ls-link-text-hover-color:             {{ .colors.primaryHighlight }};
+  --ls-link-ref-text-color:               {{ .colors.primary }};
+  --ls-link-ref-text-hover-color:         {{ .colors.primaryHighlight }};
+  --ls-tag-text-color:                    {{ .colors.primary }};
+  --ls-tag-text-hover-color:              {{ .colors.primaryHighlight }};
+  --ls-page-inline-code-color:            {{ .colors.primary }};
+  --ls-page-inline-code-bg-color:         {{ .colors.backgroundHighlight }};
+  --ls-page-checkbox-color:               {{ .colors.primary }};
+  --ls-page-checkbox-border-color:        {{ .colors.background }};
+  --ls-selection-background-color:        {{ .colors.backgroundHighlight }};
+  --ls-selection-text-color:              {{ .colors.foreground }};
+
+  --ls-highlight-color-gray:              {{ .colors.grey }};
+  --ls-highlight-color-red:               {{ .colors.red }};
+  --ls-highlight-color-yellow:            {{ .colors.yellow }};
+  --ls-highlight-color-green:             {{ .colors.green }};
+  --ls-highlight-color-blue:              {{ .colors.blue }};
+  --ls-highlight-color-purple:            {{ .colors.magenta }};
+  --ls-highlight-color-pink:              {{ .colors.primary }};
+  --ls-error-text-color:                  {{ .colors.red }};
+  --ls-error-background-color:            {{ .colors.backgroundElement }};
+  --ls-warning-text-color:                {{ .colors.yellow }};
+  --ls-warning-background-color:          {{ .colors.backgroundElement }};
+  --ls-success-text-color:                {{ .colors.green }};
+  --ls-success-background-color:          {{ .colors.backgroundElement }};
+
+  --ls-header-button-background:          {{ .colors.foreground }};
+  --ls-menu-hover-color:                  {{ .colors.backgroundHighlight }};
+  --ls-scrollbar-foreground-color:        {{ .colors.backgroundElement }};
+  --ls-scrollbar-background-color:        {{ .colors.background }};
+  --ls-scrollbar-thumb-hover-color:       {{ .colors.backgroundHighlight }};
+  --ls-search-icon-color:                 {{ .colors.backgroundElement }};
+  --ls-search-icon-hover-color:           {{ .colors.backgroundHighlight }};
+  --ls-a-chosen-bg:                       {{ .colors.backgroundHighlight }};
+
+  --ls-icon-color:                        {{ .colors.foreground }};
+  --ls-color-file-sync-error:             {{ .colors.red }};
+  --ls-color-file-sync-pending:           {{ .colors.yellow }};
+  --ls-color-file-sync-idle:              {{ .colors.primary }};
+
+  --ls-slide-background-color:            {{ .colors.red }};
+  --ls-page-blockquote-color:             {{ .colors.red }};
+  --ls-page-blockquote-bg-color:          {{ .colors.red }};
+  --ls-page-blockquote-border-color:      {{ .colors.red }};
+  --ls-page-mark-color:                   {{ .colors.red }};
+  --ls-page-mark-bg-color:                {{ .colors.red }};
+  --ls-cloze-text-color:                  {{ .colors.red }};
+  --ls-pie-bg-color:                      {{ .colors.red }};
+  --ls-pie-fg-color:                      {{ .colors.red }};
+  --ls-focus-ring-color:                  {{ .colors.red }};
+}
+
+html[data-theme=dark] .cp__header a {
+  opacity: 1 !important;
+}
+
+#right-sidebar {
+  background-color: var(--ls-primary-background-color);
+  border-left: 1px var(--ls-border-color) solid;
+}
+
+.cp__right-sidebar-topbar {
+  background-color: var(--ls-primary-background-color);
+}
+
+#right-sidebar .sidebar-item {
+  background-color: var(--ls-primary-background-color);
+  box-shadow: none !important;
+  border-bottom: 1px var(--ls-border-color) solid;
+}
+
+.left-sidebar-inner {
+  background-color: var(--ls-primary-background-color);
+  border-right: 1px var(--ls-border-color) solid;
+}
+
+.left-sidebar-inner .create {
+  background-image: none !important;
+}
+
+.left-sidebar-inner .create #create-button {
+  background-color: var(--ls-secondary-background-color) !important;
+  border-color: var(--ls-border-color);
+  color: var(--ls-primary-text-color);
+}
+
+.left-sidebar-inner .create #create-button:hover {
+  background-color: var(--ls-primary-background-color) !important;
+}
+
+#today-queries .custom-query {
+    margin: 20px 0 0 0;
+    padding: 5px;
+    border: 1px solid var(--ls-border-color);
+    border-radius: var(--ls-border-radius-low);
+}
