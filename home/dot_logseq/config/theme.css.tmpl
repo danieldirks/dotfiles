@@ -3,19 +3,19 @@
   --ls-secondary-background-color:        {{ .colors.backgroundElement }};
   --ls-tertiary-background-color:         {{ .colors.backgroundHighlight }};
   --ls-quaternary-background-color:       {{ .colors.backgroundHighlight }};
-  --ls-table-tr-even-background-color:    {{ .colors.background }};
+  --ls-table-tr-even-background-color:    {{ .colors.backgroundElement }};
   --ls-page-properties-background-color:  {{ .colors.backgroundHighlight }};
   --ls-block-properties-background-color: {{ .colors.backgroundHighlight }};
-  --color-level-1:                        {{ .colors.background }};
-  --color-level-2:                        {{ .colors.background }};
-  --color-level-3:                        {{ .colors.background }};
-  --color-level-4:                        {{ .colors.background }};
-  --color-level-5:                        {{ .colors.background }};
-  --color-level-6:                        {{ .colors.background }};
+  --color-level-1:                        {{ .colors.backgroundElement }};
+  --color-level-2:                        {{ .colors.backgroundElement }};
+  --color-level-3:                        {{ .colors.backgroundElement }};
+  --color-level-4:                        {{ .colors.backgroundElement }};
+  --color-level-5:                        {{ .colors.backgroundElement }};
+  --color-level-6:                        {{ .colors.backgroundElement }};
 
   --ls-border-color:                      {{ .colors.backgroundElement }};
-  --ls-secondary-border-color:            {{ .colors.background }};
-  --ls-tertiary-border-color:             {{ .colors.background }};
+  --ls-secondary-border-color:            {{ .colors.backgroundHighlight }};
+  --ls-tertiary-border-color:             {{ .colors.backgroundText }};
 
   --ls-active-primary-color:              {{ .colors.primary }};
   --ls-active-secondary-color:            {{ .colors.primary }};
@@ -71,13 +71,13 @@
   --ls-color-file-sync-pending:           {{ .colors.yellow }};
   --ls-color-file-sync-idle:              {{ .colors.primary }};
 
-  --ls-slide-background-color:            {{ .colors.red }};
-  --ls-page-blockquote-color:             {{ .colors.red }};
-  --ls-page-blockquote-bg-color:          {{ .colors.red }};
-  --ls-page-blockquote-border-color:      {{ .colors.red }};
-  --ls-page-mark-color:                   {{ .colors.red }};
-  --ls-page-mark-bg-color:                {{ .colors.red }};
-  --ls-cloze-text-color:                  {{ .colors.red }};
+  --ls-slide-background-color:            {{ .colors.background }};
+  --ls-page-blockquote-color:             {{ .colors.foreground }};
+  --ls-page-blockquote-bg-color:          {{ .colors.backgroundElement }};
+  --ls-page-blockquote-border-color:      {{ .colors.backgroundElement }};
+  --ls-page-mark-color:                   {{ .colors.background }};
+  --ls-page-mark-bg-color:                {{ .colors.primary }};
+  --ls-cloze-text-color:                  {{ .colors.backgroundElement }};
   --ls-pie-bg-color:                      {{ .colors.red }};
   --ls-pie-fg-color:                      {{ .colors.red }};
   --ls-focus-ring-color:                  {{ .colors.red }};
