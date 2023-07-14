@@ -8,6 +8,9 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
     }
 }
 
+cd {{ .chezmoi.homeDir }}
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -force
+
 
 ################
 ### packages ###
@@ -35,6 +38,18 @@ Write-Host -ForegroundColor Blue "`n{{ . }}"
 winget install --accept-package-agreements --accept-source-agreements -e --id {{ . }}
 {{-   end }}
 {{- end }}
+
+
+#############
+### fonts ###
+#############
+
+If (-Not (Test-Path -Path .nerd-fonts)) {
+    Write-Host -ForegroundColor Yellow "`ninstall nerd-fonts"
+    git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git .nerd-fonts
+    ./.nerd-fonts/install.ps1 CascadiaCode
+    #Remove-Item .nerd-fonts -Recurse -Force
+}
 
 
 ###########
