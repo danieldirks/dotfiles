@@ -4,8 +4,8 @@
   --ls-tertiary-background-color:         {{ .colors.backgroundHighlight }};
   --ls-quaternary-background-color:       {{ .colors.backgroundHighlight }};
   --ls-table-tr-even-background-color:    {{ .colors.backgroundElement }};
-  --ls-page-properties-background-color:  {{ .colors.backgroundHighlight }};
-  --ls-block-properties-background-color: {{ .colors.backgroundHighlight }};
+  --ls-page-properties-background-color:  {{ .colors.backgroundElement }};
+  --ls-block-properties-background-color: {{ .colors.backgroundElement }};
   --color-level-1:                        {{ .colors.backgroundElement }};
   --color-level-2:                        {{ .colors.backgroundElement }};
   --color-level-3:                        {{ .colors.backgroundElement }};
@@ -26,7 +26,7 @@
   --ls-block-bullet-border-color:         {{ .colors.backgroundElement }};
   --ls-block-highlight-color:             {{ .colors.backgroundHighlight }};
 
-  --ls-title-text-color:                  {{ .colors.foreground }};
+  --ls-title-text-color:                  {{ .colors.primary }};
   --ls-primary-text-color:                {{ .colors.foreground }};
   --ls-secondary-text-color:              {{ .colors.foreground }};
 
@@ -78,9 +78,13 @@
   --ls-page-mark-color:                   {{ .colors.background }};
   --ls-page-mark-bg-color:                {{ .colors.primary }};
   --ls-cloze-text-color:                  {{ .colors.backgroundElement }};
-  --ls-pie-bg-color:                      {{ .colors.red }};
-  --ls-pie-fg-color:                      {{ .colors.red }};
+  --ls-pie-bg-color:                      {{ .colors.backgroundElement }};
+  --ls-pie-fg-color:                      {{ .colors.backgroundHighlight }};
   --ls-focus-ring-color:                  {{ .colors.red }};
+
+  --cu-priority-a-color:                  {{ .colors.red }};
+  --cu-priority-b-color:                  {{ .colors.orange }};
+  --cu-priority-c-color:                  {{ .colors.green }};
 }
 
 html[data-theme=dark] .cp__header a {
@@ -126,4 +130,24 @@ html[data-theme=dark] .cp__header a {
     padding: 5px;
     border: 1px solid var(--ls-border-color);
     border-radius: var(--ls-border-radius-low);
+}
+
+.priority {
+  opacity: 1 !important;
+}
+
+.priority:hover {
+  color: var(--ls-link-text-hover-color) !important;
+}
+
+.priority[href="#/page/A"] {
+  color: var(--cu-priority-a-color);
+}
+
+.priority[href="#/page/B"] {
+  color: var(--cu-priority-b-color);
+}
+
+.priority[href="#/page/C"] {
+  color: var(--cu-priority-c-color);
 }
