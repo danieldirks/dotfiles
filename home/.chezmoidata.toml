@@ -82,7 +82,7 @@
         "libimage-exiftool-perl",
         # minikube
         "neofetch",
-        "neovim",
+        #"neovim",
         "silversearcher-ag",
         "tldr",
         "tmux",
@@ -91,6 +91,7 @@
     ]
     headless.snaps = [
         "k9s",
+        "nvim --classic",
     ]
     gui.apt = [
         "keepassxc",

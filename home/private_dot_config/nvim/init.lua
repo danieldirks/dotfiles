@@ -19,6 +19,7 @@ vim.opt.showmode = false  -- hide mode in bottom status bar
 vim.opt.ignorecase = true  -- ignore case when searching lowercase
 vim.opt.smartcase = true  -- but consider uppercase
 vim.opt.termguicolors = true
+vim.opt.guifont='CaskaydiaCove Nerd Font Mono:h12'
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -133,7 +134,7 @@ vim.g.gitgutter_override_sign_column_highlight = 0
 
 -- undotree
 vim.opt.undofile = true
-vim.opt.undodir = HOME .. "/.local/share/nvim/undo"
+--vim.opt.undodir = HOME .. "/.local/share/nvim/undo"
 
 -- catppuccin
 require("catppuccin").setup({
