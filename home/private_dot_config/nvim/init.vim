@@ -78,7 +78,7 @@ endif
 
 call plug#begin()
 Plug 'airblade/vim-gitgutter'           " git visualizations
-Plug 'arcticicestudio/nord-vim'         " nord theme
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'editorconfig/editorconfig-vim'    " http://editorconfig.org/
 Plug 'itchyny/lightline.vim'            " statusline
 Plug 'itchyny/vim-gitbranch'            " git branch for statusline
@@ -123,7 +123,7 @@ endif
 
 " lightline
 let g:lightline = {
-  \ 'colorscheme': 'nord',
+  \ 'colorscheme': 'catppuccin',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
   \ },
@@ -146,4 +146,4 @@ cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
 
 " theming
-colorscheme nord
+colorscheme catppuccin-macchiato
