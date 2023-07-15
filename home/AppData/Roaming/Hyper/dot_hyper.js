@@ -4,7 +4,7 @@ module.exports = {
         catppuccinTheme: 'Macchiato',
         defaultSSHApp: true,
         fontSize: 16,
-        fontFamily: "Cascadia Code, Menlo, monospace",
+        fontFamily: "CaskaydiaCove Nerd Font, Cascadia Code, Menlo, monospace",
         //shell: 'wsl.exe',
         //shellArgs: ['--cd', '~'],
 

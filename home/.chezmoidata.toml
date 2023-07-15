@@ -8,42 +8,14 @@
     geoid = "0x5e"
 
 
-##############
-### design ###
-##############
-
-[colors]
-    background           = "#2E3440"  # nord0
-    backgroundElement    = "#3B4252"  # nord1
-    backgroundHighlight  = "#434C5E"  # nord2
-    backgroundText       = "#4C566A"  # nord3
-
-    foregroundElement    = "#D8DEE9"  # nord4
-    foregroundMuted      = "#E5E9F0"  # nord5
-    foreground           = "#ECEFF4"  # nord6
-
-    primaryHighlight     = "#8FBCBB"  # nord7
-    primary              = "#88C0D0"  # nord8
-    secondary            = "#81A1C1"  # nord9
-    tertiary             = "#5E81AC"  # nord10
-
-    black                = "#3B4252"  # nord1
-    grey                 = "#4C566A"  # nord3
-    white                = "#ECEFF4"  # nord6
-    red                  = "#BF616A"  # nord11
-    orange               = "#D08770"  # nord12
-    yellow               = "#EBCB8B"  # nord13
-    green                = "#A3BE8C"  # nord14
-    magenta              = "#B48EAD"  # nord15
-    cyan                 = "#88C0D0"  # nord5
-    blue                 = "#81A1C1"  # nord9
-
-
 #############
 ### setup ###
 #############
 
 [packages.macos]
+    headless.taps = [
+        "homebrew/cask-fonts",
+    ]
     headless.formulae = [
         "ack",
         "asdf",
@@ -69,9 +41,12 @@
         "tldr",
         "tmux",
         "tmuxinator",
+        "wget",
         "zsh",
     ]
-    headless.casks = []
+    headless.casks = [
+        "font-caskaydia-cove-nerd-font",
+    ]
     gui.formulae = []
     gui.casks = [
         "docker",

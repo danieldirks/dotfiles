@@ -15,6 +15,12 @@ echo -e "\n${HI}install homebrew${CL}"
 
 echo -e "\n${HI}install packages${CL}"
 brew bundle --no-lock --file=/dev/stdin <<EOF
+{{- if .packages.macos.headless.taps }}
+{{-   range .packages.macos.headless.taps | sortAlpha | uniq }}
+tap {{ . | quote }}
+{{-   end }}
+{{- end }}
+
 {{- if .packages.macos.headless.formulae }}
 {{-   range .packages.macos.headless.formulae | sortAlpha | uniq }}
 brew {{ . | quote }}
@@ -53,7 +59,9 @@ curl -o ~/.dir_colors https://raw.githubusercontent.com/nordtheme/dircolors/deve
 
 # tpm
 echo -e "\n${HI}install tpm${CL}"
-wget -c https://github.com/tmux-plugins/tpm/archive/master.tar.gz -O - | tar -xz -C ~/.config/tmux/plugins/tpm
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 # Xresources (nord)
 echo -e "\n${HI}install Xresources${CL}"
