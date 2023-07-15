@@ -169,7 +169,7 @@
         "wayou.vscode-todo-highlight",
         "humao.rest-client",
         ### look & feel
-        "arcticicestudio.nord-visual-studio-code",
+        "Catppuccin.catppuccin-vsc",
         "equinusocio.vsc-material-theme-icons",
         "vscodevim.vim",
     ]
