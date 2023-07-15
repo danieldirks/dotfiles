@@ -161,7 +161,6 @@
         ### tools
         "eamodio.gitlens",
         "donjayamanne.githistory",
-        "esbenp.prettier-vscode",
         "GitHub.copilot",
         "GitHub.vscode-pull-request-github",
         "pnp.polacode",
