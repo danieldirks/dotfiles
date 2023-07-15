@@ -17,7 +17,7 @@ ZSH_THEME_GIT_PROMPT_STASHED=' %F{yellow}#'
 ZSH_THEME_GIT_PROMPT_CLEAN=''
 
 
-PS1='%F{blue}%1~%f:%F{cyan}$(env LANG=C ls -l|grep -v "total"|wc -l|xargs)%f'
+PS1='%F{blue}%1~%f:%F{magenta}$(env LANG=C ls -l|grep -v "total"|wc -l|xargs)%f'
 PS1+='$(gitprompt)'
 PS1+=' %(?.%F{green}.%F{red})%(!.#.»)%f '
 PS2='› '
