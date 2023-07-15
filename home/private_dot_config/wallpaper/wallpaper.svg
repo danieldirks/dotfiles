@@ -25,7 +25,7 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.2348396"
-     inkscape:cx="2997.7909"
+     inkscape:cx="2126.9837"
      inkscape:cy="1228.4981"
      inkscape:window-width="1470"
      inkscape:window-height="833"
@@ -40,34 +40,34 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:{{ .colors.background }};stroke-width:0.264583"
+       style="fill:#1e2030;stroke-width:0.264583;fill-opacity:1"
        id="rect757"
        width="1016"
        height="571.5"
        x="0"
        y="0" />
     <path
-       style="fill:{{ .colors.backgroundText }};stroke-width:0.264583"
+       style="fill:#24273a;stroke-width:0.264583;fill-opacity:1"
        d="m 430.39831,133.3983 c 81.91123,3.17154 103.01111,-4.37921 113.20459,-1.51973 C 586.25156,143.8424 670.04462,216.18443 1016,297 V 571.49999 H 0 Z"
        id="path543"
        sodipodi:nodetypes="cscccc" />
     <path
-       style="fill:{{ .colors.backgroundHighlight }};stroke-width:0.264583"
+       style="fill:#1e2030;stroke-width:0.264583;fill-opacity:1"
        d="M 485.77118,166.11864 C 670.76693,314.69492 1016,352.37287 1016,352.37287 V 571.49999 H 0 V 309.58475 Z"
        id="path438"
        sodipodi:nodetypes="cccccc" />
     <path
-       style="fill:{{ .colors.backgroundText }};stroke-width:0.264583"
+       style="fill:#24273a;stroke-width:0.264583;fill-opacity:1"
        d="M 536.11017,352.37287 C 689.64406,479.47881 1016,538.6271 1016,538.6271 v 32.87289 H 271.83051 Z"
        id="path436"
        sodipodi:nodetypes="ccccc" />
     <path
-       style="fill:{{ .colors.backgroundElement }};stroke-width:0.264583"
+       style="fill:#181926;stroke-width:0.264583;fill-opacity:1"
        d="m 0,239.11017 c 196.32203,0 430.39831,-105.71187 430.39831,-105.71187 0,0 15.13246,5.50802 55.37287,32.72034 69.71901,47.14705 -46.02698,78.53772 -78.24878,89.20279 -73.14255,24.2094 68.18099,58.03874 128.58777,97.05144 60.40676,39.01271 -264.27966,219.12712 -264.27966,219.12712 H 0 Z"
        id="path160"
        sodipodi:nodetypes="ccsssccc" />
     <circle
-       style="fill:{{ .colors.grey }};stroke-width:0.264583"
+       style="fill:#24273a;stroke-width:0.264583;fill-opacity:1"
        id="path651"
        cx="770.54468"
        cy="110.609505"
