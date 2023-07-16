@@ -70,10 +70,6 @@ if [ ! -d ~/.asdf ]; then
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 fi
 
-# dircolors (nord)
-echo -e "\n${HI}install dircolors${CL}"
-curl -o ~/.dir_colors https://raw.githubusercontent.com/nordtheme/dircolors/develop/src/dir_colors
-
 # git-delta
 echo -e "\n${HI}install git-delta${CL}"
 DELTA_TAG=$(curl --silent "https://api.github.com/repos/dandavison/delta/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
@@ -84,13 +80,13 @@ rm git-delta_${DELTA_TAG}_amd64.deb
 
 # minikube
 echo -e "\n${HI}install minikube${CL}"
-curl -o ~/.local/bin/minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-chmod ug+x ~/.local/bin/minikube
+if [ ! -f ~/.local/bin/minikube ]; then
+    curl -o ~/.local/bin/minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    chmod ug+x ~/.local/bin/minikube
+fi
 
 # tpm
 echo -e "\n${HI}install tpm${CL}"
-wget -c https://github.com/tmux-plugins/tpm/archive/master.tar.gz -O - | tar -xz -C ~/.config/tmux/plugins/tpm
-
-# Xresources (nord)
-echo -e "\n${HI}install Xresources${CL}"
-curl -o ~/.config/Xresources/nord https://raw.githubusercontent.com/nordtheme/xresources/develop/src/nord
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
