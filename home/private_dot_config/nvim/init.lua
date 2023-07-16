@@ -44,13 +44,13 @@ vim.cmd[[filetype plugin indent on]]
 vim.cmd[[autocmd FileType make set tabstop=8 softtabstop=0 shiftwidth=8 noexpandtab]]
 
 vim.cmd([[
-highlight LineNr       term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-highlight CursorLine   term=NONE cterm=NONE ctermfg=NONE     ctermbg=NONE gui=NONE guifg=NONE     guibg=NONE
-highlight SignColumn   term=NONE cterm=NONE ctermfg=NONE     ctermbg=NONE gui=NONE guifg=NONE     guibg=NONE
+highlight LineNr       term=bold cterm=NONE ctermfg=yellow ctermbg=NONE   gui=NONE guifg=NONE  guibg=NONE
+highlight CursorLine   term=NONE cterm=NONE ctermfg=NONE   ctermbg=black  gui=NONE guifg=NONE  guibg=NONE
+highlight SignColumn   term=NONE cterm=NONE ctermfg=NONE   ctermbg=NONE   gui=NONE guifg=NONE  guibg=NONE
 
-highlight DiffAdd      term=bold cterm=bold ctermfg=2        ctermbg=234  gui=bold guifg=2        guibg=NONE
-highlight DiffDelete   term=bold cterm=bold ctermfg=1        ctermbg=234  gui=bold guifg=1        guibg=NONE
-highlight DiffChange   term=bold cterm=bold ctermfg=3        ctermbg=234  gui=bold guifg=3        guibg=NONE
+highlight DiffAdd      term=bold cterm=bold ctermfg=green  ctermbg=234    gui=bold guifg=NONE  guibg=NONE
+highlight DiffDelete   term=bold cterm=bold ctermfg=red    ctermbg=234    gui=bold guifg=NONE  guibg=NONE
+highlight DiffChange   term=bold cterm=bold ctermfg=yellow ctermbg=234    gui=bold guifg=NONE  guibg=NONE
 ]])
 
 -- keys
@@ -78,7 +78,7 @@ require("lazy").setup({
     "itchyny/vim-gitbranch",
     "mbbill/undotree",
     "nvim-lua/plenary.nvim",
-    "nvim-lualine/lualine.nvim",
+--    "nvim-lualine/lualine.nvim",
     { "nvim-telescope/telescope.nvim", tag = '0.1.2' },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     "nvim-tree/nvim-web-devicons",
@@ -87,46 +87,46 @@ require("lazy").setup({
 })
 
 -- statusline
-require('lualine').setup({
-    options = {
-        icons_enabled = true,
-        theme = 'auto',
-        component_separators = { left = '', right = '|'},
-        section_separators = { left = '', right = ''},
-        disabled_filetypes = {
-            statusline = {},
-            winbar = {},
-        },
-        ignore_focus = {},
-        always_divide_middle = false,
-        globalstatus = true,
-        refresh = {
-            statusline = 1000,
-            tabline = 1000,
-            winbar = 1000,
-        }
-    },
-    sections = {
-        lualine_a = {{icon='', 'mode'}},
-        lualine_b = {{icon='󰈚', 'filename', file_status = 1, path = 0}},
-        lualine_c = {{icon='󰘬', 'branch', 'diff'}},
-        lualine_x = {'diagnostics'},
-        lualine_y = {{icon='󰉋', '%{fnamemodify(getcwd(), ":t")}'}},
-        lualine_z = {{icon='󰦨', 'progress'}}
-    },
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
-    },
-    tabline = {},
-    winbar = {},
-    inactive_winbar = {},
-    extensions = {}
-})
+--require('lualine').setup({
+--    options = {
+--        icons_enabled = true,
+--        theme = 'auto',
+--        component_separators = { left = '', right = '|'},
+--        section_separators = { left = '', right = ''},
+--        disabled_filetypes = {
+--            statusline = {},
+--            winbar = {},
+--        },
+--        ignore_focus = {},
+--        always_divide_middle = false,
+--        globalstatus = true,
+--        refresh = {
+--            statusline = 1000,
+--            tabline = 1000,
+--            winbar = 1000,
+--        }
+--    },
+--    sections = {
+--        lualine_a = {{icon='', 'mode'}},
+--        lualine_b = {{icon='󰈚', 'filename', file_status = 1, path = 0}},
+--        lualine_c = {{icon='󰘬', 'branch', 'diff'}},
+--        lualine_x = {'diagnostics'},
+--        lualine_y = {{icon='󰉋', '%{fnamemodify(getcwd(), ":t")}'}},
+--        lualine_z = {{icon='󰦨', 'progress'}}
+--    },
+--    inactive_sections = {
+--        lualine_a = {},
+--        lualine_b = {},
+--        lualine_c = {},
+--        lualine_x = {},
+--        lualine_y = {},
+--        lualine_z = {}
+--    },
+--    tabline = {},
+--    winbar = {},
+--    inactive_winbar = {},
+--    extensions = {}
+--})
 
 -- gitgutter
 vim.g.gitgutter_highlight_lines = 0
@@ -143,7 +143,7 @@ require("catppuccin").setup({
         light = "latte",
         dark = "macchiato",
     },
-    transparent_background = false,
+    transparent_background = true,
     styles = {
         comments = { "italic" },
         conditionals = { "italic" },
@@ -163,6 +163,7 @@ require("catppuccin").setup({
     --integrations = {},
 })
 vim.cmd.colorscheme "catppuccin-macchiato"
+vim.opt.termguicolors = false
 
 -- telescope
 local builtin = require('telescope.builtin')
@@ -170,3 +171,6 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- statusline
+require('statusline')
