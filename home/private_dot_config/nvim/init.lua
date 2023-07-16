@@ -11,6 +11,7 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.cindent = true
 vim.opt.wrap = false
+vim.opt.scrolloff = 5
 vim.opt.encoding = "utf-8"
 vim.opt.termencoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
@@ -20,6 +21,7 @@ vim.opt.ignorecase = true  -- ignore case when searching lowercase
 vim.opt.smartcase = true  -- but consider uppercase
 vim.opt.termguicolors = true
 vim.opt.guifont='CaskaydiaCove Nerd Font Mono:h12'
+vim.opt.clipboard = "unnamedplus"
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -36,8 +38,6 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
     end,
     group = "numbertoggle",
 })
-
-vim.opt.clipboard = "unnamedplus"
 
 vim.cmd[[syntax on]]
 vim.cmd[[filetype plugin indent on]]
@@ -145,7 +145,7 @@ require("catppuccin").setup({
     },
     transparent_background = false,
     styles = {
-        comments = {},
+        comments = { "italic" },
         conditionals = { "italic" },
         loops = {},
         functions = {},
