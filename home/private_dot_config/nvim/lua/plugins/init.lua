@@ -13,7 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    --{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     "airblade/vim-gitgutter",
     "editorconfig/editorconfig-vim",
     "mbbill/undotree",
@@ -28,3 +28,4 @@ require("lazy").setup({
 require('plugins/gitgutter')
 require('plugins/undotree')
 require('plugins/telescope')
+require('plugins/catppuccin')
