@@ -17,7 +17,7 @@
                 "closeOnExit": "always",
                 "font": 
                 {
-                    "face": "CaskaydiaCove Nerd Font"
+                    "face": "CaskaydiaCove Nerd Font Mono"
                 },
                 "useAtlasEngine": true
             },
@@ -30,7 +30,7 @@
                 "closeOnExit": "always",
                 "font": 
                 {
-                    "face": "CaskaydiaCove Nerd Font"
+                    "face": "CaskaydiaCove Nerd Font Mono"
                 },
                 "useAtlasEngine": true
             },
@@ -44,7 +44,7 @@
                 "closeOnExit": "always",
                 "font": 
                 {
-                    "face": "CaskaydiaCove Nerd Font"
+                    "face": "CaskaydiaCove Nerd Font Mono"
                 },
                 "useAtlasEngine": true
             }
