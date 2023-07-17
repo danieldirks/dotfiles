@@ -2,38 +2,37 @@ vim.opt.laststatus = 2
 vim.opt.showmode = false
 
 local macchiato = require("catppuccin.palettes").get_palette "macchiato"
-local pink = macchiato.pink
+local magenta = macchiato.pink
 local red = macchiato.red
+local orange = macchiato.peach
 local yellow = macchiato.yellow
 local green = macchiato.green
 local blue = macchiato.blue
 local text = macchiato.text
-local surface2 = macchiato.surface2
-local surface0 = macchiato.surface0
-local base = macchiato.base
-local mantle = macchiato.mantle
-local crust = macchiato.crust
+local bgtext = macchiato.overlay0
+local block = macchiato.surface0
+local background = macchiato.mantle
 
-vim.api.nvim_command('highlight StatusBackground          term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg=NONE           guifg='..surface2)
+vim.api.nvim_command('highlight StatusBackground          term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..background..' guifg='..bgtext)
 
-vim.api.nvim_command('highlight StatusModeDefault         term=bold  cterm=bold  ctermbg=magenta ctermfg=black   gui=NONE  guibg='..pink..'     guifg='..base)
-vim.api.nvim_command('highlight StatusModeDefaultSep      term=bold  cterm=bold  ctermbg=black   ctermfg=magenta gui=NONE  guibg='..surface0..' guifg=NONE')
-vim.api.nvim_command('highlight StatusModeNormal          term=bold  cterm=bold  ctermbg=green   ctermfg=black   gui=NONE  guibg='..green..'    guifg='..base)
-vim.api.nvim_command('highlight StatusModeNormalSep       term=bold  cterm=bold  ctermbg=black   ctermfg=green   gui=NONE  guibg='..surface0..' guifg='..green)
-vim.api.nvim_command('highlight StatusModeInsert          term=bold  cterm=bold  ctermbg=blue    ctermfg=black   gui=NONE  guibg='..blue..'     guifg='..base)
-vim.api.nvim_command('highlight StatusModeInsertSep       term=bold  cterm=bold  ctermbg=black   ctermfg=blue    gui=NONE  guibg='..surface0..' guifg='..blue)
-vim.api.nvim_command('highlight StatusModeReplace         term=bold  cterm=bold  ctermbg=red     ctermfg=black   gui=NONE  guibg='..red..'      guifg='..base)
-vim.api.nvim_command('highlight StatusModeReplaceSep      term=bold  cterm=bold  ctermbg=black   ctermfg=red     gui=NONE  guibg='..surface0..' guifg='..red)
-vim.api.nvim_command('highlight StatusModeVisual          term=bold  cterm=bold  ctermbg=magenta ctermfg=black   gui=NONE  guibg='..pink..'     guifg='..base)
-vim.api.nvim_command('highlight StatusModeVisualSep       term=bold  cterm=bold  ctermbg=black   ctermfg=magenta gui=NONE  guibg='..surface0..' guifg='..pink)
-vim.api.nvim_command('highlight StatusModeCommand         term=bold  cterm=bold  ctermbg=yellow  ctermfg=black   gui=NONE  guibg='..yellow..'   guifg='..base)
-vim.api.nvim_command('highlight StatusModeCommandSep      term=bold  cterm=bold  ctermbg=black   ctermfg=yellow  gui=NONE  guibg='..surface0..' guifg='..yellow)
+vim.api.nvim_command('highlight StatusModeDefault         term=bold  cterm=bold  ctermbg=magenta ctermfg=black   gui=NONE  guibg='..magenta..'    guifg='..background)
+vim.api.nvim_command('highlight StatusModeDefaultSep      term=bold  cterm=bold  ctermbg=black   ctermfg=magenta gui=NONE  guibg='..block..'      guifg=NONE')
+vim.api.nvim_command('highlight StatusModeNormal          term=bold  cterm=bold  ctermbg=green   ctermfg=black   gui=NONE  guibg='..green..'      guifg='..background)
+vim.api.nvim_command('highlight StatusModeNormalSep       term=bold  cterm=bold  ctermbg=black   ctermfg=green   gui=NONE  guibg='..block..'      guifg='..green)
+vim.api.nvim_command('highlight StatusModeInsert          term=bold  cterm=bold  ctermbg=blue    ctermfg=black   gui=NONE  guibg='..blue..'       guifg='..background)
+vim.api.nvim_command('highlight StatusModeInsertSep       term=bold  cterm=bold  ctermbg=black   ctermfg=blue    gui=NONE  guibg='..block..'      guifg='..blue)
+vim.api.nvim_command('highlight StatusModeReplace         term=bold  cterm=bold  ctermbg=red     ctermfg=black   gui=NONE  guibg='..red..'        guifg='..background)
+vim.api.nvim_command('highlight StatusModeReplaceSep      term=bold  cterm=bold  ctermbg=black   ctermfg=red     gui=NONE  guibg='..block..'      guifg='..red)
+vim.api.nvim_command('highlight StatusModeVisual          term=bold  cterm=bold  ctermbg=magenta ctermfg=black   gui=NONE  guibg='..magenta..'    guifg='..background)
+vim.api.nvim_command('highlight StatusModeVisualSep       term=bold  cterm=bold  ctermbg=black   ctermfg=magenta gui=NONE  guibg='..block..'      guifg='..magenta)
+vim.api.nvim_command('highlight StatusModeCommand         term=bold  cterm=bold  ctermbg=yellow  ctermfg=black   gui=NONE  guibg='..orange..'     guifg='..background)
+vim.api.nvim_command('highlight StatusModeCommandSep      term=bold  cterm=bold  ctermbg=black   ctermfg=yellow  gui=NONE  guibg='..block..'      guifg='..orange)
 
-vim.api.nvim_command('highlight StatusBlockBackground     term=NONE  cterm=NONE  ctermbg=black   ctermfg=white   gui=NONE  guibg='..surface0..' guifg='..text)
-vim.api.nvim_command('highlight StatusBlockDirectorySep   term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=blue    gui=NONE  guibg=NONE           guifg='..blue)
-vim.api.nvim_command('highlight StatusBlockDirectoryIcon  term=NONE  cterm=NONE  ctermbg=blue    ctermfg=black   gui=NONE  guibg='..blue..'     guifg='..base)
-vim.api.nvim_command('highlight StatusBlockLocationSep    term=NONE  cterm=NONE  ctermbg=black   ctermfg=green   gui=NONE  guibg='..surface0..' guifg='..green)
-vim.api.nvim_command('highlight StatusBlockLocation       term=NONE  cterm=NONE  ctermbg=green   ctermfg=black   gui=NONE  guibg='..green..'    guifg='..base)
+vim.api.nvim_command('highlight StatusBlockBackground     term=NONE  cterm=NONE  ctermbg=black   ctermfg=white   gui=NONE  guibg='..block..'      guifg='..text)
+vim.api.nvim_command('highlight StatusBlockDirectorySep   term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=blue    gui=NONE  guibg=NONE             guifg='..red)
+vim.api.nvim_command('highlight StatusBlockDirectoryIcon  term=NONE  cterm=NONE  ctermbg=blue    ctermfg=black   gui=NONE  guibg='..red..'        guifg='..background)
+vim.api.nvim_command('highlight StatusBlockLocationSep    term=NONE  cterm=NONE  ctermbg=black   ctermfg=green   gui=NONE  guibg='..block..'      guifg='..blue)
+vim.api.nvim_command('highlight StatusBlockLocation       term=NONE  cterm=NONE  ctermbg=green   ctermfg=black   gui=NONE  guibg='..blue..'       guifg='..background)
 
 
 function status_mode()
@@ -77,9 +76,9 @@ function status_file_icon()
 end
 
 function status_git()
-    local branch = vim.fn.system("git branch --show-current 2> /dev/null | tr -d '\n'")
+    local branch = vim.fn.system("git -C ".. vim.fn.expand("%:p:h") .. " branch --show-current 2> /dev/null | tr -d '\n'")
     if branch ~= "" then
-        return '%#StatusBackground# 󰘬 ' .. branch .. ' '
+        return '%#StatusBackground#  󰘬 ' .. branch .. ' '
     else
         return ''
     end
@@ -88,11 +87,11 @@ end
 function status_line()
     local status = ''
     status = status .. status_mode()
-    status = status .. '%#StatusBlockBackground# ' .. status_file_icon() .. ' %t '  -- file name
+    status = status .. '%#StatusBlockBackground#  ' .. status_file_icon() .. ' %t '  -- file name
     status = status .. status_git() .. '%#StatusBackground#'
     status = status .. '%='
     status = status .. '%#StatusBlockDirectorySep#%#StatusBlockDirectoryIcon# %#StatusBlockBackground# %{fnamemodify(getcwd(), ":t")} '  -- directory
-    status = status .. '%#StatusBlockLocationSep#%#StatusBlockLocation#󰦨 %P '  -- cursor location
+    status = status .. '%#StatusBlockLocationSep#%#StatusBlockLocation# %P '  -- cursor location
     return status
 end
 
