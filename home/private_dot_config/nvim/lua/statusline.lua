@@ -31,8 +31,8 @@ vim.api.nvim_command('highlight StatusModeCommandSep      term=bold  cterm=bold 
 vim.api.nvim_command('highlight StatusBlockBackground     term=NONE  cterm=NONE  ctermbg=black   ctermfg=white   gui=NONE  guibg='..block..'      guifg='..text)
 vim.api.nvim_command('highlight StatusBlockDirectorySep   term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=blue    gui=NONE  guibg=NONE             guifg='..red)
 vim.api.nvim_command('highlight StatusBlockDirectoryIcon  term=NONE  cterm=NONE  ctermbg=blue    ctermfg=black   gui=NONE  guibg='..red..'        guifg='..background)
-vim.api.nvim_command('highlight StatusBlockLocationSep    term=NONE  cterm=NONE  ctermbg=black   ctermfg=green   gui=NONE  guibg='..block..'      guifg='..blue)
-vim.api.nvim_command('highlight StatusBlockLocation       term=NONE  cterm=NONE  ctermbg=green   ctermfg=black   gui=NONE  guibg='..blue..'       guifg='..background)
+vim.api.nvim_command('highlight StatusBlockLocationSep    term=NONE  cterm=NONE  ctermbg=black   ctermfg=blue    gui=NONE  guibg='..block..'      guifg='..blue)
+vim.api.nvim_command('highlight StatusBlockLocation       term=NONE  cterm=NONE  ctermbg=blue    ctermfg=black   gui=NONE  guibg='..blue..'       guifg='..background)
 
 
 function status_mode()
@@ -91,7 +91,7 @@ function status_line()
     status = status .. status_git() .. '%#StatusBackground#'
     status = status .. '%='
     status = status .. '%#StatusBlockDirectorySep#%#StatusBlockDirectoryIcon# %#StatusBlockBackground# %{fnamemodify(getcwd(), ":t")} '  -- directory
-    status = status .. '%#StatusBlockLocationSep#%#StatusBlockLocation# %P '  -- cursor location
+    status = status .. '%#StatusBlockLocationSep#%#StatusBlockLocation# %#StatusBlockBackground# %P '  -- cursor location
     return status
 end
 
