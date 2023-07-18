@@ -10,11 +10,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
---require("lazy").setup({
---    "nvim-tree/nvim-web-devicons",
---    "tpope/vim-dispatch",
---    "tpope/vim-fugitive",
---})
-
 require("lazy").setup("plugins")
 require("statusline")
