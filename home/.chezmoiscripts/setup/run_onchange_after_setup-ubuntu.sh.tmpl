@@ -22,6 +22,10 @@ asdf plugin add java || true
 asdf plugin add maven || true
 asdf plugin add python || true
 
+# bat
+echo -e "\n${HI}setup bat${CL}"
+bat cache --build
+
 #tldr
 echo -e "\n${HI}setup tldr${CL}"
 if [ ! -d ~/.local/share/tldr ]; then
