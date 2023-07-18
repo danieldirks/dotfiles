@@ -75,11 +75,13 @@
         "exa",
         "fd-find",
         "fzf",
+        "gcc",
         "git",
         "gnupg",
         "helm",  # helm repo
         "kubectl",  # kubernetes repo
         "libimage-exiftool-perl",
+        "make",
         # minikube
         "neofetch",
         #"neovim",
