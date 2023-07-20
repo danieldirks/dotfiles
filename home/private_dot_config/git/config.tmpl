@@ -2,11 +2,11 @@
     name = Daniel Dirks
     email = {{ .email }}
 
+[alias]
+    graph = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%an%C(reset)%C(bold yellow)%d%C(reset) %C(dim white)- %s%C(reset)' --all
+
 [core]
     pager = delta
-
-[interactive]
-    diffFilter = delta --color-only
 
 [delta]
     blame-code-style = "syntax"
@@ -37,11 +37,17 @@
     side-by-side = true
     syntax-theme = Catppuccin-mocha
 
-[merge]
-    conflictstyle = diff3
-
 [diff]
     colorMoved = default
 
-[alias]
-    graph = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%an%C(reset)%C(bold yellow)%d%C(reset) %C(dim white)- %s%C(reset)' --all
+[init]
+    defaultBranch = main
+
+[interactive]
+    diffFilter = delta --color-only
+
+[merge]
+    conflictstyle = diff3
+
+[pull]
+    rebase = false
