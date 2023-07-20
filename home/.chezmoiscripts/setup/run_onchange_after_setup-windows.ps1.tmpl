@@ -25,6 +25,18 @@ if (!$path.Contains($bin)) {
 }
 
 {{ if not .headless -}}
+# chrome
+Write-Host -ForegroundColor Yellow "`nsetup chrome"
+{{-   range .plugins.chrome | sortAlpha | uniq }}
+$null = [microsoft.win32.registry]::SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Google\Chrome\Extensions\{{ . }}", "update_url", "https://clients2.google.com/service/update2/crx")
+{{-   end }}
+$null = [system.Diagnostics.Process]::Start("chrome")
+read-host "Accept installation of extensions in Chrome and press ENTER to continue"
+{{-   range .plugins.chrome_stylus | sortAlpha | uniq }}
+$null = [system.Diagnostics.Process]::Start("chrome", {{ . | quote }})
+{{-   end }}
+read-host "Install the themes in Chrome and press ENTER to continue"
+
 # vscode
 Write-Host -ForegroundColor Yellow "`nsetup vscode"
 {{-   range .plugins.vscode | sortAlpha | uniq }}
