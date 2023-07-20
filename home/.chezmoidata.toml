@@ -3,9 +3,9 @@
 ################
 
 [system]
-    locale = "en-DE"
-    region = "de-DE"
-    geoid = "0x5e"
+    language = "en-US"
+    formats = "de-DE"
+    location = "0x5e"  # https://learn.microsoft.com/en-us/windows/win32/intl/table-of-geographical-locations
 
 
 #############
