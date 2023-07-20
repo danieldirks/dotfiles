@@ -1,17 +1,17 @@
 vim.opt.laststatus = 2
 vim.opt.showmode = false
 
-local macchiato = require("catppuccin.palettes").get_palette "macchiato"
-local magenta = macchiato.pink
-local red = macchiato.red
-local orange = macchiato.peach
-local yellow = macchiato.yellow
-local green = macchiato.green
-local blue = macchiato.blue
-local text = macchiato.text
-local bgtext = macchiato.overlay0
-local block = macchiato.surface0
-local background = macchiato.mantle
+local mocha = require("catppuccin.palettes").get_palette "mocha"
+local magenta = mocha.pink
+local red = mocha.red
+local orange = mocha.peach
+local yellow = mocha.yellow
+local green = mocha.green
+local blue = mocha.blue
+local text = mocha.text
+local bgtext = mocha.overlay0
+local block = mocha.surface0
+local background = mocha.mantle
 
 vim.api.nvim_command('highlight StatusBackground          term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..background..' guifg='..bgtext)
 

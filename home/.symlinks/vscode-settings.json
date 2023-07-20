@@ -49,7 +49,7 @@
   "vim.startInInsertMode": true,
   "vim.useSystemClipboard": true,
   "window.title": "${activeEditorShort}${separator}${rootName}",
-  "workbench.colorTheme": "Catppuccin Macchiato",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.value": 5,
