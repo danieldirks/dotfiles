@@ -59,6 +59,7 @@
 [packages.ubuntu]
     repositories = [
         { name = "docker", key = "https://download.docker.com/linux/ubuntu/gpg", url = "https://download.docker.com/linux/ubuntu", dist = "$(. /etc/os-release && echo \"$VERSION_CODENAME\")", comp = "stable" },
+        { name = "google-chrome", key = "https://dl.google.com/linux/linux_signing_key.pub", url = "http://dl.google.com/linux/chrome/deb/", dist = "stable", comp = "main" },
         { name = "helm", key = "https://baltocdn.com/helm/signing.asc", url = "https://baltocdn.com/helm/stable/debian/", dist = "all", comp = "main" },
         { name = "kubernetes", key = "https://packages.cloud.google.com/apt/doc/apt-key.gpg", url = "https://apt.kubernetes.io/", dist = "kubernetes-xenial", comp = "main" },
     ]
@@ -97,6 +98,7 @@
         "nvim --classic",
     ]
     gui.apt = [
+        "google-chrome-stable",  # google-chrome repo
         "keepassxc",
     ]
     gui.snaps = [
