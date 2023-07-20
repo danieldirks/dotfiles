@@ -50,6 +50,7 @@
     gui.formulae = []
     gui.casks = [
         "docker",
+        "google-chrome",
         "hyper",
         "keepassxc",
         "visual-studio-code",
