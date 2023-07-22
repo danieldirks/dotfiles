@@ -1,13 +1,3 @@
-################
-### settings ###
-################
-
-[system]
-    language = "en-US"
-    formats = "de-DE"
-    location = "0x5e"  # https://learn.microsoft.com/en-us/windows/win32/intl/table-of-geographical-locations
-
-
 #############
 ### setup ###
 #############
