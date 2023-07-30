@@ -109,6 +109,7 @@
         "Logseq.Logseq",
         "Microsoft.VisualStudioCode",
         "Nextcloud.NextcloudDesktop",
+        "QMK.QMKToolbox",
         "Spotify.Spotify",
         #"Vercel.Hyper",
     ]
