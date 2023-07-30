@@ -55,7 +55,7 @@
   "workbench.editor.limit.value": 5,
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.excludeDirty": true,
-  "workbench.iconTheme": "eq-material-theme-icons",
+  "workbench.iconTheme": "catppuccin-mocha",
   "workbench.tree.renderIndentGuides": "always",
   "workbench.tree.indent": 10,
   "window.titleBarStyle": "custom"
