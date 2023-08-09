@@ -1,0 +1,12 @@
+{{/* installs minikube. */}}
+{{- if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+set -e
+echo "Setting up kubernetes environment..."
+
+if [ ! -f ~/.local/bin/minikube ]; then
+    curl -o ~/.local/bin/minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    chmod ug+x ~/.local/bin/minikube
+fi
+
+{{- end -}}

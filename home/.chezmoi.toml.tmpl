@@ -16,11 +16,9 @@
 
 {{/* user flags */}}
 {{- $headless := false -}}{{/* headless setup */}}
-{{- $safe     := false -}}{{/* safe mode, i.e. no setup from external resources */}}
 {{- $gaming   := false -}}{{/* gaming setup */}}
 {{- if $codespaces -}}
 {{-   $headless = true -}}
-{{-   $safe = false -}}
 {{-   $gaming = false -}}
 {{- end -}}
 {{- if $wsl -}}
@@ -29,9 +27,6 @@
 {{- end -}}
 {{- if (and (not $headless) stdinIsATTY) -}}
 {{-   $headless = promptBoolOnce . "headless" "headless" false -}}
-{{- end -}}
-{{- if (and (not $safe) stdinIsATTY) -}}
-{{-   $safe = promptBoolOnce . "safe" "safe mode" false -}}
 {{- end -}}
 {{- if (and (not $gaming) stdinIsATTY) -}}
 {{-   $gaming = promptBoolOnce . "gaming" "gaming setup" false -}}
@@ -48,7 +43,6 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
 
     # flags
     headless = {{ $headless }}
-    safe = {{ $safe }}
     gaming = {{ $gaming }}
 
     # variables

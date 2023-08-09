@@ -1,0 +1,14 @@
+{{/* sets up systemd when running in wsl. */}}
+{{- if (and (eq .osid "linux-ubuntu") (.wsl)) -}}
+#!/bin/bash
+set -e
+echo "Setting up wsl..."
+
+# test and activate systemd
+if ! ps --no-headers -o comm 1 | grep -q "systemd"; then
+    echo "[boot]\nsystemd=true" | sudo tee /etc/wsl.conf > /dev/null
+    echo "WSL set up. please restart and rerun setup afterwards."
+    exit 1
+fi
+
+{{- end -}}

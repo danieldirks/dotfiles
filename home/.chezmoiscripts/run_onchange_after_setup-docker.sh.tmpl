@@ -1,0 +1,12 @@
+{{/* sets up docker. */}}
+{{- if (and (eq .chezmoi.os "linux") (not .codespaces)) -}}
+#!/bin/bash
+set -e
+echo "Setting up docker..."
+
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+sudo groupadd docker || true
+sudo usermod -aG docker $USER
+
+{{- end -}}

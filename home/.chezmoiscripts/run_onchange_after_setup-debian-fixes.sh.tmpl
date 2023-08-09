@@ -1,0 +1,10 @@
+{{/* fixes some executables on debian. */}}
+{{- if eq .osid "linux-ubuntu" "linux-debian" -}}
+#!/bin/bash
+set -e
+echo "Running fixes..."
+
+ln -fs $(which fdfind) ~/.local/bin/fd
+ln -fs $(which batcat) ~/.local/bin/bat
+
+{{- end -}}

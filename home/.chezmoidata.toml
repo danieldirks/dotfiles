@@ -3,10 +3,10 @@
 #############
 
 [packages.macos]
-    headless.taps = [
+    taps = [
         "homebrew/cask-fonts",
     ]
-    headless.formulae = [
+    formulae = [
         "ack",
         "asdf",
         "bat",
@@ -34,11 +34,10 @@
         "wget",
         "zsh",
     ]
-    headless.casks = [
+    casks = [
         "font-caskaydia-cove-nerd-font",
     ]
-    gui.formulae = []
-    gui.casks = [
+    casks_gui = [
         "docker",
         "google-chrome",
         "hyper",
@@ -53,7 +52,7 @@
         { name = "helm", key = "https://baltocdn.com/helm/signing.asc", url = "https://baltocdn.com/helm/stable/debian/", dist = "all", comp = "main" },
         { name = "kubernetes", key = "https://packages.cloud.google.com/apt/doc/apt-key.gpg", url = "https://apt.kubernetes.io/", dist = "kubernetes-xenial", comp = "main" },
     ]
-    headless.apt = [
+    headless = [
         "ack",
         # asdf
         "bat",
@@ -83,24 +82,24 @@
         "tmuxinator",
         "zsh",
     ]
-    headless.snaps = [
-        "k9s",
-        "nvim --classic",
-    ]
-    gui.apt = [
+    gui = [
         "google-chrome-stable",  # google-chrome repo
         "keepassxc",
     ]
-    gui.snaps = [
+    snaps = [
+        "k9s",
+        "nvim --classic",
+    ]
+    snaps_gui = [
         "code --classic",
     ]
 
 [packages.windows]
-    headless.winget = [
+    headless = [
         "dandavison.delta",
         "twpayne.chezmoi",
     ]
-    gui.winget = [
+    gui = [
         "9MTFTXSJ9M7F --source msstore  # RoundedTB",
         "9NCBCSZSJRSB --source msstore  # Spotify",
         "9PDXGNCFSCZV --source msstore  # Ubuntu (WSL)",
@@ -113,7 +112,7 @@
         "Spotify.Spotify",
         #"Vercel.Hyper",
     ]
-    gaming.winget = [
+    gaming = [
         "Discord.Discord",
         "GOG.Galaxy",
         "Valve.Steam",

@@ -1,0 +1,36 @@
+{{/* sets up homebrew and installs packages. */}}
+{{- if eq .osid "darwin" -}}
+#!/bin/bash
+set -e
+echo "Installing packages..."
+
+# install hoembrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{- if .packages.macos.taps }}
+{{-   range .packages.macos.taps | sortAlpha | uniq }}
+tap {{ . | quote }}
+{{-   end }}
+{{- end }}
+
+{{- if .packages.macos.formulae }}
+{{-   range .packages.macos.formulae | sortAlpha | uniq }}
+brew {{ . | quote }}
+{{-   end }}
+{{- end }}
+
+{{- if .packages.macos.casks }}
+{{-   range .packages.macos.casks | sortAlpha | uniq }}
+cask {{ . | quote }}
+{{   end }}
+{{- end }}
+
+{{- if (and (not .headless) .packages.macos.casks_gui) }}
+{{-   range .packages.macos.casks_gui | sortAlpha | uniq }}
+cask {{ . | quote }}
+{{-   end }}
+{{- end }}
+EOF
+
+{{- end -}}

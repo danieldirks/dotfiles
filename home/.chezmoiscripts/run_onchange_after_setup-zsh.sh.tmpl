@@ -1,0 +1,21 @@
+{{/* installs antigen, a plugin manager for zsh. sets zsh as default shell and reloads installation. */}}
+{{- if eq .chezmoi.os "linux" "darwin" -}}
+#!/bin/bash
+# check: oneline.zsh-theme  {{ include "private_dot_config/zsh/oneline.zsh-theme" | sha256sum }}
+# check: .zshrc             {{ include "dot_zshrc" | sha256sum }}
+set -e
+echo "Setting up zsh..."
+
+# install antigen
+curl -o ~/.config/zsh/antigen/antigen.zsh https://raw.githubusercontent.com/zsh-users/antigen/develop/bin/antigen.zsh
+
+# set zsh as default shell
+sudo chsh -s $(which zsh) ${USER}
+
+# reload zsh plugins and themes
+if command -v zsh &> /dev/null; then
+    # reload zsh plugins and themes
+    /usr/bin/env zsh -c "source ~/.zshrc && antigen reset"
+fi
+
+{{- end -}}

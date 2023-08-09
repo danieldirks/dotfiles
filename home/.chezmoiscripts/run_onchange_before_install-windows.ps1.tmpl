@@ -1,0 +1,36 @@
+{{/* installs packages. */}}
+{{- if eq .osid "windows" -}}
+Write-Host "Installing packages"
+
+# open elevated shell if not already running as admin
+if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
+    if ([int](Get-CimInstance -Class Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber) -ge 6000) {
+        # add -NoExit to keep elevated shell open after exit
+        $CommandLine = "-File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
+        Start-Process -Wait -FilePath PowerShell.exe -Verb Runas -ArgumentList $CommandLine
+        Exit
+    }
+}
+
+{{ if .packages.windows.headless -}}
+{{-   range .packages.windows.headless | sortAlpha | uniq }}
+Write-Host -ForegroundColor Blue "`n{{ . }}"
+winget install --accept-package-agreements --accept-source-agreements -e --id {{ . }}
+{{-   end }}
+{{- end }}
+
+{{ if (and (not .headless) .packages.windows.gui) -}}
+{{-   range .packages.windows.gui | sortAlpha | uniq }}
+Write-Host -ForegroundColor Blue "`n{{ . }}"
+winget install --accept-package-agreements --accept-source-agreements -e --id {{ . }}
+{{-   end }}
+{{- end }}
+
+{{ if (and .gaming .packages.windows.gaming) -}}
+{{-   range .packages.windows.gaming | sortAlpha | uniq }}
+Write-Host -ForegroundColor Blue "`n{{ . }}"
+winget install --accept-package-agreements --accept-source-agreements -e --id {{ . }}
+{{-   end }}
+{{- end }}
+
+{{- end -}}

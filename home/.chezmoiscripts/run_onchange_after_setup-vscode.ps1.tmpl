@@ -1,0 +1,9 @@
+{{/* installs vscode extensions. */}}
+{{- if (and (eq .os.chezmoi "windows") (not .headless)) -}}
+Write-Host "Setting up vscode..."
+
+{{- range .plugins.vscode | sortAlpha | uniq }}
+code --force --install-extension {{ . | quote }}
+{{- end }}
+
+{{- end -}}

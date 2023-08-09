@@ -1,58 +1,23 @@
-.chezmoiscripts/setup/*
+###############
+### systems ###
+###############
 
-
-##############
-### ubuntu ###
-##############
-
-{{ if eq .osid "linux-ubuntu" -}}
-
+{{ if eq .chezmoi.os "linux" -}}
+**/*.ps1
 .config/automator
 AppData
-bin
 Library
-
-{{ if .headless -}}
-.config/Code
-.hyper.js
+bin
 {{- end }}
 
-{{ if not .safe -}}
-!.chezmoiscripts/setup/*ubuntu.sh*
-{{- end }}
-
-{{- end }}
-
-
-#############
-### macos ###
-#############
-
-{{ if eq .osid "darwin" -}}
-
-.config/Code
+{{ if eq .chezmoi.os "darwin" -}}
+**/*.ps1
 AppData
 bin
-
-{{ if .headless -}}
-.config/Code
-.hyper.js
 {{- end }}
 
-{{ if not .safe -}}
-!.chezmoiscripts/setup/*macos.sh*
-{{- end }}
-
-{{- end }}
-
-
-###############
-### windows ###
-###############
-
-{{ if eq .osid "windows" -}}
-
-.chezmoiscripts/zsh-reload.sh
+{{ if eq .chezmoi.os "windows" -}}
+**/*.sh
 .config/*
 !.config/git
 .local/*
@@ -62,15 +27,18 @@ bin
 .zprofile
 .zshrc
 Library
+{{- end }}
+
+
+################
+### features ###
+################
 
 {{ if .headless -}}
+# headless
+.config/Code
+.hyper.js
 AppData/Roaming/Code
 AppData/Roaming/Hyper
 Library/Application Support/Code
-{{- end }}
-
-{{ if not .safe -}}
-!.chezmoiscripts/setup/*windows.ps1*
-{{- end }}
-
 {{- end }}

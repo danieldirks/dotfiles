@@ -1,0 +1,18 @@
+{{/* sets up chrome extensions and userstyles. */}}
+{{- if (and (eq .chezmoi.os "linux" "darwin") (not .headless)) -}}
+#!/bin/bash
+set -e
+echo "Setting up chrome..."
+
+{{- range .plugins.chrome | sortAlpha | uniq }}
+echo "{\"external_update_url\": \"https://clients2.google.com/service/update2/crx\"}" > ~/Library/Application\ Support/Google/Chrome/External\ Extensions/{{ . }}.json
+{{- end }}
+open -a "Google Chrome"
+read -p "Accept installation of extensions in Chrome and press ENTER to continue:"
+
+{{- range .plugins.chrome_stylus | sortAlpha | uniq }}
+open -a "Google Chrome" {{ . | quote }}
+{{- end }}
+read -p "Install the themes in Chrome and press ENTER to continue:"
+
+{{- end -}}

@@ -1,0 +1,13 @@
+{{/* installs delta, a git diff viewer with syntax highlighting. */}}
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/bash
+set -e
+echo "Setting up git..."
+
+DELTA_TAG=$(curl --silent "https://api.github.com/repos/dandavison/delta/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+echo "Latest release: ${DELTA_TAG}"
+wget -q "https://github.com/dandavison/delta/releases/download/${DELTA_TAG}/git-delta_${DELTA_TAG}_amd64.deb"
+sudo dpkg -i git-delta_${DELTA_TAG}_amd64.deb
+rm git-delta_${DELTA_TAG}_amd64.deb
+
+{{- end -}}

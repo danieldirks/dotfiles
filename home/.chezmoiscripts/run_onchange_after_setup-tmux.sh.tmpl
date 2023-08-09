@@ -1,0 +1,11 @@
+{{/* installs tpm, a plugin manager for tmux. */}}
+{{- if eq .chezmoi.os "linux" "darwin" -}}
+#!/bin/bash
+set -e
+echo "Setting up tmux..."
+
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+    
+{{- end -}}
