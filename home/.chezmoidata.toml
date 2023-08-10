@@ -124,12 +124,13 @@
         "oboonakemofpalcgghocfoadofidjkkk",  # KeePassXC-Browser
         "clngdbkpkpeebahjckkjfobafhncgmne",  # Stylus
     ]
-    chrome_stylus = [
-        "https://raw.githubusercontent.com/catppuccin/reddit/main/css/reddit-catppuccin.user.css",
-        "https://raw.githubusercontent.com/catppuccin/mastodon/main/dist/catppuccin.user.css",
-        "https://raw.githubusercontent.com/catppuccin/youtube/main/src/catppuccin.user.css",
-        "https://raw.githubusercontent.com/catppuccin/twitch/main/src/catppuccin.user.css",
-        "https://raw.githubusercontent.com/catppuccin/github/main/catppuccin.user.css",
+    chrome_urls = [
+        "https://github.com/catppuccin/userstyles/raw/main/styles/github/catppuccin.user.css",
+        "https://github.com/catppuccin/userstyles/raw/main/styles/mastodon/catppuccin.user.css",
+        "https://github.com/catppuccin/userstyles/raw/main/styles/reddit/catppuccin.user.css",
+        "https://github.com/catppuccin/userstyles/raw/main/styles/twitch/catppuccin.user.css",
+        "https://github.com/catppuccin/userstyles/raw/main/styles/whatsapp-web/catppuccin.user.css",
+        "https://github.com/catppuccin/userstyles/raw/main/styles/youtube/catppuccin.user.css",
     ]
     vscode = [
         ### code

@@ -18,7 +18,7 @@ $null = [microsoft.win32.registry]::SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\WOW643
 $null = [system.Diagnostics.Process]::Start("chrome")
 read-host "Accept installation of extensions in Chrome and press ENTER to continue"
 
-{{- range .plugins.chrome_stylus | sortAlpha | uniq }}
+{{- range .plugins.chrome_urls | sortAlpha | uniq }}
 $null = [system.Diagnostics.Process]::Start("chrome", {{ . | quote }})
 {{- end }}
 read-host "Install the themes in Chrome and press ENTER to continue"
