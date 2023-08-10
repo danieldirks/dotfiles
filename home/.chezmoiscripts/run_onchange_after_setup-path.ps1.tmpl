@@ -1,5 +1,5 @@
 {{/* sets up path. */}}
-{{- if eq .os.chezmoi "windows" -}}
+{{- if eq .chezmoi.os "windows" -}}
 Write-Host "Setting up path..."
 
 $bin = "$env:USERPROFILE\bin"

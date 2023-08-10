@@ -1,6 +1,16 @@
 {{/* sets up chrome extensions and userstyles. */}}
-{{- if (and (eq .os.chezmoi "windows") (not .headless)) -}}
+{{- if (and (eq .chezmoi.os "windows") (not .headless)) -}}
 Write-Host "Setting up chrome ..."
+
+# open elevated shell if not already running as admin
+if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
+    if ([int](Get-CimInstance -Class Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber) -ge 6000) {
+        # add -NoExit to keep elevated shell open after exit
+        $CommandLine = "-File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
+        Start-Process -Wait -FilePath PowerShell.exe -Verb Runas -ArgumentList $CommandLine
+        Exit
+    }
+}
 
 {{- range .plugins.chrome | sortAlpha | uniq }}
 $null = [microsoft.win32.registry]::SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Google\Chrome\Extensions\{{ . }}", "update_url", "https://clients2.google.com/service/update2/crx")

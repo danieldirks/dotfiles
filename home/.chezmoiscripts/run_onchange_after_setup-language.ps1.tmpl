@@ -1,5 +1,5 @@
 {{/* sets language and locale settings. */}}
-{{- if eq .os.chezmoi "windows" -}}
+{{- if eq .chezmoi.os "windows" -}}
 Write-Host "Setting up language..."
 
 #Set-WinUserLanguageList -Force "en-US"

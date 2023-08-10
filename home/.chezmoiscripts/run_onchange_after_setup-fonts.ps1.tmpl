@@ -1,5 +1,5 @@
 {{/* installs fonts on windows. */}}
-{{- if (and (eq .os.chezmoi "windows") (not .headless)) -}}
+{{- if (and (eq .chezmoi.os "windows") (not .headless)) -}}
 Write-Host "Setting up fonts..."
 
 cd {{ .chezmoi.homeDir }}
