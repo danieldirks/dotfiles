@@ -1,4 +1,4 @@
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 vim.opt.showmode = false
 
 local mocha = require("catppuccin.palettes").get_palette "mocha"
