@@ -1,5 +1,6 @@
-return {
+-- https://github.com/nvim-telescope/telescope.nvim
 
+local options = {
     "nvim-telescope/telescope.nvim",
     tag = '0.1.2',
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -11,3 +12,6 @@ return {
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
     end
 }
+
+return options
+
