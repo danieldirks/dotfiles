@@ -11,6 +11,7 @@ local config = {
         transparent_background = false,
         term_colors = false,
         integrations = {
+            bufferline = true,
             neotree = true,
             treesitter = true,
             telescope = {
