@@ -27,6 +27,7 @@
         "neofetch",
         "neovim",
         "potrace",
+        "ripgrep",
         "the_silver_searcher",
         "tldr",
         "tmux",
@@ -76,6 +77,7 @@
         # minikube
         "neofetch",
         #"neovim",
+        "ripgrep",
         "silversearcher-ag",
         "tldr",
         "tmux",
