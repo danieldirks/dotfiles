@@ -27,6 +27,8 @@ vim.api.nvim_command('highlight StatusModeVisual          term=bold  cterm=bold 
 vim.api.nvim_command('highlight StatusModeVisualSep       term=bold  cterm=bold  ctermbg=black   ctermfg=magenta gui=NONE  guibg='..block..'      guifg='..magenta)
 vim.api.nvim_command('highlight StatusModeCommand         term=bold  cterm=bold  ctermbg=yellow  ctermfg=black   gui=NONE  guibg='..orange..'     guifg='..background)
 vim.api.nvim_command('highlight StatusModeCommandSep      term=bold  cterm=bold  ctermbg=black   ctermfg=yellow  gui=NONE  guibg='..block..'      guifg='..orange)
+vim.api.nvim_command('highlight StatusModeTerminal        term=bold  cterm=bold  ctermbg=yellow  ctermfg=black   gui=NONE  guibg='..orange..'     guifg='..background)
+vim.api.nvim_command('highlight StatusModeTerminalSep     term=bold  cterm=bold  ctermbg=black   ctermfg=yellow  gui=NONE  guibg='..block..'      guifg='..orange)
 
 vim.api.nvim_command('highlight StatusBlockBackground     term=NONE  cterm=NONE  ctermbg=black   ctermfg=white   gui=NONE  guibg='..block..'      guifg='..text)
 vim.api.nvim_command('highlight StatusBlockDirectorySep   term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=blue    gui=NONE  guibg=NONE             guifg='..red)
@@ -51,6 +53,8 @@ function status_mode()
         return '%#StatusModeVisual#  V-BLOCK %#StatusModeVisualSep#'
     elseif mode == 'c' then
         return '%#StatusModeCommand#  COMMAND %#StatusModeCommandSep#'
+    elseif mode == 't' then
+        return '%#StatusModeTerminal#  TERMINAL %#StatusModeTerminalSep#'
     else
         return '%#StatusModeDefault# ' .. mode .. ' %#StatusModeDefaultSep#'
     end
