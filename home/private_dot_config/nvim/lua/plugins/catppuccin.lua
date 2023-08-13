@@ -11,7 +11,6 @@ local config = {
         transparent_background = false,
         term_colors = false,
         integrations = {
-            bufferline = true,
             gitsigns = true,
             neotree = true,
             treesitter = true,
