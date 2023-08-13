@@ -24,7 +24,7 @@ return {
                         },
                         modified = {
                             fg = mocha.lavender,
-                            bg = mocha.surface0,
+                            bg = mocha.mantle,
                         },
                         modified_selected = {
                             fg = mocha.lavender,
