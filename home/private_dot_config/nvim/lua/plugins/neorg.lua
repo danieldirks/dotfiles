@@ -9,9 +9,13 @@ local config = {
     },
     opts = {
         load = {
-            ["core.defaults"] = {},  -- default config
-            ["core.concealer"] = {},  -- icons
-            ["core.dirman"] = {  -- workspaces
+            ["core.defaults"] = {},
+            ["core.concealer"] = {
+                config = {
+                    folds = false,
+                },
+            },
+            ["core.dirman"] = {
                 config = {
                     workspaces = {
                         home = "~/Notes/home",
