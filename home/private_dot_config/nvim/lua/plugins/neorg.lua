@@ -10,16 +10,11 @@ local config = {
     opts = {
         load = {
             ["core.defaults"] = {},
-            ["core.concealer"] = {
-                config = {
-                    folds = false,
-                },
-            },
+            ["core.concealer"] = {},
             ["core.dirman"] = {
                 config = {
                     workspaces = {
                         home = "~/Notes/home",
-                        work = "~/Notes/work",
                     },
                     default_workspace = "home",
                     open_last_workspace = true,

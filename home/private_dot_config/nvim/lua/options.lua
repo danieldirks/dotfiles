@@ -17,6 +17,9 @@ vim.opt.smartindent = true
 vim.opt.cindent = true
 vim.opt.wrap = false
 
+-- folding
+vim.opt.foldlevel = 99
+
 -- show 5 lines above/below cursor
 vim.opt.scrolloff = 5
 
