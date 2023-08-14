@@ -2,42 +2,31 @@ vim.opt.laststatus = 3
 vim.opt.showmode = false
 
 local mocha = require("catppuccin.palettes").get_palette "mocha"
-local magenta = mocha.pink
-local purple = mocha.mauve
-local red = mocha.red
-local orange = mocha.peach
-local yellow = mocha.yellow
-local green = mocha.green
-local blue = mocha.lavender
-local text = mocha.text
-local bgtext = mocha.overlay0
-local block = mocha.surface0
-local background = mocha.crust
 
-vim.api.nvim_command('highlight StatusBackground          term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.crust..'    guifg='..mocha.overlay0)
+vim.api.nvim_command('highlight StatusBackground          term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.overlay0)
 
-vim.api.nvim_command('highlight StatusModeDefault         term=bold  cterm=bold  ctermbg=magenta ctermfg=black   gui=NONE  guibg='..mocha.red..'      guifg='..mocha.crust)
+vim.api.nvim_command('highlight StatusModeDefault         term=bold  cterm=bold  ctermbg=magenta ctermfg=black   gui=NONE  guibg='..mocha.red..'      guifg='..mocha.mantle)
 vim.api.nvim_command('highlight StatusModeDefaultSep      term=bold  cterm=bold  ctermbg=black   ctermfg=magenta gui=NONE  guibg='..mocha.surface0..' guifg=NONE')
-vim.api.nvim_command('highlight StatusModeNormal          term=bold  cterm=bold  ctermbg=green   ctermfg=black   gui=NONE  guibg='..mocha.lavender..' guifg='..mocha.crust)
+vim.api.nvim_command('highlight StatusModeNormal          term=bold  cterm=bold  ctermbg=green   ctermfg=black   gui=NONE  guibg='..mocha.lavender..' guifg='..mocha.mantle)
 vim.api.nvim_command('highlight StatusModeNormalSep       term=bold  cterm=bold  ctermbg=black   ctermfg=green   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.lavender)
-vim.api.nvim_command('highlight StatusModeInsert          term=bold  cterm=bold  ctermbg=blue    ctermfg=black   gui=NONE  guibg='..mocha.blue..'     guifg='..mocha.crust)
+vim.api.nvim_command('highlight StatusModeInsert          term=bold  cterm=bold  ctermbg=blue    ctermfg=black   gui=NONE  guibg='..mocha.blue..'     guifg='..mocha.mantle)
 vim.api.nvim_command('highlight StatusModeInsertSep       term=bold  cterm=bold  ctermbg=black   ctermfg=blue    gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.blue)
-vim.api.nvim_command('highlight StatusModeReplace         term=bold  cterm=bold  ctermbg=red     ctermfg=black   gui=NONE  guibg='..mocha.maroon..'   guifg='..mocha.crust)
+vim.api.nvim_command('highlight StatusModeReplace         term=bold  cterm=bold  ctermbg=red     ctermfg=black   gui=NONE  guibg='..mocha.maroon..'   guifg='..mocha.mantle)
 vim.api.nvim_command('highlight StatusModeReplaceSep      term=bold  cterm=bold  ctermbg=black   ctermfg=red     gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.maroon)
-vim.api.nvim_command('highlight StatusModeVisual          term=bold  cterm=bold  ctermbg=magenta ctermfg=black   gui=NONE  guibg='..mocha.peach..'    guifg='..mocha.crust)
+vim.api.nvim_command('highlight StatusModeVisual          term=bold  cterm=bold  ctermbg=magenta ctermfg=black   gui=NONE  guibg='..mocha.peach..'    guifg='..mocha.mantle)
 vim.api.nvim_command('highlight StatusModeVisualSep       term=bold  cterm=bold  ctermbg=black   ctermfg=magenta gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.peach)
-vim.api.nvim_command('highlight StatusModeCommand         term=bold  cterm=bold  ctermbg=yellow  ctermfg=black   gui=NONE  guibg='..mocha.mauve..'    guifg='..mocha.crust)
+vim.api.nvim_command('highlight StatusModeCommand         term=bold  cterm=bold  ctermbg=yellow  ctermfg=black   gui=NONE  guibg='..mocha.mauve..'    guifg='..mocha.mantle)
 vim.api.nvim_command('highlight StatusModeCommandSep      term=bold  cterm=bold  ctermbg=black   ctermfg=yellow  gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.mauve)
-vim.api.nvim_command('highlight StatusModeTerminal        term=bold  cterm=bold  ctermbg=yellow  ctermfg=black   gui=NONE  guibg='..mocha.mauve..'    guifg='..mocha.crust)
+vim.api.nvim_command('highlight StatusModeTerminal        term=bold  cterm=bold  ctermbg=yellow  ctermfg=black   gui=NONE  guibg='..mocha.mauve..'    guifg='..mocha.mantle)
 vim.api.nvim_command('highlight StatusModeTerminalSep     term=bold  cterm=bold  ctermbg=black   ctermfg=yellow  gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.mauve)
 
 vim.api.nvim_command('highlight StatusBlockB              term=NONE  cterm=NONE  ctermbg=red     ctermfg=black   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.text)
-vim.api.nvim_command('highlight StatusBlockBSep           term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=red     gui=NONE  guibg='..mocha.crust..'    guifg='..mocha.surface0)
+vim.api.nvim_command('highlight StatusBlockBSep           term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=red     gui=NONE  guibg='..mocha.mantle..'    guifg='..mocha.surface0)
 
-vim.api.nvim_command('highlight StatusBlockXSep           term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=red     gui=NONE  guibg='..mocha.crust..'    guifg='..mocha.maroon)
-vim.api.nvim_command('highlight StatusBlockX              term=NONE  cterm=NONE  ctermbg=red     ctermfg=black   gui=NONE  guibg='..mocha.maroon..'   guifg='..mocha.crust)
+vim.api.nvim_command('highlight StatusBlockXSep           term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=red     gui=NONE  guibg='..mocha.mantle..'    guifg='..mocha.maroon)
+vim.api.nvim_command('highlight StatusBlockX              term=NONE  cterm=NONE  ctermbg=red     ctermfg=black   gui=NONE  guibg='..mocha.maroon..'   guifg='..mocha.mantle)
 vim.api.nvim_command('highlight StatusBlockYSep           term=NONE  cterm=NONE  ctermbg=black   ctermfg=blue    gui=NONE  guibg='..mocha.maroon..'   guifg='..mocha.flamingo)
-vim.api.nvim_command('highlight StatusBlockY              term=NONE  cterm=NONE  ctermbg=blue    ctermfg=black   gui=NONE  guibg='..mocha.flamingo..' guifg='..mocha.crust)
+vim.api.nvim_command('highlight StatusBlockY              term=NONE  cterm=NONE  ctermbg=blue    ctermfg=black   gui=NONE  guibg='..mocha.flamingo..' guifg='..mocha.mantle)
 
 
 function status_mode()

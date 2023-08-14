@@ -12,15 +12,18 @@ return {
                 styles = {},
                 custom = {
                     mocha = {
+                        fill = {
+                            bg = mocha.mantle,
+                        },
                         buffer_selected = {
-                            bg = mocha.surface0,
+                            bg = mocha.base,
                         },
                         indicator_selected = {
                             fg = mocha.mauve,
-                            bg = mocha.surface0,
+                            bg = mocha.base,
                         },
                         close_button_selected = {
-                            bg = mocha.surface0,
+                            bg = mocha.base,
                         },
                         modified = {
                             fg = mocha.lavender,
@@ -28,10 +31,10 @@ return {
                         },
                         modified_selected = {
                             fg = mocha.lavender,
-                            bg = mocha.surface0,
+                            bg = mocha.base,
                         },
                         separator = {
-                            bg = mocha.crust,
+                            bg = mocha.mantle,
                         },
                     },
                 },
