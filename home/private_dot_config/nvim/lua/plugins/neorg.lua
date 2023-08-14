@@ -25,6 +25,7 @@ local config = {
                     strategy = "flat"  -- flat file names
                 },
             },
+            ["core.summary"] = {},
         },
     },
 }

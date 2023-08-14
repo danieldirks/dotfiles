@@ -20,6 +20,9 @@ vim.opt.wrap = false
 -- folding
 vim.opt.foldlevel = 99
 
+-- concealing
+vim.opt.conceallevel = 3
+
 -- show 5 lines above/below cursor
 vim.opt.scrolloff = 5
 
