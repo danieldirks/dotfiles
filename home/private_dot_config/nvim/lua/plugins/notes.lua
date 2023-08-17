@@ -6,13 +6,7 @@ return {
             vim.g.vimwiki_list = {
                 {
                     path = "~/Notes/home/",
-                    synatx = "markdown",
-                    ext = ".md",
-                },
-                {
-                    path = "~/Notes/work/",
-                    synatx = "markdown",
-                    ext = ".md",
+                    synatx = "default",
                 },
             }
         end,
