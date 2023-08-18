@@ -1,6 +1,7 @@
 return {
-    -- nvim-lspconfig
-    { "neovim/nvim-lspconfig",
+    {
+        -- nvim-lspconfig https://github.com/neovim/nvim-lspconfig
+        "neovim/nvim-lspconfig",
         dependencies = { "mason-lspconfig.nvim" },
         init = function()
             -- set gutter icons
@@ -12,8 +13,9 @@ return {
         end,
     },
 
-    -- mason-lspconfig https://github.com/williamboman/mason-lspconfig.nvim
-    { "williamboman/mason-lspconfig.nvim",
+    {
+        -- mason-lspconfig.nvim https://github.com/williamboman/mason-lspconfig.nvim
+        "williamboman/mason-lspconfig.nvim",
         dependencies = {
             { "williamboman/mason.nvim", opts = {}, },
         },
@@ -58,5 +60,18 @@ return {
                 end,
             },
         },
+    },
+
+    {
+        -- nvim-treesitter https://github.com/nvim-treesitter/nvim-treesitter
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        opts = {
+            auto_install = true,
+            highlight = { enable = true },
+        },
+        config = function(_, opts)
+            require('nvim-treesitter.configs').setup(opts)
+        end
     },
 }

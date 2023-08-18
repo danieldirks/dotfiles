@@ -7,7 +7,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
--- show hidden caracters
+-- show hidden characters
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", extends = "»", precedes = "«", nbsp = "×" }
 
@@ -45,7 +45,7 @@ vim.opt.clipboard = "unnamed,unnamedplus"
 vim.opt.guifont='CaskaydiaCove Nerd Font Mono:h12'
 vim.opt.termguicolors = true
 
--- show line numbers
+-- line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.api.nvim_create_augroup("numbertoggle", { clear = true })
