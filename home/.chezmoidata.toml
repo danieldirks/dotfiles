@@ -26,6 +26,7 @@
         "minikube",
         "neofetch",
         "neovim",
+        "pandoc",
         "potrace",
         "ripgrep",
         "the_silver_searcher",
@@ -80,6 +81,7 @@
         # minikube
         "neofetch",
         #"neovim",
+        "pandoc",
         "ripgrep",
         "silversearcher-ag",
         "tldr",
