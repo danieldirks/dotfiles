@@ -6,6 +6,9 @@ local config = {
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
     },
+    init = function()
+        vim.keymap.set('n', '<leader>e', ":Neotree<CR>", { desc = "Open explorer" })
+    end,
     opts = {
         filesystem = {
             follow_current_file = {
