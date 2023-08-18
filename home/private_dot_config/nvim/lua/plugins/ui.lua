@@ -13,16 +13,22 @@ return {
                 dark = "mocha",
             },
             transparent_background = false,
-            term_colors = false,
+            term_colors = true,
             integrations = {
                 gitsigns = true,
+                mason = true,
                 neotree = true,
+                cmp = true,
+                native_lsp = {
+                    enabled = true,
+                },
                 treesitter = true,
                 telescope = {
                     enabled = true,
                     style = "nvchad"
                 },
-                which_key = false,
+                vimwiki = true,
+                which_key = true,
             },
         },
     },
@@ -41,6 +47,30 @@ return {
             vim.keymap.set('n', '<leader>e', ":Neotree<CR>", { desc = "Open explorer" })
         end,
         opts = {
+            default_component_configs = {
+                modified = {
+                    symbol = "",
+                    highlight = "NeoTreeModified",
+                },
+                name = {
+                    trailing_slash = false,
+                    use_git_status_colors = false,
+                    highlight = "NeoTreeFileName",
+                },
+                git_status = {
+                    symbols = {
+                        added     = "",
+                        modified  = "",
+                        deleted   = "",
+                        renamed   = "",
+                        untracked = "",
+                        ignored   = "",
+                        unstaged  = "",  -- 
+                        staged    = "",
+                        conflict  = "!",
+                    }
+                },
+            },
             filesystem = {
                 follow_current_file = {
                     enabled = true,
@@ -85,6 +115,10 @@ return {
                                 fg = mocha.lavender,
                                 bg = mocha.base,
                             },
+                            modified_visible = {
+                                fg = mocha.lavender,
+                                bg = mocha.mantle,
+                            },
                             separator = {
                                 bg = mocha.mantle,
                             },
@@ -95,8 +129,16 @@ return {
                     always_show_bufferline = true,
                     color_icons = true,
                     diagnostics = "nvim_lsp",
-                    diagnostics_indicator = function(count)
-                        return "(" .. count .. ")"
+                    diagnostics_indicator = function(_, _, diagnostics_dict, _)
+                        local s = " "
+                        for e, _ in pairs(diagnostics_dict) do
+                            local sym = e == "error" and " "
+                            or (e == "warning" and " "
+                            or (e == "hint" and " "
+                            or " " ))
+                            s = s .. sym
+                        end
+                        return s
                     end,
                     enforce_regular_tabs = false,
                     offsets = {

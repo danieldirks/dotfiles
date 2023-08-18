@@ -4,14 +4,6 @@ return {
         -- nvim-lspconfig https://github.com/neovim/nvim-lspconfig
         "neovim/nvim-lspconfig",
         dependencies = { "mason-lspconfig.nvim" },
-        init = function()
-            -- set gutter icons
-            local signs = { Error = "", Warn = "", Hint = "", Info = "󰋼" }
-            for type, icon in pairs(signs) do
-              local hl = "DiagnosticSign" .. type
-              vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-            end
-        end,
     },
 
     {
