@@ -129,16 +129,12 @@ return {
                     always_show_bufferline = true,
                     color_icons = true,
                     diagnostics = "nvim_lsp",
-                    diagnostics_indicator = function(_, _, diagnostics_dict, _)
-                        local s = " "
-                        for e, _ in pairs(diagnostics_dict) do
-                            local sym = e == "error" and " "
-                            or (e == "warning" and " "
-                            or (e == "hint" and " "
-                            or " " ))
-                            s = s .. sym
-                        end
-                        return s
+                    diagnostics_indicator = function(count, level, _, _)
+                        local symbol = level == "error" and "  "
+                        or (level == "warning" and "  "
+                        or (level == "hint" and "  "
+                        or "  " ))
+                        return symbol .. count
                     end,
                     enforce_regular_tabs = false,
                     offsets = {

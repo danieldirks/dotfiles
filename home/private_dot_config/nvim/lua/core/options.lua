@@ -10,12 +10,12 @@ vim.opt.expandtab = true
 -- show hidden characters
 vim.opt.list = true
 vim.opt.listchars = {
-    tab = "»",
+    tab = "» ",
     trail = "·",
     extends = "»",
     precedes = "«",
     nbsp = "×",
---    eol = "↴",
+    --eol = "↴",
 }
 
 -- identing
@@ -79,6 +79,9 @@ if vim.fn.isdirectory(undodir) ~= 1 then
 end
 vim.opt.undodir = undodir
 vim.opt.undofile = true
+
+-- gutter
+vim.wo.signcolumn = "yes"
 
 -- diagnostic signs
 vim.fn.sign_define("DiagnosticSignError", {text = "", texthl = "DiagnosticSignError"})
