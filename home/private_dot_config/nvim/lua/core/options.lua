@@ -45,6 +45,9 @@ vim.opt.clipboard = "unnamed,unnamedplus"
 vim.opt.guifont='CaskaydiaCove Nerd Font Mono:h12'
 vim.opt.termguicolors = true
 
+-- open split windows to right
+vim.opt.splitright = true
+
 -- line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -61,6 +64,14 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
     end,
     group = "numbertoggle",
 })
+
+-- undo
+local undodir = os.getenv("HOME") .. "/.vim/undo"
+if vim.fn.isdirectory(undodir) ~= 1 then
+    vim.fn.mkdir(undodir, "p")
+end
+vim.opt.undodir = undodir
+vim.opt.undofile = true
 
 -- diagnostic signs
 vim.fn.sign_define("DiagnosticSignError", {text = "", texthl = "DiagnosticSignError"})
