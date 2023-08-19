@@ -116,6 +116,10 @@ return {
                     { name = "cmdline" },
                 }),
             })
+
+            -- nvim-autopairs config, see https://github.com/windwp/nvim-autopairs
+            local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+            cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end
     },
 
@@ -130,4 +134,12 @@ return {
             require("luasnip.loaders.from_snipmate").lazy_load()
         end,
     },
+
+    -- utils
+    {
+        -- nvim-autopairs https://github.com/windwp/nvim-autopairs
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
+    }
 }
