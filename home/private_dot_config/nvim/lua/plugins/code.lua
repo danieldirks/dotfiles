@@ -26,7 +26,7 @@ return {
                 --"html",      -- html
                 "jdtls",     -- java
                 --"jsonls",    -- json
-                "ltex",      -- latex
+                --"ltex",      -- latex
                 "lua_ls",    -- lua
                 "marksman",  -- markdown
                 "pylsp",     -- python
@@ -46,6 +46,22 @@ return {
                             Lua = {
                                 diagnostics = {
                                     globals = { "vim" },
+                                },
+                            },
+                        },
+                    }
+                end,
+
+                -- custom latex config
+                ["ltex"] = function()
+                    require("lspconfig").ltex.setup {
+                        settings = {
+                            ltex = {
+                                disabledRules = {
+                                    ["en-US"] = { "PROFANITY", "MORFOLOGIK_RULE_EN_US" },
+                                },
+                                dictionary = {
+                                    ["en-US"] = {},
                                 },
                             },
                         },
