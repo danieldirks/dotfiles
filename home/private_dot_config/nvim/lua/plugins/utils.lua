@@ -36,4 +36,19 @@ return {
         "editorconfig/editorconfig-vim",
         lazy = false,
     },
+
+    {
+        -- leetcode.nvim https://github.com/ianding1/leetcode.vim
+        -- integration to browse and solve leetcode challenges in vim
+        "ianding1/leetcode.vim",
+        init = function()
+            vim.keymap.set("n", "<leader>ll", ":LeetCodeList<CR>", { noremap = true, desc = "Browse LeetCode challenges" })
+            vim.keymap.set("n", "<leader>lt", ":LeetCodeTest<CR>", { noremap = true, desc = "Test LeetCode solution" })
+            vim.keymap.set("n", "<leader>ls", ":LeetCodeSubmit<CR>", { noremap = true, desc = "Submit LeetCode solution" })
+            vim.keymap.set("n", "<leader>li", ":LeetCodeSignIn<CR>", { noremap = true, desc = "Manually sign in to LeetCode" })
+
+            vim.g.leetcode_solution_filetype = "java"
+            vim.g.leetcode_browser = "chrome"
+        end
+    },
 }
