@@ -74,6 +74,7 @@
         "gnupg",
         "helm",  # helm repo
         "kubectl",  # kubernetes repo
+        "libffi-dev",
         "libimage-exiftool-perl",
         "libsqlite3-dev",
         "libssl-dev",
@@ -84,6 +85,7 @@
         #"neovim",
         "pandoc",
         "python3",
+        "python3-pip",
         "python3-venv",
         "ripgrep",
         "silversearcher-ag",

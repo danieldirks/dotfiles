@@ -11,7 +11,14 @@ fi
 asdf plugin add gradle || true
 asdf plugin add java || true
 asdf plugin add maven || true
+asdf plugin add nodejs || true
 asdf plugin add python || true
 asdf plugin add ruby || true
+
+asdf install nodejs latest
+asdf global nodejs latest
+
+asdf install python latest
+asdf global python latest
 
 {{- end -}}
