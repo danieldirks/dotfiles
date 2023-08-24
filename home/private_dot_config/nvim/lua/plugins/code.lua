@@ -157,5 +157,16 @@ return {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         opts = {},
-    }
+    },
+
+    {
+        -- copilot.vim https://github.com/github/copilot.vim
+        "github/copilot.vim",
+        build = ":Copilot setup",
+        config = function()
+            vim.cmd(":Copilot disable")
+            vim.keymap.set("n", "<leader>ce", ":Copilot enable<cr>", { desc = "Enable Copilot" })
+            vim.keymap.set("n", "<leader>cd", ":Copilot disable<cr>", { desc = "Disable Copilot" })
+        end,
+    },
 }
