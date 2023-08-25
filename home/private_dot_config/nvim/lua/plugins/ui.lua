@@ -157,7 +157,7 @@ return {
                     show_close_icon = true,
                     tab_size = 20,
                     numbers = function(opts)
-                        return string.format('%s', opts.raise(opts.id))
+                        return string.format('%s.', opts.id)
                     end,
                 },
             }
