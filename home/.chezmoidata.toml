@@ -1,7 +1,3 @@
-#############
-### setup ###
-#############
-
 [packages.macos]
     taps = [
         "homebrew/cask-fonts",
@@ -139,14 +135,6 @@
         "bkkmolkhemgaeaeggcmfbghljjjoofoh",  # Catppuccin Mocha
         "oboonakemofpalcgghocfoadofidjkkk",  # KeePassXC-Browser
         "clngdbkpkpeebahjckkjfobafhncgmne",  # Stylus
-    ]
-    chrome_urls = [
-        "https://github.com/catppuccin/userstyles/raw/main/styles/github/catppuccin.user.css",
-        "https://github.com/catppuccin/userstyles/raw/main/styles/mastodon/catppuccin.user.css",
-        "https://github.com/catppuccin/userstyles/raw/main/styles/reddit/catppuccin.user.css",
-        "https://github.com/catppuccin/userstyles/raw/main/styles/twitch/catppuccin.user.css",
-        "https://github.com/catppuccin/userstyles/raw/main/styles/whatsapp-web/catppuccin.user.css",
-        "https://github.com/catppuccin/userstyles/raw/main/styles/youtube/catppuccin.user.css",
     ]
     vscode = [
         ### code
