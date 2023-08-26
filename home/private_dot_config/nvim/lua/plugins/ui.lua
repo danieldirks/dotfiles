@@ -156,9 +156,9 @@ return {
                     show_buffer_icons = true,
                     show_close_icon = true,
                     tab_size = 20,
-                    numbers = function(opts)
-                        return string.format('%s.', opts.id)
-                    end,
+                    --numbers = function(opts)
+                    --    return string.format('%s', opts.id)
+                    --end,
                 },
             }
         end,
