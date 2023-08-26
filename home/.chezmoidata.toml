@@ -41,6 +41,7 @@
     ]
     casks_gui = [
         "docker",
+        "firefox",
         "google-chrome",
         "hyper",
         "keepassxc",
@@ -96,6 +97,7 @@
         "zsh",
     ]
     gui = [
+        "firefox",
         "google-chrome-stable",  # google-chrome repo
         "keepassxc",
     ]
@@ -120,6 +122,7 @@
         "KeePassXCTeam.KeePassXC",
         "Logseq.Logseq",
         "Microsoft.VisualStudioCode",
+        "Mozilla.Firefox",
         "Nextcloud.NextcloudDesktop",
         "QMK.QMKToolbox",
         "Spotify.Spotify",
