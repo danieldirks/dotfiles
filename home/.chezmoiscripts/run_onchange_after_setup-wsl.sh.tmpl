@@ -11,4 +11,7 @@ if ! ps --no-headers -o comm 1 | grep -q "systemd"; then
     exit 1
 fi
 
+# use wslview instead of open to open files with windows defaults
+sudo apt-get install wslu
+
 {{- end -}}

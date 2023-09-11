@@ -16,3 +16,8 @@ alias ca='chezmoi apply'
 alias ccd='chezmoi cd'
 alias ce='chezmoi edit'
 alias cu='chezmoi update'
+
+{{ if (and (eq .osid "linux-ubuntu") (.wsl)) -}}
+# wsl
+alias open='wslview'
+{{ end -}}
