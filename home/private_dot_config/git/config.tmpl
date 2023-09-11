@@ -3,7 +3,7 @@
     email = {{ .email }}
 
 [alias]
-    graph = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%an%C(reset)%C(bold yellow)%d%C(reset) %C(dim white)- %s%C(reset)' --all
+    graph = log --graph --format=format:'%C(red)%h %C(white)%s %C(dim italic white)(%ar)%C(reset)%C(bold yellow)%d%C(reset)' --all
 
 [core]
     pager = delta
