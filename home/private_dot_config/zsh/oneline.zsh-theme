@@ -27,8 +27,4 @@ PS1+='$(git_super_status)'
 PS1+=' %(?.%F{green}.%F{red})%(!.#.»)%f '
 PS2='› '
 
-RPS1=''
-# hide hostname in tmux
-if [[ ! -v TMUX ]]; then
-    RPS1+='💻 %m'
-fi
+RPS1='$(clock-emoji) %*'
