@@ -33,6 +33,9 @@ vim.opt.conceallevel = 3
 -- show 5 lines above/below cursor
 vim.opt.scrolloff = 5
 
+-- show colorcolumn relative to textwidth
+vim.opt.colorcolumn = '+0'
+
 -- encoding
 vim.opt.encoding = "utf-8"
 vim.opt.termencoding = "utf-8"
@@ -49,7 +52,7 @@ vim.opt.smartcase = true
 vim.opt.clipboard = "unnamed,unnamedplus"
 
 -- gui settings
-vim.opt.guifont='CaskaydiaCove Nerd Font Mono:h12'
+vim.opt.guifont = 'CaskaydiaCove Nerd Font Mono:h12'
 vim.opt.termguicolors = true
 
 -- open split windows to right
