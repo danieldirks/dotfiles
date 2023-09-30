@@ -1,28 +1,40 @@
 # dotfiles
 
-My dotfiles.
+My system config.
 
+[![License](https://img.shields.io/github/license/danieldirks/dotfiles)](./LICENSE)
 
-## Setup
+## Installation
+
+> **Warning**
+> The install scripts will overwrite things on your system.
+> Config is by no means stable.
+> Don't set it up on your machine unless you know what you are doing.
+
+Setup on Linux and MacOS:
 
 ```bash
-# linux and macos
 sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply danieldirks
 ```
 
+Setup on Windows PowerShell:
+
 ```ps
-# windows
 (irm -useb https://get.chezmoi.io/ps1) | powershell -c -
 bin/chezmoi init --apply danieldirks
 ```
 
-System packages and binaries [on their website](https://www.chezmoi.io/install/). To update dotfiles, run `chezmoi update`.
+See [chezmoi.io](https://www.chezmoi.io/) for different options and additional setup steps.
 
+## Components
 
-### Safe mode
+Some tools I use on a daily basis:
 
-In safe mode setup scripts are skipped. To generate and run setup scripts manually, select the files from [.chezmoiscripts/setup](home/.chezmoiscripts/setup/) and run:
+* [neovim](./home/private_dot_config/nvim/) - Customizable text editor
+* [tmux](./home/dot_tmux.conf) - Terminal multiplexer
+* [zsh](./home/dot_zshrc) - Shell
 
-```sh
-cat <path/to/file>.tmpl | chezmoi execute-template > script
-```
+## License
+
+The project is licensed under the [MIT License](./LICENSE).
+
