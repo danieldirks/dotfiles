@@ -2,6 +2,7 @@
 
 My system config.
 
+[![Neovim plugins](https://dotfyle.com/danieldirks/dotfiles-home-privatedotconfig-nvim/badges/plugins?style=flat)](https://dotfyle.com/danieldirks/dotfiles-home-privatedotconfig-nvim)
 [![License](https://img.shields.io/github/license/danieldirks/dotfiles)](./LICENSE)
 
 ## Installation
