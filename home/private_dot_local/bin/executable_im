@@ -1,0 +1,68 @@
+#!/bin/bash
+
+set -e
+
+display_help() {
+    echo "Usage: im <in-file> [-w <width>] [-h <height>] [-strip] <out-file>"
+    echo
+    echo "-w --width     image width to scale to. omit -h to keep ratio."
+    echo "-h --height    image height to scale to. omit -w to keep ratio."
+    echo "   --strip     remove metadata."
+}
+
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --help)
+            display_help
+            exit 0
+            ;;
+        -w|--width)
+            WIDTH="$2"
+            shift
+            shift
+            ;;
+        -h|--height)
+            HEIGHT="$2"
+            shift
+            shift
+            ;;
+        --strip)
+            STRIP_METADATA=YES
+            shift
+            ;;
+        -*|--*)
+            echo "Unknown option $1"
+            echo
+            display_help
+            exit 1
+            ;;
+        *)
+            POSITIONAL_ARGS+=("$1")
+            shift
+            ;;
+    esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}"
+
+if [ ${#POSITIONAL_ARGS[@]} -ne 2 ]; then
+    display_help
+    exit 1
+fi
+
+CMD="magick $1"
+
+if [ -n "$WIDTH" ] && [ -n "$HEIGHT" ]; then
+    CMD+=" -scale ${WIDTH}x${HEIGHT}^ -gravity center -extent ${WIDTH}x${HEIGHT}"
+elif [ -n "$WIDTH" ]; then
+    CMD+=" -resize ${WIDTH}x"
+elif [ -n "$HEIGHT" ]; then
+    CMD+=" -resize x${HEIGHT}"
+fi
+if [ -n "$STRIP_METADATA" ]; then CMD+=' -strip'; fi
+
+CMD+=" $2"
+
+$CMD
