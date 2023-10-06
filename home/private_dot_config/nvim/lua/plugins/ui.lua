@@ -184,7 +184,7 @@ return {
                 dashboard.button("f", "  Find File", ":Telescope find_files<CR>"),
                 dashboard.button("n", "  New File", ":ene <BAR> startinsert <CR>"),
                 dashboard.button("r", "󱑁  Recent Files", ":Telescope oldfiles<CR>"),
-                dashboard.button("w", "󰠮  Open Notes", ":WikiIndex<CR>"),
+                dashboard.button("w", "󰠮  Open Wiki", ":VimwikiIndex<CR>"),
                 dashboard.button("u", "  Update Plugins", ":Lazy update<CR>"),
                 dashboard.button("q", "󰗼  Quit", ":qa!<CR>"),
             }
