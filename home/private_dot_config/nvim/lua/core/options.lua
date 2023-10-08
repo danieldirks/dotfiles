@@ -30,8 +30,9 @@ vim.opt.foldlevel = 99
 -- concealing
 vim.opt.conceallevel = 3
 
--- show 5 lines above/below cursor
+-- show 5 lines above/below and 10 chars left/right of cursor
 vim.opt.scrolloff = 5
+vim.opt.sidescrolloff = 10
 
 -- show colorcolumn relative to textwidth
 vim.opt.colorcolumn = '+0'
