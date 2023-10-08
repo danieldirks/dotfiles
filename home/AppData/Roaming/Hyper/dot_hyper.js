@@ -5,8 +5,8 @@ module.exports = {
         defaultSSHApp: true,
         fontSize: 16,
         fontFamily: "CaskaydiaCove Nerd Font Mono, Cascadia Code, Menlo, monospace",
-        //shell: 'wsl.exe',
-        //shellArgs: ['--cd', '~'],
+        shell: 'wsl.exe',
+        shellArgs: ['--cd', '~'],
 
         defaultProfile: "Ubuntu (WSL)",
         profiles: [
