@@ -71,3 +71,5 @@ export LESSOPEN='| ~/.config/less/lessfilter.sh %s'
 source $ZSH_BASE/aliases.zsh
 source $ZSH_BASE/fzf-tab.zsh
 source ~/.config/fzf/fzf.sh
+
+[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
