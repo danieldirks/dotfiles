@@ -12,10 +12,4 @@ curl -o ~/.config/zsh/antigen/antigen.zsh https://raw.githubusercontent.com/zsh-
 # set zsh as default shell
 sudo chsh -s $(which zsh) ${USER}
 
-# reload zsh plugins and themes
-if command -v zsh &> /dev/null; then
-    # reload zsh plugins and themes
-    /usr/bin/env zsh -c "source ~/.zshrc && antigen reset"
-fi
-
 {{- end -}}
