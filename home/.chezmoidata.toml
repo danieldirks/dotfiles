@@ -125,6 +125,7 @@
         "SamHocevar.WinCompose",
         "Spotify.Spotify",
         #"Vercel.Hyper",
+        "wez.wezterm",
     ]
     gaming = [
         "Discord.Discord",
