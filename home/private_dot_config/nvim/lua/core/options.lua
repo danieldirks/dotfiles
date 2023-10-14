@@ -10,13 +10,14 @@ vim.opt.expandtab = true
 -- show hidden characters
 vim.opt.list = true
 vim.opt.listchars = {
-    tab = "» ",
-    trail = "·",
-    extends = "»",
-    precedes = "«",
-    nbsp = "×",
-    --eol = "↴",
+    tab = '» ',
+    trail = '·',
+    --extends = '»',
+    precedes = '«',
+    nbsp = '×',
+    --eol = '↲',
 }
+vim.opt.showbreak = '↳ '
 
 -- identing
 vim.opt.autoindent = true
