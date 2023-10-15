@@ -12,7 +12,11 @@ config.color_scheme = 'Catppuccin Mocha'
 
 -- font settings
 config.font = wezterm.font 'CaskaydiaCove Nerd Font Mono'
+{{- if eq .chezmoi.os "darwin" }}
+config.font_size = 14.0
+{{- else }}
 config.font_size = 12.0
+{{- end }}
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.underline_position = -3
 
@@ -32,7 +36,13 @@ config.enable_scroll_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
 -- default command
+{{- if eq .chezmoi.os "windows" }}
 config.default_prog = { 'wsl.exe', '--cd', '~', '/bin/zsh', '-l', '-c', 'tmuxinator main' }
+{{- else if eq .chezmoi.os "darwin" }}
+config.default_prog = { '/bin/zsh', '-l', '-c', 'tmuxinator main' }
+{{- else }}
+config.default_prog = { '/bin/zsh', '-c', 'tmuxinator main' }
+{{- end }}
 
 -- disable confirmation when closing
 config.window_close_confirmation = 'NeverPrompt'

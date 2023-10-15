@@ -42,6 +42,7 @@
         "hyper",
         "keepassxc",
         "visual-studio-code",
+        "wezterm",
     ]
 
 [packages.ubuntu]
