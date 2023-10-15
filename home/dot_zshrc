@@ -8,8 +8,6 @@ ttyctl -f
 
 ZSH_BASE=$HOME/.config/zsh
 
-ZSH_TMUX_AUTOSTART=true
-
 # history
 HISTFILE=~/.zsh_history
 SAVEHIST=1000  # max lines saved in HISTFILE

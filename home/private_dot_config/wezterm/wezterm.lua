@@ -32,7 +32,7 @@ config.enable_scroll_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
 -- default command
-config.default_prog = { 'wsl.exe', '--cd', '~', '/bin/zsh', '-l' }
+config.default_prog = { 'wsl.exe', '--cd', '~', '/bin/zsh', '-l', '-c', 'tmuxinator main' }
 
 -- disable confirmation when closing
 config.window_close_confirmation = 'NeverPrompt'
