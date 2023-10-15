@@ -8,6 +8,8 @@ ttyctl -f
 
 ZSH_BASE=$HOME/.config/zsh
 
+ZSH_TMUX_AUTOSTART=true
+
 # history
 HISTFILE=~/.zsh_history
 SAVEHIST=1000  # max lines saved in HISTFILE
@@ -72,4 +74,4 @@ source $ZSH_BASE/aliases.zsh
 source $ZSH_BASE/fzf-tab.zsh
 source ~/.config/fzf/fzf.sh
 
-[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+# [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit; }
