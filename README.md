@@ -34,6 +34,7 @@ Some tools I use on a daily basis:
 * [neovim](./home/private_dot_config/nvim/) - Customizable text editor
 * [tmux](./home/dot_tmux.conf) - Terminal multiplexer
 * [zsh](./home/dot_zshrc) - Shell
+* [wezterm](./home/private_dot_config/wezterm/) - Customizable terminal
 
 ## License
 
