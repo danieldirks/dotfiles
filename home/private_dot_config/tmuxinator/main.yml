@@ -4,5 +4,4 @@ root: ~/
 startup_window: notes
 
 windows:
-  - notes: vim -c "VimwikiIndex"
-  - shell: zsh -c clear
+  - ~: zsh -c clear
