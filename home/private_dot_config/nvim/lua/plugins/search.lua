@@ -7,11 +7,12 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' },
         init = function()
             local builtin = require('telescope.builtin')
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Grep files' })
+            vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find file' })
+            vim.keymap.set('n', '<leader>fF', builtin.live_grep, { desc = 'Find file content' })
+            vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Find git file' })
             vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find buffer' })
-            vim.keymap.set('n', '<leader>fn', ':Telescope find_files search_dirs=~/Notes<cr>', { desc = 'Find wiki page' })
-            vim.keymap.set('n', '<leader>fw', ':Telescope live_grep search_dirs=~/Notes<cr>', { desc = 'Find wiki content' })
+            vim.keymap.set('n', '<leader>fw', ':Telescope find_files search_dirs=~/Notes<cr>', { desc = 'Find note' })
+            vim.keymap.set('n', '<leader>fW', ':Telescope live_grep search_dirs=~/Notes<cr>', { desc = 'Find note content' })
         end
     },
 
