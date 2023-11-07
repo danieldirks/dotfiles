@@ -109,7 +109,7 @@ return {
                             },
                             tab_selected = {
                                 fg = mocha.mantle,
-                                bg = mocha.mauve,
+                                bg = mocha.mantle,
                             },
                             tab_separator = {
                                 fg = mocha.mantle,
@@ -121,6 +121,15 @@ return {
                             },
                             buffer_selected = {
                                 bg = mocha.base,
+                            },
+                            numbers = {
+                                fg = mocha.overlay0,
+                            },
+                            numbers_visible = {
+                                fg = mocha.overlay0,
+                            },
+                            numbers_selected = {
+                                fg = mocha.text,
                             },
                             indicator_selected = {
                                 fg = mocha.mauve,
@@ -145,9 +154,6 @@ return {
                     },
                 },
                 options = {
-                    --numbers = function(opts)
-                    --    return string.format('%s', opts.id)
-                    --end,
                     numbers = 'buffer_id',
                     modified_icon = '●',
                     left_trunc_marker = '',
