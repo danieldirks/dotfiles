@@ -5,80 +5,104 @@ local mocha = require("catppuccin.palettes").get_palette "mocha"
 
 vim.api.nvim_command('highlight StatusBackground          term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.overlay0)
 
-vim.api.nvim_command('highlight StatusModeDefault         term=bold  cterm=bold  ctermbg=magenta ctermfg=black   gui=NONE  guibg='..mocha.red..'      guifg='..mocha.mantle)
-vim.api.nvim_command('highlight StatusModeDefaultSep      term=bold  cterm=bold  ctermbg=black   ctermfg=magenta gui=NONE  guibg='..mocha.surface0..' guifg=NONE')
-vim.api.nvim_command('highlight StatusModeNormal          term=bold  cterm=bold  ctermbg=green   ctermfg=black   gui=NONE  guibg='..mocha.lavender..' guifg='..mocha.mantle)
-vim.api.nvim_command('highlight StatusModeNormalSep       term=bold  cterm=bold  ctermbg=black   ctermfg=green   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.lavender)
-vim.api.nvim_command('highlight StatusModeInsert          term=bold  cterm=bold  ctermbg=blue    ctermfg=black   gui=NONE  guibg='..mocha.blue..'     guifg='..mocha.mantle)
-vim.api.nvim_command('highlight StatusModeInsertSep       term=bold  cterm=bold  ctermbg=black   ctermfg=blue    gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.blue)
-vim.api.nvim_command('highlight StatusModeReplace         term=bold  cterm=bold  ctermbg=red     ctermfg=black   gui=NONE  guibg='..mocha.maroon..'   guifg='..mocha.mantle)
-vim.api.nvim_command('highlight StatusModeReplaceSep      term=bold  cterm=bold  ctermbg=black   ctermfg=red     gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.maroon)
-vim.api.nvim_command('highlight StatusModeVisual          term=bold  cterm=bold  ctermbg=magenta ctermfg=black   gui=NONE  guibg='..mocha.peach..'    guifg='..mocha.mantle)
-vim.api.nvim_command('highlight StatusModeVisualSep       term=bold  cterm=bold  ctermbg=black   ctermfg=magenta gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.peach)
-vim.api.nvim_command('highlight StatusModeCommand         term=bold  cterm=bold  ctermbg=yellow  ctermfg=black   gui=NONE  guibg='..mocha.mauve..'    guifg='..mocha.mantle)
-vim.api.nvim_command('highlight StatusModeCommandSep      term=bold  cterm=bold  ctermbg=black   ctermfg=yellow  gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.mauve)
-vim.api.nvim_command('highlight StatusModeTerminal        term=bold  cterm=bold  ctermbg=yellow  ctermfg=black   gui=NONE  guibg='..mocha.mauve..'    guifg='..mocha.mantle)
-vim.api.nvim_command('highlight StatusModeTerminalSep     term=bold  cterm=bold  ctermbg=black   ctermfg=yellow  gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.mauve)
+vim.api.nvim_command('highlight StatusBlock               term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.text)
+vim.api.nvim_command('highlight StatusBlockHighlight      term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.red)
+vim.api.nvim_command('highlight StatusBlockBSep           term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.surface0)
 
-vim.api.nvim_command('highlight StatusBlockB              term=NONE  cterm=NONE  ctermbg=red     ctermfg=black   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.text)
-vim.api.nvim_command('highlight StatusBlockBSep           term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=red     gui=NONE  guibg='..mocha.mantle..'    guifg='..mocha.surface0)
+-- NORMAL
+vim.api.nvim_command('highlight StatusModeNORMAL          term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.lavender..' guifg='..mocha.mantle)
+vim.api.nvim_command('highlight StatusModeSepNORMAL       term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.lavender)
+vim.api.nvim_command('highlight StatusModeBSepNORMAL      term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.lavender)
+-- INSERT
+vim.api.nvim_command('highlight StatusModeINSERT          term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.blue..'     guifg='..mocha.mantle)
+vim.api.nvim_command('highlight StatusModeSepINSERT       term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.blue)
+vim.api.nvim_command('highlight StatusModeBSepINSERT      term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.blue)
+-- REPLACE
+vim.api.nvim_command('highlight StatusModeREPLACE         term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.maroon..'   guifg='..mocha.mantle)
+vim.api.nvim_command('highlight StatusModeSepREPLACE      term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.maroon)
+vim.api.nvim_command('highlight StatusModeBSepREPLACE     term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.maroon)
+-- VISUAL
+vim.api.nvim_command('highlight StatusModeVISUAL          term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.peach..'    guifg='..mocha.mantle)
+vim.api.nvim_command('highlight StatusModeSepVISUAL       term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.peach)
+vim.api.nvim_command('highlight StatusModeBSepVISUAL      term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.peach)
+-- V-LINE
+vim.api.nvim_command('highlight StatusModeVLINE           term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.peach..'    guifg='..mocha.mantle)
+vim.api.nvim_command('highlight StatusModeSepVLINE        term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.peach)
+vim.api.nvim_command('highlight StatusModeBSepVLINE       term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.peach)
+-- V-BLOCK
+vim.api.nvim_command('highlight StatusModeVBLOCK          term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.peach..'    guifg='..mocha.mantle)
+vim.api.nvim_command('highlight StatusModeSepVBLOCK       term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.peach)
+vim.api.nvim_command('highlight StatusModeBSepVBLOCK      term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.peach)
+-- COMMAND
+vim.api.nvim_command('highlight StatusModeCOMMAND         term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mauve..'    guifg='..mocha.mantle)
+vim.api.nvim_command('highlight StatusModeSepCOMMAND      term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.mauve)
+vim.api.nvim_command('highlight StatusModeBSepCOMMAND     term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.mauve)
+-- TERMINAL
+vim.api.nvim_command('highlight StatusModeTERMINAL        term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mauve..'    guifg='..mocha.mantle)
+vim.api.nvim_command('highlight StatusModeSepTERMINAL     term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.mauve)
+vim.api.nvim_command('highlight StatusModeBSepTERMINAL    term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.mauve)
 
-vim.api.nvim_command('highlight StatusBlockXSep           term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=red     gui=NONE  guibg='..mocha.mantle..'    guifg='..mocha.maroon)
-vim.api.nvim_command('highlight StatusBlockX              term=NONE  cterm=NONE  ctermbg=red     ctermfg=black   gui=NONE  guibg='..mocha.maroon..'   guifg='..mocha.mantle)
-vim.api.nvim_command('highlight StatusBlockYSep           term=NONE  cterm=NONE  ctermbg=black   ctermfg=blue    gui=NONE  guibg='..mocha.maroon..'   guifg='..mocha.flamingo)
-vim.api.nvim_command('highlight StatusBlockY              term=NONE  cterm=NONE  ctermbg=blue    ctermfg=black   gui=NONE  guibg='..mocha.flamingo..' guifg='..mocha.mantle)
 
-
-function status_mode()
+local status_mode = function ()
     local mode = vim.fn.mode()
     if mode == 'n' then
-        return '%#StatusModeNormal#  NORMAL %#StatusModeNormalSep#'
+        return 'NORMAL'
     elseif mode == 'i' then
-        return '%#StatusModeInsert#  INSERT %#StatusModeInsertSep#'
+        return 'INSERT'
     elseif mode == 'R' then
-        return '%#StatusModeReplace#  REPLACE %#StatusModeReplaceSep#'
+        return 'REPLACE'
     elseif mode == 'v' then
-        return '%#StatusModeVisual#  VISUAL %#StatusModeVisualSep#'
+        return 'VISUAL'
     elseif mode == 'V' then
-        return '%#StatusModeVisual#  V-LINE %#StatusModeVisualSep#'
+        return 'VLINE'
     elseif mode == '\22' then
-        return '%#StatusModeVisual#  V-BLOCK %#StatusModeVisualSep#'
+        return 'VBLOCK'
     elseif mode == 'c' then
-        return '%#StatusModeCommand#  COMMAND %#StatusModeCommandSep#'
+        return 'COMMAND'
     elseif mode == 't' then
-        return '%#StatusModeTerminal#  TERMINAL %#StatusModeTerminalSep#'
-    else
-        return '%#StatusModeDefault# ' .. mode .. ' %#StatusModeDefaultSep#'
+        return 'TERMINAL'
     end
+    return mode
 end
 
-function status_file_icon()
+local status_file = function ()
     local name = vim.fn.expand("%:t")
     local type = vim.bo.filetype
 
-    local icon, hl = require'nvim-web-devicons'.get_icon_by_filetype(type, { default = true })
-    return icon
+    local icon, hl_name = require'nvim-web-devicons'.get_icon_by_filetype(type, { default = true })
+    local hl = vim.api.nvim_get_hl_by_name(hl_name, true)
+    hl.bg = mocha.surface0
+    vim.api.nvim_set_hl(0, 'StatusFileIcon', hl)
+    return name, type, icon, 'StatusFileIcon'
 end
 
-function status_git()
+local status_file_flags = function ()
+    local ro = ''
+    if vim.bo.readonly then
+        ro = ' '
+    end
+    return '%#StatusBlockHighlight#' .. ro
+end
+
+local status_git = function ()
     local branch = vim.fn.system("git -C ".. vim.fn.expand("%:p:h") .. " branch --show-current 2> /dev/null | tr -d '\n'")
     if branch ~= "" then
-        return '%#StatusBackground# 󰘬 ' .. branch .. ' '
+        return ' 󰘬 ' .. branch .. ' '
     else
         return ''
     end
 end
 
-function status_line()
+function STATUS_LINE()
     local status = ''
-    status = status .. status_mode()
-    status = status .. '%#StatusBlockB# %t '  -- file name
-    status = status .. status_git() .. '%#StatusBackground#'
+    local _, type, icon, icon_hl = status_file()
+    local mode = status_mode()
+    status = status .. '%#StatusMode' .. mode .. '#  ' .. mode .. ' %#StatusModeSep' .. mode .. '#'  -- mode
+    status = status .. '%#'..icon_hl..'# ' .. icon .. ' %#StatusBlock#' .. type .. ' ' .. status_file_flags()  -- file type
+    status = status .. '%#StatusBackground#' .. status_git()  -- git
     status = status .. '%='
-    status = status .. '%#StatusBlockXSep#%#StatusBlockX# %{fnamemodify(getcwd(), ":t")} '  -- directory
-    status = status .. '%#StatusBlockYSep#%#StatusBlockY# %P '  -- cursor location
+    status = status .. ' %#StatusModeBSepNORMAL#%#StatusModeNORMAL# %P '  -- location
     return status
 end
 
-vim.opt.statusline = '%!luaeval("status_line()")'
-
+vim.opt.statusline = '%!luaeval("STATUS_LINE()")'
