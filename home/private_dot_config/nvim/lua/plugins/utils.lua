@@ -1,5 +1,18 @@
 return {
     {
+        -- auto-session https://github.com/rmagatti/auto-session
+        "rmagatti/auto-session",
+        init = function()
+            vim.keymap.set("n", "<leader>ss", ":SessionSave<cr>", { desc = "Save session" })
+            vim.keymap.set("n", "<leader>sr", ":SessionRestore<cr>", { desc = "Restore last session" })
+        end,
+        opts = {
+            auto_save_enabled = true,
+            auto_restore_enabled = false,
+        },
+    },
+
+    {
         -- better-escape.nvim https://github.com/max397574/better-escape.nvim
         -- escaping with key combinations in insert mode
         "max397574/better-escape.nvim",
