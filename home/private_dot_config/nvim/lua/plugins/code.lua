@@ -30,7 +30,8 @@ return {
                 "lua_ls",    -- lua
                 "marksman",  -- markdown
                 "pylsp",     -- python
-                "tflint",    -- terraform
+                "terraformls", -- terraform
+                "yamlls",    -- yaml
             },
 
             -- server auto setup
