@@ -23,7 +23,17 @@ return {
             "nvim-telescope/telescope.nvim",
             "sindrets/diffview.nvim",
         },
-        config = true
+        init = function()
+            vim.keymap.set("n", "<leader>g", ":Neogit<cr>", { desc = "Open Neogit" })
+        end,
+        config = true,
+        opts = {
+            signs = {
+                hunk = { "", "" },
+                item = { "", "" },
+                section = { "", "" },
+            },
+        }
     },
 
     {
