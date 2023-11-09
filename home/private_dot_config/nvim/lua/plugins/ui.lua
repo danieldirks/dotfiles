@@ -109,7 +109,7 @@ return {
                             },
                             tab_selected = {
                                 fg = mocha.mantle,
-                                bg = mocha.mantle,
+                                bg = mocha.mauve,
                             },
                             tab_separator = {
                                 fg = mocha.mantle,
