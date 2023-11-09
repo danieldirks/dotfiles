@@ -46,11 +46,15 @@ return {
         },
         init = function()
             vim.keymap.set('n', '<leader>e', ":Neotree<CR>", { desc = "Open explorer" })
+
+            -- highlights
+            local mocha = require("catppuccin.palettes").get_palette "mocha"
+            vim.api.nvim_command('highlight NeoTreeModified term=NONE cterm=NONE ctermbg=NONE ctermfg=white gui=NONE guibg=NONE guifg='..mocha.lavender)
         end,
         opts = {
             default_component_configs = {
                 modified = {
-                    symbol = "",
+                    symbol = "●",
                     highlight = "NeoTreeModified",
                 },
                 name = {
