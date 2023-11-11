@@ -8,6 +8,8 @@ vim.api.nvim_command('highlight StatusBackground          term=NONE  cterm=NONE 
 vim.api.nvim_command('highlight StatusBlock               term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.text)
 vim.api.nvim_command('highlight StatusBlockHighlight      term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.surface0..' guifg='..mocha.red)
 vim.api.nvim_command('highlight StatusBlockBSep           term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.surface0)
+vim.api.nvim_command('highlight StatusErrors              term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.red)
+vim.api.nvim_command('highlight StatusWarnings            term=NONE  cterm=NONE  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.mantle..'   guifg='..mocha.yellow)
 
 -- NORMAL
 vim.api.nvim_command('highlight StatusModeNORMAL          term=bold  cterm=bold  ctermbg=NONE    ctermfg=white   gui=NONE  guibg='..mocha.lavender..' guifg='..mocha.mantle)
@@ -93,6 +95,23 @@ local status_git = function ()
     end
 end
 
+local status_diagnostics = function ()
+    local diagnostics = ""
+
+    local levels = vim.diagnostic.severity
+    local errors = #vim.diagnostic.get(0, {severity = levels.ERROR})
+    if errors > 0 then
+        diagnostics = diagnostics .. ' %#StatusErrors# ' .. errors
+    end
+
+    local warnings = #vim.diagnostic.get(0, {severity = levels.WARN})
+    if warnings > 0 then
+        diagnostics = diagnostics .. ' %#StatusWarnings# ' .. warnings
+    end
+
+    return diagnostics
+end
+
 function STATUS_LINE()
     local status = ''
     local _, type, icon, icon_hl = status_file()
@@ -101,6 +120,7 @@ function STATUS_LINE()
     status = status .. '%#'..icon_hl..'# ' .. icon .. ' %#StatusBlock#' .. type .. ' ' .. status_file_flags()  -- file type
     status = status .. '%#StatusBackground#' .. status_git()  -- git
     status = status .. '%='
+    status = status .. status_diagnostics() .. ' '  -- diagnostics
     status = status .. ' %#StatusModeBSepNORMAL#%#StatusModeNORMAL# %P '  -- location
     return status
 end
