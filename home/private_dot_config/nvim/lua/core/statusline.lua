@@ -113,16 +113,24 @@ local status_diagnostics = function ()
 end
 
 function STATUS_LINE()
-    local status = ''
     local _, type, icon, icon_hl = status_file()
     local mode = status_mode()
-    status = status .. '%#StatusMode' .. mode .. '#  ' .. mode .. ' %#StatusModeSep' .. mode .. '#'  -- mode
-    status = status .. '%#'..icon_hl..'# ' .. icon .. ' %#StatusBlock#' .. type .. ' ' .. status_file_flags()  -- file type
-    status = status .. '%#StatusBackground#' .. status_git()  -- git
-    status = status .. '%='
-    status = status .. status_diagnostics() .. ' '  -- diagnostics
-    status = status .. ' %#StatusModeBSepNORMAL#%#StatusModeNORMAL# %P '  -- location
-    return status
+
+    return table.concat {
+        -- mode
+        "%#StatusMode"..mode.."#  " .. mode .. " %#StatusModeSep"..mode.."#",
+        -- file info
+        "%#"..icon_hl.."# " .. icon .. " %#StatusBlock#" .. type .. " " .. status_file_flags(),
+        -- git
+        "%#StatusBackground#" .. status_git(),
+        "%{get(b:,'gitsigns_status','')}",
+        -- split area
+        "%=",
+        -- diagnostics
+        status_diagnostics() .. " ",
+        -- location
+        " %#StatusModeBSepNORMAL#%#StatusModeNORMAL# %P ",
+    }
 end
 
 vim.opt.statusline = '%!luaeval("STATUS_LINE()")'
