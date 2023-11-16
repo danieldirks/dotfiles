@@ -270,5 +270,11 @@ return {
             vim.api.nvim_command('highlight MarkSignHL term=NONE cterm=NONE ctermbg=NONE ctermfg=red gui=NONE guibg=NONE guifg='..mocha.peach)
         end,
         opts = {}
-    }
+    },
+
+    {
+        -- fidget.nvim https://github.com/j-hui/fidget.nvim
+        "j-hui/fidget.nvim",
+        opts = {},
+    },
 }
