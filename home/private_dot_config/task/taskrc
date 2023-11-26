@@ -1,0 +1,4 @@
+data.location=~/.tasks
+hooks.location=~/.config/task/hooks
+
+news.version=2.6.0
