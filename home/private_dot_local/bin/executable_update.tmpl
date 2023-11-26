@@ -41,6 +41,14 @@ brew upgrade
 {{- end }}
 
 
+##############
+### neovim ###
+##############
+
+echo -e "\n${HI}nvim update${CL}"
+nvim --headless "+Lazy! sync" +qa
+
+
 ###############
 ### chezmoi ###
 ###############
