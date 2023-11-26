@@ -86,7 +86,7 @@ return {
                     enabled = true,
                     leave_dirs_open = false,
                 },
-                hijack_netrw_behavior = "open_default",
+                hijack_netrw_behavior = "disabled",  -- open_default
             },
         },
     },
@@ -277,4 +277,15 @@ return {
         "j-hui/fidget.nvim",
         opts = {},
     },
+
+    {
+        -- oil.nvim https://github.com/stevearc/oil.nvim
+        "stevearc/oil.nvim",
+        init = function ()
+            vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+        end,
+        opts = {
+            default_file_explorer = true,
+        },
+    }
 }
