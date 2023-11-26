@@ -30,6 +30,7 @@ vim.opt.foldlevel = 99
 
 -- concealing
 vim.opt.conceallevel = 3
+vim.opt.concealcursor = ''  -- conceal nothing on cursor line
 
 -- show 5 lines above/below and 10 chars left/right of cursor
 vim.opt.scrolloff = 5

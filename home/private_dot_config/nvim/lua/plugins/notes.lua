@@ -22,4 +22,13 @@ return {
             vim.g.vimwiki_markdown_link_ext = 1
         end,
     },
+
+    {
+        -- taskwiki https://github.com/tools-life/taskwiki
+        "tools-life/taskwiki",
+        build = "pip install pynvim tasklib packaging",
+        init = function ()
+            vim.g.taskwiki_disable_concealcursor = "yes"
+        end
+    },
 }
