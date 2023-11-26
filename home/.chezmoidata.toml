@@ -25,6 +25,7 @@
         "pandoc",
         "potrace",
         "ripgrep",
+        "task",  # taskwarrior
         "the_silver_searcher",
         "tldr",
         "tmux",

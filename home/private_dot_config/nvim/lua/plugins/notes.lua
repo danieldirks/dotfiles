@@ -29,6 +29,7 @@ return {
         build = "pip install pynvim tasklib packaging",
         init = function ()
             vim.g.taskwiki_disable_concealcursor = "yes"
+            vim.g.taskwiki_taskrc_location = "~/.config/task/taskrc"
         end
     },
 }
