@@ -24,12 +24,7 @@ return {
     },
 
     {
-        -- taskwiki https://github.com/tools-life/taskwiki
-        "tools-life/taskwiki",
-        build = "pip install pynvim tasklib packaging",
-        init = function ()
-            vim.g.taskwiki_disable_concealcursor = "yes"
-            vim.g.taskwiki_taskrc_location = "~/.config/task/taskrc"
-        end
+        -- todo.txt-vim https://github.com/dbeniamine/todo.txt-vim
+        "dbeniamine/todo.txt-vim",
     },
 }
