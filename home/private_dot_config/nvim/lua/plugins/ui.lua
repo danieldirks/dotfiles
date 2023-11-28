@@ -16,21 +16,29 @@ return {
             term_colors = true,
             integrations = {
                 alpha = true,
-                gitsigns = true,
-                mason = true,
-                neotree = true,
                 cmp = true,
+                gitsigns = true,
+                lsp_trouble = true,
+                mason = true,
                 native_lsp = {
                     enabled = true,
                 },
-                treesitter = true,
+                neotree = true,
                 telescope = {
                     enabled = true,
                     style = "nvchad"
                 },
+                treesitter = true,
                 vimwiki = true,
                 which_key = true,
             },
+            highlight_overrides = {
+                mocha = function(mocha)
+                    return {
+                        TroubleNormal = { bg = mocha.base },
+                    }
+                end,
+            }
         },
     },
 
