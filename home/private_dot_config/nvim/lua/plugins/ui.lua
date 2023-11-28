@@ -286,6 +286,9 @@ return {
         end,
         opts = {
             default_file_explorer = true,
+            keymaps = {
+                ["<bs>"] = "actions.parent",
+            }
         },
     }
 }
