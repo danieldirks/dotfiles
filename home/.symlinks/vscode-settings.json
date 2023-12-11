@@ -46,6 +46,12 @@
     }
   },
   "vim.enableNeovim": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<ESC>"],
+    }
+  ],
   "vim.startInInsertMode": true,
   "vim.useSystemClipboard": true,
   "window.title": "${activeEditorShort}${separator}${rootName}",
