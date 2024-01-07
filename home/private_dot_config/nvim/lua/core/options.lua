@@ -65,13 +65,13 @@ vim.opt.splitright = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.api.nvim_create_augroup("numbertoggle", { clear = true })
-vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
+vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
     callback = function()
         vim.opt.relativenumber = true
     end,
     group = "numbertoggle",
 })
-vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
+vim.api.nvim_create_autocmd({ "BufLeave", "InsertEnter" }, {
     callback = function()
         vim.opt.relativenumber = false
     end,
