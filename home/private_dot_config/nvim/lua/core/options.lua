@@ -63,6 +63,20 @@ vim.opt.splitright = true
 
 -- line numbers
 vim.opt.number = true
+vim.opt.relativenumber = true
+vim.api.nvim_create_augroup("numbertoggle", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
+    callback = function()
+        vim.opt.relativenumber = true
+    end,
+    group = "numbertoggle",
+})
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
+    callback = function()
+        vim.opt.relativenumber = false
+    end,
+    group = "numbertoggle",
+})
 
 -- undo
 local undodir = os.getenv("HOME") .. "/.vim/undo"
