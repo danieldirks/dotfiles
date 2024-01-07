@@ -3,14 +3,27 @@ return {
     {
         -- nvim-lspconfig https://github.com/neovim/nvim-lspconfig
         "neovim/nvim-lspconfig",
-        dependencies = { "mason-lspconfig.nvim" },
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+            "jay-babu/mason-nvim-dap.nvim",
+        },
+    },
+
+    {
+        "williamboman/mason.nvim",
+        opts = {
+            registries = {
+                "github:nvim-java/mason-registry",
+                "github:mason-org/mason-registry",
+            },
+        },
     },
 
     {
         -- mason-lspconfig.nvim https://github.com/williamboman/mason-lspconfig.nvim
         "williamboman/mason-lspconfig.nvim",
         dependencies = {
-            { "williamboman/mason.nvim", opts = {}, },
+            "williamboman/mason.nvim"
         },
         opts = {
             -- language servers, see https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
@@ -24,7 +37,7 @@ return {
                 --"docker_compose_language_service", -- docker compose
                 "gradle_ls", -- gradle
                 --"html",      -- html
-                "jdtls",     -- java
+                --"jdtls",     -- java
                 --"jsonls",    -- json
                 --"ltex",      -- latex
                 "lua_ls",    -- lua
@@ -33,6 +46,8 @@ return {
                 "terraformls", -- terraform
                 "yamlls",    -- yaml
             },
+
+            automatic_install = true,
 
             -- server auto setup
             handlers = {
@@ -72,6 +87,37 @@ return {
         },
     },
 
+    {
+        -- mason-nvim-dap.nvim https://github.com/jay-babu/mason-nvim-dap.nvim
+        "jay-babu/mason-nvim-dap.nvim",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "mfussenegger/nvim-dap",
+        },
+        opts = {
+            ensure_installed = { "javadbg" },
+        }
+    },
+
+    {
+        -- nvim-java https://github.com/nvim-java/nvim-java
+        "nvim-java/nvim-java",
+        ft = { "java" },
+        dependencies = {
+            "nvim-java/lua-async-await",
+            "nvim-java/nvim-java-core",
+            "nvim-java/nvim-java-test",
+            "nvim-java/nvim-java-dap",
+            "MunifTanjim/nui.nvim",
+            "jay-babu/mason-nvim-dap.nvim",
+            "williamboman/mason-lspconfig.nvim",
+        },
+        config = function ()
+            require("java").setup()
+            require("lspconfig").jdtls.setup({})
+        end
+    },
+
     -- syntax
     {
         -- nvim-treesitter https://github.com/nvim-treesitter/nvim-treesitter
@@ -82,7 +128,7 @@ return {
             highlight = { enable = true },
         },
         config = function(_, opts)
-            require('nvim-treesitter.configs').setup(opts)
+            require("nvim-treesitter.configs").setup(opts)
         end
     },
 
@@ -135,7 +181,7 @@ return {
             })
 
             -- nvim-autopairs config, see https://github.com/windwp/nvim-autopairs
-            local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end
     },
@@ -164,7 +210,7 @@ return {
         -- symbols-outline.nvim https://github.com/simrat39/symbols-outline.nvim
         "simrat39/symbols-outline.nvim",
         init = function()
-            vim.keymap.set('n', '<leader>o', ':SymbolsOutline<cr>', { desc = 'Show outline' })
+            vim.keymap.set("n", "<leader>o", ":SymbolsOutline<cr>", { desc = "Show outline" })
         end,
         opts = {
             auto_close = true,
@@ -219,7 +265,7 @@ return {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         init = function()
-            vim.keymap.set('n', '<leader>q', ':Trouble<cr>', { desc = 'Toggle Trouble list' })
+            vim.keymap.set("n", "<leader>q", ":Trouble<cr>", { desc = "Toggle Trouble list" })
         end,
         opts = {
             use_diagnostic_signs = true,
