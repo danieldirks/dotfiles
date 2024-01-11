@@ -64,4 +64,9 @@ return {
             vim.g.leetcode_browser = "chrome"
         end
     },
+
+    {
+        -- vim-gnupg https://github.com/jamessan/vim-gnupg
+        "jamessan/vim-gnupg",
+    },
 }
