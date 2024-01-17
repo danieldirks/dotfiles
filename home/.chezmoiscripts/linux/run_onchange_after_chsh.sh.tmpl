@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+# check: oneline.zsh-theme  {{ include "private_dot_config/zsh/oneline.zsh-theme" | sha256sum }}
+# check: .zshrc             {{ include "dot_zshrc" | sha256sum }}
+
+chsh -s $(which zsh)

@@ -1,9 +1,0 @@
-{{/* installs bat, a replacement for cat with syntax highlighting. */}}
-{{- if eq .chezmoi.os "linux" "darwin" -}}
-#!/bin/bash
-set -e
-echo "Setting up bat..."
-
-bat cache --build
-
-{{- end -}}

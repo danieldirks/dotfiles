@@ -1,0 +1,24 @@
+{{ if eq .chezmoi.os "linux" "darwin" -}}
+[".tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm"
+    refreshPeriod = "168h"
+
+[".config/zsh/antigen/antigen.zsh"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/zsh-users/antigen/develop/bin/antigen.zsh"
+    refreshPeriod = "168h"
+{{ end -}}
+
+{{ if eq .chezmoi.os "linux" -}}
+[".local/bin/minikube"]
+    type = "file"
+    url = "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
+    executable = true
+    refreshPeriod = "168h"
+
+[".asdf"]
+    type = "git-repo"
+    url = "https://github.com/asdf-vm/asdf.git"
+    refreshPeriod = "168h"
+{{ end -}}

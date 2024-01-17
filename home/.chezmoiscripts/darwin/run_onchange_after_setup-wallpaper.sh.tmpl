@@ -1,13 +1,9 @@
-{{/* sets the wallpaper. */}}
-{{- if (and (eq .chezmoi.os "darwin") (not .headless)) -}}
 #!/bin/bash
-# check: wallpaper.svg.tmpl {{ include "private_dot_config/wallpaper/wallpaper.svg" | sha256sum }}
 set -e
-echo "Setting up wallpaper..."
+
+# check: wallpaper.svg.tmpl {{ include "private_dot_config/wallpaper/wallpaper.svg" | sha256sum }}
 
 convert ~/.config/wallpaper/wallpaper.svg ~/.config/wallpaper/wallpaper.jpg
 automator -i "{{ .chezmoi.homeDir }}/.config/wallpaper/wallpaper.jpg" {{ .chezmoi.homeDir }}/.config/automator/setWallpaper.workflow
 
 killall Dock
-
-{{- end -}}

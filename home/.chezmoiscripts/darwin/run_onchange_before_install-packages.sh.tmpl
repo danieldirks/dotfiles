@@ -1,0 +1,70 @@
+{{- $taps := list
+    "homebrew/cask-fonts" -}}
+{{- $formulae := list
+    "ack"
+    "asdf"
+    "bat"
+    "btop"
+    "curl"
+    "exa"
+    "exiftool"
+    "fd"
+    "fzf"
+    "git"
+    "git-delta"
+    "helm"
+    "imagemagick"
+    "jpeg"
+    "k9s"
+    "kubernetes-cli"
+    "minikube"
+    "neofetch"
+    "neovim"
+    "pandoc"
+    "potrace"
+    "ripgrep"
+    "task"
+    "the_silver_searcher"
+    "tldr"
+    "tmux"
+    "tmuxinator"
+    "wget"
+    "zsh" -}}
+{{- $casks := list
+    "font-caskaydia-cove-nerd-font"
+    "font-caskaydia-mono-nerd-font"
+    "docker"
+    "firefox"
+    "hyper"
+    "keepassxc"
+    "visual-studio-code"
+    "wezterm" -}}
+{{- $pip := list
+    "pynvim"
+    "keyring"
+    "browser-cookie3" -}}
+
+#!/bin/bash
+set -e
+
+echo "Installing packages..."
+
+# install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range $taps | sortAlpha | uniq -}}
+tap {{ . | quote }}
+{{ end -}}
+
+{{ range $formulae | sortAlpha | uniq -}}
+brew {{ . | quote }}
+{{ end -}}
+
+{{ range $casks | sortAlpha | uniq -}}
+casks {{ . | quote }}
+{{ end -}}
+EOF
+
+# neovim dependencies
+pip3 install {{ join " " ( $pip | sortAlpha | uniq ) }}

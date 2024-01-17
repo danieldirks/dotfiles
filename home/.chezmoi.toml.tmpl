@@ -1,49 +1,46 @@
+{{/* variables */}}
+{{- $email     := ""    -}}{{/* system email */}}
+{{- $ephemeral := false -}}{{/* ephemeral system, i.e. only setup basics */}}
+{{- $gaming    := false -}}{{/* setup gaming environment */}}
+{{- $headless  := false -}}{{/* headless setup */}}
+{{- $wsl       := false -}}{{/* system is wsl environment */}}
+
 {{/* os detection */}}
 {{- $osid := .chezmoi.os -}}
 {{- if hasKey .chezmoi.osRelease "id" -}}
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
-{{/* environment detection */}}
-{{- $codespaces := env "CODESPACES" | not | not -}}
-{{- $wsl := (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
+{{/* detect special environments */}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
+{{-   $ephemeral = true -}}
+{{-   $headless = true -}}
+{{- end -}}
+{{- if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{-   $headless = true -}}
+{{-   $wsl = true -}}
+{{- end -}}
 
 {{/* email prompt */}}
-{{- $email := "" -}}
 {{- if stdinIsATTY -}}
 {{-   $email = promptStringOnce . "email" "email" -}}
 {{- end -}}
 
-{{/* user flags */}}
-{{- $headless := false -}}{{/* headless setup */}}
-{{- $gaming   := false -}}{{/* gaming setup */}}
-{{- if $codespaces -}}
-{{-   $headless = true -}}
-{{-   $gaming = false -}}
+{{/* configuration */}}
+{{- if not $ephemeral -}}
+{{-   if stdinIsATTY -}}
+{{-     $email = promptStringOnce . "email" "email" -}}
+{{-     $gaming = promptBoolOnce . "gaming" "gaming" false -}}
+{{-     $headless = promptBoolOnce . "headless" "headless" false -}}
+{{-   end -}}
 {{- end -}}
-{{- if $wsl -}}
-{{-   $headless = true -}}
-{{-   $gaming = false -}}
-{{- end -}}
-{{- if (and (not $headless) stdinIsATTY) -}}
-{{-   $headless = promptBoolOnce . "headless" "headless" false -}}
-{{- end -}}
-{{- if (and (not $gaming) stdinIsATTY) -}}
-{{-   $gaming = promptBoolOnce . "gaming" "gaming setup" false -}}
-{{- end -}}
-
 
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 
 [data]
-    # environment
-    osid = {{ $osid | quote }}
-    codespaces = {{ $codespaces }}
-    wsl = {{ $wsl }}
-
-    # flags
-    headless = {{ $headless }}
-    gaming = {{ $gaming }}
-
-    # variables
     email = {{ $email | quote }}
+    ephemeral = {{ $ephemeral }}
+    gaming = {{ $gaming }}
+    headless = {{ $headless }}
+    osid = {{ $osid | quote }}
+    wsl = {{ $wsl }}

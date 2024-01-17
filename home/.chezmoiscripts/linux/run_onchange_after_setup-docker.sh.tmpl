@@ -1,8 +1,8 @@
-{{/* sets up docker. */}}
-{{- if (and (eq .chezmoi.os "linux") (not .codespaces)) -}}
+{{- if not .ephemeral -}}
+{{- /* requires systemd - depends on setup-wsl.sh */ -}}
+
 #!/bin/bash
 set -e
-echo "Setting up docker..."
 
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service

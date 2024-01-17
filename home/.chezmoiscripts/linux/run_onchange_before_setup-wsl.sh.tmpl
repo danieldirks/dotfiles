@@ -1,8 +1,7 @@
-{{/* sets up systemd when running in wsl. */}}
 {{- if (and (eq .osid "linux-ubuntu") (.wsl)) -}}
+
 #!/bin/bash
 set -e
-echo "Setting up wsl..."
 
 # test and activate systemd
 if ! ps --no-headers -o comm 1 | grep -q "systemd"; then
@@ -10,8 +9,5 @@ if ! ps --no-headers -o comm 1 | grep -q "systemd"; then
     echo "WSL set up. please restart and rerun setup afterwards."
     exit 1
 fi
-
-# use wslview instead of open to open files with windows defaults
-sudo apt-get install wslu
 
 {{- end -}}

@@ -1,0 +1,10 @@
+{{- if not .headless -}}
+
+#!/bin/bash
+set -e
+
+{{- range .vscode.plugins | sortAlpha | uniq }}
+code --force --install-extension {{ . | quote }}
+{{- end }}
+
+{{- end -}}

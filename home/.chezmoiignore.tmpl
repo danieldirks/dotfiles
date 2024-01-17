@@ -1,45 +1,33 @@
-###############
-### systems ###
-###############
-
-{{ if eq .chezmoi.os "linux" -}}
-**/*.ps1
+{{ if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/darwin/**
 .config/automator
-AppData
 Library
-bin
-{{- end }}
+{{ end }}
 
-{{ if eq .chezmoi.os "darwin" -}}
-**/*.ps1
+{{ if ne .chezmoi.os "linux" }}
+.chezmoiscripts/linux/**
+{{ end }}
+
+{{ if ne .chezmoi.os "windows" }}
+.chezmoiscripts/windows/**
 AppData
 bin
-{{- end }}
-
-{{ if eq .chezmoi.os "windows" -}}
-**/*.sh
+{{ else }}
+.bashrc
 .config/*
 !.config/git
 !.config/wezterm
-.local/*
-.bashrc
 .hyper.js
+.local/*
 .Xresources
 .zprofile
 .zshrc
-Library
-{{- end }}
+{{ end }}
 
-
-################
-### features ###
-################
-
-{{ if .headless -}}
-# headless
+{{ if .headless }}
 .config/Code
 .hyper.js
 AppData/Roaming/Code
 AppData/Roaming/Hyper
 Library/Application Support/Code
-{{- end }}
+{{ end }}

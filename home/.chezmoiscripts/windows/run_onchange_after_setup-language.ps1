@@ -1,7 +1,3 @@
-{{/* sets language and locale settings. */}}
-{{- if eq .chezmoi.os "windows" -}}
-Write-Host "Setting up language..."
-
 # US layout
 Set-WinUserLanguageList -Force "en-US"
 
@@ -17,5 +13,3 @@ Set-Culture "de-DE"
 
 # https://learn.microsoft.com/en-us/windows/win32/intl/table-of-geographical-locations
 Set-WinHomeLocation -GeoId "0x5e"
-
-{{- end -}}

@@ -1,0 +1,3 @@
+{{ range .vscode.plugins | sortAlpha | uniq -}}
+code --force --install-extension {{ . | quote }}
+{{ end -}}

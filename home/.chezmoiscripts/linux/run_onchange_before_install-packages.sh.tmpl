@@ -1,0 +1,87 @@
+{{- if eq .osid "linux-ubuntu" -}}
+
+{{- $repos := list
+    ( dict
+        "name" "helm"
+        "key" "https://baltocdn.com/helm/signing.asc"
+        "url" "https://baltocdn.com/helm/stable/debian/"
+        "dist" "all"
+        "comp" "main"
+    )
+    ( dict
+        "name" "kubernetes"
+        "key" "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+        "url" "https://apt.kubernetes.io/"
+        "dist" "kubernetes-xenial"
+        "comp" "main"
+    ) -}}
+{{- $packages := list
+    "ack"
+    "bat"
+    "btop"
+    "cmake"
+    "curl"
+    "exa"
+    "fd-find"
+    "fzf"
+    "gcc"
+    "git"
+    "gnupg"
+    "helm"
+    "imagemagick"
+    "kubectl"
+    "libffi-dev"
+    "libimage-exiftool-perl"
+    "libsqlite3-dev"
+    "libssl-dev"
+    "libyaml-dev"
+    "make"
+    "neofetch"
+    "pandoc"
+    "python3"
+    "python3-keyring"
+    "python3-pip"
+    "python3-pynvim"
+    "python3-venv"
+    "ripgrep"
+    "sc-im"
+    "silversearcher-ag"
+    "taskwarrior"
+    "tldr"
+    "tmux"
+    "tmuxinator"
+    "zlib1g-dev"
+    "zsh" -}}
+{{- $snaps := list
+    "k9s"
+    "nvim --classic" -}}
+
+{{- if not .headless -}}
+{{-   $packages = concat $packages (list "firefox" "keepassxc" "xclip") -}}
+{{-   $snaps = mustAppend $snaps "code --classic" -}}
+{{- end -}}
+
+{{- if .wsl -}}
+{{- /* use wslview instead of open to open files with windows defaults */ -}}
+{{-   $packages = mustAppend $packages "wslu" -}}
+{{- end -}}
+
+#!/bin/bash
+set -e
+
+sudo apt-get install -y ca-certificates curl gnupg apt-transport-https
+{{- range $repos }}
+curl -fsSL {{ .key | quote }} | sudo gpg --yes --dearmor -o /etc/apt/keyrings/{{ .name }}.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/{{ .name }}.gpg] {{ .url }} {{ .dist }} {{ .comp }}" | sudo tee /etc/apt/sources.list.d/{{ .name }}.list
+{{- end }}
+
+sudo apt-get update
+sudo apt-get install -y {{ join " " ( $packages | sortAlpha | uniq ) }}
+
+{{- range $snaps | sortAlpha | uniq }}
+sudo snap install {{ . }}
+{{- end }}
+
+bat cache --build
+
+{{- end }}

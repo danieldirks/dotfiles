@@ -1,7 +1,3 @@
-{{/* installs fonts on windows. */}}
-{{- if (and (eq .chezmoi.os "windows") (not .headless)) -}}
-Write-Host "Setting up fonts..."
-
 cd {{ .chezmoi.homeDir }}
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -force
 
@@ -12,5 +8,3 @@ If (-Not (Test-Path -Path .nerd-fonts)) {
     ./.nerd-fonts/install.ps1 CascadiaCode
     #Remove-Item .nerd-fonts -Recurse -Force
 }
-
-{{- end -}}
