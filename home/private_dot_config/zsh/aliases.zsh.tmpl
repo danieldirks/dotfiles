@@ -2,6 +2,9 @@ alias :q='exit'
 alias hg='history | grep'
 alias ls='ls --color=auto'
 
+# fzf
+alias o='fd -Ht f -E .git | fzf-tmux -p | xargs nvim'
+
 # neovim
 alias vi='nvim'
 alias vim='nvim'
