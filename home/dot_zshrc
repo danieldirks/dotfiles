@@ -71,3 +71,6 @@ export LESSOPEN='| ~/.config/less/lessfilter.sh %s'
 source $ZSH_BASE/aliases.zsh
 source $ZSH_BASE/fzf-tab.zsh
 source ~/.config/fzf/fzf.sh
+
+eval "$(zoxide init zsh)"
+alias cd=z

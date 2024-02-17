@@ -5,3 +5,6 @@ set -e
 # check: .zshrc             {{ include "dot_zshrc" | sha256sum }}
 
 chsh -s $(which zsh)
+
+# rebuild completion cache
+rm ~/.zcompdump*
