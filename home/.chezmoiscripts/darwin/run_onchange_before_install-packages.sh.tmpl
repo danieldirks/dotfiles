@@ -63,7 +63,7 @@ brew {{ . | quote }}
 {{ end -}}
 
 {{ range $casks | sortAlpha | uniq -}}
-casks {{ . | quote }}
+cask {{ . | quote }}
 {{ end -}}
 EOF
 
