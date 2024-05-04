@@ -7,6 +7,7 @@ setopt autocd
 ttyctl -f
 
 ZSH_BASE=$HOME/.config/zsh
+ZSH_CACHE_DIR=$HOME/.cache/zsh
 
 # history
 HISTFILE=~/.zsh_history
