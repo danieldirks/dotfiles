@@ -37,7 +37,7 @@ return {
                 --"docker_compose_language_service", -- docker compose
                 "gradle_ls", -- gradle
                 --"html",      -- html
-                --"jdtls",     -- java
+                "jdtls",     -- java
                 --"jsonls",    -- json
                 --"ltex",      -- latex
                 "lua_ls",    -- lua
@@ -105,16 +105,18 @@ return {
         ft = { "java" },
         dependencies = {
             "nvim-java/lua-async-await",
+            "nvim-java/nvim-java-refactor",
             "nvim-java/nvim-java-core",
             "nvim-java/nvim-java-test",
             "nvim-java/nvim-java-dap",
             "MunifTanjim/nui.nvim",
-            "jay-babu/mason-nvim-dap.nvim",
-            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig",
+            "mfussenegger/nvim-dap",
+            "williamboman/mason.nvim",
         },
         config = function ()
             require("java").setup()
-            require("lspconfig").jdtls.setup({})
+            require("lspconfig").jdtls.setup({ cmd = { "jdtls" } })
         end
     },
 
