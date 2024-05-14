@@ -27,4 +27,4 @@ PS1+='$(git_super_status)'
 PS1+=' %(?.%F{green}.%F{red})%(!.#.»)%f '
 PS2='› '
 
-RPS1='$(clock-emoji) %*'
+RPS1='%F{black} %*'
