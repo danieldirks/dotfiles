@@ -16,6 +16,13 @@ return {
                 "github:nvim-java/mason-registry",
                 "github:mason-org/mason-registry",
             },
+            ui = {
+                icons = {
+                    package_installed = '✓',
+                    package_pending = '➜',
+                    package_uninstalled = '✗',
+                },
+            },
         },
     },
 
@@ -23,7 +30,8 @@ return {
         -- mason-lspconfig.nvim https://github.com/williamboman/mason-lspconfig.nvim
         "williamboman/mason-lspconfig.nvim",
         dependencies = {
-            "williamboman/mason.nvim"
+            "williamboman/mason.nvim",
+            "neovim/nvim-lspconfig",
         },
         opts = {
             -- language servers, see https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
@@ -56,6 +64,13 @@ return {
             handlers = {
                 function (server)
                     require("lspconfig")[server].setup {}
+                end,
+
+                ["jdtls"] = function()
+                    require("java").setup()
+                    require("lspconfig").jdtls.setup {
+                        cmd = { "jdtls" },
+                    }
                 end,
 
                 -- custom latex config
@@ -116,11 +131,9 @@ return {
             "neovim/nvim-lspconfig",
             "mfussenegger/nvim-dap",
             "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
         },
-        config = function ()
-            require("java").setup()
-            require("lspconfig").jdtls.setup({ cmd = { "jdtls" } })
-        end
+        opts = {},
     },
 
     -- syntax
