@@ -36,7 +36,8 @@ return {
                 --"dockerls",  -- docker
                 --"docker_compose_language_service", -- docker compose
                 "gradle_ls", -- gradle
-                --"html",      -- html
+                "html",      -- html
+                "htmx",      -- htmx
                 "jdtls",     -- java
                 --"jsonls",    -- json
                 --"ltex",      -- latex
@@ -44,6 +45,8 @@ return {
                 "marksman",  -- markdown
                 "pylsp",     -- python
                 "terraformls", -- terraform
+                "tsserver",  -- typescript
+                "vuels",     -- vue
                 "yamlls",    -- yaml
             },
 
@@ -53,19 +56,6 @@ return {
             handlers = {
                 function (server)
                     require("lspconfig")[server].setup {}
-                end,
-
-                -- custom lua config
-                ["lua_ls"] = function()
-                    require("lspconfig").lua_ls.setup {
-                        settings = {
-                            Lua = {
-                                diagnostics = {
-                                    globals = { "vim" },
-                                },
-                            },
-                        },
-                    }
                 end,
 
                 -- custom latex config
@@ -78,6 +68,19 @@ return {
                                 },
                                 dictionary = {
                                     ["en-US"] = {},
+                                },
+                            },
+                        },
+                    }
+                end,
+
+                -- custom lua config
+                ["lua_ls"] = function()
+                    require("lspconfig").lua_ls.setup {
+                        settings = {
+                            Lua = {
+                                diagnostics = {
+                                    globals = { "vim" },
                                 },
                             },
                         },
