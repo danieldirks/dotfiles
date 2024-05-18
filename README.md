@@ -7,7 +7,7 @@ My system config.
 
 ## Installation
 
-> **Warning**
+> [!WARNING]
 > The install scripts will overwrite things on your system.
 > Config is by no means stable.
 > Don't set it up on your machine unless you know what you are doing.
