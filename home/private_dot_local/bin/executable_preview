@@ -4,15 +4,25 @@ MIME=$(file -bL --mime-type "$1")   # e.g. image/jpeg
 TYPE=${MIME%%/*}                    # e.g. image
 EXT=${MIME##*/}                     # e.g. jpeg
 
+
+# directory
 if [ -d "$1" ]; then
     fd -d1 --color=always . "$1"
+
+# image
 elif [ "$TYPE" = image ]; then
     zsh -c "source ~/.zshrc && catimg ${1}"
     exiftool "$1"
+
+# text
 elif [ "$TYPE" = text ]; then
     bat --style=numbers --color=always "$1"
+
+# other file
 elif [ -f "$1" ]; then
     bat --color=always "$1"
+
+# other
 else
     echo "$1"
 fi

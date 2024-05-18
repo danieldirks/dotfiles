@@ -67,7 +67,6 @@ fi
 
 
 export EDITOR='nvim'
-export LESSOPEN='| ~/.config/less/lessfilter.sh %s'
 
 source $ZSH_BASE/aliases.zsh
 source $ZSH_BASE/fzf-tab.zsh
