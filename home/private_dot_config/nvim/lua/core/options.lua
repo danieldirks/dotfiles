@@ -7,7 +7,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
--- show hidden characters
+-- characters
 vim.opt.list = true
 vim.opt.listchars = {
     tab = '» ',
@@ -16,6 +16,12 @@ vim.opt.listchars = {
     precedes = '«',
     nbsp = '×',
     --eol = '↲',
+}
+vim.opt.fillchars = {
+    fold = ' ',
+    foldsep = ' ',
+    foldopen = '',
+    foldclose = '',
 }
 vim.opt.showbreak = '↳ '
 
@@ -27,6 +33,9 @@ vim.opt.wrap = false
 
 -- folding
 vim.opt.foldlevel = 99
+vim.opt.foldmethod = "expr"
+--vim.opt.foldcolumn = "auto:9"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- concealing
 vim.opt.conceallevel = 3
