@@ -7,7 +7,7 @@ ttyctl -f
 ZSH_BASE=${XDG_CONFIG_HOME:-${HOME}/.config}/zsh
 ZSH_CACHE_DIR=${XDG_CACHE_HOME:-${HOME}/.cache}/zsh
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
 
 export EDITOR='nvim'
 
@@ -35,6 +35,7 @@ if [ ! -d "$ZINIT_HOME" ]; then
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 source "${ZINIT_HOME}/zinit.zsh"
+unalias zi  # remove zinit alias for zoxide to use
 
 # plugins
 zinit light Aloxaf/fzf-tab
@@ -63,6 +64,7 @@ zinit snippet OMZP::tmux
 zinit snippet OMZP::tmuxinator
 zinit snippet OMZP::virtualenv
 zinit snippet OMZP::vscode
+zinit snippet OMZP::zoxide
 zinit cdreplay -q
 
 # keybindings
@@ -91,9 +93,6 @@ fi
 source $ZSH_BASE/themes/oneline.zsh-theme
 
 # customizations
-#eval "$(fzf --zsh)"  # v0.48.0 needed (not available on ubuntu)
-unalias zi  # remove zinit alias for zoxide to use
-eval "$(zoxide init zsh)"
 source $ZSH_BASE/aliases.zsh
 source $ZSH_BASE/fzf-tab.zsh
 source ~/.config/fzf/fzf.sh
