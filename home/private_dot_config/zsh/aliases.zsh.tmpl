@@ -1,31 +1,26 @@
-alias :q='exit'
-alias hg='history | grep'
-alias ls='ls --color=auto'
-
-# fzf
-alias o='fd -Ht f -E .git | fzf-tmux -p | xargs nvim'
-
-# neovim
-alias vi='nvim'
-alias vim='nvim'
-
-# bat
+# shell
 alias cat='bat --style=plain'
-
-# exa
+alias cd=z
+alias ls='ls --color=auto'
 alias ls='exa'
+alias ll='ls -lh --color=auto'
 alias ll='exa -la@ --git'
-
-# sc
-alias sc='sc-im'
+alias vim=nvim
 
 # chezmoi
+alias c=chezmoi
 alias ca='chezmoi apply'
-alias ccd='chezmoi cd'
 alias ce='chezmoi edit'
-alias cu='chezmoi update'
+
+# git
+alias groot='cd $(git rev-parse --show-toplevel || echo .)'
+alias gst='git status -s'
+
+# helper
+alias o='fd -Ht f -E .git | fzf-tmux -p | xargs nvim'
+alias ytd='yt-dlp --write-sub --all-subs --convert-subs=srt --write-thumbnail'
 
 {{ if (and (eq .osid "linux-ubuntu") (.wsl)) -}}
 # wsl
 alias open='wslview'
-{{ end -}}
+{{- end }}

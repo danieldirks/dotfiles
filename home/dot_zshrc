@@ -1,63 +1,85 @@
 autoload -Uz bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
-
 setopt autocd
-
 ttyctl -f
 
-ZSH_BASE=$HOME/.config/zsh
-ZSH_CACHE_DIR=$HOME/.cache/zsh
+ZSH_BASE=${XDG_CONFIG_HOME:-${HOME}/.config}/zsh
+ZSH_CACHE_DIR=${XDG_CACHE_HOME:-${HOME}/.cache}/zsh
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+
+export EDITOR='nvim'
+
+# setup homebrew path on darwin
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # history
 HISTFILE=~/.zsh_history
-SAVEHIST=1000  # max lines saved in HISTFILE
-HISTSIZE=1000  # lenght of loaded hist in memory
+HISTSIZE=5000       # lenght of loaded hist in memory
+SAVEHIST=$HISTSIZE  # max lines saved in HISTFILE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
+# setup zinit
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
 
-# antigen
-source $ZSH_BASE/antigen/antigen.zsh
-antigen use oh-my-zsh
+# plugins
+zinit light Aloxaf/fzf-tab
+zinit light asdf-vm/asdf
+zinit light djui/alias-tips              # show aliases for entered commands
+zinit light jeffreytse/zsh-vi-mode       # better vi keybindings
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-git-prompt/zsh-git-prompt
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-history-substring-search
+zinit light zsh-users/zsh-syntax-highlighting
+zinit snippet OMZP::aliases              # show and search aliases with `acs`
+zinit snippet OMZP::archlinux
+zinit snippet OMZP::asdf
+zinit snippet OMZP::aws
+zinit snippet OMZP::command-not-found
+zinit snippet OMZP::docker-compose
+zinit snippet OMZP::dotenv               # load .env on cd
+zinit snippet OMZP::fzf
+zinit snippet OMZP::git
+zinit snippet OMZP::kubectl
+zinit snippet OMZP::kubectx
+zinit snippet OMZP::sudo
+zinit snippet OMZP::tmux
+zinit snippet OMZP::tmuxinator
+zinit snippet OMZP::virtualenv
+zinit snippet OMZP::vscode
+zinit cdreplay -q
 
-antigen bundle ag
-antigen bundle aliases                      # show and search aliases with `acs`
-antigen bundle Aloxaf/fzf-tab               # fzf tab completion
-antigen bundle asdf
-antigen bundle catimg
-antigen bundle command-not-found
-antigen bundle djui/alias-tips              # show aliases for entered commands
-antigen bundle docker-compose
-antigen bundle dotenv                       # load .env on cd
-antigen bundle fzf
-antigen bundle git
-antigen bundle jeffreytse/zsh-vi-mode       # better vi keybindings
-antigen bundle kube-ps1
-antigen bundle kubectl
-antigen bundle tmux
-antigen bundle tmuxinator
-antigen bundle virtualenv
-antigen bundle vscode
-antigen bundle zdharma-continuum/fast-syntax-highlighting
-antigen bundle zsh-git-prompt/zsh-git-prompt
-antigen bundle zsh-users/zsh-autosuggestions
-#antigen bundle zsh-users/zsh-history-substring-search
-#antigen bundle zsh-users/zsh-syntax-highlighting
+# keybindings
+bindkey '^n' history-search-forward
+bindkey '^p' history-search-backward
+function zvm_after_init() {
+    # fix fzf history search in vim insert mode
+    zvm_bindkey viins '^R' fzf-history-widget
+}
 
-case `uname` in
-    Darwin)
-        antigen bundle macos
-        ;;
-    Linux)
-        ;;
-esac
-
-antigen theme ~/.config/zsh oneline.zsh-theme --no-local-clone
-
-antigen apply
-
-
-# set dircolors for ls and fd
+# autocomplete
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'   # match case insensitive
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 if command -v dircolors > /dev/null; then
+    # color completions
     test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
     zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 else
@@ -65,12 +87,13 @@ else
     zstyle ':completion:*:default' list-colors ''
 fi
 
+# theming
+source $ZSH_BASE/themes/oneline.zsh-theme
 
-export EDITOR='nvim'
-
+# customizations
+#eval "$(fzf --zsh)"  # v0.48.0 needed (not available on ubuntu)
+unalias zi  # remove zinit alias for zoxide to use
+eval "$(zoxide init zsh)"
 source $ZSH_BASE/aliases.zsh
 source $ZSH_BASE/fzf-tab.zsh
 source ~/.config/fzf/fzf.sh
-
-eval "$(zoxide init zsh)"
-alias cd=z
