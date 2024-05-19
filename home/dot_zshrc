@@ -48,7 +48,6 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-syntax-highlighting
-zinit snippet OMZP::aliases              # show and search aliases with `acs`
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::asdf
 zinit snippet OMZP::aws
