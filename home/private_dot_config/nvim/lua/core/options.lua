@@ -50,7 +50,6 @@ vim.opt.colorcolumn = '+0'
 
 -- encoding
 vim.opt.encoding = "utf-8"
-vim.opt.termencoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
 -- highlight cursorline

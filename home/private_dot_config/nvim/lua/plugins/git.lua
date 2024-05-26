@@ -24,7 +24,6 @@ return {
             "nvim-telescope/telescope.nvim",
             "sindrets/diffview.nvim",
         },
-        tag = "v0.0.1",  -- wait for nvim 0.10.0
         init = function()
             vim.keymap.set("n", "<leader>g", ":Neogit<cr>", { desc = "Open Neogit" })
         end,
