@@ -94,4 +94,37 @@ return {
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
     },
+
+    {
+        -- gen.nvim https://github.com/David-Kunz/gen.nvim
+        -- ollama integration
+        "David-Kunz/gen.nvim",
+        opts = {
+            model = "llama3",
+            host = "localhost",
+            init = function() pcall(io.popen, "ollama serve > /dev/null 2>&1 &") end,
+            command = function(options)
+                local body = {model = options.model, stream = true}
+                return "curl --silent --no-buffer -X POST http://" .. options.host .. ":" .. options.port .. "/api/chat -d $body"
+            end,
+            display_mode = "split",
+            show_prompt = true,
+            show_model = false,
+            no_auto_close = false,
+        },
+        keys = {
+            {
+                "<leader>aa",
+                ":Gen<cr>",
+                desc = "[ollama] Select and run prompt",
+                mode = { "n", "v" },
+            },
+            {
+                "<leader>ac",
+                ":Gen Chat<cr>",
+                desc = "[ollama] Chat",
+                mode = { "n", "v" },
+            },
+        },
+    },
 }
