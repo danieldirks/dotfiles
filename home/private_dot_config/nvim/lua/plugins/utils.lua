@@ -1,5 +1,11 @@
 return {
     {
+        -- plenary.nvim https://github.com/nvim-lua/plenary.nvim
+        -- basic lua functions
+        "nvim-lua/plenary.nvim"
+    },
+
+    {
         -- auto-session https://github.com/rmagatti/auto-session
         "rmagatti/auto-session",
         init = function()
