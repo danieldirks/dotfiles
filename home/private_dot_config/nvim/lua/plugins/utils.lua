@@ -127,4 +127,21 @@ return {
             },
         },
     },
+
+    {
+        -- codesnap.nvim https://github.com/mistricky/codesnap.nvim
+        -- code screenshot tool
+        "mistricky/codesnap.nvim",
+        build = "make",
+        opts = {
+            --bg_theme = "default",
+            bg_color = "#ffffff00",
+            code_font_family = "CaskaydiaCove Nerd Font",
+            has_breadcrumbs = false,
+            has_line_number = true,
+            mac_window_bar = true,
+            save_path = "~/Desktop",
+            watermark = "",
+        },
+    },
 }
