@@ -220,6 +220,7 @@ return {
                 dashboard.button("n", "  New File", ":ene <BAR> startinsert <CR>"),
                 dashboard.button("s", "󰑏  Restore Last Session", ":SessionRestore<CR>"),
                 dashboard.button("r", "󱑁  Recent Files", ":Telescope oldfiles<CR>"),
+                dashboard.button("g", "  Open Git View", ":Neogit<CR>"),
                 dashboard.button("w", "󰠮  Open Wiki", ":VimwikiIndex<CR>"),
                 dashboard.button("u", "  Update Plugins", ":Lazy update<CR>"),
                 dashboard.button("q", "󰗼  Quit", ":qa!<CR>"),
