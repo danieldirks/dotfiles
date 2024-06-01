@@ -143,5 +143,11 @@ return {
             save_path = "~/Desktop",
             watermark = "",
         },
+        cmd = {
+            "CodeSnap",
+            "CodeSnapSave",
+            "CodeSnapHighlight",
+            "CodeSnapHighlightSave",
+        },
     },
 }
