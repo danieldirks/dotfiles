@@ -100,7 +100,7 @@ return {
         -- ollama integration
         "David-Kunz/gen.nvim",
         opts = {
-            model = "llama3",
+            model = "codellama",
             host = "localhost",
             init = function() pcall(io.popen, "ollama serve > /dev/null 2>&1 &") end,
             command = function(options)
