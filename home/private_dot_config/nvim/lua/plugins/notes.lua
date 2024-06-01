@@ -21,6 +21,11 @@ return {
             }
             vim.g.vimwiki_markdown_link_ext = 1
             vim.g.vimwiki_folding = 'syntax'
+
+            vim.api.nvim_create_autocmd('BufNewFile', {
+                pattern = "*/journals/*.md",
+                command = "silent 0r !~/Notes/journals/template.py '%'",
+            })
         end,
     },
 
