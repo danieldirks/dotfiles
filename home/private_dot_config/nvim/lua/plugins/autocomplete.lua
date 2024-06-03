@@ -61,10 +61,13 @@ return {
         -- LuaSnip https://github.com/L3MON4D3/LuaSnip
         "L3MON4D3/LuaSnip",
         dependencies = {
-            "rafamadriz/friendly-snippets"  -- collection of community snippets
+            -- snippet collections
+            --"rafamadriz/friendly-snippets",
+            "honza/vim-snippets",
         },
         init = function()
             require("luasnip.loaders.from_snipmate").lazy_load()
+            require("luasnip.loaders.from_vscode").lazy_load()
         end,
     },
 }
