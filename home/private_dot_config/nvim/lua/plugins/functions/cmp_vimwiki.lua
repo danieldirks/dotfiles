@@ -62,5 +62,6 @@ cmp.setup.filetype("vimwiki", {
         { name = "luasnip" },
     }, {
         { name = "buffer" },
+        { name = "path" },
     }),
 })
