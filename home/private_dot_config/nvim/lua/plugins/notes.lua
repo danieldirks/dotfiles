@@ -24,7 +24,8 @@ return {
 
             vim.api.nvim_create_autocmd('BufNewFile', {
                 pattern = "*/journals/*.md",
-                command = "silent 0r !~/Notes/journals/template.py '%'",
+                -- use template.md replacing %filename% with the filename excluding path and extension
+                command = [[ silent 0r !cat ~/Notes/journals/template.md | sed s/\%filename\%/$(echo '%' | grep -o '[^/]*$' | cut -d. -f1)/g ]],
             })
         end,
     },
