@@ -102,7 +102,6 @@ return {
     {
         -- bufferline.nvim https://github.com/akinsho/bufferline.nvim
         "akinsho/bufferline.nvim",
-        version = "*",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         after = "catppuccin",
         config = function()
@@ -130,6 +129,14 @@ return {
                             tab_separator_selected = {
                                 fg = mocha.mantle,
                                 bg = mocha.mantle,
+                            },
+                            tab_close = {
+                                fg = mocha.mantle,
+                                bg = mocha.red,
+                            },
+                            close_button_selected = {
+                                fg = mocha.red,
+                                bg = mocha.base,
                             },
                             buffer_selected = {
                                 bg = mocha.base,
@@ -166,7 +173,8 @@ return {
                     },
                 },
                 options = {
-                    numbers = 'buffer_id',
+                    mode = "buffers",
+                    --numbers = 'buffer_id',
                     modified_icon = '●',
                     left_trunc_marker = '',
                     right_trunc_marker = '',
@@ -179,6 +187,17 @@ return {
                         or "  " ))
                         return symbol .. count
                     end,
+                    groups = {
+                        items = {
+                            require('bufferline.groups').builtin.pinned:with({ icon = "" })
+                        }
+                    },
+                    indicator = {
+                        style = 'icon',
+                        icon = '▎',
+                    },
+                    buffer_close_icon = '󰅖',
+                    close_icon = '',
                     offsets = {
                         {
                             filetype = "neo-tree",
@@ -187,11 +206,11 @@ return {
                             padding = 0,
                         },
                     },
-                    color_icons = true,
                     show_buffer_icons = true,
-                    show_buffer_close_icons = false,
+                    show_buffer_close_icons = true,
                     show_close_icon = false,
                     separator_style = {'', ''},
+                    tab_separator_style = {'', ''},
                     enforce_regular_tabs = false,
                     always_show_bufferline = true,
                 },

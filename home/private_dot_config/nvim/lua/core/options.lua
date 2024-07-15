@@ -1,5 +1,6 @@
 -- mouse support in normal and visual mode
 vim.opt.mouse = "nv"
+vim.opt.mousemoveevent = true
 
 -- tabs
 vim.opt.tabstop = 4
