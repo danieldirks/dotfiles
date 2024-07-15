@@ -35,14 +35,16 @@ local function vimwiki_source()
 
             -- use relative path without extension as name
             local note_name = vim.fn.fnamemodify(relative_path, ":r")
+            local note_title = note_name
 
             -- determin page title from markdown
-            local note_title = Path:new(file):head(1)
-            if note_title:match('^# .*') then
-                note_title = string.sub(note_title, 3)
-            else
-                note_title = note_name
-            end
+            -- TODO: read async
+            --local note_title = Path:new(file):head(1)
+            --if note_title:match('^# .*') then
+            --    note_title = string.sub(note_title, 3)
+            --else
+            --    note_title = note_name
+            --end
 
             table.insert(items, {
                 label = note_name,
