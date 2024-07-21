@@ -1,0 +1,26 @@
+// example: rofi -dump-config
+
+configuration{
+    modi: "combi,drun,window,ssh,calc:qalc +u8 -nocurrencies";
+    combi-modi: "drun,window,ssh";
+    display-combi: "  All ";
+    display-run: "  Shell ";
+    display-drun: " 󰀻 Apps ";
+    display-window: "  Windows ";
+    display-filebrowser: "  Files ";
+    display-ssh: "  SSH ";
+    display-calc: "  Calc ";
+
+    location: 2;
+    yoffset: 100;
+    disable-history: false;
+    sidebar-mode: true;
+
+    show-icons: true;
+    icon-theme: "Papirus";
+    drun-display-format: "{icon} {name}";
+
+    terminal: "wezterm";
+}
+
+@import "theme"

@@ -1,0 +1,220 @@
+// example: rofi -dump-theme
+
+* {
+    // catppuccin mocha colors
+    rosewater: #dc8a78;
+    flamingo: #f2cdcd;
+    pink: #f5c2e7;
+    mauve: #cba6f7;
+    red: #f38ba8;
+    maroon: #eba0ac;
+    peach: #fab387;
+    yellow: #f9e2af;
+    green: #a6e3a1;
+    teal: #94e2d5;
+    sky: #89dceb;
+    sapphire: #74c7ec;
+    blue: #89b4fa;
+    lavender: #b4befe;
+    text: #cdd6f4;
+    subtext1: #bac2de;
+    subtext0: #a6adc8;
+    overlay2: #9399b2;
+    overlay1: #7f849c;
+    overlay0: #6c7086;
+    surface2: #585b70;
+    surface1: #45475a;
+    surface0: #313244;
+    base: #1e1e2e;
+    mantle: #181825;
+    crust: #11111b;
+
+    font: "CaskaydiaCove Nerd Font Propo 12";
+}
+
+window {
+    background-color: @mantle;
+    border-color: @mantle;
+    text-color: @text;
+
+    width: 700px;
+    height: 400px;
+    border: 3px;
+}
+
+mainbox {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+message {
+    background-color: inherit;
+    text-color: inherit;
+
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+textbox {
+    background-color: inherit;
+    text-color: @text;
+
+    padding: 6px;
+    margin: 10px 0px 0px 20px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+
+/*********
+ * input *
+ *********/
+
+inputbar {
+    background-color: inherit;
+
+    padding: 2px;
+    border-radius: 5px;
+    children: [prompt,entry];
+}
+
+prompt {
+    background-color: @blue;
+    text-color: inherit;
+
+    margin: 20px 0px 0px 20px;
+    padding: 6px;
+    border-radius: 3px;
+}
+
+entry {
+    background-color: inherit;
+    text-color: @text;
+
+    placeholder: "";
+    placeholder-color: @overlay1;
+
+    padding: 6px;
+    margin: 20px 0px 0px 10px;
+}
+
+
+/*********
+ * table *
+ *********/
+
+listview {
+    background-color: inherit;
+
+    margin: 20px 0px 0px 20px;
+    padding: 6px 0px 0px;
+    border: 0px 0px 0px;
+    columns: 2;
+    lines: 5;
+}
+
+element {
+    background-color: inherit;
+    text-color: @text;
+
+    padding: 5px;
+}
+
+element normal.normal {
+    background-color: inherit;
+    text-color: @text;
+}
+
+element normal.active {
+    background-color: inherit;
+    text-color: @text;
+}
+
+element normal.urgent {
+    background-color: @red;
+    text-color: inherit;
+}
+
+element alternate.normal {
+    background-color: inherit;
+    text-color: @text;
+}
+
+element alternate.active {
+    background-color: inherit;
+    text-color: @text;
+}
+
+element alternate.urgent {
+    background-color: @red;
+    text-color: inherit;
+}
+
+element selected.normal {
+    background-color: inherit;
+    text-color: @red;
+}
+
+element selected.active {
+    background-color: inherit;
+    text-color: @red;
+}
+
+element selected.urgent {
+    background-color: inherit;
+    text-color: @red;
+}
+
+element selected {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element-icon {
+    background-color: inherit;
+    text-color: inherit;
+
+    size: 25px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+scrollbar {
+    handle-color: @surface1;
+    handle-width: 1px;
+
+    width: 1px;
+}
+
+
+/*********
+ * modes *
+ *********/
+
+mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+
+    spacing: 0;
+}
+
+button {
+    background-color: inherit;
+    text-color: @text;
+
+    padding: 10px;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+button selected {
+    background-color: inherit;
+    text-color: @blue;
+}
