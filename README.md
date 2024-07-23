@@ -35,6 +35,7 @@ Some tools I use on a daily basis:
 * [tmux](./home/dot_tmux.conf) - Terminal multiplexer
 * [zsh](./home/dot_zshrc) - Shell
 * [wezterm](./home/private_dot_config/wezterm/) - Customizable terminal
+* [i3](./home/private_dot_config/i3/config) - Tiling window manager
 
 ## License
 
