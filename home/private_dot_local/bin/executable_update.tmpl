@@ -6,7 +6,16 @@ CL='\033[0m'
 set -e
 
 
-{{ if eq .osid "linux-ubuntu" -}}
+{{ if eq .osid "linux-arch" -}}
+############
+### arch ###
+############
+
+echo -e "\n${HI}paru -Syu${CL}"
+paru -Syu
+
+
+{{- else if eq .osid "linux-ubuntu" -}}
 ##############
 ### ubuntu ###
 ##############
