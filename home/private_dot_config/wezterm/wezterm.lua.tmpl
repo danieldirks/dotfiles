@@ -49,7 +49,7 @@ config.default_prog = { 'wsl.exe', '--cd', '~', '/bin/zsh', '-l', '-c', 'tmuxina
 {{- else if eq .chezmoi.os "darwin" }}
 config.default_prog = { '/bin/zsh', '-l', '-c', 'tmuxinator main' }
 {{- else }}
-config.default_prog = { '/bin/zsh', '-c', 'tmuxinator main' }
+--config.default_prog = { '/bin/zsh', '-c', 'tmuxinator main' }
 {{- end }}
 
 -- disable confirmation when closing
