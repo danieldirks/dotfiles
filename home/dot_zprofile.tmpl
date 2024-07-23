@@ -12,3 +12,10 @@ fi
 {{- if eq .osid "darwin" }}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{- end }}
+
+{{- if eq .osid "linux-arch" }}
+# start wm on boot
+if [[ "$(tty)" == '/dev/tty1' ]]; then
+    exec startx
+fi
+{{- end }}
