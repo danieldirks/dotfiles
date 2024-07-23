@@ -9,7 +9,7 @@ xset s noblank
 xset s off
 
 # disable mouse acceleration
-xset m default
+xset m 1/1 0
 
 # start i3wm
 exec i3
