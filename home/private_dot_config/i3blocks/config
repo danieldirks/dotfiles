@@ -1,0 +1,98 @@
+command=~/.config/i3blocks/blocks/$BLOCK_NAME||/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME
+markup=pango
+separator=false
+separator_block_width=10
+
+
+############
+# hardware #
+############
+
+[cpu_usage]
+label= 
+color=#cba6f7
+interval=5
+min_width= 99.99%
+
+[memory]
+label= 
+color=#cba6f7
+interval=30
+
+[disk]
+label= 
+color=#cba6f7
+instance=/
+interval=60
+
+[gpu_temperature]
+label= 
+color=#cba6f7
+min_width= 99°C
+interval=60
+
+separator=true
+separator_block_width=20
+
+
+###########
+# network #
+###########
+
+[iface]
+label=
+color=#89b4fa
+instance=wlan0
+interval=10
+
+[bandwidth]
+color=#89b4fa
+interval=10
+INLABEL= 
+OUTLABEL= 
+min_width= 999K  99K
+
+separator=true
+separator_block_width=20
+
+
+#########
+# audio #
+#########
+
+[mediaplayer]
+label= 
+color=#a6e3a1
+interval=1
+player=spotify
+
+[volume]
+label= 
+color=#f9e2af
+instance=Master
+signal=10
+interval=60
+
+separator=true
+separator_block_width=20
+
+
+##########
+# system #
+##########
+
+#[weather]
+#label= 
+#command=echo $(curl 'https://wttr.in/?format=%C%20%t')
+#color=#f2cdcd
+#interval=60
+
+[time]
+command=date '+%Y-%m-%d %H:%M'
+label= 
+interval=1
+
+[power]
+command=i3-msg 'mode "(l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown"' > /dev/null
+full_text= 
+color=#f38ba8

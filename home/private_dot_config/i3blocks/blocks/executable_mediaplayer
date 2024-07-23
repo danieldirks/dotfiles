@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# player active
+if [[ ! $(playerctl -l) =~ "$player" ]]; then
+    exit
+fi
+
+# playing
+if [[ $(playerctl -p $player metadata title) == '(null)' || $(playerctl -p $player metadata title) == '' ]]; then
+    exit
+fi
+
+# artist
+if [[ ! $(playerctl -p $player metadata artist) == '' ]]; then
+    echo -ne "$(playerctl -p $player metadata artist 2>/dev/null | sed 's/&/&amp;/g') - "
+fi
+
+# title
+echo -e "$(playerctl -p $player metadata title 2>/dev/null | sed 's/&/&amp;/g')"
