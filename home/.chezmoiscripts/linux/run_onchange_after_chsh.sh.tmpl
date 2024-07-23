@@ -4,7 +4,7 @@ set -e
 # check: aliases.zsh        {{ include "private_dot_config/zsh/aliases.zsh.tmpl" | sha256sum }}
 # check: .zshrc             {{ include "dot_zshrc" | sha256sum }}
 
-chsh -s $(which zsh)
+chsh -s $(type -p zsh)
 
 # rebuild completion cache
 rm -f ~/.zcompdump*
