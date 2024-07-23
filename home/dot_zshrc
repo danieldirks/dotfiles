@@ -59,7 +59,6 @@ zinit snippet OMZP::git
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::sudo
-zinit snippet OMZP::tmux
 zinit snippet OMZP::tmuxinator
 zinit snippet OMZP::virtualenv
 zinit snippet OMZP::vscode
