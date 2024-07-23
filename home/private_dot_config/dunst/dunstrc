@@ -1,0 +1,52 @@
+# vim: ft=cfg
+
+[global]
+follow = mouse
+stack_duplicates = true
+
+dmenu = /usr/bin/rofi -dmenu -p " Action "
+browser = /usr/bin/firefox
+
+# window
+title = Dunst
+class = Dunst
+origin = "top-right"
+offset = 10x31
+
+# design
+frame_width = 2
+frame_color = "#b4befe"
+separator_color = frame
+#gap_size = 8
+font = CaskaydiaCove Nerd Font Propo 11
+markup = full
+#format = "<b>%s</b> (%a)\n%b"
+
+
+[experimental]
+per_monitor_dpi = false
+
+
+[urgency_low]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+timeout = 10
+
+[urgency_normal]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+timeout = 10
+
+[urgency_critical]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#fab387"
+script = $HOME/.config/dunst/sound.sh
+timeout = 0
+
+
+[discord]
+appname = discord
+urgency = normal
+background = "#b4befe"
+foreground = "#1e1e2e"
