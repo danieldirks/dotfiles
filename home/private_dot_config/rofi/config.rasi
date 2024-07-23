@@ -20,7 +20,7 @@ configuration{
     icon-theme: "Papirus";
     drun-display-format: "{icon} {name}";
 
-    terminal: "wezterm";
+    terminal: "i3-sensible-terminal";
 }
 
 @import "theme"
