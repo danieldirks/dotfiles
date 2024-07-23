@@ -1,0 +1,15 @@
+# restore screen resolution, set initially with:
+# xrandr --output HDMI-0 --mode 1920x1080 && autorandr --save home
+autorandr --change
+
+# for current configuration, see: xset q
+# disable display power management and screensaver
+xset -dpms
+xset s noblank
+xset s off
+
+# disable mouse acceleration
+xset m default
+
+# start i3wm
+exec i3
