@@ -21,11 +21,6 @@
 {{-   $wsl = true -}}
 {{- end -}}
 
-{{/* email prompt */}}
-{{- if stdinIsATTY -}}
-{{-   $email = promptStringOnce . "email" "email" -}}
-{{- end -}}
-
 {{/* configuration */}}
 {{- if not $ephemeral -}}
 {{-   if stdinIsATTY -}}
