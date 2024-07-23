@@ -1,0 +1,105 @@
+{{- if eq .osid "linux-arch" -}}
+
+{{- $packages := list
+    "acpi"
+    "bat"
+    "cargo"
+    "chezmoi"
+    "docker"
+    "exa"
+    "fd"
+    "fzf"
+    "git"
+    "gnupg"
+    "imagemagick"
+    "make"
+    "mutt"
+    "neofetch"
+    "npm"
+    "pass"
+    "tmux"
+    "tmuxinator"
+    "ttf-cascadia-code-nerd"
+    "unzip"
+    "zoxide"
+    "zsh" -}}
+
+{{- if not .headless -}}
+{{-   $packages = concat $packages (list
+    "alsa-utils"
+    "autorandr"
+    "conky"
+    "dex"
+    "dunst"
+    "feh"
+    "firefox"
+    "i3-gaps"
+    "i3-wm"
+    "i3blocks"
+    "i3blocks-contrib"
+    "i3lock"
+    "i3status"
+    "keepassxc"
+    "libqalculate"
+    "nextcloud-client"
+    "noto-fonts-emoji"
+    "nvidia"
+    "nvidia-settings"
+    "nvidia-utils"
+    "papirus-icon-theme"
+    "picom"
+    "pipewire"
+    "pipewire-alsa"
+    "pipewire-audio"
+    "pipewire-jack"
+    "pipewire-pulse"
+    "playerctl"
+    "rofi"
+    "scrot"
+    "spotify-launcher"
+    "sysstat"
+    "visual-studio-code-bin"
+    "wezterm"
+    "wmctrl"
+    "xclip"
+    "xss-lock"
+    "zathura"
+    "zathura-pdf-poppler") -}}
+{{- end -}}
+
+{{- if .gaming -}}
+{{-   $packages = concat $packages (list "discord" "lib32-nvidia-utils" "lutris" "steam") -}}
+{{- end -}}
+
+#!/bin/bash
+set -e
+
+# install paru aur helper
+if ! command -v paru &> /dev/null; then
+    sudo pacman -Sy --needed base-devel git
+    git clone https://aur.archlinux.org/paru.git
+    cd paru && makepkg -si
+    cd ../ && rm -rf paru
+fi
+
+# enable multilib
+sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+
+paru -Sy --needed {{ join " " ( $packages | sortAlpha | uniq ) }}
+
+bat cache --build
+
+# create nvidia xorg config
+sudo nvidia-xconfig
+
+# activate services
+sudo systemctl enable nvidia-hibernate.service
+sudo systemctl enable nvidia-suspend.service
+sudo systemctl enable nvidia-resume.service
+systemctl --user enable pipewire.socket
+systemctl --user enable pipewire.service
+systemctl --user enable pipewire-pulse.socket
+systemctl --user enable pipewire-pulse.service
+systemctl --user enable wireplumber.service
+
+{{- end }}
