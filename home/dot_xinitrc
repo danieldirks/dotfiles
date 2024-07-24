@@ -11,5 +11,11 @@ xset s off
 # disable mouse acceleration
 xset m 1/1 0
 
+# start polkit agent for authentication
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# start playerctld
+playerctld daemon
+
 # start i3wm
 exec i3
