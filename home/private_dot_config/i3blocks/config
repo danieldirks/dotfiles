@@ -92,7 +92,10 @@ command=date '+%Y-%m-%d %H:%M'
 label= 
 interval=1
 
-[power]
-command=i3-msg 'mode "(l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown"' > /dev/null
-full_text= 
-color=#f38ba8
+#[power]
+#command=i3-msg 'mode "(l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown"' > /dev/null
+#full_text= 
+#color=#f38ba8
+
+[spacer]
+full_text=
