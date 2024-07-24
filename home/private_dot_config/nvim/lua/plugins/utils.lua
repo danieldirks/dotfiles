@@ -23,7 +23,19 @@ return {
         -- escaping with key combinations in insert mode
         "max397574/better-escape.nvim",
         opts = {
-            mapping = {"jk"},
+            mappings = {
+                i = {
+                    j = {
+                        k = "<Esc>",
+                        j = false,
+                    }
+                },
+                v = {
+                    j = {
+                        k = false,
+                    },
+                },
+            },
         },
     },
 
