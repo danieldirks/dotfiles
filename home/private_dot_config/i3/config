@@ -135,7 +135,7 @@ set $mode_power (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
 mode "$mode_power" {
     bindsym l exec --no-startup-id $locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend && $locker, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
