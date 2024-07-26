@@ -17,6 +17,9 @@ for i in $ids; do
     xinput set-prop $i "libinput Accel Speed" -0.65
 done
 
+# hide mouse cursor when typing
+unclutter &
+
 # start polkit agent for authentication
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
