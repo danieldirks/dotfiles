@@ -37,8 +37,8 @@ window {
     border-color: @mantle;
     text-color: @text;
 
-    width: 700px;
-    height: 400px;
+    width: 800px;
+    height: 500px;
     border: 3px;
 }
 
@@ -50,9 +50,11 @@ mainbox {
 message {
     background-color: inherit;
     text-color: inherit;
+    border-color: inherit;
 
-    margin: 2px;
-    padding: 2px;
+    margin: 0;
+    padding: 0;
+    border: 0;
     border-radius: 5px;
 }
 
