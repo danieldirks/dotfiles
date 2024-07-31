@@ -10,10 +10,10 @@
     )
     ( dict
         "name" "kubernetes"
-        "key" "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
-        "url" "https://apt.kubernetes.io/"
-        "dist" "kubernetes-xenial"
-        "comp" "main"
+        "key" "https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key"
+        "url" "https://pkgs.k8s.io/core:/stable:/v1.30/deb/"
+        "dist" "/"
+        "comp" ""
     ) -}}
 {{- $packages := list
     "ack"
