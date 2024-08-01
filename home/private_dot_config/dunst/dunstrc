@@ -22,6 +22,14 @@ font = CaskaydiaCove Nerd Font Propo 11
 markup = full
 #format = "<b>%s</b> (%a)\n%b"
 
+# icons
+show_indicators = yes
+icon_theme = Papirus
+enable_recursive_icon_lookup = true
+min_icon_size = 32
+max_icon_size = 64
+icon_corner_radius = 2
+
 
 [experimental]
 per_monitor_dpi = false
@@ -35,6 +43,7 @@ timeout = 10
 [urgency_normal]
 background = "#1e1e2e"
 foreground = "#cdd6f4"
+script = $HOME/.config/dunst/sound.sh
 timeout = 10
 
 [urgency_critical]
