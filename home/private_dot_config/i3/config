@@ -231,8 +231,8 @@ bar {
         focused_statusline $text
         focused_separator  $surface1
         #                  border   bg       text
-        focused_workspace  $crust   $crust   $mauve
-        active_workspace   $crust   $crust   $blue
+        focused_workspace  $crust   $crust   $lavender
+        active_workspace   $crust   $crust   $text
         inactive_workspace $crust   $crust   $surface1
         urgent_workspace   $crust   $crust   $peach
         binding_mode       $crust   $crust   $peach
@@ -241,9 +241,9 @@ bar {
 
 # window colors
 #                        title  bg       text       indicator  border
-client.focused           $base  $mantle  $lavender  $rosewater $lavender
-client.focused_inactive  $base  $mantle  $overlay1  $rosewater $base
-client.unfocused         $base  $mantle  $overlay1  $rosewater $base
+client.focused           $base  $mantle  $text      $blue      $rosewater
+client.focused_inactive  $base  $mantle  $overlay1  $blue      $base
+client.unfocused         $base  $mantle  $overlay1  $blue      $base
 client.urgent            $base  $mantle  $peach     $overlay0  $peach
 client.placeholder       $base  $mantle  $overlay1  $overlay0  $base
 client.background        $base

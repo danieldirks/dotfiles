@@ -41,12 +41,14 @@ separator_block_width=20
 
 [iface]
 label=
-color=#89b4fa
+#color=#89b4fa
+color=#b4befe
 instance=wlan0
 interval=10
 
 [bandwidth]
-color=#89b4fa
+#color=#89b4fa
+color=#b4befe
 interval=10
 INLABEL= 
 OUTLABEL= 
