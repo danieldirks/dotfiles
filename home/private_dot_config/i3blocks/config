@@ -83,6 +83,10 @@ separator_block_width=20
 # system #
 ##########
 
+[pomodoro]
+color=#f38ba8
+interval=1
+
 #[weather]
 #label= 
 #command=echo $(curl 'https://wttr.in/?format=%C%20%t')

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+INTERVAL=1500  # 25 minutes
+
+# set timer with left mouse button
+if [ $button == 1 ]; then
+    echo $[$(date +%s) + $INTERVAL] > ~/.cache/pomodoro_time
+    notify-send --icon=pomodoro-indicator "Pomodoro" "$(date -d@$INTERVAL -u +%M:%S) - Let's go"
+fi
+
+# unset timer with right mouse button
+if [ $button == 3 ]; then
+    rm ~/.cache/pomodoro_time
+fi
+
+# calc remaining seconds
+REMAINING=-1
+if [ -f ~/.cache/pomodoro_time ]; then
+    REMAINING=$[$(cat ~/.cache/pomodoro_time) - $(date +%s)]
+fi
+
+# notification when finished
+if [ $REMAINING -eq "0" ]; then
+    notify-send --icon=pomodoro-indicator "Pomodoro" "Take a break"
+fi
+
+# icon when finished
+if [ $REMAINING -le "0" ]; then
+    echo ""
+    exit 0
+fi
+
+# remaining time when running
+echo  $(date -d@$REMAINING -u +%M:%S)
