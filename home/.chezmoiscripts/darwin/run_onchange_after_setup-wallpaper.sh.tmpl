@@ -1,9 +1,7 @@
 #!/bin/bash
 set -e
 
-# check: wallpaper.svg.tmpl {{ include "private_dot_config/wallpaper/wallpaper.svg" | sha256sum }}
-
-convert ~/.config/wallpaper/wallpaper.svg ~/.config/wallpaper/wallpaper.jpg
-automator -i "{{ .chezmoi.homeDir }}/.config/wallpaper/wallpaper.jpg" {{ .chezmoi.homeDir }}/.config/automator/setWallpaper.workflow
+convert {{ .chezmoi.sourceDir }}/../firewatch-1920x1080.jpg {{ .chezmoi.homeDir }}/.wallpaper.jpg
+automator -i "{{ .chezmoi.homeDir }}/.wallpaper.jpg" {{ .chezmoi.homeDir }}/.config/automator/setWallpaper.workflow
 
 killall Dock
