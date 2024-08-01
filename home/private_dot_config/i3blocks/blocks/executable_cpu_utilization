@@ -1,5 +1,6 @@
 #!/bin/bash
 
 util=$[100-$(vmstat 1 2 | tail -1 | awk '{print $15}')]
+temp=$(sensors | grep Package | awk -F ' ' '{print $4}' | sed "s/^+//" | sed "s/.0//")
 
-echo "$util%"
+echo "$util% ($temp)"

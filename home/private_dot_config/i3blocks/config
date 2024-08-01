@@ -8,11 +8,11 @@ separator_block_width=10
 # hardware #
 ############
 
-[cpu_usage]
+[cpu_utilization]
 label= 
 color=#cba6f7
-interval=5
-min_width= 99.99%
+interval=10
+min_width= 99% (99°C)
 
 [memory]
 label= 
