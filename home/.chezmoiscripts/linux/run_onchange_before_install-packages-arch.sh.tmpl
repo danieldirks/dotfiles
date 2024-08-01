@@ -97,7 +97,7 @@
 {{- end -}}
 
 {{- if .gaming -}}
-{{-   $packages = concat $packages (list "discord" "lib32-nvidia-utils" "lutris" "steam") -}}
+{{-   $packages = concat $packages (list "discord" "gamemode" "lib32-gamemode" "lib32-nvidia-utils" "lutris" "steam") -}}
 {{- end -}}
 
 #!/bin/bash
@@ -132,5 +132,9 @@ systemctl --user enable pipewire.service
 systemctl --user enable pipewire-pulse.socket
 systemctl --user enable pipewire-pulse.service
 systemctl --user enable wireplumber.service
+
+{{ if .gaming -}}
+sudo usermod --append --groups gamemode $(whoami)
+{{- end }}
 
 {{- end }}
