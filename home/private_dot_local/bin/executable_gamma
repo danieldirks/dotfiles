@@ -1,0 +1,16 @@
+#!/bin/bash
+
+SCREENS=$(xrandr --current | grep " connected" | cut -d" " -f1)
+
+
+if [ "$1" == "set" ]; then
+    for screen in $SCREENS; do
+        xrandr --output $screen --crtc 0 --gamma $2
+    done
+fi
+
+if [ "$1" == "unset" ]; then
+    for screen in $SCREENS; do
+        xrandr --output $screen --crtc 0 --gamma 1
+    done
+fi
