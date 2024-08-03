@@ -1,0 +1,26 @@
+# vim: filetype=ini
+
+[global]
+
+username_cmd = "pass websites/spotify.com | grep \"login:\" | sed \"s/^.*: //\" | head -n1"
+password_cmd = "pass websites/spotify.com | head -n1"
+use_keyring = false
+
+use_mpris = true
+dbus_type = "session"
+backend = "alsa"
+device = "default"
+
+device_name = "{{ output "head" "-1" "/etc/hostname" | trim }}"
+device_type = "computer"  # unknown, computer, tablet, smartphone, speaker, tv, avr, stb, audiodongle
+
+bitrate = 320
+initial_volume = "100"
+volume_normalisation = false
+
+autoplay = true
+#on_song_change_hook = ""
+
+cache_path = "~/.cache/spotifyd"
+max_cache_size = 1000000000
+no_audio_cache = false
