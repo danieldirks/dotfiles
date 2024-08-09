@@ -257,7 +257,7 @@ smart_borders no_gaps
 
 # window style
 #hide_edge_borders both
-#exec --no-startup-id picom -b  # disabled due to performance issues
+exec --no-startup-id picom --experimental-backends -b
 
 # miscellaneous
 #focus_follows_mouse no
@@ -273,6 +273,6 @@ exec --no-startup-id dex --autostart --environment i3
 
 # wallpaper
 exec_always --no-startup-id sleep 1 && feh --bg-scale ~/.wallpaper.jpg
-#exec --no-startup-id killall conky; conky  # needs compositor for transparency
+exec --no-startup-id killall conky; conky  # needs compositor for transparency
 
 exec --no-startup-id wezterm start --class scratchpad nvim -c "VimwikiIndex"
