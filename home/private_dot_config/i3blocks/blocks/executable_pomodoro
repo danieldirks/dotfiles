@@ -5,7 +5,7 @@ INTERVAL=1500  # 25 minutes
 # set timer with left mouse button
 if [ $button == 1 ]; then
     echo $[$(date +%s) + $INTERVAL] > ~/.cache/pomodoro_time
-    notify-send --icon=pomodoro-indicator "Pomodoro" "$(date -d@$INTERVAL -u +%M:%S) - Let's go"
+    notify-send --app-name=pomodoro --icon=pomodoro-indicator "Pomodoro" "$(date -d@$INTERVAL -u +%M:%S) - Let's go"
 fi
 
 # unset timer with right mouse button
@@ -21,7 +21,7 @@ fi
 
 # notification when finished
 if [ $REMAINING -eq "0" ]; then
-    notify-send --icon=pomodoro-indicator "Pomodoro" "Take a break"
+    notify-send --app-name=pomodoro --icon=pomodoro-indicator "Pomodoro" "Take a break"
 fi
 
 # icon when finished

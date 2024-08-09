@@ -43,7 +43,6 @@ timeout = 10
 [urgency_normal]
 background = "#1e1e2e"
 foreground = "#cdd6f4"
-script = $HOME/.config/dunst/sound.sh
 timeout = 10
 
 [urgency_critical]
@@ -59,3 +58,8 @@ appname = discord
 urgency = normal
 background = "#b4befe"
 foreground = "#1e1e2e"
+
+[pomodoro]
+appname = pomodoro
+urgency = normal
+script = $HOME/.config/dunst/sound.sh
