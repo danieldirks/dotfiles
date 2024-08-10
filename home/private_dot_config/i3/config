@@ -257,7 +257,7 @@ smart_borders no_gaps
 
 # window style
 #hide_edge_borders both
-exec --no-startup-id picom --experimental-backends -b
+#exec --no-startup-id picom -b
 
 # miscellaneous
 #focus_follows_mouse no
