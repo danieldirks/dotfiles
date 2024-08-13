@@ -1,0 +1,26 @@
+# vim: filetype=muttrc
+
+# integration defaults
+set mailcap_path = $HOME/.config/mutt/mailcap
+
+# compose
+set editor = "nvim +/^$ ++1"
+set edit_headers
+set abort_nosubject = no
+set envelope_from = yes
+set use_from = yes
+
+# folders
+set copy = yes
+
+# look & feel
+source $HOME/.config/mutt/theme.muttrc
+set sort = "reverse-date-received"
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# keys
+source $HOME/.config/mutt/keys.muttrc
+
+# accounts, see ./accounts/README.md
+source $HOME/.config/mutt/accounts/default

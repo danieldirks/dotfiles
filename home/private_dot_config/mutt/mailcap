@@ -1,0 +1,4 @@
+# html in browser
+# add needsterminal to wait for browser
+text/html; qutebrowser %s &; test=test -n "$DISPLAY"; nametemplate=%s.html;
+text/html; lynx -dump %s; nametemplate=%s.html; copiousoutput;

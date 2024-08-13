@@ -1,0 +1,38 @@
+# vim: filetype=muttrc
+
+# Catppuccin Mocha https://github.com/catppuccin/neomutt
+
+color normal        default default         # text text
+color index         color2 default ~N       # new green
+color index         color1 default ~F       # flagged red
+color index         color13 default ~T      # tagged red
+color index         color1 default ~D       # delete red
+color attachment    color5 default          # attachment pink
+color signature     color8 default          # signature surface2
+color search        color4 default          # highlight blue
+
+color indicator     default color8          # current surface2/text
+color error         color1 default          # error red
+color status        color15 default         # status subtext0
+color tree          color15 default         # thread subtext0
+color tilde         color15 default         # padding subtext0
+
+color hdrdefault    color13 default         # default header pink
+color header        color13 default "^From:"
+color header        color13 default "^Subject:"
+
+color quoted        color15 default         # Subtext 0
+color quoted1       color7 default          # Subtext 1
+color quoted2       color8 default          # Surface 2
+color quoted3       color0 default          # Surface 1
+color quoted4       color0 default
+color quoted5       color0 default
+
+color body          color2 default  [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email green
+color body          color2 default  (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # url green
+color body          color4 default  (^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* blue
+color body          color4 default  (^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ blue
+color body          color4 default  (^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ blue
+
+color sidebar_flagged color1 default  # mailbox flagged red
+color sidebar_new   color10 default   # mailbox new green

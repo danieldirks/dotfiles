@@ -1,0 +1,14 @@
+# vim: filetype=muttrc
+
+# folder hooks
+source ~/.config/mutt/accounts/org.example.demo
+folder-hook $folder 'source ~/.config/mutt/accounts/org.example.demo'
+
+# default account
+source ~/.config/mutt/accounts/org.example.demo
+
+# macros
+macro index <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/accounts/org.example.demo<enter><change-folder>!<enter>'
+
+# fetch
+bind index G imap-fetch-mail
