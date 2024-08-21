@@ -71,6 +71,6 @@ set trash = "+[Gmail]/Trash"
 # disable as gmail copies outgoing messages automatically
 set copy = no
 
-# archive messages
-macro index,pager y "<save-message>=[Gmail]/All Messages<enter><enter>" "Archive"
+# archive instead of delete
+macro index,pager d "<save-message>=[Gmail]/All\ Messages<enter><enter>" "Archive"
 ```

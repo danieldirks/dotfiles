@@ -1,23 +1,49 @@
 # vim: filetype=muttrc
 
-# integration defaults
-set mailcap_path = $HOME/.config/mutt/mailcap
+# see https://neomutt.org/man/neomuttrc
 
-# compose
-set editor = "nvim +/^$ ++1"
-set edit_headers
-set abort_nosubject = no
-set envelope_from = yes
-set use_from = yes
+# integration defaults
+set editor=`echo \$EDITOR`
+set mailcap_path = $HOME/.config/mutt/mailcap
 
 # folders
 set copy = yes
+set header_cache = "$HOME/.cache/mutt/"
+set message_cache_dir = "$HOME/.cache/mutt/"
+
+# sync settings
+set imap_check_subscribed  # sync all mailboxes
+set imap_keepalive = 300
+unset imap_passive  # open connections automatically
+set mail_check = 120  # check for new mail all 2 minutes
+
+# compose
+set editor = "nvim +/^$ ++1"
+set edit_headers = yes
+set auto_edit = yes  # skip send-menu and jump directly to editor
+set abort_nosubject = no
+set envelope_from = yes
+set use_from = yes
+set send_charset="utf-8"
+
+# display
+set date_format = "%a %Y-%m-%d %H:%M"
+set markers = no  # hide line wraps
+
+# attachments
+set attach_save_dir = "$HOME/Downloads/"
+set attach_save_without_prompting = yes
 
 # look & feel
 source $HOME/.config/mutt/theme.muttrc
+set use_threads = no
 set sort = "reverse-date-received"
+set sort_aux = date
 auto_view text/html
 alternative_order text/plain text/enriched text/html
+
+# sidebar
+#set sidebar_visible = yes
 
 # keys
 source $HOME/.config/mutt/keys.muttrc

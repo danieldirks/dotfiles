@@ -1,38 +1,69 @@
 # vim: filetype=muttrc
 
-# Catppuccin Mocha https://github.com/catppuccin/neomutt
+# needs direct colors, e.g. TERM="xterm-direct"
+# Catppuccin Mocha https://catppuccin.com/palette
 
-color normal        default default         # text text
-color index         color2 default ~N       # new green
-color index         color1 default ~F       # flagged red
-color index         color13 default ~T      # tagged red
-color index         color1 default ~D       # delete red
-color attachment    color5 default          # attachment pink
-color signature     color8 default          # signature surface2
-color search        color4 default          # highlight blue
+# general
+color indicator       default \#313244
+color error           \#f38ba8 default
+color tree            \#a6adc8 default
+color tilde           \#a6adc8 default
+color search          \#f9e2af default
 
-color indicator     default color8          # current surface2/text
-color error         color1 default          # error red
-color status        color15 default         # status subtext0
-color tree          color15 default         # thread subtext0
-color tilde         color15 default         # padding subtext0
+# status
+color status          default  \#181825
+color status          \#181825 \#b4befe "^(.*)" 1
+color status          \#b4befe \#181825 ""
+color status          \#b4befe \#181825 ""
+color status          \#181825 \#b4befe " [a-z0-9%]+ $"
 
-color hdrdefault    color13 default         # default header pink
-color header        color13 default "^From:"
-color header        color13 default "^Subject:"
+# index
+color normal          default default      # text
+color index           \#a6e3a1 default ~N  # new (unseen)
+color index           \#a6e3a1 default ~O  # new (seen)
+color index           \#f9e2af default ~F  # flagged
+color index           \#f9e2af default ~T  # tagged
+color index           \#f38ba8 default ~D  # delete
 
-color quoted        color15 default         # Subtext 0
-color quoted1       color7 default          # Subtext 1
-color quoted2       color8 default          # Surface 2
-color quoted3       color0 default          # Surface 1
-color quoted4       color0 default
-color quoted5       color0 default
+# message
+color hdrdefault      \#f5c2e7 default     # default header
+color header          \#f5c2e7 default "^From:"
+color header          \#f5c2e7 default "^Subject:"
+color body            \#a6e3a1 default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+                # email
+color body            \#a6e3a1 default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+         # url
+color body            \#89b4fa default (^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$)  # *bold*
+color body            \#89b4fa default (^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)      # _underlined_
+color body            \#89b4fa default (^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)      # /italic/
+color signature       \#585b70 default
+color attachment      \#f5c2e7 default
 
-color body          color2 default  [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email green
-color body          color2 default  (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # url green
-color body          color4 default  (^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* blue
-color body          color4 default  (^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ blue
-color body          color4 default  (^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ blue
+# sidebar
+color sidebar_flagged red default
+color sidebar_new     green default
 
-color sidebar_flagged color1 default  # mailbox flagged red
-color sidebar_new   color10 default   # mailbox new green
+# quotes
+color quoted          brightwhite default
+color quoted1         white default
+color quoted2         brightblack default
+color quoted3         black default
+color quoted4         black default
+color quoted5         black default
+
+# formats
+set status_format = "  %D  %r %>  %P "
+set index_format = " %zs%zc%zt %-35.35L %@attachment_flag@ %-30.100s %> %?M?(%M) ?%?Y?%Y ? %D "
+set compose_format = "  NEW  %> %l "
+set pager_format = "  %n  %s %> %C/%m  %P "
+set attach_format = "%u%D  %T%-75.75d %> %5s %m/%M"
+set sidebar_format = "%D%?Z? [%Z]?%* %?S?%S?"
+
+# icons
+index-format-hook attachment_flag '=B application/ics' ""
+index-format-hook attachment_flag '=B text/calendar' ""
+index-format-hook attachment_flag '~X 1' ""
+index-format-hook attachment_flag '~A' " "
+set to_chars=" "  # not to me, to me, group, cc, sent by me, mailing list, reply only
+set status_chars = " 󰢢"  # mailbox: unchanged, changed, read only, attach-message mode
+ifdef crypt_chars set crypt_chars = " "  # signed and checked, encrypted, signed, contains key, no crypt
+set flag_chars = "󰑚  "  # tagged, important, deleted, attachment deleted, replied, old, new, thread old, thread new, read %S, read %Z
+set hidden_tags = "unread,draft,flagged,passed,replied,attachment,signed,encrypted"
