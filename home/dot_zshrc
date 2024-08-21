@@ -8,8 +8,10 @@ ZSH_BASE=${XDG_CONFIG_HOME:-${HOME}/.config}/zsh
 ZSH_CACHE_DIR=${XDG_CACHE_HOME:-${HOME}/.cache}/zsh
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#585b70"  # catppuccin mocha surface2
 
 export EDITOR='nvim'
+export TERM='xterm-direct'
 
 # setup homebrew path on darwin
 if [[ -f "/opt/homebrew/bin/brew" ]] then
