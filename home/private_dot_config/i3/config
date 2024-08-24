@@ -224,7 +224,7 @@ bar {
     workspace_buttons yes
     workspace_command ~/.config/i3/workspaces.sh
     #mode hide
-    #tray_output none
+    tray_output none
     font pango:CaskaydiaCove Nerd Font Propo 11
 
     colors {
