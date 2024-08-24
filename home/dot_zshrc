@@ -96,3 +96,6 @@ source $ZSH_BASE/themes/oneline.zsh-theme
 source $ZSH_BASE/aliases.zsh
 source $ZSH_BASE/fzf-tab.zsh
 source ~/.config/fzf/fzf.sh
+
+# pass
+PASSWORD_STORE_GENERATED_LENGTH=64
