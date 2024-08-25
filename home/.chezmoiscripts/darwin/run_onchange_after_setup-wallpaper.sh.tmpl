@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e
 
-convert {{ .chezmoi.sourceDir }}/../firewatch-1920x1080.jpg {{ .chezmoi.homeDir }}/.wallpaper.jpg
+cp {{ .chezmoi.sourceDir }}/../wallpaper/firewatch-5120x1440.jpg {{ .chezmoi.homeDir }}/.wallpaper.jpg
+
 automator -i "{{ .chezmoi.homeDir }}/.wallpaper.jpg" {{ .chezmoi.homeDir }}/.config/automator/setWallpaper.workflow
 
 killall Dock
