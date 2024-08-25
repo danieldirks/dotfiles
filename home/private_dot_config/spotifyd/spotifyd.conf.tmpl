@@ -11,7 +11,7 @@ dbus_type = "session"
 backend = "alsa"
 device = "default"
 
-device_name = "{{ output "head" "-1" "/etc/hostname" | trim }}"
+device_name = "{{ output "hostname" | trim }}"
 device_type = "computer"  # unknown, computer, tablet, smartphone, speaker, tv, avr, stb, audiodongle
 
 bitrate = 320
