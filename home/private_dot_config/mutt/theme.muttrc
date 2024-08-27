@@ -3,43 +3,41 @@
 # needs direct colors, e.g. TERM="xterm-direct"
 # Catppuccin Mocha https://catppuccin.com/palette
 
+set color_directcolor = no
+
 # general
-color indicator       default \#313244
-color error           \#f38ba8 default
-color tree            \#a6adc8 default
-color tilde           \#a6adc8 default
-color search          \#f9e2af default
+color indicator       default black
+color error           red     default
+color tree            green   default
+color tilde           green   default
+color search          yellow  default
 
 # status
-color status          default  \#181825
-color status          \#181825 \#b4befe "^(.*)" 1
-color status          \#b4befe \#181825 ""
-color status          \#b4befe \#181825 ""
-color status          \#181825 \#b4befe " [a-z0-9%]+ $"
+color status          blue    default
 
 # index
-color normal          default default      # text
-color index           \#a6e3a1 default ~N  # new (unseen)
-color index           \#a6e3a1 default ~O  # new (seen)
-color index           \#f9e2af default ~F  # flagged
-color index           \#f9e2af default ~T  # tagged
-color index           \#f38ba8 default ~D  # delete
+color normal          default default     # text
+color index           green   default ~N  # new (unseen)
+color index           green   default ~O  # new (seen)
+color index           yellow  default ~F  # flagged
+color index           yellow  default ~T  # tagged
+color index           red     default ~D  # delete
 
 # message
-color hdrdefault      \#f5c2e7 default     # default header
-color header          \#f5c2e7 default "^From:"
-color header          \#f5c2e7 default "^Subject:"
-color body            \#a6e3a1 default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+                # email
-color body            \#a6e3a1 default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+         # url
-color body            \#89b4fa default (^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$)  # *bold*
-color body            \#89b4fa default (^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)      # _underlined_
-color body            \#89b4fa default (^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)      # /italic/
-color signature       \#585b70 default
-color attachment      \#f5c2e7 default
+color hdrdefault      magenta default      # default header
+color header          magenta default "^From:"
+color header          magenta default "^Subject:"
+color body            green   default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+                # email
+color body            green   default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+         # url
+color body            blue    default (^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$)  # *bold*
+color body            blue    default (^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)      # _underlined_
+color body            blue    default (^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)      # /italic/
+color signature       brightblack default
+color attachment      magenta default
 
 # sidebar
-color sidebar_flagged red default
-color sidebar_new     green default
+color sidebar_flagged red     default
+color sidebar_new     green   default
 
 # quotes
 color quoted          brightwhite default
@@ -50,10 +48,10 @@ color quoted4         black default
 color quoted5         black default
 
 # formats
-set status_format = "  %D  %r %>  %P "
+set status_format = " %D %r %> %P "
 set index_format = " %zs%zc%zt %-35.35L %@attachment_flag@ %-30.100s %> %?M?(%M) ?%?Y?%Y ? %D "
-set compose_format = "  NEW  %> %l "
-set pager_format = "  %n  %s %> %C/%m  %P "
+set compose_format = " NEW %> %l "
+set pager_format = " %n %s %> %C/%m %P "
 set attach_format = "%u%D  %T%-75.75d %> %5s %m/%M"
 set sidebar_format = "%D%?Z? [%Z]?%* %?S?%S?"
 
