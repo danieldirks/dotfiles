@@ -13,6 +13,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#585b70"  # catppuccin mocha surface2
 export EDITOR='nvim'
 export PAGER='bat'
 
+# C locale, see `locale`
+export LC_COLLATE=C  # sorting collation (uppercase before lowercase)
+
 # setup homebrew path on darwin
 if [[ -f "/opt/homebrew/bin/brew" ]] then
     eval "$(/opt/homebrew/bin/brew shellenv)"
