@@ -30,7 +30,7 @@ playerctld daemon
 pass-secret-service &
 
 # start ibus
-ibus-daemon -rxRd
+#ibus-daemon -rxRd
 
 # load ~/.Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
