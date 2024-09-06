@@ -3,6 +3,8 @@
 text/html; qutebrowser %s &; test=test -n "$DISPLAY"; nametemplate=%s.html;
 text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -collapse_br_tags -dump %s; nametemplate=%s.html; copiousoutput;
 
+application/ics; firefox %s &; test=test -n "$DISPLAY"; nametemplate=%s;
+
 # images
 image/jpeg; feh %s; test=test -n "$DISPLAY"; nametemplate=%s.jpeg
 image/jpg; feh %s; test=test -n "$DISPLAY"; nametemplate=%s.jpg
