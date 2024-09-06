@@ -14,7 +14,7 @@ return {
             vim.g.vimwiki_hl_headers = 1
             vim.g.vimwiki_list = {
                 {
-                    path = '~/Notes',
+                    path = '~/notes',
                     syntax = 'markdown',
                     ext = '.md',
                 },

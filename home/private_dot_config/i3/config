@@ -24,7 +24,7 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
-bindsym Print exec --no-startup-id mkdir -p "$HOME/Pictures/Screenshots" && scrot "$HOME/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png" -z -e "notify-send --icon='\$f' 'Screenshot saved' '\$f'"
+bindsym Print exec --no-startup-id mkdir -p "$(xdg-user-dir PICTURES)/screenshots/desktop" && scrot "$(xdg-user-dir PICTURES)/screenshots/desktop/%Y-%m-%d_%H-%M-%S.png" -z -e "notify-send --icon='\$f' 'Screenshot saved' '\$f'"
 
 # window
 bindsym $mod+Shift+q kill
