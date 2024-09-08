@@ -53,7 +53,6 @@ return {
                 "marksman",  -- markdown
                 "pylsp",     -- python
                 "terraformls", -- terraform
-                "tsserver",  -- typescript
                 "vuels",     -- vue
                 "yamlls",    -- yaml
             },
