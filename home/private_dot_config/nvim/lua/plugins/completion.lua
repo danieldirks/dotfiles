@@ -15,7 +15,7 @@ local function vimwiki_source()
     source.complete = function(self, _, callback)
         -- define paths
         local current_dir = vim.fn.expand("%:p:h")
-        local notes_folder = vim.fn.resolve(vim.fn.expand("~/Notes"))
+        local notes_folder = vim.fn.resolve(vim.fn.expand("~/notes"))
 
         local scandir_opts = {
             search_pattern = "**/*.md",
