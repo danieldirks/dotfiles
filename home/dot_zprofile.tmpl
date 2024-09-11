@@ -19,3 +19,9 @@ if [[ "$(tty)" == '/dev/tty1' ]]; then
     exec startx
 fi
 {{- end }}
+
+# ibus
+export GTK_IM_MODULE=ibus
+export SDK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus

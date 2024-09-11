@@ -272,6 +272,9 @@ popup_during_fullscreen smart
 # create with: dex -c <path> -t ~/.config/autostart/
 exec --no-startup-id dex --autostart --environment i3
 
+# ibus
+exec_always --no-startup-id sleep 1 && ibus-daemon -rxd
+
 # wallpaper
 exec_always --no-startup-id sleep 1 && feh --bg-scale ~/.wallpaper.jpg
 exec --no-startup-id killall conky; conky  # needs compositor for transparency
