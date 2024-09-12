@@ -101,4 +101,4 @@ source $ZSH_BASE/fzf-tab.zsh
 source ~/.config/fzf/fzf.sh
 
 # pass
-PASSWORD_STORE_GENERATED_LENGTH=64
+export PASSWORD_STORE_GENERATED_LENGTH=64
