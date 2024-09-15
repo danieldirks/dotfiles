@@ -114,9 +114,10 @@ set -e
 # install paru aur helper
 if ! command -v paru &> /dev/null; then
     sudo pacman -Syu --needed base-devel git
-    git clone https://aur.archlinux.org/paru.git
-    cd paru && makepkg -si
-    cd ../ && rm -rf paru
+    rm -rf paru-git
+    git clone https://aur.archlinux.org/paru-git.git
+    cd paru-git && makepkg -si
+    cd ../ && rm -rf paru-git
 fi
 
 # enable multilib
