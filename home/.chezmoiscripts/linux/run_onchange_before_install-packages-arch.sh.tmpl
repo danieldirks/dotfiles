@@ -80,7 +80,6 @@
     "pipewire-pulse"
     "playerctl"
     "polkit-gnome"
-    "qutebrowser"
     "rofi"
     "scrot"
     "spotify-launcher"
@@ -102,6 +101,7 @@
     "xss-lock"
     "zathura"
     "zathura-pdf-poppler") -}}
+{{-   $packages = concat $packages (list "qutebrowser" "python-adblock" "python-tldextract" "yt-dlp") -}}
 {{- end -}}
 
 {{- if .gaming -}}
