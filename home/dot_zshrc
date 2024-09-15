@@ -10,10 +10,11 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#585b70"  # catppuccin mocha surface2
 
+export BROWSER='firefox'
 export EDITOR='nvim'
 export PAGER='bat'
 
-# C locale, see `locale`
+# locale, see `locale`
 export LC_COLLATE=C  # sorting collation (uppercase before lowercase)
 
 # setup homebrew path on darwin
