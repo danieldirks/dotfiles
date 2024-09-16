@@ -68,6 +68,10 @@ color=#a6e3a1
 interval=1
 player=spotify
 
+[microphone]
+signal=10
+interval=60
+
 [volume]
 label= 
 color=#f9e2af
