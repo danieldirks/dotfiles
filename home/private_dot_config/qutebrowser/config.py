@@ -18,7 +18,7 @@ c.editor.command = [
         "i3-sensible-terminal", "-e", "/usr/bin/nvim",
         "-f", "{file}",
         "-c", "normal {line}G{column0}l"]
-c.scrolling.bar = "never"
+c.scrolling.bar = "always"
 
 # blocking
 c.content.blocking.adblock.lists = [
@@ -38,7 +38,7 @@ c.content.headers.referer = "same-domain"
 # c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
 c.content.javascript.clipboard = "none"
 c.content.javascript.enabled = True
-c.content.local_content_can_access_remote_urls = True
+c.content.local_content_can_access_remote_urls = False
 c.content.local_content_can_access_file_urls = False
 c.content.media.video_capture = "ask"
 c.content.media.audio_capture = "ask"

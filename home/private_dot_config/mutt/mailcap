@@ -1,6 +1,6 @@
 # html in browser
 # add needsterminal to wait for browser
-text/html; qutebrowser --temp-basedir -s content.dns_prefetch false -s content.javascript.enabled false %s &; test=test -n "$DISPLAY"; nametemplate=%s.html;
+text/html; qutebrowser -s content.dns_prefetch false -s content.javascript.enabled false %s &; test=test -n "$DISPLAY"; nametemplate=%s.html;
 text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -collapse_br_tags -dump %s; nametemplate=%s.html; copiousoutput;
 
 application/ics; firefox %s &; test=test -n "$DISPLAY"; nametemplate=%s;
