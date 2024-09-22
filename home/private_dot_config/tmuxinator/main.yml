@@ -1,7 +1,12 @@
 name: main
 root: ~/
-
-startup_window: notes
+startup_window: 1
 
 windows:
   - ~: zsh -c clear
+  #- editor:
+  #    # use layout from tmux list-windows
+  #    layout: 79a6,282x69,0,0[282x55,0,0,12,282x13,0,56,15]
+  #    panes:
+  #      - vim .
+  #      - 
