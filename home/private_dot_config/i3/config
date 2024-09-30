@@ -178,6 +178,11 @@ for_window [class="^Steam$" title="^Steam$"]  floating disabled
 # scratchpad
 for_window [class="scratchpad"] move scratchpad
 
+# zoom
+for_window [class="zoom"] floating enable
+for_window [class="zoom" title="Zoom Workplace - Free account"] floating disable
+for_window [class="zoom" title="Meeting"] floating disable
+
 #########
 # style #
 #########
@@ -224,7 +229,7 @@ bar {
     workspace_buttons yes
     workspace_command ~/.config/i3/workspaces.sh
     #mode hide
-    tray_output none
+    #tray_output none
     font pango:CaskaydiaCove Nerd Font Propo 11
 
     colors {
@@ -257,8 +262,8 @@ gaps outer 2
 smart_borders no_gaps
 
 # window style
-#hide_edge_borders both
-#exec --no-startup-id picom -b
+hide_edge_borders both
+exec_always --no-startup-id picom -b
 
 # miscellaneous
 #focus_follows_mouse no
@@ -272,11 +277,13 @@ popup_during_fullscreen smart
 # create with: dex -c <path> -t ~/.config/autostart/
 exec --no-startup-id dex --autostart --environment i3
 
-# ibus
+# tray
+exec_always --no-startup-id sleep 1 && nm-applet
 exec_always --no-startup-id sleep 1 && ibus-daemon -rxd
 
 # wallpaper
 exec_always --no-startup-id sleep 1 && feh --bg-scale ~/.wallpaper.jpg
 exec --no-startup-id killall conky; conky  # needs compositor for transparency
 
+# scratchpad
 exec --no-startup-id wezterm start --class scratchpad nvim -c "VimwikiIndex"
