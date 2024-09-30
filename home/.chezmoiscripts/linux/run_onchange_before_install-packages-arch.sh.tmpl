@@ -41,6 +41,7 @@
     "zoxide"
     "zsh" -}}
 {{-   $packages = concat $packages (list "networkmanager" "openvpn" "networkmanager-openvpn" "nm-connection-editor" "network-manager-applet" "openconnect" "networkmanager-openconnect-git") -}}
+{{-   $packages = concat $packages (list "kubectl" "helm" "opentofu") -}}
 
 {{- if not .headless -}}
 {{-   $packages = concat $packages (list
