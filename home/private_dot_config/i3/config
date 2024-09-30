@@ -277,6 +277,9 @@ popup_during_fullscreen smart
 # create with: dex -c <path> -t ~/.config/autostart/
 exec --no-startup-id dex --autostart --environment i3
 
+# mouse speed
+exec_always --no-startup-id mouse-speed -0.65
+
 # tray
 exec_always --no-startup-id sleep 1 && nm-applet
 exec_always --no-startup-id sleep 1 && ibus-daemon -rxd
