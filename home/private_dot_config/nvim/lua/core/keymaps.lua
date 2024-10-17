@@ -10,6 +10,3 @@ vim.keymap.set("n", "<leader>bo", ":%bd|e#<cr>", { desc = "Close other buffers" 
 
 -- replace
 vim.keymap.set("n", "<leader>rn", ":%s/\\r//g<cr>", { desc = "Remove carriage return" })
-
--- todo.txt
-vim.keymap.set("n", "<leader>t", ":e ~/tasks/todo.txt<cr>", { desc = "Open todo.txt" })
