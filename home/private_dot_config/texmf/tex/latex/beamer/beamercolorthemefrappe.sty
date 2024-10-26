@@ -1,0 +1,67 @@
+% catppuccin frappe https://catppuccin.com/palette
+\definecolor{rosewater}{RGB}{220,138,120}
+\definecolor{flamingo}{RGB}{221,120,120}
+\definecolor{pink}{RGB}{234,118,203}
+\definecolor{mauve}{RGB}{136,57,239}
+\definecolor{red}{RGB}{210,15,57}
+\definecolor{maroon}{RGB}{230,69,83}
+\definecolor{peach}{RGB}{254,100,11}
+\definecolor{yellow}{RGB}{223,142,29}
+\definecolor{green}{RGB}{64,160,43}
+\definecolor{teal}{RGB}{23,146,153}
+\definecolor{sky}{RGB}{4,165,229}
+\definecolor{sapphire}{RGB}{32,159,181}
+\definecolor{blue}{RGB}{30,102,245}
+\definecolor{lavender}{RGB}{114,135,253}
+
+\definecolor{text}{RGB}{76,79,105}
+\definecolor{subtext1}{RGB}{92,95,119}
+\definecolor{subtext0}{RGB}{108,111,133}
+\definecolor{overlay2}{RGB}{124,127,147}
+\definecolor{overlay1}{RGB}{140,143,161}
+\definecolor{overlay0}{RGB}{156,160,176}
+\definecolor{surface2}{RGB}{172,176,190}
+\definecolor{surface1}{RGB}{188,192,204}
+\definecolor{surface0}{RGB}{204,208,218}
+\definecolor{base}{RGB}{239,241,245}
+\definecolor{mantle}{RGB}{230,233,239}
+\definecolor{crust}{RGB}{220,224,232}
+
+
+% https://www.beamer.plus/Colors.html
+
+% text
+\setbeamercolor{normal text}{fg=text, bg=mantle}
+\setbeamercolor{alerted text}{fg=red}
+\setbeamercolor{example text}{fg=red}
+\setbeamercolor{structure}{fg=red}
+
+% background
+\setbeamercolor{background canvas}{parent=normal text}
+\setbeamercolor{background}{parent=background canvas}
+
+% frame
+\setbeamercolor{title}{fg=text, bg=mantle}
+\setbeamercolor{frametitle}{parent={title}, fg=text}
+\setbeamercolor{block title}{parent={frametitle}}
+\setbeamercolor{block body}{parent={normal text}}
+
+% lists
+\setbeamercolor{itemize item}{fg=overlay1}
+\setbeamercolor{itemize subitem}{parent={itemize item}}
+\setbeamercolor{itemize subsubitem}{parent={itemize item}}
+\setbeamercolor{enumerate item}{parent={itemize item}}
+\setbeamercolor{enumerate subitem}{parent={enumerate item}}
+\setbeamercolor{enumerate subsubitem}{parent={enumerate item}}
+\setbeamercolor{description item}{parent={itemize item}}
+\setbeamercolor{description subitem}{parent={description item}}
+\setbeamercolor{description subsubitem}{parent={description item}}
+
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small\color{text},
+    backgroundcolor=\color{mantle},
+    commentstyle=\color{grey},
+    keywordstyle=\color{blue},
+    stringstyle=\color{green}
+}

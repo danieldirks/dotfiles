@@ -103,3 +103,6 @@ source ~/.config/fzf/fzf.sh
 
 # pass
 export PASSWORD_STORE_GENERATED_LENGTH=64
+
+# latex
+export TEXMFHOME=~/.config/texmf

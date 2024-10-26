@@ -1,0 +1,20 @@
+% itemize
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamertemplate{itemize subsubitem}[circle]
+
+\let\olditem\item
+\renewcommand{\item}{\olditem\vspace{8pt}}
+
+% caption
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+
+% listings
+\usepackage{listings}
+\lstset{
+    columns=fixed,
+    showstringspaces=false,
+    showtabs=false,
+    keepspaces
+}

@@ -23,6 +23,9 @@ alias tm='tmuxinator'
 # mutt
 alias mutt=neomutt
 
+# pandoc
+md2beamer() { pandoc -t beamer $1.md --listings -o $1.pdf; }
+
 {{ if (and (eq .osid "linux-ubuntu") (.wsl)) -}}
 # wsl
 alias open='wslview'

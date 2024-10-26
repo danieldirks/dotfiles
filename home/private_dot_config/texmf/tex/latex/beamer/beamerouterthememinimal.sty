@@ -1,0 +1,36 @@
+% navigation
+\beamertemplatenavigationsymbolsempty
+
+% title
+\setbeamertemplate{title page}{
+    \vbox{}
+    \vfill
+    \begin{center}
+        {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
+        \vskip 0.5em
+        {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}
+        \\
+        {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}
+    \end{center}
+}
+
+% frametitle
+\setbeamertemplate{frametitle}{
+    \nointerlineskip
+    \vskip 1em
+    {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle}
+}
+
+% footline
+\setbeamertemplate{footline}{
+    \hfill
+    \hspace{2em}
+    \usebeamercolor[fg]{page number in head/foot}
+    \usebeamerfont{page number in head/foot}
+    \insertframenumber
+    \hspace{1em}
+    \vskip.8em
+}
+
+% set default beamer font
+\AtBeginDocument{\usebeamerfont{normal body}}
