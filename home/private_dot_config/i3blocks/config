@@ -39,11 +39,15 @@ separator_block_width=20
 # network #
 ###########
 
-[iface]
-label=
-#color=#89b4fa
+[essid]
+label= 
 color=#b4befe
-instance=wlan0
+interval=60
+
+[nm-vpn]
+label=󰖂 
+command=nmcli con show --active | grep -i vpn | awk -F '  ' '{print $1}' | head -n1
+color=#b4befe
 interval=10
 
 [bandwidth]
