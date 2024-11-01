@@ -241,7 +241,7 @@ return {
                 dashboard.button("r", "󱑁  Recent Files", ":Telescope oldfiles<CR>"),
                 dashboard.button("g", "  Open Git View", ":Neogit<CR>"),
                 dashboard.button("w", "󰠮  Open Wiki", ":VimwikiIndex<CR>"),
-                dashboard.button("t", "  Open Tasks", ":e ~/Tasks/todo.txt<CR>"),
+                dashboard.button("t", "  Open Tasks", ":e ~/tasks/todo.txt<CR>"),
                 dashboard.button("u", "  Update Plugins", ":Lazy update<CR>"),
                 dashboard.button("q", "󰗼  Quit", ":qa!<CR>"),
             }
