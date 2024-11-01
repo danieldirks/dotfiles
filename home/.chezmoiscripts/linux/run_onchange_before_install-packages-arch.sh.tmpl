@@ -1,114 +1,38 @@
 {{- if eq .osid "linux-arch" -}}
 
-{{- $packages := list
-    "acpi"
-    "asdf-vm"
-    "bat"
-    "btop"
-    "cargo"
-    "chezmoi"
-    "git-delta"
-    "docker"
-    "docker-credential-pass"
-    "fd"
-    "fzf"
-    "git"
-    "gnupg"
-    "ibus"
-    "imagemagick"
-    "libfido2"
-    "luarocks"
-    "lynx"
-    "make"
-    "neomutt"
-    "neofetch"
-    "npm"
-    "ollama-cuda"
-    "pass"
-    "pass-otp"
-    "python"
-    "python-pip"
-    "python-pynvim"
-    "polkit"
-    "qmk"
-    "ripgrep"
-    "thermald"
-    "tmux"
-    "tmuxinator"
-    "tree-sitter-cli"
-    "udisks2"
-    "unzip"
-    "zoxide"
-    "zsh" -}}
-{{-   $packages = concat $packages (list "networkmanager" "openvpn" "networkmanager-openvpn" "nm-connection-editor" "network-manager-applet" "openconnect" "networkmanager-openconnect-git") -}}
-{{-   $packages = concat $packages (list "pandoc") -}}
-{{-   $packages = concat $packages (list "kubectl" "helm" "opentofu") -}}
+{{- $packages := (list "acpi" "chezmoi" "dnsutils" "ibus" "imagemagick" "make" "thermald" "udisks2" "unzip") -}}
+{{- $packages = concat $packages (list "networkmanager" "openvpn" "networkmanager-openvpn" "nm-connection-editor" "network-manager-applet" "openconnect" "networkmanager-openconnect-git") -}}
+{{- $packages = concat $packages (list "git" "git-delta") -}}
+{{- $packages = concat $packages (list "docker" "docker-credential-pass" "kubectl" "helm" "opentofu") -}}
+{{- $packages = concat $packages (list "qmk") -}}
+{{- $packages = concat $packages (list "zsh" "neofetch" "zoxide" "fd" "fzf" "ripgrep" "btop" "bat") -}}
+{{- $packages = concat $packages (list "asdf-vm" "python" "python-pip" "npm" "cargo") -}}
+{{- $packages = concat $packages (list "gnupg" "pass" "pass-otp" "libfido2") -}}
+{{- $packages = concat $packages (list "tmux" "tmuxinator") -}}
+{{- $packages = concat $packages (list "neovim" "tree-sitter-cli" "python-pynvim" "luarocks" "ollama-cuda") -}}
+{{- $packages = concat $packages (list "neomutt" "lynx") -}}
 
 {{- if not .headless -}}
-{{-   $packages = concat $packages (list
-    "alsa-utils"
-    "autorandr"
-    "biber"
-    "catppuccin-cursors-mocha"
-    "conky"
-    "dex"
-    "dunst"
-    "feh"
-    "firefox"
-    "firefox-extension-passff"
-    "i3-gaps"
-    "i3-wm"
-    "i3blocks"
-    "i3blocks-contrib"
-    "i3lock"
-    "i3status"
-    "keepassxc"
-    "libqalculate"
-    "nextcloud-client"
-    "noto-fonts"
-    "noto-fonts-cjk"
-    "noto-fonts-emoji"
-    "noto-fonts-extra"
-    "nvidia"
-    "nvidia-settings"
-    "nvidia-utils"
-    "papirus-icon-theme"
-    "pass-secret-service-bin"
-    "picom"
-    "pinentry"
-    "pipewire"
-    "pipewire-alsa"
-    "pipewire-audio"
-    "pipewire-jack"
-    "pipewire-pulse"
-    "playerctl"
-    "polkit-gnome"
-    "rofi"
-    "scrot"
-    "spotify-launcher"
-    "spotifyd"
-    "sysstat"
-    "texlive"
-    "ttf-dejavu"
-    "ttf-cascadia-code-nerd"
-    "ttf-liberation"
-    "unclutter"
-    "visual-studio-code-bin"
-    "wezterm"
-    "wmctrl"
-    "xclip"
-    "xdotool"
-    "xorg-apps"
-    "xorg-server"
-    "xorg-xinit"
-    "xss-lock"
-    "zathura"
-    "zathura-pdf-poppler") -}}
-{{-   $packages = concat $packages (list "qutebrowser" "python-adblock" "python-tldextract" "yt-dlp") -}}
+{{- $packages = concat $packages (list "xorg-server" "xorg-xinit" "xorg-apps" "xclip" "xss-lock" "autorandr" "unclutter" "xdotool" "wmctrl") -}}
+{{- $packages = concat $packages (list "i3-wm" "i3-gaps" "i3status" "i3blocks" "i3blocks-contrib" "sysstat" "i3lock" "picom" "dunst" "feh" "conky" "dex" "rofi" "libqalculate" "scrot") -}}
+{{- $packages = concat $packages (list "alsa-utils" "pipewire" "pipewire-audio" "pipewire-alsa" "pipewire-pulse" "pipewire-jack" "easyeffects") -}}
+{{- $packages = concat $packages (list "ttf-cascadia-code-nerd" "ttf-dejavu" "ttf-liberation" "noto-fonts" "noto-fonts-cjk" "noto-fonts-emoji" "noto-fonts-extra") -}}
+{{- $packages = concat $packages (list "catppuccin-cursors-mocha" "papirus-icon-theme") -}}
+{{- $packages = concat $packages (list "pinentry" "polkit" "polkit-gnome" "pass-secret-service-bin") -}}
+{{- $packages = concat $packages (list "wezterm") -}}
+{{- $packages = concat $packages (list "firefox" "firefox-extension-passff") -}}
+{{- $packages = concat $packages (list "qutebrowser" "python-adblock" "python-tldextract" "yt-dlp") -}}
+{{- $packages = concat $packages (list "texlive" "biber" "pandoc" "zathura" "zathura-pdf-poppler") -}}
+{{- $packages = concat $packages (list "spotify-launcher" "spotifyd" "playerctl") -}}
+{{- $packages = concat $packages (list "visual-studio-code-bin") -}}
+{{- $packages = concat $packages (list "signal-desktop") -}}
+{{- $packages = concat $packages (list "nextcloud-client") -}}
+{{- $packages = concat $packages (list "nautilus" "gvfs-nfs" "gvfs-smb") -}}
+{{- $packages = concat $packages (list "nvidia" "nvidia-settings" "nvidia-utils") -}}
 {{- end -}}
 
 {{- if .gaming -}}
-{{-   $packages = concat $packages (list "discord" "gamemode" "lib32-gamemode" "lib32-nvidia-utils" "lutris" "steam") -}}
+{{- $packages = concat $packages (list "discord" "gamemode" "lib32-gamemode" "lib32-nvidia-utils" "lutris" "steam") -}}
 {{- end -}}
 
 #!/bin/bash
