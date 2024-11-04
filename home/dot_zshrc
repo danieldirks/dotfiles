@@ -2,6 +2,7 @@ autoload -Uz bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
 setopt autocd
+setopt correct_all
 ttyctl -f
 
 ZSH_BASE=${XDG_CONFIG_HOME:-${HOME}/.config}/zsh
