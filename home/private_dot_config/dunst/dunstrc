@@ -10,8 +10,8 @@ browser = /usr/bin/firefox
 # window
 title = Dunst
 class = Dunst
-origin = "top-right"
-offset = 10x31
+origin = "top-center"
+offset = 0x21
 
 # design
 frame_width = 2
