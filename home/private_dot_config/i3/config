@@ -290,4 +290,4 @@ exec_always --no-startup-id sleep 1 && feh --bg-scale ~/.wallpaper.jpg
 exec --no-startup-id killall conky; conky  # needs compositor for transparency
 
 # scratchpad
-exec --no-startup-id wezterm start --class scratchpad nvim -c "VimwikiIndex"
+exec --no-startup-id alacritty --class scratchpad --command nvim -c "VimwikiIndex"
