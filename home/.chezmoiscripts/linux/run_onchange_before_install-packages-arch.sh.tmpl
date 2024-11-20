@@ -1,7 +1,7 @@
 {{- if eq .osid "linux-arch" -}}
 
 {{- $packages := (list "acpi" "chezmoi" "dnsutils" "ibus" "imagemagick" "make" "thermald" "udisks2" "unzip") -}}
-{{- $packages = concat $packages (list "networkmanager" "openvpn" "networkmanager-openvpn" "nm-connection-editor" "network-manager-applet" "openconnect" "networkmanager-openconnect-git") -}}
+{{- $packages = concat $packages (list "networkmanager" "openvpn" "networkmanager-openvpn" "nm-connection-editor" "network-manager-applet" "openconnect" "networkmanager-openconnect-git" "networkmanager-dmenu-git") -}}
 {{- $packages = concat $packages (list "git" "git-delta") -}}
 {{- $packages = concat $packages (list "docker" "docker-credential-pass" "kubectl" "helm" "opentofu") -}}
 {{- $packages = concat $packages (list "qmk") -}}

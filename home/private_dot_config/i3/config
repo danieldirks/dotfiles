@@ -9,6 +9,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec --no-startup-id rofi -show drun -no-show-match
 bindsym $mod+Tab exec --no-startup-id rofi -show window -no-show-match
 bindsym $mod+p exec --no-startup-id rofi -show pass -no-show-match
+bindsym $mod+n exec --no-startup-id networkmanager_dmenu
 
 # apps
 bindsym $mod+t exec --no-startup-id i3-sensible-terminal
