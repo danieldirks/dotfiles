@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.os "linux" -}}
 # vim: filetype=ini
 
 [global]
@@ -24,3 +25,4 @@ autoplay = true
 cache_path = ".cache/spotifyd"
 max_cache_size = 1000000000
 no_audio_cache = false
+{{- end }}
