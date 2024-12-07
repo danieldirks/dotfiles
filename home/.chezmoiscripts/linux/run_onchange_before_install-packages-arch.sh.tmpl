@@ -1,12 +1,12 @@
 {{- if eq .osid "linux-arch" -}}
 
 {{- $packages := (list "acpi" "chezmoi" "dnsutils" "ibus" "imagemagick" "make" "thermald" "udisks2" "unzip") -}}
-{{- $packages = concat $packages (list "networkmanager" "openvpn" "networkmanager-openvpn" "nm-connection-editor" "network-manager-applet" "openconnect" "networkmanager-openconnect-git" "networkmanager-dmenu-git") -}}
+{{- $packages = concat $packages (list "networkmanager" "openvpn" "networkmanager-openvpn" "nm-connection-editor" "network-manager-applet" "openconnect" "networkmanager-openconnect" "networkmanager-dmenu-git") -}}
 {{- $packages = concat $packages (list "bluez" "bluez-utils" "blueberry") -}}
 {{- $packages = concat $packages (list "git" "git-delta") -}}
 {{- $packages = concat $packages (list "docker" "docker-credential-pass" "kubectl" "helm" "opentofu") -}}
 {{- $packages = concat $packages (list "qmk") -}}
-{{- $packages = concat $packages (list "zsh" "neofetch" "zoxide" "fd" "fzf" "ripgrep" "btop" "bat") -}}
+{{- $packages = concat $packages (list "zsh" "fastfetch" "zoxide" "fd" "fzf" "ripgrep" "btop" "bat") -}}
 {{- $packages = concat $packages (list "asdf-vm" "python" "python-pip" "npm" "cargo") -}}
 {{- $packages = concat $packages (list "gnupg" "pass" "pass-otp" "libfido2") -}}
 {{- $packages = concat $packages (list "tmux" "tmuxinator") -}}
@@ -21,7 +21,7 @@
 {{- $packages = concat $packages (list "catppuccin-cursors-mocha" "papirus-icon-theme") -}}
 {{- $packages = concat $packages (list "pinentry" "polkit" "polkit-gnome" "pass-secret-service-bin") -}}
 {{- $packages = concat $packages (list "wezterm" "alacritty") -}}
-{{- $packages = concat $packages (list "firefox" "firefox-extension-passff") -}}
+{{- $packages = concat $packages (list "firefox" "browserpass" "browserpass-firefox") -}}
 {{- $packages = concat $packages (list "qutebrowser" "python-adblock" "python-tldextract" "yt-dlp") -}}
 {{- $packages = concat $packages (list "texlive" "biber" "pandoc" "zathura" "zathura-pdf-poppler") -}}
 {{- $packages = concat $packages (list "spotify-launcher" "spotifyd" "playerctl") -}}
