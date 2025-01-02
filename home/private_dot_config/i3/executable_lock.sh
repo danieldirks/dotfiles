@@ -16,5 +16,9 @@ magick "$HOME/.cache/lock.png" -scale 5% -scale 2000% -fill black -colorize 20% 
 #fi
 #magick "$HOME/.cache/lock.png" "$HOME/.config/i3/lock.png" $GEOMETRY -gravity center -composite "$HOME/.cache/lock.png"
 
+killall picom
+
 # lock using i3lock
 i3lock --no-unlock-indicator --nofork --image="$HOME/.cache/lock.png"
+
+picom -b
