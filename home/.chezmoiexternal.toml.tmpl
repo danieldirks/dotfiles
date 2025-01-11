@@ -1,0 +1,13 @@
+{{- if eq .osid "ubuntu" -}}
+[".asdf"]
+    type = "git-repo"
+    url = "https://github.com/asdf-vm/asdf.git"
+    refreshPeriod = "168h"
+{{- end }}
+
+{{ if eq .chezmoi.os "linux" "darwin" -}}
+[".tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm"
+    refreshPeriod = "168h"
+{{- end }}

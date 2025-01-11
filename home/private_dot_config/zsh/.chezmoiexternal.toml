@@ -1,0 +1,4 @@
+["antigen/antigen.zsh"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/zsh-users/antigen/develop/bin/antigen.zsh"
+    refreshPeriod = "168h"

@@ -1,0 +1,7 @@
+{{- if eq .osid "ubuntu" -}}
+["minikube"]
+    type = "file"
+    url = "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
+    executable = true
+    refreshPeriod = "168h"
+{{- end }}
