@@ -1,0 +1,6 @@
+["resources/images"]
+    type = "archive"
+    url = "https://github.com/catppuccin/calibre/releases/download/icons-export/mocha.zip"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
