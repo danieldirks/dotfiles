@@ -1,0 +1,20 @@
+[Default Applications]
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+image/png=feh.desktop
+image/jpeg=feh.desktop
+image/jpg=feh.desktop
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+inode/directory=nemo.desktop
+video/x-matroska=mpv.desktop
+application/epub+zip=calibre-ebook-viewer.desktop
+application/vnd.comicbook+zip=calibre-ebook-viewer.desktop
+
+[Added Associations]
+video/x-matroska=mpv.desktop;
+video/mp4=vlc.desktop;
+application/epub+zip=calibre-gui.desktop;calibre-ebook-viewer.desktop;
+application/vnd.comicbook+zip=calibre-gui.desktop;calibre-ebook-viewer.desktop;
