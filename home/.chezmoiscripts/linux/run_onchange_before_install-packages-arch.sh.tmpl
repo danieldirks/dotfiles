@@ -23,14 +23,13 @@
 {{- $packages = concat $packages (list "wezterm" "alacritty") -}}
 {{- $packages = concat $packages (list "firefox" "browserpass" "browserpass-firefox") -}}
 {{- $packages = concat $packages (list "qutebrowser" "python-adblock" "python-tldextract" "yt-dlp") -}}
-{{- $packages = concat $packages (list "texlive" "biber" "pandoc" "zathura" "zathura-pdf-poppler") -}}
+{{- $packages = concat $packages (list "texlive" "biber" "pandoc" "zathura" "zathura-pdf-mupdf" "zathura-cb" "tesseract-data-eng" "tesseract-data-deu") -}}
 {{- $packages = concat $packages (list "spotify-launcher" "spotifyd" "playerctl") -}}
 {{- $packages = concat $packages (list "visual-studio-code-bin") -}}
 {{- $packages = concat $packages (list "signal-desktop") -}}
 {{- $packages = concat $packages (list "nextcloud-client") -}}
 {{- $packages = concat $packages (list "nemo" "gvfs-nfs" "gvfs-smb") -}}
 {{- $packages = concat $packages (list "nvidia-open" "nvidia-settings" "nvidia-utils") -}}
-{{- $packages = concat $packages (list "calibre") -}}
 {{- end -}}
 
 {{- if .gaming -}}
