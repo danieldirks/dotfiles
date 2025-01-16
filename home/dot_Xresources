@@ -1,2 +1,10 @@
 Xcursor.theme: catppuccin-mocha-rosewater-cursors
 Xcursor.size: 16
+
+! nsxiv catppuccin mocha
+Nsxiv.window.background: #1e1e2e
+Nsxiv.window.foreground: #cdd6f4
+Nsxiv.bar.font: CaskaydiaCove Nerd Font
+Nsxiv.bar.background: #181825
+Nsxiv.bar.foreground: #cdd6f4
+Nsxiv.mark.foreground: #f5e0dc
