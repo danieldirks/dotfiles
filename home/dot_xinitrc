@@ -30,4 +30,5 @@ pass-secret-service &
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 # start i3wm
+#export XDG_CURRENT_DESKTOP=GNOME
 exec i3
