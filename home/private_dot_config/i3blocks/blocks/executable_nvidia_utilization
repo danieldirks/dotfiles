@@ -1,5 +1,5 @@
 #!/bin/bash
 
-util=$(nvidia-smi -q -d UTILIZATION | grep "Gpu" | awk -F ' ' '{print $3}')
+util=$(nvidia-smi -q -d UTILIZATION | grep " GPU " | head -n1 | awk -F ' ' '{print $3}')
 temp=$(nvidia-smi -q -d TEMPERATURE | grep "GPU Current Temp" | awk -F ' ' '{print $5}')
 echo "$util% ($temp°C)"
