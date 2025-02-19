@@ -48,7 +48,7 @@ return {
                 "htmx",      -- htmx
                 "jdtls",     -- java
                 --"jsonls",    -- json
-                --"ltex",      -- latex
+                "texlab",      -- latex
                 "lua_ls",    -- lua
                 "marksman",  -- markdown
                 "pylsp",     -- python
