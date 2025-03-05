@@ -13,7 +13,7 @@ bindsym $mod+n exec --no-startup-id networkmanager_dmenu
 
 # apps
 bindsym $mod+t exec --no-startup-id i3-sensible-terminal
-bindsym $mod+F1 exec --no-startup-id firefox
+bindsym $mod+F1 exec --no-startup-id librewolf
 bindsym $mod+F2 workspace $ws1; exec --no-startup-id i3-sensible-terminal -e /bin/zsh -c "source ~/.zshrc && neomutt"
 
 # media control
