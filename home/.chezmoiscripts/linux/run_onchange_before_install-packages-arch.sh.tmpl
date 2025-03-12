@@ -14,7 +14,7 @@
 {{- $packages = concat $packages (list "neomutt" "lynx") -}}
 
 {{- if not .headless -}}
-{{- $packages = concat $packages (list "xorg-server" "xorg-xinit" "xorg-apps" "xclip" "xss-lock" "autorandr" "unclutter" "xdotool" "wmctrl") -}}
+{{- $packages = concat $packages (list "xorg-server" "ly" "xorg-xinit" "xorg-apps" "xclip" "xss-lock" "autorandr" "unclutter" "xdotool" "wmctrl") -}}
 {{- $packages = concat $packages (list "i3-wm" "i3-gaps" "i3status" "i3blocks" "i3blocks-contrib" "sysstat" "i3lock" "picom" "dunst" "feh" "conky" "dex" "rofi" "libqalculate" "scrot") -}}
 {{- $packages = concat $packages (list "alsa-utils" "pipewire" "pipewire-audio" "pipewire-alsa" "pipewire-pulse" "pipewire-jack" "easyeffects") -}}
 {{- $packages = concat $packages (list "ttf-cascadia-code-nerd" "ttf-dejavu" "ttf-liberation" "noto-fonts" "noto-fonts-cjk" "noto-fonts-emoji" "noto-fonts-extra") -}}
@@ -67,6 +67,7 @@ sudo systemctl enable nvidia-suspend.service
 sudo systemctl enable nvidia-resume.service
 sudo systemctl enable thermald.service
 sudo systemctl enable ollama.service
+sudo systemctl enable ly.service
 systemctl --user enable pipewire.socket
 systemctl --user enable pipewire.service
 systemctl --user enable pipewire-pulse.socket

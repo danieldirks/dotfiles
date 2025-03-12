@@ -19,6 +19,7 @@ magick "$HOME/.cache/lock.png" -scale 5% -scale 2000% -fill black -colorize 20% 
 killall picom
 
 # lock using i3lock
-i3lock --no-unlock-indicator --nofork --image="$HOME/.cache/lock.png"
+#i3lock --no-unlock-indicator --nofork --image="$HOME/.cache/lock.png"
+i3lock --nofork --image="$HOME/.cache/lock.png" \
 
 picom -b

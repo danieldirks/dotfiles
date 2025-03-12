@@ -1,32 +1,10 @@
-# restore screen resolution, set initially with:
-# xrandr --output HDMI-0 --mode 1920x1080 && autorandr --save home
-autorandr --change
+#!/bin/sh
 
-# for current configuration, see: xset q
-# disable display power management and screensaver
-xset -dpms
-xset s noblank
-xset s off
-
-# disable mouse acceleration
-xset m 1/1 0
-
-# hide mouse cursor when typing
-unclutter &
-
-# start polkit agent for authentication
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-# start playerctld
-playerctld daemon
-
-# start org.freedesktop.secrets.service provider
-pass-secret-service &
-
-# start ibus
-#ibus-daemon -rxRd
+# run ~/.xprofile
+[[ -f ~/.xprofile ]] && . ~/.xprofile
 
 # load ~/.Xresources
+# most distplay managers do this automatically
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 # start i3wm

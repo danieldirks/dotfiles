@@ -125,6 +125,7 @@ bindsym $mod+Next workspace next
 # start on first workspace
 exec --no-startup-id i3-msg "workspace $ws1"
 
+
 ########
 # i3wm #
 ########
@@ -157,6 +158,7 @@ bindsym $mod+Shift+period exec --no-startup-id dunstctl close-all
 bindsym $mod+comma exec --no-startup-id dunstctl context
 bindsym $mod+Shift+comma exec --no-startup-id dunstctl history-pop
 
+
 #########
 # rules #
 #########
@@ -182,6 +184,7 @@ for_window [class="scratchpad"] move scratchpad
 for_window [class="zoom"] floating enable
 for_window [class="zoom" title="Zoom Workplace - Free account"] floating disable
 for_window [class="zoom" title="Meeting"] floating disable
+
 
 #########
 # style #
@@ -269,24 +272,47 @@ exec_always --no-startup-id picom -b
 #focus_follows_mouse no
 popup_during_fullscreen smart
 
+
 #############
 # autostart #
 #############
+
+# this section starts processes for i3 specifically
+# processes relevant for all xorg sessions should be defined in ~/.xprofile
+
+# restore screen resolution, set initially with:
+# xrandr --output HDMI-0 --mode 1920x1080 && autorandr --save home
+exec --no-startup-id autorandr --change
 
 # autostart desktop entries from $XDG_CONFIG_HOME/autostart
 # create with: dex -c <path> -t ~/.config/autostart/
 exec --no-startup-id dex --autostart --environment i3
 
-# mouse speed
-exec_always --no-startup-id mouse-speed -0.65
+# mouse settings
+exec_always --no-startup-id xset m 1/1 0  # disable mouse acceleration
+exec_always --no-startup-id mouse-speed -0.65  # custom script ~/.local/bin/mouse-speed
+exec --no-startup-id unclutter  # hides cursor on typing
 
-# tray
+# disable display power management and screensaver
+# for current configuration, see: xset q
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s noblank
+exec --no-startup-id xset s off
+
+# tray processes
 exec_always --no-startup-id sleep 1 && nm-applet
 exec_always --no-startup-id sleep 1 && ibus-daemon -rxd
 
+# player
+exec --no-startup-id playerctld daemon
+
+# secret service (org.freedesktop.secrets.service provider)
+exec --no-startup-id pass-secret-service
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 # wallpaper
 exec_always --no-startup-id sleep 1 && feh --bg-scale ~/.wallpaper.jpg
-exec --no-startup-id killall conky; conky  # needs compositor for transparency
+exec_always --no-startup-id killall conky; sleep 1 && conky  # needs compositor for transparency
 
 # scratchpad
 exec --no-startup-id alacritty --class scratchpad --command nvim -c "VimwikiIndex"
