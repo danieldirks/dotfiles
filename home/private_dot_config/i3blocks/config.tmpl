@@ -95,11 +95,11 @@ separator_block_width=20
 # system #
 ##########
 
-#[weather]
-#label= 
-#command=echo $(curl 'https://wttr.in/?format=%C%20%t')
-#color=#f2cdcd
-#interval=60
+[weather]
+label= 
+command=echo $(curl 'https://wttr.in/{{ .location }}?format=%C%20%t')
+color=#f2cdcd
+interval=600
 
 [time]
 command=date '+%Y-%m-%d %H:%M'

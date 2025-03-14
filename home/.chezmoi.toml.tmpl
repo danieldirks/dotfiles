@@ -1,9 +1,10 @@
 {{/* variables */}}
-{{- $email     := ""    -}}{{/* system email */}}
-{{- $ephemeral := false -}}{{/* ephemeral system, i.e. only setup basics */}}
-{{- $gaming    := false -}}{{/* setup gaming environment */}}
-{{- $headless  := false -}}{{/* headless setup */}}
-{{- $wsl       := false -}}{{/* system is wsl environment */}}
+{{- $email       := ""    -}}{{/* system email */}}
+{{- $ephemeral   := false -}}{{/* ephemeral system, i.e. only setup basics */}}
+{{- $gaming      := false -}}{{/* setup gaming environment */}}
+{{- $headless    := false -}}{{/* headless mode */}}
+{{- $location    := ""    -}}{{/* location */}}
+{{- $wsl         := false -}}{{/* system is wsl environment */}}
 
 {{/* os detection */}}
 {{- $osid := .chezmoi.os -}}
@@ -24,9 +25,10 @@
 {{/* configuration */}}
 {{- if not $ephemeral -}}
 {{-   if stdinIsATTY -}}
-{{-     $email = promptStringOnce . "email" "email" -}}
-{{-     $gaming = promptBoolOnce . "gaming" "gaming" false -}}
-{{-     $headless = promptBoolOnce . "headless" "headless" false -}}
+{{-     $email = promptStringOnce . "email" "public email" -}}
+{{-     $gaming = promptBoolOnce . "gaming" "setup gaming environment" false -}}
+{{-     $headless = promptBoolOnce . "headless" "setup in headless mode" false -}}
+{{-     $location = promptStringOnce . "location" "location" "London" -}}
 {{-   end -}}
 {{- end -}}
 
@@ -37,5 +39,6 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
     ephemeral = {{ $ephemeral }}
     gaming = {{ $gaming }}
     headless = {{ $headless }}
+    location = {{ $location | quote }}
     osid = {{ $osid | quote }}
     wsl = {{ $wsl }}
