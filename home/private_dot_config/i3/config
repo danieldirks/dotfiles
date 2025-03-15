@@ -1,5 +1,12 @@
+# i3 config
+# vim: ft=i3config
+
 # modifier (super key)
 set $mod Mod4
+
+# config
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
 
 # floading window mouse control
 floating_modifier $mod
@@ -75,6 +82,32 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
+# power management
+set $locker $HOME/.config/i3/lock.sh
+set $mode_power (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
+mode "$mode_power" {
+    bindsym l exec --no-startup-id $locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Escape mode "$mode_power"
+
+# lock before suspend automatically
+exec --no-startup-id xss-lock --transfer-sleep-lock -- $locker
+
+# notifications
+exec --no-startup-id dunst
+bindsym $mod+period exec --no-startup-id dunstctl close
+bindsym $mod+Shift+period exec --no-startup-id dunstctl close-all
+bindsym $mod+comma exec --no-startup-id dunstctl context
+bindsym $mod+Shift+comma exec --no-startup-id dunstctl history-pop
+
+
 ##############
 # workspaces #
 ##############
@@ -124,39 +157,6 @@ bindsym $mod+Next workspace next
 
 # start on first workspace
 exec --no-startup-id i3-msg "workspace $ws1"
-
-
-########
-# i3wm #
-########
-
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
-
-# power management
-set $locker $HOME/.config/i3/lock.sh
-set $mode_power (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
-mode "$mode_power" {
-    bindsym l exec --no-startup-id $locker, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Escape mode "$mode_power"
-
-# lock before suspend automatically
-exec --no-startup-id xss-lock --transfer-sleep-lock -- $locker
-
-# notifications
-exec --no-startup-id dunst
-bindsym $mod+period exec --no-startup-id dunstctl close
-bindsym $mod+Shift+period exec --no-startup-id dunstctl close-all
-bindsym $mod+comma exec --no-startup-id dunstctl context
-bindsym $mod+Shift+comma exec --no-startup-id dunstctl history-pop
 
 
 #########
@@ -232,7 +232,7 @@ bar {
     workspace_buttons yes
     workspace_command ~/.config/i3/workspaces.sh
     #mode hide
-    #tray_output none
+    tray_output none
     font pango:CaskaydiaCove Nerd Font Propo 11
 
     colors {
@@ -277,11 +277,8 @@ popup_during_fullscreen smart
 # autostart #
 #############
 
-# this section starts processes for i3 specifically
-# processes relevant for all xorg sessions should be defined in ~/.xprofile
-
-# restore screen resolution, set initially with:
-# xrandr --output HDMI-0 --mode 1920x1080 && autorandr --save home
+# display config, see autorandr
+# xrandr --output DP-0 --mode 1920x1080 --rate 60 && autorandr --save default
 exec --no-startup-id autorandr --change
 
 # autostart desktop entries from $XDG_CONFIG_HOME/autostart
@@ -299,8 +296,10 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s noblank
 exec --no-startup-id xset s off
 
-# tray processes
+# network
 exec_always --no-startup-id sleep 1 && nm-applet
+
+# keyboard
 exec_always --no-startup-id sleep 1 && ibus-daemon -rxd
 
 # player
