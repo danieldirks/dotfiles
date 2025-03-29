@@ -33,10 +33,16 @@ vim.opt.cindent = true
 vim.opt.wrap = false
 
 -- folding
+vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "expr"
+vim.opt.foldcolumn = "0"
 --vim.opt.foldcolumn = "auto:9"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldtext = ""
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+--vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.opt.fillchars:append({fold = " "})
+
 
 -- concealing
 vim.opt.conceallevel = 3
@@ -104,6 +110,17 @@ vim.fn.sign_define("DiagnosticSignWarn", {text = "", texthl = "DiagnosticSign
 vim.fn.sign_define("DiagnosticSignInfo", {text = "", texthl = "DiagnosticSignInfo"})
 vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "DiagnosticSignHint"})
 
+-- diagnostics virtual text
+vim.diagnostic.config({
+    -- show diagnostics at end of line
+    --virtual_text = true,                   -- always
+    virtual_text = { current_line = true },  -- only on cursor line
+
+    -- show diagnostics in separate lines
+    --virtual_lines = true,                     -- always
+    --virtual_lines = { current_line = true },  -- only on cursor line
+})
+
 -- diagnostics float
 --vim.o.updatetime = 250
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+--vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
