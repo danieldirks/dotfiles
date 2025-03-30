@@ -1,34 +1,5 @@
 return {
     {
-        -- syntax tree highlighting
-        -- https://github.com/nvim-treesitter/nvim-treesitter
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        opts = {
-            auto_install = true,
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false,
-                use_languagetree = false,
-                disable = function(_, bufnr)
-                    local file_size = vim.fn.getfsize(vim.fn.bufname(bufnr))
-                    return file_size > 5000
-                end,
-            },
-        },
-        config = function(_, opts)
-            require("nvim-treesitter.configs").setup(opts)
-        end
-    },
-
-    {
-        -- nvim-autopairs https://github.com/windwp/nvim-autopairs
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        opts = {},
-    },
-
-    {
         -- outline of symbols based on language servers
         -- https://github.com/simrat39/symbols-outline.nvim
         "hedyhli/outline.nvim",
@@ -105,17 +76,6 @@ return {
                     Macro = { icon = ' ', hl = 'Function' },
                 },
             },
-        },
-    },
-
-    {
-        "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        init = function()
-            vim.keymap.set("n", "<leader>q", ":Trouble<cr>", { desc = "Toggle Trouble list" })
-        end,
-        opts = {
-            use_diagnostic_signs = true,
         },
     },
 }

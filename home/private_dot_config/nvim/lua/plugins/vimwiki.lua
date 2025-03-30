@@ -1,6 +1,7 @@
 return {
     {
-        -- vimwiki https://github.com/vimwiki/vimwiki
+        -- notes
+        -- https://github.com/vimwiki/vimwiki
         "vimwiki/vimwiki",
         init = function()
             vim.g.vimwiki_diary_rel_path = 'journals'
@@ -28,14 +29,5 @@ return {
                 command = [[ silent 0r !cat ~/notes/journals/template.md | sed s/\%filename\%/$(echo '%' | grep -o '[^/]*$' | cut -d. -f1)/g ]],
             })
         end,
-    },
-
-    {
-        -- todo.txt-vim https://github.com/dbeniamine/todo.txt-vim
-        "dbeniamine/todo.txt-vim",
-        init = function()
-            vim.keymap.set("n", "<leader>t", ":e ~/tasks/todo.txt<cr>", { desc = "Open todo.txt" })
-        end,
-
     },
 }

@@ -61,8 +61,8 @@ end
 
 
 return {
-    -- autocompletion
     {
+        -- completion engine
         -- nvim-cmp https://github.com/hrsh7th/nvim-cmp
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -161,9 +161,9 @@ return {
         end
     },
 
-    -- snippets
     {
-        -- LuaSnip https://github.com/L3MON4D3/LuaSnip
+        -- snippet engine
+        -- https://github.com/L3MON4D3/LuaSnip
         "L3MON4D3/LuaSnip",
         dependencies = {
             -- snippet collections

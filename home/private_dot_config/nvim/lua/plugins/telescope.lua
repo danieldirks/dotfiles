@@ -1,7 +1,7 @@
 return {
     {
-        -- telescope.nvim https://github.com/nvim-telescope/telescope.nvim
-        -- search popup
+        -- search plugin
+        -- https://github.com/nvim-telescope/telescope.nvim
         'nvim-telescope/telescope.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
         init = function()
@@ -16,15 +16,15 @@ return {
     },
 
     {
-        -- telescope-fzf-native.nvim https://github.com/nvim-telescope/telescope-fzf-native.nvim
         -- fzf implementation for telescope
+        -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make'
     },
 
     {
-        -- telescope-ui-select.nvim https://github.com/nvim-telescope/telescope-ui-select.nvim
         -- replace select menu (vim.ui.select) with telescope
+        -- https://github.com/nvim-telescope/telescope-ui-select.nvim
         "nvim-telescope/telescope-ui-select.nvim",
         init = function()
             require("telescope").setup {

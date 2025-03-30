@@ -1,6 +1,6 @@
 return {
     {
-        -- sets up dap adapters automatically via nvim-dap
+        -- sets up dap adapters automatically via nvim-dap and mason
         -- https://github.com/jay-babu/mason-nvim-dap.nvim
         "jay-babu/mason-nvim-dap.nvim",
         dependencies = {

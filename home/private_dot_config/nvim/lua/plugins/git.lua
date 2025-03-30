@@ -1,23 +1,7 @@
 return {
     {
-        -- gitsigns.nvim https://github.com/lewis6991/gitsigns.nvim
-        -- git gutter signs
-        "lewis6991/gitsigns.nvim",
-        opts = {
-            signs = {
-                add          = { text = '│' },
-                change       = { text = '│' },
-                delete       = { text = '_' },
-                topdelete    = { text = '‾' },
-                changedelete = { text = '│' },
-                untracked    = { text = '┆' },
-            },
-            current_line_blame = true,
-        },
-    },
-
-    {
-        -- neogit https://github.com/NeogitOrg/neogit
+        -- git ui for neovim
+        -- https://github.com/NeogitOrg/neogit
         "NeogitOrg/neogit",
         dependencies = {
             "nvim-lua/plenary.nvim",
@@ -38,7 +22,24 @@ return {
     },
 
     {
-        -- diffview.nvim https://github.com/sindrets/diffview.nvim
+        -- git gutter signs
+        -- https://github.com/lewis6991/gitsigns.nvim
+        "lewis6991/gitsigns.nvim",
+        opts = {
+            signs = {
+                add          = { text = '│' },
+                change       = { text = '│' },
+                delete       = { text = '_' },
+                topdelete    = { text = '‾' },
+                changedelete = { text = '│' },
+                untracked    = { text = '┆' },
+            },
+            current_line_blame = true,
+        },
+    },
+
+    {
+        -- https://github.com/sindrets/diffview.nvim
         "sindrets/diffview.nvim",
     },
 }
