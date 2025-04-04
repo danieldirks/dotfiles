@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# get first connected controller
+CONTROLLERS=$(bluetoothctl devices Connected | grep "Wireless Controller" | awk '{ print $2}')
+CONTROLLER=$(echo $CONTROLLERS | head -n1)
+NAME=$(bluetoothctl info $CONTROLLER | grep "Name" | cut -d" " -f2-)
+
+# exit if no controller connected
+if [ -z "$CONTROLLER" ]; then
+    exit 0
+fi
+
+# disconnect with left click
+if [ $button == 1 ]; then
+    bluetoothctl disconnect $CONTROLLER > /dev/null 2>&1
+    exit 0
+fi
+
+# get battery percentage from bluetoothctl
+BATTERY=$(bluetoothctl info $CONTROLLER | grep "Battery Percentage" | awk '{ print $4 }')
+BATTERY=${BATTERY:1:-1}
+
+# set battery icon
+BATTERY_ICON="󰊴"
+WARNING=false
+ALERT=false
+if (( BATTERY > 0 && BATTERY <= 5  )); then
+    BATTERY_ICON="󰝋"  # alert
+    ALERT=true
+fi
+if (( BATTERY > 5 && BATTERY <= 10  )); then
+    BATTERY_ICON="󰝌"  # empty
+    WARNING=true
+fi
+if (( BATTERY > 10 && BATTERY <= 40  )); then
+    BATTERY_ICON="󰝎"  # low
+fi
+if (( BATTERY > 40 && BATTERY <= 70  )); then
+    BATTERY_ICON="󰝏"  # medium
+fi
+if (( BATTERY > 70 && BATTERY <= 100  )); then
+    BATTERY_ICON="󰝍"  # full
+fi
+
+# output
+if $ALERT; then
+    echo " $BATTERY_ICON $NAME "
+    echo " $BATTERY_ICON "
+    echo "#1e1e2e"
+    echo "#f38ba8"
+    exit 0
+fi
+
+if $WARNING; then
+    echo "$BATTERY_ICON $NAME"
+    echo "$BATTERY_ICON"
+    echo "#f38ba8"
+    exit 0
+fi
+
+echo "$BATTERY_ICON $NAME"
+echo "$BATTERY_ICON"

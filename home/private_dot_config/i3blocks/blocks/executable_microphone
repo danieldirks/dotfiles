@@ -3,7 +3,8 @@
 CURRENT_SOURCE=$(pactl info | grep "Default Source" | cut -f3 -d" ")
 
 if [ -z $(pactl list sources | grep -A 10 $CURRENT_SOURCE | grep "Mute: no") ]; then
-    echo "󰍭"
-    echo "󰍭"
+    echo " 󰍭 "
+    echo " 󰍭 "
+    echo "#1e1e2e"
     echo "#f38ba8"
 fi

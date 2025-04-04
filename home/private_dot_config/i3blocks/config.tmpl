@@ -101,6 +101,9 @@ command=echo $(curl 'https://wttr.in/{{ .location }}?format=%C%20%t')
 color=#f2cdcd
 interval=600
 
+[controller_status]
+interval=5
+
 [time]
 command=date '+%Y-%m-%d %H:%M'
 label= 
