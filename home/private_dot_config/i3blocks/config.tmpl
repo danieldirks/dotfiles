@@ -4,6 +4,21 @@ separator=false
 separator_block_width=10
 
 
+#################
+# notifications #
+#################
+
+[system_updates]
+# uses `checkupdates` from pacman-contrib
+command=checkupdates | wc -l | grep -v ^0
+label=󰣇 
+color=#74c7ec
+interval=600
+
+separator=true
+separator_block_width=20
+
+
 ############
 # hardware #
 ############
@@ -111,8 +126,9 @@ interval=1
 
 #[power]
 #command=i3-msg 'mode "(l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown"' > /dev/null
-#full_text= 
-#color=#f38ba8
+#full_text=  
+#color=#1e1e2e
+#background=#f38ba8
 
 [spacer]
 full_text=

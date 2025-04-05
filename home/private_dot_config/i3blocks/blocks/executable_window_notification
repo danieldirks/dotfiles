@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# usage:
+# [window_notification]
+# application=Signal  # name of app, has to be included in window title, see `wmctrl -l`
+
+# extract number in brackets from window title
+NUM=$(wmctrl -l | grep -i $application | grep -Po "(?i)\(\K[0-9]*(?=\))")
+
+echo $NUM
