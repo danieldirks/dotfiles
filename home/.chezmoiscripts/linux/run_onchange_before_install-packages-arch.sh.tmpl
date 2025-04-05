@@ -1,6 +1,6 @@
 {{- if eq .osid "linux-arch" -}}
 
-{{- $packages := (list "acpi" "chezmoi" "dnsutils" "ibus" "imagemagick" "make" "thermald" "udisks2" "unzip") -}}
+{{- $packages := (list "acpi" "chezmoi" "dnsutils" "ibus" "imagemagick" "make" "thermald" "udisks2" "unzip" "linux-headers" "mkinitcpio-firmware") -}}
 {{- $packages = concat $packages (list "networkmanager" "openvpn" "networkmanager-openvpn" "nm-connection-editor" "network-manager-applet" "openconnect" "networkmanager-openconnect" "networkmanager-dmenu-git") -}}
 {{- $packages = concat $packages (list "bluez" "bluez-utils" "blueberry") -}}
 {{- $packages = concat $packages (list "git" "git-delta") -}}
@@ -37,7 +37,7 @@
 {{- end -}}
 
 {{- if .gaming -}}
-{{- $packages = concat $packages (list "lutris" "steam" "discord" "gamemode" "lib32-gamemode" "mangohud" "lib32-nvidia-utils") -}}
+{{- $packages = concat $packages (list "lutris" "steam" "discord" "gamemode" "lib32-gamemode" "mangohud" "lib32-nvidia-utils" "xpadneo-dkms") -}}
 {{- end -}}
 
 #!/bin/bash
