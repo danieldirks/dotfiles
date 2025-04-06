@@ -5,6 +5,7 @@ return {
         "dbeniamine/todo.txt-vim",
         keys = {
             { "<leader>t", ":e ~/tasks/todo.txt<cr>", desc = "todo.txt" },
+            { "<leader>T", ":tabedit ~/tasks/todo.txt<cr>", desc = "todo.txt in new tab" },
         },
     },
 }
