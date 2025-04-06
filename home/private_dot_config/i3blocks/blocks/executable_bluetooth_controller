@@ -10,8 +10,8 @@ if [ -z "$CONTROLLER" ]; then
     exit 0
 fi
 
-# disconnect with left click
-if [ $button == 1 ]; then
+# disconnect with right click
+if [ $button == 3 ]; then
     bluetoothctl disconnect $CONTROLLER > /dev/null 2>&1
     exit 0
 fi
@@ -32,10 +32,10 @@ if (( BATTERY > 5 && BATTERY <= 10  )); then
     BATTERY_ICON="󰝌"  # empty
     WARNING=true
 fi
-if (( BATTERY > 10 && BATTERY <= 40  )); then
+if (( BATTERY > 10 && BATTERY <= 30  )); then
     BATTERY_ICON="󰝎"  # low
 fi
-if (( BATTERY > 40 && BATTERY <= 70  )); then
+if (( BATTERY > 30 && BATTERY <= 70  )); then
     BATTERY_ICON="󰝏"  # medium
 fi
 if (( BATTERY > 70 && BATTERY <= 100  )); then
@@ -44,7 +44,7 @@ fi
 
 # output
 if $ALERT; then
-    echo " $BATTERY_ICON $NAME "
+    echo " $BATTERY_ICON $BATTERY% "
     echo " $BATTERY_ICON "
     echo "#1e1e2e"
     echo "#f38ba8"
@@ -52,11 +52,11 @@ if $ALERT; then
 fi
 
 if $WARNING; then
-    echo "$BATTERY_ICON $NAME"
+    echo "$BATTERY_ICON $BATTERY%"
     echo "$BATTERY_ICON"
     echo "#f38ba8"
     exit 0
 fi
 
-echo "$BATTERY_ICON $NAME"
+echo "$BATTERY_ICON $BATTERY%"
 echo "$BATTERY_ICON"
