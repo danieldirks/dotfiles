@@ -32,7 +32,7 @@ return {
             "nvim-neotest/nvim-nio"
         },
         keys = {
-            { "<leader>d", ":lua require('dapui').toggle()<cr>", desc = "Toggle DAP UI" },
+            { "<leader>d", ":lua require('dapui').toggle()<cr>", desc = "dap ui" },
         },
         config = function (opts)
             require("dapui").setup(opts)

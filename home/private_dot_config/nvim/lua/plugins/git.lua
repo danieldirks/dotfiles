@@ -8,10 +8,9 @@ return {
             "nvim-telescope/telescope.nvim",
             "sindrets/diffview.nvim",
         },
-        init = function()
-            vim.keymap.set("n", "<leader>g", ":Neogit<cr>", { desc = "Open Neogit" })
-        end,
-        config = true,
+        keys = {
+            { "<leader>g", ":Neogit<cr>", desc = "neogit" },
+        },
         opts = {
             signs = {
                 hunk = { "", "" },

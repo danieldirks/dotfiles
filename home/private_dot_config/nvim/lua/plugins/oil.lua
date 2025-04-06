@@ -4,7 +4,7 @@ return {
     {
         "stevearc/oil.nvim",
         init = function ()
-            vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+            vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "open directory" })
         end,
         opts = {
             columns = {

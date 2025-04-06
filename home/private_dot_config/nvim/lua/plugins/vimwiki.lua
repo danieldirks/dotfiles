@@ -23,6 +23,7 @@ return {
             vim.g.vimwiki_markdown_link_ext = 1
             vim.g.vimwiki_folding = 'syntax'
 
+            -- journal template
             vim.api.nvim_create_autocmd('BufNewFile', {
                 pattern = "*/journals/*.md",
                 -- use template.md replacing %filename% with the filename excluding path and extension

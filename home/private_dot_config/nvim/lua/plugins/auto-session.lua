@@ -1,14 +1,15 @@
 return {
     {
-        -- automatically stores and restores open buffers
+        -- store and restore open buffers
         -- https://github.com/rmagatti/auto-session
         "rmagatti/auto-session",
-        init = function()
-            vim.keymap.set("n", "<leader>ss", ":SessionSave<cr>", { desc = "Save session" })
-            vim.keymap.set("n", "<leader>sr", ":SessionRestore<cr>", { desc = "Restore last session" })
-        end,
+        keys = {
+            { "<leader>s", "", desc = "session" },
+            { "<leader>ss", ":SessionSave<cr>", desc = "save session" },
+            { "<leader>sr", ":SessionRestore<cr>", desc = "restore last session" },
+        },
         opts = {
-            auto_save_enabled = true,
+            auto_save_enabled = true,  -- automatically save session on exit
             auto_restore_enabled = false,
         },
     },

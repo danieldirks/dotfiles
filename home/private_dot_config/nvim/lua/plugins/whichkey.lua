@@ -7,6 +7,10 @@ return {
             vim.opt.timeout = true
             vim.opt.timeoutlen = 300
         end,
-        opts = {},
+        opts = {
+            icons = {
+              mappings = false,
+            },
+        },
     },
 }

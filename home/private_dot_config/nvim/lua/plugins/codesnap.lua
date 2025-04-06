@@ -4,6 +4,20 @@ return {
         -- https://github.com/mistricky/codesnap.nvim
         "mistricky/codesnap.nvim",
         build = "make",
+        lazy = true,
+        cmd = {
+            "CodeSnap",
+            "CodeSnapSave",
+            "CodeSnapHighlight",
+            "CodeSnapHighlightSave",
+            "CodeSnapAscii",
+        },
+        keys = {
+            { "<leader>y", "", desc = "yank" },
+            { "<leader>ys", ":CodeSnap<cr>", desc = "codesnap to clipboard" },
+            { "<leader>yS", ":CodeSnapSave<cr>", desc = "codesnap to ~/pictures/screenshots/" },
+            { "<leader>ya", ":CodeSnapAscii<cr>", desc = "codesnap to ascii" },
+        },
         opts = {
             --bg_theme = "default",
             bg_color = "#ffffff00",
@@ -13,12 +27,6 @@ return {
             mac_window_bar = false,
             save_path = "~/pictures/screenshots/",
             watermark = "",
-        },
-        cmd = {
-            "CodeSnap",
-            "CodeSnapSave",
-            "CodeSnapHighlight",
-            "CodeSnapHighlightSave",
         },
     },
 }

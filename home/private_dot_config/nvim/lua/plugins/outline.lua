@@ -5,7 +5,7 @@ return {
         "hedyhli/outline.nvim",
         cmd = { "Outline", "OutlineOpen" },
         keys = {
-            { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+            { "<leader>o", "<cmd>Outline<CR>", desc = "outline" },
         },
         -- defaults: https://github.com/hedyhli/outline.nvim/blob/main/lua/outline/config.lua
         opts = {

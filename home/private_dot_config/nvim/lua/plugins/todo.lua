@@ -1,9 +1,10 @@
 return {
     {
+        -- todo.txt highlight and key mappings
         -- https://github.com/dbeniamine/todo.txt-vim
         "dbeniamine/todo.txt-vim",
-        init = function()
-            vim.keymap.set("n", "<leader>t", ":e ~/tasks/todo.txt<cr>", { desc = "Open todo.txt" })
-        end,
+        keys = {
+            { "<leader>t", ":e ~/tasks/todo.txt<cr>", desc = "todo.txt" },
+        },
     },
 }
