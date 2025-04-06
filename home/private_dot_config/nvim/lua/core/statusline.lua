@@ -159,6 +159,12 @@ local status_encoding = function ()
     return " " .. icon .. " "
 end
 
+local status_llm = function ()
+    local status_info = require("parrot.config").get_status_info()
+
+    return " 󰚩 " .. status_info.model .. " "
+end
+
 local status_position = function ()
     -- filter out specific buffers
     if vim.bo.filetype == "alpha" then
@@ -181,6 +187,8 @@ function STATUS_LINE()
         -- git
         status_git(),
         --"%{get(b:,'gitsigns_status','')}",
+        -- llm
+        status_llm(),
         -- split area (truncate right side)
         "%<%=",
         -- file name
