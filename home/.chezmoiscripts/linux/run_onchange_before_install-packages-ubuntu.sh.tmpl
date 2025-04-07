@@ -86,6 +86,8 @@ sudo apt-get install -y {{ join " " ( $packages | sortAlpha | uniq ) }}
 sudo snap install {{ . }}
 {{- end }}
 
-bat cache --build
+# fix paths
+ln -fs $(which fdfind) ~/.local/bin/fd
+ln -fs $(which batcat) ~/.local/bin/bat
 
 {{- end }}
