@@ -9,10 +9,6 @@
         "ms-kubernetes-tools.vscode-kubernetes-tools",
         "ms-vscode-remote.vscode-remote-extensionpack",
         ### tools
-        "eamodio.gitlens",
-        "donjayamanne.githistory",
-        "GitHub.copilot",
-        "GitHub.vscode-pull-request-github",
         "pnp.polacode",
         "usernamehw.errorlens",
         "wayou.vscode-todo-highlight",
@@ -20,6 +16,5 @@
         ### look & feel
         "Catppuccin.catppuccin-vsc",
         "Catppuccin.catppuccin-vsc-icons",
-        "equinusocio.vsc-material-theme-icons",
         "vscodevim.vim",
     ]
