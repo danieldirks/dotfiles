@@ -58,7 +58,8 @@
     "zsh" -}}
 {{- $snaps := list
     "k9s"
-    "nvim --classic" -}}
+    "nvim --classic"
+    "ollama" -}}
 
 {{- if not .headless -}}
 {{-   $packages = concat $packages (list "firefox" "keepassxc" "xclip") -}}
