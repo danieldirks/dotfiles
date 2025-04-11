@@ -5,3 +5,11 @@
     executable = true
     refreshPeriod = "168h"
 {{- end }}
+
+# https://github.com/asdf-vm/asdf/releases
+["asdf"]
+    type = "archive-file"
+    url = "https://github.com/asdf-vm/asdf/releases/download/v0.16.7/asdf-v0.16.7-{{ .chezmoi.os }}-{{ .chezmoi.arch}}.tar.gz"
+    path = "asdf"
+    executable = true
+    refreshPeriod = "168h"

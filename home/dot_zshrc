@@ -46,7 +46,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # plugins
 zinit light Aloxaf/fzf-tab
-zinit light asdf-vm/asdf
 zinit light djui/alias-tips              # show aliases for entered commands
 zinit light jeffreytse/zsh-vi-mode       # better vi keybindings
 zinit light zdharma-continuum/fast-syntax-highlighting
