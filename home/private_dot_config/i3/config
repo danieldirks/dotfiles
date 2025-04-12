@@ -300,7 +300,7 @@ exec --no-startup-id sleep 1 && xset s off
 exec_always --no-startup-id sleep 1 && nm-applet
 
 # keyboard
-exec_always --no-startup-id sleep 1 && ibus-daemon -rxd
+exec_always --no-startup-id sleep 1 && fcitx5
 
 # player
 exec --no-startup-id playerctld daemon

@@ -1,6 +1,6 @@
 {{- if eq .osid "linux-arch" -}}
 
-{{- $packages := (list "acpi" "chezmoi" "dnsutils" "ibus" "imagemagick" "make" "thermald" "udisks2" "unzip" "linux-headers" "mkinitcpio-firmware") -}}
+{{- $packages := (list "acpi" "chezmoi" "dnsutils" "fcitx5" "imagemagick" "make" "thermald" "udisks2" "unzip" "linux-headers" "mkinitcpio-firmware") -}}
 {{- $packages = concat $packages (list "networkmanager" "openvpn" "networkmanager-openvpn" "nm-connection-editor" "network-manager-applet" "openconnect" "networkmanager-openconnect" "networkmanager-dmenu-git") -}}
 {{- $packages = concat $packages (list "bluez" "bluez-utils" "blueberry") -}}
 {{- $packages = concat $packages (list "git" "git-delta") -}}
