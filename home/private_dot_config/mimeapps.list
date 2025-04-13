@@ -9,6 +9,7 @@ image/jpeg=feh.desktop
 image/jpg=feh.desktop
 inode/directory=nemo.desktop
 text/html=librewolf.desktop
+text/plain=nvim.desktop
 video/mp4=mpv.desktop
 video/x-matroska=mpv.desktop
 x-scheme-handler/about=librewolf.desktop
