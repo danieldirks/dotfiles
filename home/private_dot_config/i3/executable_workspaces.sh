@@ -12,4 +12,4 @@ i3-msg -t subscribe -m '["workspace"]' | {
         focused: false,
         urgent: false
     };
-    . + [ fake_ws(1; "1:"), fake_ws(2; "2:"), fake_ws(3; "3:"), fake_ws(4; "4:") ] | unique_by(.name) '
+    . + [ fake_ws(1; "1:"), fake_ws(2; "2:"), fake_ws(3; "3:"), fake_ws(4; "4:󰍩"), fake_ws(5; "5:") ] | unique_by(.name) '

@@ -115,8 +115,8 @@ bindsym $mod+Shift+comma exec --no-startup-id dunstctl history-pop
 set $ws1  "1:"
 set $ws2  "2:"
 set $ws3  "3:"
-set $ws4  "4:"
-set $ws5  "5:5"
+set $ws4  "4:󰍩"
+set $ws5  "5:"
 set $ws6  "6:6"
 set $ws7  "7:7"
 set $ws8  "8:8"
@@ -169,7 +169,8 @@ for_window [class=".*"] border pixel 2
 assign [class="steam"]                             $ws3
 assign [class="Lutris"]                            $ws3
 assign [class="discord"]                           $ws4
-for_window [class="Spotify"] move to workspace     $ws4
+assign [class="Signal"]                            $ws4
+assign [class="Spotify"]                           $ws5
 
 # floating
 for_window [window_role="app"]                floating enable
