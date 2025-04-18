@@ -13,6 +13,10 @@ fi
 # artist
 if [[ ! $(playerctl -p $player metadata artist) == '' ]]; then
     echo -ne "$(playerctl -p $player metadata artist 2>/dev/null | sed 's/&/&amp;/g') - "
+
+# album if artist empty
+else
+    echo -ne "$(playerctl -p $player metadata album 2>/dev/null | sed 's/&/&amp;/g') - "
 fi
 
 # title
