@@ -1,13 +1,16 @@
-# set PATH so it includes user's private bin if it exists
+# add user's private bin to path
 if [ -d "$HOME/.local/bin" ] ; then
     path+=("$HOME/.local/bin")
 fi
 
-# Expand $PATH to include the directory where snappy applications go.
+# add snap bin to path
 snap_bin_path="/snap/bin"
 if [ -n "${PATH##*${snap_bin_path}}" ] && [ -n "${PATH##*${snap_bin_path}:*}" ]; then
     export PATH="$PATH:${snap_bin_path}"
 fi
+
+# add asdf shims to path
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 {{- if eq .osid "darwin" }}
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -15,13 +18,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # prioritize coreutils over bsd variants
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}"
 export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:${MANPATH}"
-{{- end }}
-
-{{- if eq .osid "linux-arch" }}
-# start wm on boot
-if [[ "$(tty)" == '/dev/tty1' ]]; then
-    exec startx
-fi
 {{- end }}
 
 # ibus
