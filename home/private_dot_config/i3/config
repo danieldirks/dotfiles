@@ -221,7 +221,7 @@ set $mantle #181825
 set $crust #11111b
 
 # general
-font pango:CaskaydiaCove Nerd Font Propo 11
+font pango:Inter 10
 
 # bar
 bar {
