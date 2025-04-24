@@ -1,0 +1,10 @@
+#!/bin/bash
+
+pactl set-source-mute 0 toggle
+
+STATE=$(pactl get-source-mute 0 | grep "Mute: yes")
+if [ -n "$STATE" ]; then
+    dunstify --hints=string:x-dunst-stack-tag:mic-mute --timeout=0 --icon=mic-off "Microphone" "muted"
+else
+    dunstify --hints=string:x-dunst-stack-tag:mic-mute --timeout=1000 --icon=mic-on "Microphone" "unmuted"
+fi

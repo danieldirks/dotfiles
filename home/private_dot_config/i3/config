@@ -30,6 +30,7 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMicMute exec --no-startup-id microphone-mute-toggle && pkill -RTMIN+10 i3blocks  # by default mapped to F20
 bindsym Print exec --no-startup-id mkdir -p "$(xdg-user-dir PICTURES)/screenshots" && scrot "$(xdg-user-dir PICTURES)/screenshots/%Y-%m-%d_%H-%M-%S.png" -z -e "notify-send --icon='\$f' 'Screenshot saved' '\$f' && xclip -selection clipboard -t image/png -i \$f"
 bindsym Shift+Print exec --no-startup-id mkdir -p "$(xdg-user-dir PICTURES)/screenshots" && scrot "$(xdg-user-dir PICTURES)/screenshots/%Y-%m-%d_%H-%M-%S.png" -s -z -e "notify-send --icon='\$f' 'Screenshot saved' '\$f' && xclip -selection clipboard -t image/png -i \$f"
 
