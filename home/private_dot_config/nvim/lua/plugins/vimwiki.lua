@@ -3,6 +3,9 @@ return {
         -- notes
         -- https://github.com/vimwiki/vimwiki
         "vimwiki/vimwiki",
+        dependencies = {
+            "qadzek/link.vim",
+        },
         init = function()
             vim.g.vimwiki_diary_rel_path = 'journals'
             vim.g.vimwiki_ext2syntax = {
@@ -22,6 +25,9 @@ return {
             }
             vim.g.vimwiki_markdown_link_ext = 1
             vim.g.vimwiki_folding = 'syntax'
+            vim.g.vimwiki_key_mappings = {
+                ['headers'] = 0,
+            }
 
             -- journal template
             vim.api.nvim_create_autocmd('BufNewFile', {
