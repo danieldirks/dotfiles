@@ -235,7 +235,7 @@ bar {
     workspace_command ~/.config/i3/workspaces.sh
     #mode hide
     tray_output none
-    font pango:CaskaydiaCove Nerd Font Propo 11
+    font pango:CaskaydiaCove Nerd Font Propo 10
 
     colors {
         background         $crust
