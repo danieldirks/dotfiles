@@ -4,6 +4,7 @@ return {
         -- https://github.com/vimwiki/vimwiki
         "vimwiki/vimwiki",
         dependencies = {
+            -- config: ./link.lua
             "qadzek/link.vim",
         },
         init = function()
