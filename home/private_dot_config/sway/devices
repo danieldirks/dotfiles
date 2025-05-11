@@ -1,0 +1,14 @@
+# additional sway config for inputs and outputs
+# vim: ft=swayconfig
+# !!! this file is not managed by chezmoi
+
+# swaymsg -t get_outputs
+# man 5 sway-output
+output "DP-4" {
+    mode 5120x1440
+    adaptive_sync on
+    render_bit_depth 10
+}
+
+# swaymsg -t get_inputs
+# man 5 sway-input
