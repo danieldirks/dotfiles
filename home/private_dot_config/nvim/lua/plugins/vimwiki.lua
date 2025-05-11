@@ -19,9 +19,16 @@ return {
             vim.g.vimwiki_hl_headers = 1
             vim.g.vimwiki_list = {
                 {
-                    path = '~/notes',
+                    path = '~/notes/',
                     syntax = 'markdown',
                     ext = '.md',
+                    -- see :h vimwiki-option-rss_name
+                    custom_wiki2html = '~/.config/nvim/vimwiki/vimwiki2html.sh',
+                    path_html = '~/notes-html/',
+                    -- pandoc templates, see https://pandoc.org/MANUAL.html#templates
+                    template_path = vim.fn.stdpath("config") .. '/autoload/vimwiki',
+                    template_default = 'default',
+                    template_ext = '.html',
                 },
             }
             vim.g.vimwiki_markdown_link_ext = 1

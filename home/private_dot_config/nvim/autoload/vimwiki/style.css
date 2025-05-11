@@ -1,0 +1,137 @@
+/* ~/.local/share/nvim/lazy/vimwiki/autoload/vimwiki/style.css */
+:root {
+    --base: #1e1e2e;
+    --text: #cdd6f4;
+    --pink: #f5c2e7;
+    --mauve: #cba6f7;
+    --red: #f38ba8;
+    --maroon: #eba0ac;
+    --peach: #fab387;
+    --yellow: #f9e2af;
+    --green: #a6e3a1;
+    --teal: #94e2d5;
+    --sky: #89dceb;
+    --sapphire: #74c7ec;
+    --blue: #89b4fa;
+    --lavender: #b4befe;
+    --text: #cdd6f4;
+    --subtext1: #bac2de;
+    --subtext0: #a6adc8;
+    --overlay2: #9399b2;
+    --overlay1: #7f849c;
+    --overlay0: #6c7086;
+    --surface2: #585b70;
+    --surface1: #45475a;
+    --surface0: #313244;
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --crust: #11111b;
+}
+
+body {
+    background: var(--base);
+    margin: 2em 4em 2em 4em;
+
+    font-family: "Inter", sans-serif;
+    font-size: 120%;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+h1, h2 {
+    color: var(--mauve)
+}
+
+h3, h4, h5, h6 {
+    color: var(--lavender)
+}
+
+h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+    color: var(--overlay0)
+}
+
+h1 { font-size: 2em; }
+h1::before { content: '# '; }
+h2 { font-size: 1.8em; }
+h2::before { content: '## '; }
+h3 { font-size: 1.6em; }
+h3::before { content: '### '; }
+h4 { font-size: 1.4em; }
+h4::before { content: '#### '; }
+h5 { font-size: 1.2em; }
+h5::before { content: '##### '; }
+h6 { font-size: 1em; }
+h6::before { content: '###### '; }
+
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--blue);
+}
+
+a:hover { color: var(--lavender); }
+
+ul, ol {
+    line-height: 1.5;
+}
+
+li::marker {
+    color: var(--lavender);
+}
+
+ol li {
+    padding-left: 5px;
+}
+
+ol li::marker {
+    font-weight: bold;
+}
+
+ul.task-list {
+    position: relative;
+    padding: 0;
+}
+
+ul.task-list li::marker {
+    content: '';
+}
+
+ul.task-list li input[type=checkbox] {
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+img {
+    max-width: 100%;
+}
+
+input[type=checkbox] {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 1.2em;
+    height: 1.2em;
+    background-color: transparent;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2px solid var(--surface1);
+    cursor: pointer;
+}
+
+input[type=checkbox]:checked {
+    background-color: var(--lavender);
+    border: 0;
+}
+
+code {
+    display: inline-block;
+    background: var(--mantle);
+    padding: 0px 3px;
+    border: 1px solid var(--surface2);
+    font-family: "CaskaydiaCove Nerd Font Mono", monospace;
+}

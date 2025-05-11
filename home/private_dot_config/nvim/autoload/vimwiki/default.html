@@ -1,0 +1,24 @@
+<!-- https://pandoc.org/MANUAL.html#templates -->
+<!-- ~/.local/share/nvim/lazy/vimwiki/autoload/vimwiki/default.tpl -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="date" content='$date-meta$'>
+        <title>$title$</title>
+        <style>
+img {
+  max-width: 100%;
+}
+        </style>
+
+$for(css)$
+        <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
+$endfor$
+    </head>
+    <body>
+<!-- $if(toc)$ $toc$ $endif$ -->
+
+$body$
+    </body>
+</html>
