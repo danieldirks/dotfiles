@@ -1,0 +1,19 @@
+# See https://ghostty.org/docs/config
+# or `ghostty +show-config --default --docs`
+
+# appearance
+window-decoration = false
+window-inherit-working-directory = true
+window-theme = dark
+mouse-hide-while-typing = true
+
+# fonts
+font-family = CaskaydiaCove Nerd Font Mono
+font-size = 10
+font-feature = -calt, -liga, -dlig
+
+# colors
+theme = catppuccin-mocha.conf
+
+# behaviour
+copy-on-select = true
