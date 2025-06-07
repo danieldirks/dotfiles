@@ -1,6 +1,6 @@
 return {
     {
-        -- sets up language servers automatically via lspconfig
+        -- installs and enables lsps automatically through vim.lsp.enable
         -- https://github.com/williamboman/mason-lspconfig.nvim
         "williamboman/mason-lspconfig.nvim",
         dependencies = {
@@ -15,7 +15,7 @@ return {
                 "gradle_ls",   -- gradle
                 "html",        -- html
                 "htmx",        -- htmx
-                "jdtls",       -- java
+                --"jdtls",       -- java
                 "jsonls",      -- json
                 "texlab",      -- latex
                 "lua_ls",      -- lua
@@ -27,61 +27,18 @@ return {
 
             automatic_install = true,
 
-            -- server setup
-            -- handlers can override or extend default config from https://github.com/neovim/nvim-lspconfig
-            handlers = {
-                -- setup all servers automatically
-                function (server)
-                    require("lspconfig")[server].setup {}
-                end,
-
-                -- custom config for jdtls
-                ["jdtls"] = function()
-                    require("java").setup()
-                    require("lspconfig").jdtls.setup {
-                        cmd = { "jdtls" },
-                    }
-                end,
-
-                -- custom config for ltex
-                ["ltex"] = function()
-                    require("lspconfig").ltex.setup {
-                        -- https://valentjn.github.io/ltex/settings.html
-                        settings = {
-                            ltex = {
-                                dictionary = {
-                                    ["en-US"] = {},
-                                },
-                                disabledRules = {
-                                    ["en-US"] = { "PROFANITY", "MORFOLOGIK_RULE_EN_US" },
-                                },
-                            },
-                        },
-                    }
-                end,
-
-                -- custom config for lua_ls
-                ["lua_ls"] = function()
-                    require("lspconfig").lua_ls.setup {
-                        -- https://luals.github.io/wiki/settings/#settings
-                        settings = {
-                            Lua = {
-                                diagnostics = {
-                                    globals = { "vim" },
-                                },
-                            },
-                        },
-                    }
-                end,
-            },
+            -- config from ../../lsp and https://github.com/neovim/nvim-lspconfig
+            automatic_enable = true,
         },
     },
 
-    {
-        -- java development tools - will be configured with mason-lspconfig
-        -- https://github.com/nvim-java/nvim-java
-        "nvim-java/nvim-java",
-        ft = { "java" },
-        config = false,
-    },
+    --{
+    --    -- java development tools - will be configured with mason-lspconfig
+    --    -- https://github.com/nvim-java/nvim-java
+    --    "nvim-java/nvim-java",
+    --    config = function ()
+    --        require("java").setup({})
+    --        vim.lsp.enable({"jdtls"})
+    --    end,
+    --},
 }

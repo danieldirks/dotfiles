@@ -18,3 +18,8 @@ require("lazy").setup("plugins")
 
 -- load custom statusline
 require("core/statusline")
+
+-- enable lsps
+vim.lsp.enable({
+    "jdtls",
+})
