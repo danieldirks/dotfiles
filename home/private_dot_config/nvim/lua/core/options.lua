@@ -124,3 +124,7 @@ vim.diagnostic.config({
 -- diagnostics float
 --vim.o.updatetime = 250
 --vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
+-- lsp log
+vim.lsp.set_log_level("off")
+-- vim.lsp.set_log_level("debug")
