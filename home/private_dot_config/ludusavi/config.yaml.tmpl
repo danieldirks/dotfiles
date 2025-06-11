@@ -1,0 +1,74 @@
+---
+runtime:
+  threads: ~
+release:
+  check: false
+manifest:
+  enable: true
+language: en-US
+theme: dark
+roots:
+  - store: steam
+    path: ~/.local/share/Steam
+  - store: lutris
+    path: ~/.local/share/lutris
+    database: ~
+  - store: otherHome
+    path: "~"
+redirects: []
+backup:
+  path: {{ .backup_path }}/game-saves
+  ignoredGames: []
+  filter:
+    excludeStoreScreenshots: false
+    cloud:
+      exclude: false
+      epic: false
+      gog: false
+      origin: false
+      steam: false
+      uplay: false
+    ignoredPaths: []
+    ignoredRegistry: []
+  toggledPaths: {}
+  toggledRegistry: {}
+  sort:
+    key: status
+    reversed: false
+  retention:
+    full: 1
+    differential: 0
+  format:
+    chosen: simple
+    zip:
+      compression: deflate
+    compression:
+      deflate:
+        level: 6
+      bzip2:
+        level: 6
+      zstd:
+        level: 10
+  onlyConstructive: false
+restore:
+  path: {{ .backup_path }}/game-saves
+  ignoredGames: []
+  toggledPaths: {}
+  toggledRegistry: {}
+  sort:
+    key: status
+    reversed: false
+  reverseRedirects: false
+scan:
+  showDeselectedGames: true
+  showUnchangedGames: true
+  showUnscannedGames: true
+cloud:
+  remote: ~
+  path: backups/game-saves
+  synchronize: true
+apps:
+  rclone:
+    path: /usr/bin/rclone
+    arguments: "--fast-list --ignore-checksum"
+customGames: []

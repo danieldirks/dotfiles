@@ -1,0 +1,19 @@
+#!/bin/bash
+# vim: ft=bash
+
+HI='\033[33m'
+CL='\033[0m'
+
+BACKUP_PATH={{ .backup_path }}
+
+set -e
+
+
+{{ if .gaming -}}
+##################
+### game saves ###
+##################
+
+echo -e "\n${HI}ludusavi backup${CL}"
+ludusavi backup --force --no-force-cloud-conflict
+{{- end }}

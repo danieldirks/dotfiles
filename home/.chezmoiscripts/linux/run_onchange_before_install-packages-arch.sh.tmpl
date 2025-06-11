@@ -38,7 +38,11 @@
 {{- end -}}
 
 {{- if .gaming -}}
-{{- $packages = concat $packages (list "lutris" "steam" "discord" "gamemode" "lib32-gamemode" "mangohud" "lib32-nvidia-utils" "wine" "xpadneo-dkms") -}}
+{{- $packages = concat $packages (list "lutris" "gamemode" "lib32-gamemode" "mangohud" "wine") -}}
+{{- $packages = concat $packages (list "steam" "lib32-nvidia-utils") -}}
+{{- $packages = concat $packages (list "discord") -}}
+{{- $packages = concat $packages (list "xpadneo-dkms") -}}
+{{- $packages = concat $packages (list "ludusavi") -}}
 {{- end -}}
 
 #!/bin/bash

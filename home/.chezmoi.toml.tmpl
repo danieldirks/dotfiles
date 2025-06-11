@@ -5,6 +5,7 @@
 {{- $headless    := false -}}{{/* headless mode */}}
 {{- $location    := ""    -}}{{/* location */}}
 {{- $wsl         := false -}}{{/* system is wsl environment */}}
+{{- $backup_path := ""    -}}{{/* path for backups */}}
 
 {{/* os detection */}}
 {{- $osid := .chezmoi.os -}}
@@ -29,6 +30,7 @@
 {{-     $gaming = promptBoolOnce . "gaming" "setup gaming environment" false -}}
 {{-     $headless = promptBoolOnce . "headless" "setup in headless mode" false -}}
 {{-     $location = promptStringOnce . "location" "location" "London" -}}
+{{-     $backup_path = promptStringOnce . "backup_path" "backup path" "~/backups" -}}
 {{-   end -}}
 {{- end -}}
 
@@ -42,3 +44,6 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
     location = {{ $location | quote }}
     osid = {{ $osid | quote }}
     wsl = {{ $wsl }}
+
+    # paths
+    backup_path = {{ $backup_path | quote }}
