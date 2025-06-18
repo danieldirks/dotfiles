@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case $1 in
+    "update")
+        exec dots-update "${@:2}"
+        ;;
+    "backup")
+        exec dots-backup "${@:2}"
+        ;;
+    *)
+        echo "usage: dots update|backup"
+        ;;
+esac

@@ -37,16 +37,16 @@ backup:
     reversed: false
   retention:
     full: 1
-    differential: 0
+    differential: 5
   format:
-    chosen: simple
+    chosen: zip
     zip:
       compression: deflate
     compression:
       deflate:
-        level: 6
+        level: 9
       bzip2:
-        level: 6
+        level: 9
       zstd:
         level: 10
   onlyConstructive: false

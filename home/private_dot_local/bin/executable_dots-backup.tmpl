@@ -1,0 +1,76 @@
+#!/bin/bash
+# vim: ft=bash
+
+HI='\033[33m'
+CL='\033[0m'
+
+set -e
+
+
+#############
+### setup ###
+#############
+
+BACKUP_PATH={{ .backup_path }}
+SNAPSHOT_FILE=$BACKUP_PATH/home/$(cat /etc/hostname).snapshot
+IGNORE_FILE=~/.tarignore
+
+# check for full or incremental backup
+FULL_BACKUP=false
+if [ ! -f "$SNAPSHOT_FILE" ] || [[ "$1" == "--full" ]]; then
+    echo "starting full backup"
+    FULL_BACKUP=true
+fi
+
+
+# full: calculating size of home
+if $FULL_BACKUP; then
+    echo -e "\n${HI}calculate size (may take a few minutes)${CL}"
+    BACKUP_SIZE=$(du -sb -X $IGNORE_FILE ~ | awk '{print $1}')
+    echo $BACKUP_SIZE | numfmt --to=iec-i
+else
+    BACKUP_SIZE=0
+fi
+
+
+###########
+### tar ###
+###########
+
+echo -e "\n${HI}tar {{ .chezmoi.destDir }}${CL}"
+ARCHIVE="$(cat /etc/hostname)-$(date '+%Y-%m-%d-%H-%M')"
+mkdir -p $BACKUP_PATH/home
+TAR_ARGS=""
+if $FULL_BACKUP; then
+    TAR_ARGS="--level=0"
+else
+    ARCHIVE=$ARCHIVE-incremetal
+fi
+tar -g $SNAPSHOT_FILE $TAR_ARGS -cpf - -X $IGNORE_FILE ~ | \
+    pv -s $BACKUP_SIZE | \
+    gzip > $BACKUP_PATH/home/$ARCHIVE.tar.gz
+#    xz -z - > $BACKUP_PATH/home/$ARCHIVE.tar.xz
+
+# merge: extract and recompress
+#   tar -g $SNAPSHOT_FILE -xvpf ARCHIVE0.tar temp
+#   tar -g $SNAPSHOT_FILE -xvpf ARCHIVE1.tar temp
+#   ...
+#   tar -g $SNAPSHOT_FILE --level=0 -cvpf MERGED_ARCHIVE.tar temp
+#
+# restore: extract archives in order 
+#   tar -g /dev/null -xvpf ARCHIVE0.tar temp
+#   tar -g /dev/null -xvpf ARCHIVE1.tar temp
+#   ...
+
+
+{{ if .gaming -}}
+##################
+### game saves ###
+##################
+
+echo -e "\n${HI}ludusavi backup${CL}"
+ludusavi backup --force --no-force-cloud-conflict
+{{- end }}
+
+echo -e "\n${HI}tree${CL}"
+tree -sh --du $BACKUP_PATH

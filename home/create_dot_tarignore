@@ -1,0 +1,9 @@
+# file patterns ignored in backup
+# !!! this file is not managed by chezmoi
+/home/*/.cache
+/home/*/.local/share/Steam
+/home/*/.local/share/Trash
+/home/*/backups
+/home/*/downloads
+/home/*/games
+/home/*/nextcloud
