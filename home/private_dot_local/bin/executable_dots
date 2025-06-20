@@ -7,7 +7,10 @@ case $1 in
     "backup")
         exec dots-backup "${@:2}"
         ;;
+    "clean")
+        exec dots-clean "${@:2}"
+        ;;
     *)
-        echo "usage: dots update|backup"
+        echo "usage: dots update|backup|clean"
         ;;
 esac

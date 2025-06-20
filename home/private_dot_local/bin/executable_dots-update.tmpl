@@ -10,7 +10,7 @@ set -e
 ### backup ###
 ##############
 
-[[ "$(read -e -p 'run backup first? [y/N] '; echo $REPLY)" == [Yy]* ]] && dots-backup
+[[ "$(read -e -p 'run backup first? [Y/n] '; echo $REPLY)" == [Nn]* ]] || dots-backup
 
 
 {{ if eq .osid "linux-arch" -}}

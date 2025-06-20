@@ -38,11 +38,12 @@ fi
 ###########
 
 echo -e "\n${HI}tar {{ .chezmoi.destDir }}${CL}"
-ARCHIVE="$(cat /etc/hostname)-$(date '+%Y-%m-%d-%H-%M')"
 mkdir -p $BACKUP_PATH/home
+ARCHIVE="$(cat /etc/hostname)-$(date '+%Y-%m-%d-%H-%M')"
 TAR_ARGS=""
 if $FULL_BACKUP; then
     TAR_ARGS="--level=0"
+    ARCHIVE=$ARCHIVE-full
 else
     ARCHIVE=$ARCHIVE-incremetal
 fi

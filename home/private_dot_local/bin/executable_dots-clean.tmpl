@@ -1,0 +1,21 @@
+#!/bin/bash
+# vim: ft=bash
+
+HI='\033[33m'
+CL='\033[0m'
+
+set -e
+
+
+{{ if eq .osid "linux-arch" -}}
+############
+### arch ###
+############
+
+echo -e "\n${HI}pacman autoremove${CL}"
+packages=$(pacman -Qtdq)
+if [[ -n "$packages" ]]; then
+    sudo pacman -Rns $packages
+fi
+
+{{- end }}
