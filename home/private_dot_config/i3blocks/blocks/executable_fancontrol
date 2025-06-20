@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [ ! "$(systemctl is-active fancontrol.service)" = "active" ]; then
-    echo " 󰠝 "
-    echo " 󰠝 "
-    echo "#1e1e2e"
-    echo "#f38ba8"
-fi
