@@ -38,12 +38,8 @@ body {
     color: var(--text);
 }
 
-h1, h2 {
+h1, h2, h3, h4, h5, h6 {
     color: var(--mauve)
-}
-
-h3, h4, h5, h6 {
-    color: var(--lavender)
 }
 
 h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {

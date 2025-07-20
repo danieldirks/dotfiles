@@ -23,7 +23,7 @@ return {
                     syntax = 'markdown',
                     ext = '.md',
                     -- see :h vimwiki-option-rss_name
-                    custom_wiki2html = '~/.config/nvim/vimwiki/vimwiki2html.sh',
+                    custom_wiki2html = '~/.config/nvim/autoload/vimwiki/vimwiki2html.sh',
                     path_html = '~/notes-html/',
                     -- pandoc templates, see https://pandoc.org/MANUAL.html#templates
                     template_path = vim.fn.stdpath("config") .. '/autoload/vimwiki',
