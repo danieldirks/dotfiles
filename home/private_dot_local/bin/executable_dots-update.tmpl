@@ -6,13 +6,6 @@ CL='\033[0m'
 set -e
 
 
-##############
-### backup ###
-##############
-
-[[ "$(read -e -p 'run backup first? [Y/n] '; echo $REPLY)" == [Nn]* ]] || dots-backup
-
-
 {{ if eq .osid "linux-arch" -}}
 ############
 ### arch ###

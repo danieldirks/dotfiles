@@ -11,46 +11,46 @@ set -e
 ### setup ###
 #############
 
-BACKUP_PATH={{ .backup_path }}
-SNAPSHOT_FILE=$BACKUP_PATH/home/$(cat /etc/hostname).snapshot
-IGNORE_FILE=~/.tarignore
-
-# check for full or incremental backup
-FULL_BACKUP=false
-if [ ! -f "$SNAPSHOT_FILE" ] || [[ "$1" == "--full" ]]; then
-    echo "starting full backup"
-    FULL_BACKUP=true
-fi
-
-
-# full: calculating size of home
-if $FULL_BACKUP; then
-    echo -e "\n${HI}calculate size (may take a few minutes)${CL}"
-    BACKUP_SIZE=$(du -sb -X $IGNORE_FILE ~ | awk '{print $1}')
-    echo $BACKUP_SIZE | numfmt --to=iec-i
-else
-    BACKUP_SIZE=0
-fi
+#BACKUP_PATH={{ .backup_path }}
+#SNAPSHOT_FILE=$BACKUP_PATH/home/$(cat /etc/hostname).snapshot
+#IGNORE_FILE=~/.tarignore
+#
+## check for full or incremental backup
+#FULL_BACKUP=false
+#if [ ! -f "$SNAPSHOT_FILE" ] || [[ "$1" == "--full" ]]; then
+#    echo "starting full backup"
+#    FULL_BACKUP=true
+#fi
+#
+#
+## full: calculating size of home
+#if $FULL_BACKUP; then
+#    echo -e "\n${HI}calculate size (may take a few minutes)${CL}"
+#    BACKUP_SIZE=$(du -sb -X $IGNORE_FILE ~ | awk '{print $1}')
+#    echo $BACKUP_SIZE | numfmt --to=iec-i
+#else
+#    BACKUP_SIZE=0
+#fi
 
 
 ###########
 ### tar ###
 ###########
 
-echo -e "\n${HI}tar {{ .chezmoi.destDir }}${CL}"
-mkdir -p $BACKUP_PATH/home
-ARCHIVE="$(cat /etc/hostname)-$(date '+%Y-%m-%d-%H-%M')"
-TAR_ARGS=""
-if $FULL_BACKUP; then
-    TAR_ARGS="--level=0"
-    ARCHIVE=$ARCHIVE-full
-else
-    ARCHIVE=$ARCHIVE-incremetal
-fi
-tar -g $SNAPSHOT_FILE $TAR_ARGS -cpf - -X $IGNORE_FILE ~ | \
-    pv -s $BACKUP_SIZE | \
-    gzip > $BACKUP_PATH/home/$ARCHIVE.tar.gz
-#    xz -z - > $BACKUP_PATH/home/$ARCHIVE.tar.xz
+#echo -e "\n${HI}tar {{ .chezmoi.destDir }}${CL}"
+#mkdir -p $BACKUP_PATH/home
+#ARCHIVE="$(cat /etc/hostname)-$(date '+%Y-%m-%d-%H-%M')"
+#TAR_ARGS=""
+#if $FULL_BACKUP; then
+#    TAR_ARGS="--level=0"
+#    ARCHIVE=$ARCHIVE-full
+#else
+#    ARCHIVE=$ARCHIVE-incremetal
+#fi
+#tar -g $SNAPSHOT_FILE $TAR_ARGS -cpf - -X $IGNORE_FILE ~ | \
+#    pv -s $BACKUP_SIZE | \
+#    gzip > $BACKUP_PATH/home/$ARCHIVE.tar.gz
+##    xz -z - > $BACKUP_PATH/home/$ARCHIVE.tar.xz
 
 # merge: extract and recompress
 #   tar -g $SNAPSHOT_FILE -xvpf ARCHIVE0.tar temp
