@@ -3,6 +3,7 @@ return {
         -- catppuccin mocha color theme
         -- https://github.com/catppuccin/nvim
         "catppuccin/nvim",
+        version = "v1.11.0",
         name = "catppuccin",
         priority = 1000,
         init = function() vim.cmd.colorscheme("catppuccin-mocha") end,
