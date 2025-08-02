@@ -3,6 +3,7 @@ return {
         -- llm assistant
         -- https://github.com/frankroeder/parrot.nvim
         "frankroeder/parrot.nvim",
+        enabled = false,  -- do not load, replaced by ./codecompanion.lua
         dependencies = {
             "ibhagwan/fzf-lua",
             "nvim-lua/plenary.nvim"
