@@ -9,6 +9,7 @@ return {
         },
         init = function()
             vim.g.vimwiki_diary_rel_path = 'journals'
+            vim.g.vimwiki_diary_frequency = 'daily'
             vim.g.vimwiki_ext2syntax = {
                 ['.md'] = 'markdown',
                 ['.markdown'] = 'markdown',
