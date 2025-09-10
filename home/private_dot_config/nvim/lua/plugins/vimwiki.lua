@@ -25,7 +25,7 @@ return {
                     ext = '.md',
                     -- see :h vimwiki-option-rss_name
                     custom_wiki2html = '~/.config/nvim/autoload/vimwiki/vimwiki2html.sh',
-                    path_html = '~/notes-html/',
+                    path_html = '~/.cache/vimwiki-html/',
                     -- pandoc templates, see https://pandoc.org/MANUAL.html#templates
                     template_path = vim.fn.stdpath("config") .. '/autoload/vimwiki',
                     template_default = 'default',
