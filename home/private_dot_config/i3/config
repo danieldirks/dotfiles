@@ -294,9 +294,9 @@ exec --no-startup-id unclutter  # hides cursor on typing
 
 # disable display power management and screensaver
 # for current configuration, see: xset q
-exec_always --no-startup-id sleep 1 && xset -dpms
-exec_always --no-startup-id sleep 1 && xset s noblank
-exec_always --no-startup-id sleep 1 && xset s off
+exec_always --no-startup-id sleep 60 && xset -dpms
+exec_always --no-startup-id sleep 60 && xset s noblank
+exec_always --no-startup-id sleep 60 && xset s off
 
 # network
 #exec_always --no-startup-id sleep 1 && nm-applet
