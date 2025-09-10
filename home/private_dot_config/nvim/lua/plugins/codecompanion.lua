@@ -17,7 +17,7 @@ return {
                 chat = {
                     adapter = {
                         name = "ollama",
-                        model = "qwen2.5-coder:7b",
+                        model = "gpt-oss:20b",
                     },
                     keymaps = {
                         send = {
@@ -31,13 +31,13 @@ return {
                 inline = {
                     adapter = {
                         name = "ollama",
-                        model = "qwen2.5-coder:7b",
+                        model = "devstral:24b",
                     },
                 },
                 cmd = {
                     adapter = {
                         name = "ollama",
-                        model = "qwen2.5-coder:7b",
+                        model = "devstral:24b",
                     },
                 },
             }
