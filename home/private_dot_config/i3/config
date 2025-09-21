@@ -15,7 +15,6 @@ tiling_drag modifier titlebar
 # launcher
 bindsym $mod+Return exec --no-startup-id rofi -show drun -no-show-match
 bindsym $mod+Tab exec --no-startup-id rofi -show window -no-show-match
-bindsym $mod+p exec --no-startup-id rofi -show pass -no-show-match
 bindsym $mod+n exec --no-startup-id networkmanager_dmenu
 
 # apps
@@ -121,8 +120,7 @@ set $ws5  "5:"
 set $ws6  "6:6"
 set $ws7  "7:7"
 set $ws8  "8:8"
-set $ws9  "9:9"
-set $ws10 "10:10"
+set $ws9  "9:󰒓"
 
 # focus workspace
 bindsym $mod+1 workspace $ws1
@@ -134,7 +132,6 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
 
 # move to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -146,13 +143,12 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
 
 # assign workspaces to displays
 #workspace $workspaceX output HDMI-0
 
 bindsym $mod+Home workspace $ws1
-bindsym $mod+End workspace $ws10
+bindsym $mod+End workspace $ws9
 bindsym $mod+Prior workspace prev
 bindsym $mod+Next workspace next
 
@@ -172,6 +168,7 @@ assign [class="Lutris"]                            $ws3
 assign [class="discord"]                           $ws4
 assign [class="Signal"]                            $ws4
 assign [class="Spotify"]                           $ws5
+assign [title="^.*.kdbx.* - KeePassXC"]            $ws9
 
 # floating
 for_window [window_role="app"]                floating enable
@@ -306,10 +303,6 @@ exec_always --no-startup-id sleep 1 && fcitx5
 
 # player
 exec --no-startup-id playerctld daemon
-
-# secret service (org.freedesktop.secrets.service provider)
-exec --no-startup-id pass-secret-service
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # wallpaper
 exec_always --no-startup-id sleep 1 && feh --bg-scale ~/.wallpaper.jpg

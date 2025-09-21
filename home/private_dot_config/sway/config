@@ -15,7 +15,6 @@ floating_modifier $mod
 # launcher
 bindsym $mod+Return exec rofi -show drun -no-show-match
 bindsym $mod+Tab exec rofi -show window -no-show-match
-bindsym $mod+p exec rofi -show pass -no-show-match
 bindsym $mod+n exec networkmanager_dmenu
 
 # apps
@@ -300,10 +299,6 @@ exec_always sleep 1 && fcitx5
 
 # player
 exec playerctld daemon
-
-# secret service (org.freedesktop.secrets.service provider)
-exec pass-secret-service
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # wallpaper
 #exec_always killall conky; sleep 1 && conky  # needs compositor for transparency
