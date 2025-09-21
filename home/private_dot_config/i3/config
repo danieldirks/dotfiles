@@ -301,6 +301,9 @@ exec_always --no-startup-id sleep 60 && xset s off
 # keyboard
 exec_always --no-startup-id sleep 1 && fcitx5
 
+# trash (clean files after 30 days)
+exec --no-startup-id trash-empty -f 30
+
 # player
 exec --no-startup-id playerctld daemon
 
