@@ -29,7 +29,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
-bindsym F20 exec pactl set-source-mute 0 toggle
+bindsym XF86AudioMicMute exec --no-startup-id microphone-mute-toggle && pkill -RTMIN+10 i3blocks  # by default mapped to F20
 bindsym Print exec mkdir -p "$(xdg-user-dir PICTURES)/screenshots" && scrot "$(xdg-user-dir PICTURES)/screenshots/%Y-%m-%d_%H-%M-%S.png" -z -e "notify-send --icon='\$f' 'Screenshot saved' '\$f' && xclip -selection clipboard -t image/png -i \$f"
 bindsym Shift+Print exec mkdir -p "$(xdg-user-dir PICTURES)/screenshots" && scrot "$(xdg-user-dir PICTURES)/screenshots/%Y-%m-%d_%H-%M-%S.png" -s -z -e "notify-send --icon='\$f' 'Screenshot saved' '\$f' && xclip -selection clipboard -t image/png -i \$f"
 
@@ -120,7 +120,7 @@ set $ws5  "5:"
 set $ws6  "6:6"
 set $ws7  "7:7"
 set $ws8  "8:8"
-set $ws9  "9:9"
+set $ws9  "9:󰒓"
 set $ws10 "10:10"
 
 # focus workspace
@@ -297,15 +297,18 @@ exec_always nm-applet
 # keyboard
 exec_always sleep 1 && fcitx5
 
+# trash (clean files after 30 days)
+exec trash-empty -f 30
+
 # player
 exec playerctld daemon
 
 # wallpaper
+output "*" bg ~/.wallpaper.jpg fill
 #exec_always killall conky; sleep 1 && conky  # needs compositor for transparency
 
 # scratchpad
 exec alacritty --class ScratchpadTerminal --command nvim -c "VimwikiIndex"
 
 # outputs and inputs
-output "*" bg ~/.wallpaper.jpg fill
 include devices
