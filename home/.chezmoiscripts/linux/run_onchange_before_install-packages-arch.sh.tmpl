@@ -12,6 +12,7 @@
 {{- $packages = concat $packages (list "tmux" "tmuxinator") -}}
 {{- $packages = concat $packages (list "neovim" "tree-sitter-cli" "python-pynvim" "luarocks" "ollama-cuda") -}}
 {{- $packages = concat $packages (list "neomutt" "lynx") -}}
+{{- $packages = concat $packages (list "flatpak") -}}
 
 {{- if not .headless -}}
 {{- $packages = concat $packages (list "ly") -}}
@@ -39,7 +40,7 @@
 {{- end -}}
 
 {{- if .gaming -}}
-{{- $packages = concat $packages (list "lutris" "gamemode" "lib32-gamemode" "mangohud" "wine" "umu-launcher") -}}
+{{- $packages = concat $packages (list "lutris" "gamemode" "lib32-gamemode" "mangohud" "wine" "wine-mono" "umu-launcher") -}}
 {{- $packages = concat $packages (list "steam" "lib32-nvidia-utils") -}}
 {{- $packages = concat $packages (list "discord") -}}
 {{- $packages = concat $packages (list "xpadneo-dkms") -}}
@@ -61,7 +62,14 @@ fi
 # enable multilib
 sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
+# setup flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+# install packages
 paru -Syu --needed {{ join " " ( $packages | sortAlpha | uniq ) }}
+{{- if .gaming }}
+flatpak install flathub com.usebottles.bottles
+{{- end }}
 
 bat cache --build
 

@@ -14,6 +14,9 @@ set -e
 echo -e "\n${HI}paru -Syu${CL}"
 paru -Syu
 
+echo -e "\n${HI}flatpak update${CL}"
+flatpak update
+
 
 {{- else if eq .osid "linux-ubuntu" -}}
 ##############
