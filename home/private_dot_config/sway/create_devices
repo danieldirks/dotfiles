@@ -6,8 +6,9 @@
 # man 5 sway-output
 output "DP-4" {
     mode 5120x1440
-    adaptive_sync on
+    #adaptive_sync on
     render_bit_depth 10
+    #hdr off
 }
 
 # swaymsg -t get_inputs
