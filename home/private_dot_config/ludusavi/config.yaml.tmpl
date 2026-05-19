@@ -1,6 +1,7 @@
 ---
 runtime:
   threads: ~
+  networkSecurity: safe
 release:
   check: false
 manifest:
@@ -13,6 +14,8 @@ roots:
   - store: lutris
     path: ~/.local/share/lutris
     database: ~
+  - store: otherWine
+    path: ~/.var/app/com.usebottles.bottles/data/bottles/bottles/*
   - store: otherHome
     path: "~"
 redirects: []
