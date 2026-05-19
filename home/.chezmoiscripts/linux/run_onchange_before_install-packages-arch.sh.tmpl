@@ -69,6 +69,8 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 paru -Syu --needed {{ join " " ( $packages | sortAlpha | uniq ) }}
 {{- if .gaming }}
 flatpak install flathub com.usebottles.bottles
+flatpak install flathub com.heroicgameslauncher.hgl
+flatpak --user override com.heroicgameslauncher.hgl --filesystem="$HOME/games/"
 {{- end }}
 
 bat cache --build
