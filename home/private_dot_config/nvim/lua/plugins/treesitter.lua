@@ -3,6 +3,7 @@ return {
         -- syntax tree highlighting
         -- https://github.com/nvim-treesitter/nvim-treesitter
         "nvim-treesitter/nvim-treesitter",
+        lazy = false,
         build = ":TSUpdate",
         opts = {
             auto_install = true,
@@ -16,8 +17,5 @@ return {
                 end,
             },
         },
-        config = function(_, opts)
-            require("nvim-treesitter.configs").setup(opts)
-        end
     },
 }
