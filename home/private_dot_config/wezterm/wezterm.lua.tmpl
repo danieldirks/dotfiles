@@ -62,7 +62,7 @@ config.hide_tab_bar_if_only_one_tab = true
 {{- if eq .chezmoi.os "windows" }}
 config.default_prog = { 'wsl.exe', '--cd', '~', '/bin/zsh', '-l', '-c', 'tmuxinator main' }
 {{- else if eq .chezmoi.os "darwin" }}
-config.default_prog = { '/bin/zsh', '-l', '-c', 'tmuxinator main' }
+config.default_prog = { '/bin/zsh', '-l' }
 {{- else }}
 --config.default_prog = { '/bin/zsh', '-c', 'tmuxinator main' }
 {{- end }}
@@ -72,9 +72,5 @@ config.window_close_confirmation = 'NeverPrompt'
 
 -- notifications
 config.audible_bell = 'Disabled'
-
--- kitty graphics
-config.term = "xterm-kitty"
-config.enable_kitty_graphics=true
 
 return config
