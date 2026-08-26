@@ -19,3 +19,12 @@ if [[ -n "$packages" ]]; then
 fi
 
 {{- end }}
+
+###################
+### clear cache ###
+###################
+
+echo -e "\n${HI}remove cache${CL}"
+rm -rf ~/.cache/
+echo -e "\n${HI}reset nvim${CL}"
+rm -rf ~/.local/share/nvim/
