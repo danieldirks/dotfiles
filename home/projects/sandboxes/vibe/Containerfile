@@ -1,0 +1,19 @@
+FROM alpine:3.23
+
+# install dependencies
+RUN apk add curl bash uv
+
+# create unprivileged user
+RUN adduser -D sandbox
+USER sandbox
+
+# install mistral vibe
+ENV PATH="/home/sandbox/.local/bin:$PATH"
+RUN curl -LsSf https://mistral.ai/vibe/install.sh | bash
+COPY ./config.toml /home/sandbox/.vibe/config.toml
+
+ENV MISTRAL_API_KEY=""
+VOLUME /home/sandbox/code
+
+WORKDIR /home/sandbox/code
+CMD vibe

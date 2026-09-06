@@ -1,0 +1,16 @@
+#!/bin/bash
+
+sandboxes_dir="$(xdg-user-dir PROJECTS)/sandboxes"
+
+if [ "$#" -lt 1 ]; then
+    echo "usage: $0 <sandbox> [params]"
+    echo "sandboxes: $(ls -m $sandboxes_dir)"
+    exit 1
+fi
+
+sandbox_dir="$sandbox_dir/$1"
+if [ -d "$sandbox_dir" ]; then
+    exec $sandbox_dir/run.sh ${@:2}
+else
+    echo "no sandbox found with name $1"
+fi

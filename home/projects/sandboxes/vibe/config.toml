@@ -1,0 +1,4 @@
+# https://github.com/mistralai/mistral-vibe?tab=readme-ov-file#configuration
+
+theme = "auto"
+enable_system_trust_store = true
