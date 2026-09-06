@@ -6,6 +6,7 @@ RUN apk add curl bash uv
 # create unprivileged user
 RUN adduser -D sandbox
 USER sandbox
+WORKDIR /home/sandbox
 
 # install mistral vibe
 ENV PATH="/home/sandbox/.local/bin:$PATH"
