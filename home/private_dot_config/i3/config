@@ -167,7 +167,7 @@ assign [class="steam"]                             $ws3
 assign [class="heroic"]                            $ws3
 assign [class="Lutris"]                            $ws3
 assign [class="discord"]                           $ws4
-assign [class="Signal"]                            $ws4
+assign [class="signal"]                            $ws4
 assign [class="Spotify"]                           $ws5
 assign [title="^.*.kdbx.* - KeePassXC"]            $ws9
 
