@@ -126,5 +126,5 @@ vim.diagnostic.config({
 --vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 -- lsp log
-vim.lsp.set_log_level("off")
--- vim.lsp.set_log_level("debug")
+--vim.lsp.log.set_level("off")
+vim.lsp.log.set_level("info")
