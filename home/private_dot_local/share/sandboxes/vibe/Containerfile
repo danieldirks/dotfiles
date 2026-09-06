@@ -11,7 +11,7 @@ WORKDIR /home/sandbox
 # install mistral vibe
 ENV PATH="/home/sandbox/.local/bin:$PATH"
 RUN curl -LsSf https://mistral.ai/vibe/install.sh | bash
-COPY ./config.toml /home/sandbox/.vibe/config.toml
+COPY --chown=1000:1000 ./config.toml /home/sandbox/.vibe/config.toml
 
 ENV MISTRAL_API_KEY=""
 VOLUME /home/sandbox/code
