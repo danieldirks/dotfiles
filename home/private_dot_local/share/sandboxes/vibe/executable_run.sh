@@ -15,7 +15,7 @@ podman build -t sandbox:vibe $sandbox_dir
 set -a && source $sandbox_dir/.env && set +a
 if [ -z "$MISTRAL_API_KEY" ]; then
     read -p "mistral api key (https://console.mistral.ai/api-keys): " MISTRAL_API_KEY
-    echo $MISTRAL_API_KEY >> $sandbox_dir/.env
+    echo "MISTRAL_API_KEY=$MISTRAL_API_KEY" >> $sandbox_dir/.env
 fi
 
 # run container
