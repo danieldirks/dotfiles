@@ -283,6 +283,7 @@ popup_during_fullscreen smart
 # autostart desktop entries from $XDG_CONFIG_HOME/autostart and /etc/xdg/autostart
 # create with: dex -c <path> -t ~/.config/autostart/
 exec --no-startup-id dex -a -e i3 -s /etc/xdg/autostart/:~/.config/autostart/
+exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 
 # mouse settings
 exec_always --no-startup-id xset m 1/1 0  # disable mouse acceleration
