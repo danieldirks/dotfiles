@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+LOGDIR="$HOME/.local/share/Nextcloud"
+LOGFILE=$(ls -t "$LOGDIR"/*.log 2>/dev/null | head -n1)
+STATUS="?"
+
+# open client on click
+if [ "$BLOCK_BUTTON" = "1" ]; then
+    i3-msg exec "nextcloud" >/dev/null
+fi
+
+# check for running client
+if ! pgrep -x nextcloud >/dev/null 2>&1; then
+    echo "󰅤"
+    exit 0
+fi
+
+# get last log lines
+TAIL=$(tail -n 50 "$LOGFILE")
+
+# error
+if echo "$TAIL" | grep -qiE "error|fail"; then
+    echo "  "
+    echo "  "
+    echo "#11111b"
+    echo "#fab387"
+    exit 0
+fi
+
+# sync active
+if echo "$TAIL" | grep -qiE "sync|propagate|upload|download"; then
+    # synced in the last 10 seconds
+    NOW=$(date +%s)
+    MTIME=$(stat -c %Y "$LOGFILE")
+    if [ $((NOW - MTIME)) -lt 10 ]; then
+        echo "󰘿"
+        exit 0
+    fi
+fi
+
+echo "󰅠"
