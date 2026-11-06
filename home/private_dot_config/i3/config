@@ -266,7 +266,6 @@ smart_borders no_gaps
 
 # window style
 hide_edge_borders both
-exec_always --no-startup-id picom -b
 
 # miscellaneous
 #focus_follows_mouse no
@@ -279,11 +278,11 @@ popup_during_fullscreen smart
 
 # display config, see autorandr
 # xrandr --output DP-0 --mode 1920x1080 --rate 60 && autorandr --save default
-exec --no-startup-id autorandr --change
+#exec --no-startup-id autorandr --change
 
-# autostart desktop entries from $XDG_CONFIG_HOME/autostart
+# autostart desktop entries from $XDG_CONFIG_HOME/autostart and /etc/xdg/autostart
 # create with: dex -c <path> -t ~/.config/autostart/
-exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id dex -a -e i3 -s /etc/xdg/autostart/:~/.config/autostart/
 
 # mouse settings
 exec_always --no-startup-id xset m 1/1 0  # disable mouse acceleration
@@ -295,12 +294,6 @@ exec --no-startup-id unclutter  # hides cursor on typing
 exec_always --no-startup-id sleep 60 && xset -dpms
 exec_always --no-startup-id sleep 60 && xset s noblank
 exec_always --no-startup-id sleep 60 && xset s off
-
-# network
-#exec_always --no-startup-id sleep 1 && nm-applet
-
-# keyboard
-exec_always --no-startup-id sleep 1 && fcitx5
 
 # trash (clean files after 30 days)
 exec --no-startup-id trash-empty -f 30
