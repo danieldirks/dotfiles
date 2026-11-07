@@ -13,14 +13,15 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # launcher
-bindsym $mod+Return exec --no-startup-id rofi -show drun -no-show-match
-bindsym $mod+Tab exec --no-startup-id rofi -show window -no-show-match
-bindsym $mod+n exec --no-startup-id networkmanager_dmenu
+bindsym $mod+Return exec rofi -show drun -no-show-match
+bindsym $mod+Tab exec rofi -show window -no-show-match
+bindsym $mod+n exec networkmanager_dmenu
 
 # apps
-bindsym $mod+t exec --no-startup-id i3-sensible-terminal
-bindsym $mod+F1 exec --no-startup-id librewolf
-bindsym $mod+F2 workspace $ws1; exec --no-startup-id i3-sensible-terminal -e /bin/zsh -c "source ~/.zshrc && neomutt"
+bindsym $mod+t exec i3-sensible-terminal
+bindsym $mod+F1 exec librewolf
+bindsym $mod+F2 exec nemo
+bindsym $mod+F3 workspace $ws1; exec i3-sensible-terminal -e /bin/zsh -c "source ~/.zshrc && neomutt"
 
 # media control
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
