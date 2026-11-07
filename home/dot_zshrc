@@ -17,6 +17,7 @@ export PAGER='bat'
 
 # locale, see `locale`
 export LC_COLLATE=C  # sorting collation (uppercase before lowercase)
+export TIME_STYLE=long-iso
 
 # setup homebrew path on darwin
 if [[ -f "/opt/homebrew/bin/brew" ]] then
