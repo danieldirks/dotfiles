@@ -101,6 +101,9 @@ source $ZSH_BASE/aliases.zsh
 source $ZSH_BASE/fzf-tab.zsh
 source ~/.config/fzf/fzf.sh
 
+# ssh
+export SSH_AUTH_SOCK="/run/user/1000/ssh-agent.socket"
+
 # pass
 export PASSWORD_STORE_GENERATED_LENGTH=64
 
