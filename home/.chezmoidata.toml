@@ -4,7 +4,6 @@
         "bierner.github-markdown-preview",
         "EditorConfig.EditorConfig",
         ### environment
-        "GitHub.codespaces",
         "ms-azuretools.vscode-docker",
         "ms-kubernetes-tools.vscode-kubernetes-tools",
         "ms-vscode-remote.vscode-remote-extensionpack",
@@ -13,6 +12,7 @@
         "usernamehw.errorlens",
         "wayou.vscode-todo-highlight",
         "humao.rest-client",
+        "mistralai.mistral-vibe-code",
         ### look & feel
         "Catppuccin.catppuccin-vsc",
         "Catppuccin.catppuccin-vsc-icons",
