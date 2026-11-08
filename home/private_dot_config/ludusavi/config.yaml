@@ -20,7 +20,7 @@ roots:
     path: "~"
 redirects: []
 backup:
-  path: {{ .backup_path }}/game-saves
+  path: ~/games/saves
   ignoredGames: []
   filter:
     excludeStoreScreenshots: false
@@ -54,7 +54,7 @@ backup:
         level: 10
   onlyConstructive: false
 restore:
-  path: {{ .backup_path }}/game-saves
+  path: ~/games/saves
   ignoredGames: []
   toggledPaths: {}
   toggledRegistry: {}

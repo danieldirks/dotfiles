@@ -13,12 +13,12 @@ set -e
 ############
 
 echo -e "\n${HI}pacman autoremove${CL}"
-packages=$(pacman -Qtdq)
-if [[ -n "$packages" ]]; then
-    sudo pacman -Rns $packages
-fi
+sudo pacman -Rns $(pacman -Qtdq)
 
 {{- end }}
+
+echo -e "\n${HI}flatpak uninstall --unused${CL}"
+flatpak uninstall --unused
 
 ###################
 ### clear cache ###

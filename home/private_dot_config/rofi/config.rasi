@@ -1,7 +1,7 @@
 // example: rofi -dump-config
 
 configuration{
-    modi: "combi,drun,window,pass,calc:qalc +u8 -nocurrencies";
+    modi: "combi,drun,window,calc:qalc +u8 -nocurrencies";
     combi-modi: "drun,window,filebrowser,ssh";
     display-combi: "  All ";
     display-run: "  Shell ";
@@ -10,7 +10,6 @@ configuration{
     display-filebrowser: "  Files ";
     display-ssh: "  SSH ";
     display-calc: "  Calc ";
-    display-pass: "  Pass ";
 
     location: 2;
     yoffset: 100;

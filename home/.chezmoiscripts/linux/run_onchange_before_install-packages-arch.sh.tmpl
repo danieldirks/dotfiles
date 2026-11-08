@@ -1,7 +1,7 @@
 {{- if eq .osid "linux-arch" -}}
 
 {{- $packages := (list "acpi" "chezmoi" "dnsutils" "fcitx5" "imagemagick" "make" "thermald" "udisks2" "unzip" "linux-headers" "mkinitcpio-firmware") -}}
-{{- $packages = concat $packages (list "networkmanager" "openvpn" "networkmanager-openvpn" "nm-connection-editor" "network-manager-applet" "openconnect" "networkmanager-openconnect" "networkmanager-dmenu-git") -}}
+{{- $packages = concat $packages (list "networkmanager" "openvpn" "networkmanager-openvpn" "nm-connection-editor" "network-manager-applet" "networkmanager-dmenu") -}}
 {{- $packages = concat $packages (list "bluez" "bluez-utils" "blueberry") -}}
 {{- $packages = concat $packages (list "git" "git-delta") -}}
 {{- $packages = concat $packages (list "podman" "podman-compose" "podman-docker" "kubectl" "helm" "opentofu") -}}
@@ -41,7 +41,8 @@
 {{- end -}}
 
 {{- if .gaming -}}
-{{- $packages = concat $packages (list "lutris" "gamemode" "lib32-gamemode" "mangohud" "wine" "wine-mono" "umu-launcher") -}}
+{{- $packages = concat $packages (list "gamemode" "lib32-gamemode" "mangohud" "wine" "wine-mono" "umu-launcher") -}}
+{{- $packages = concat $packages (list "heroic-games-launcher" "faugus-launcher") -}}
 {{- $packages = concat $packages (list "steam" "lib32-nvidia-utils") -}}
 {{- $packages = concat $packages (list "discord") -}}
 {{- $packages = concat $packages (list "xpadneo-dkms") -}}
@@ -68,11 +69,6 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 # install packages
 paru -Syu --needed {{ join " " ( $packages | sortAlpha | uniq ) }}
-{{- if .gaming }}
-flatpak install flathub com.usebottles.bottles
-flatpak install flathub com.heroicgameslauncher.hgl
-flatpak --user override com.heroicgameslauncher.hgl --filesystem="$HOME/games/"
-{{- end }}
 
 bat cache --build
 
@@ -86,6 +82,7 @@ sudo systemctl enable nvidia-resume.service
 sudo systemctl enable thermald.service
 sudo systemctl enable ollama.service
 sudo systemctl enable ly@tty9.service
+sudo systemctl enable paccache.timer
 systemctl --user enable pipewire.socket
 systemctl --user enable pipewire.service
 systemctl --user enable pipewire-pulse.socket
