@@ -32,6 +32,14 @@ return {
                     template_ext = '.html',
                 },
             }
+
+            -- resolve the notes directory from the vimwiki config
+            function _G.vimwiki_notes_dir()
+                local list = vim.g.vimwiki_list or {}
+                local path = list[1] and list[1].path or '~/notes'
+                return vim.fn.resolve(vim.fn.expand(path))
+            end
+
             vim.g.vimwiki_markdown_link_ext = 1
             vim.g.vimwiki_folding = 'syntax'
             vim.g.vimwiki_key_mappings = {
