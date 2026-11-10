@@ -18,35 +18,33 @@ return {
             vim.g.vimwiki_folding = "list"
             vim.g.vimwiki_global_ext = 0
             vim.g.vimwiki_hl_headers = 1
-            -- mac os filesystems are case-insensitive but keep the on-disk
-            -- spelling ("Notes" vs "notes"), and vimwiki compares paths
-            -- case-sensitively: register the wiki with the real case so
-            -- buffers opened by tools like telescope are recognized as wiki
-            -- files
-            local notes = vim.iter(vim.fn.readdir(vim.fn.expand('~')))
-                :find(function(entry) return entry:lower() == 'notes' end)
-            local notes_path = notes and '~/' .. notes or '~/notes'
+
+            -- resolve the notes dir with its on-disk case (macOS fs ignores
+            -- case, vimwiki compares case-sensitively); result is cached
+            local notes_dir
+            function _G.vimwiki_notes_dir()
+                if not notes_dir then
+                    local name = vim.iter(vim.fn.readdir(vim.fn.expand('~')))
+                        :find(function(entry) return entry:lower() == 'notes' end) or 'notes'
+                    notes_dir = vim.fn.resolve(vim.fn.expand('~/' .. name))
+                end
+                return notes_dir
+            end
+
             vim.g.vimwiki_list = {
                 {
-                    path = notes_path,
+                    path = vimwiki_notes_dir(),
                     syntax = 'markdown',
                     ext = '.md',
                     -- see :h vimwiki-option-rss_name
-                    custom_wiki2html = '~/.config/nvim/autoload/vimwiki/vimwiki2html.sh',
-                    path_html = '~/.cache/vimwiki-html/',
+                    custom_wiki2html = vim.fs.joinpath(vim.fn.stdpath('config'), 'autoload/vimwiki/vimwiki2html.sh'),
+                    path_html = vim.fs.joinpath(vim.fn.stdpath('cache'), 'vimwiki-html'),
                     -- pandoc templates, see https://pandoc.org/MANUAL.html#templates
-                    template_path = vim.fn.stdpath("config") .. '/autoload/vimwiki',
+                    template_path = vim.fs.joinpath(vim.fn.stdpath('config'), 'autoload/vimwiki'),
                     template_default = 'default',
                     template_ext = '.html',
                 },
             }
-
-            -- resolve the notes directory from the vimwiki config
-            function _G.vimwiki_notes_dir()
-                local list = vim.g.vimwiki_list or {}
-                local path = list[1] and list[1].path or '~/notes'
-                return vim.fn.resolve(vim.fn.expand(path))
-            end
 
             vim.g.vimwiki_markdown_link_ext = 1
             vim.g.vimwiki_folding = 'syntax'
