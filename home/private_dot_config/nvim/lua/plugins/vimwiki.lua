@@ -18,9 +18,17 @@ return {
             vim.g.vimwiki_folding = "list"
             vim.g.vimwiki_global_ext = 0
             vim.g.vimwiki_hl_headers = 1
+            -- mac os filesystems are case-insensitive but keep the on-disk
+            -- spelling ("Notes" vs "notes"), and vimwiki compares paths
+            -- case-sensitively: register the wiki with the real case so
+            -- buffers opened by tools like telescope are recognized as wiki
+            -- files
+            local notes = vim.iter(vim.fn.readdir(vim.fn.expand('~')))
+                :find(function(entry) return entry:lower() == 'notes' end)
+            local notes_path = notes and '~/' .. notes or '~/notes'
             vim.g.vimwiki_list = {
                 {
-                    path = '~/notes/',
+                    path = notes_path,
                     syntax = 'markdown',
                     ext = '.md',
                     -- see :h vimwiki-option-rss_name
