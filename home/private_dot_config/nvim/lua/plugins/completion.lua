@@ -1,3 +1,33 @@
+-- Path:make_relative() does not produce "../" segments for files outside the
+-- current directory, see https://github.com/nvim-lua/plenary.nvim/issues/411
+local function relative_to(from_dir, file)
+    local function split(path)
+        local parts = {}
+        for part in vim.fn.resolve(path):gmatch("[^/]+") do
+            table.insert(parts, part)
+        end
+        return parts
+    end
+
+    local from = split(from_dir)
+    local to = split(file)
+
+    local common = 1
+    while from[common] and to[common] and from[common] == to[common] do
+        common = common + 1
+    end
+
+    local segments = {}
+    for _ = common, #from do
+        table.insert(segments, "..")
+    end
+    for i = common, #to do
+        table.insert(segments, to[i])
+    end
+
+    return table.concat(segments, "/")
+end
+
 local function vimwiki_source()
     local cmp = require("cmp")
     local Path = require("plenary.path")
@@ -31,12 +61,10 @@ local function vimwiki_source()
     source._candidates = function(_, files, current_dir, callback)
         local items = {}
         for _, file in ipairs(files) do
-            -- Does not return relative paths for parent directories
-            -- See https://github.com/nvim-lua/plenary.nvim/issues/411
-            local relative_path = Path:new(file):make_relative(current_dir)
+            local relative_path = relative_to(current_dir, file)
 
-            -- use file name without extension as name
-            local note_name = vim.fn.fnamemodify(relative_path, ":r")
+            -- use only the file name without path and extension as label
+            local note_name = vim.fn.fnamemodify(relative_path, ":t:r")
 
             -- determin page title from markdown
             local note_title = Path:new(file):head(1)
