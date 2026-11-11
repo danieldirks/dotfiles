@@ -75,9 +75,14 @@ local function vimwiki_source()
             end
 
             table.insert(items, {
-                label = note_name,
+                label = note_title,
                 insertText = string.format("[%s](%s)", note_title, relative_path),
                 kind = cmp.lsp.CompletionItemKind.File,
+                -- show relative path in the documentation window
+                documentation = {
+                    kind = cmp.lsp.MarkupKind.Markdown,
+                    value = string.format("```\n%s\n```", relative_path),
+                },
             })
         end
 
