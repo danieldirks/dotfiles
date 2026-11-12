@@ -104,6 +104,7 @@ return {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-emoji",
             "saadparwaiz1/cmp_luasnip",
         },
         config = function()
@@ -112,6 +113,9 @@ return {
             vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
             cmp.setup({
+                performance = {
+                    max_view_entries = 10,
+                },
                 snippet = {
                     expand = function(args)
                         require("luasnip").lsp_expand(args.body)
@@ -163,6 +167,7 @@ return {
                     { name = "nvim_lua" },
                     { name = "path" },
                     { name = "buffer" },
+                    { name = "emoji" },
                 }),
             })
 
@@ -185,6 +190,7 @@ return {
                 }, {
                     { name = "path" },
                     { name = "buffer" },
+                    { name = "emoji" },
                 }),
             })
 
