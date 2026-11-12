@@ -7,8 +7,4 @@ set -e
 code --force --install-extension {{ . | quote }}
 {{- end }}
 
-# disable built-in copilot extensions
-code --disable-extension GitHub.copilot
-code --disable-extension GitHub.copilot-chat
-
 {{- end -}}
