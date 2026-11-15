@@ -7,3 +7,8 @@ bind index,pager,attach  g         noop
 # go to folders
 macro index,pager gi "<change-folder>=INBOX<enter>"       "open inbox"
 macro index,pager gf "<change-folder>?"                   "open mailbox..."
+
+# khard address book
+bind editor <Tab> complete-query
+bind editor ^T complete
+macro index,pager A "<pipe-message>khard add-email --headers=from,cc --skip-already-added<enter>" "add sender/cc to khard contacts"
