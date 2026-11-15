@@ -16,11 +16,13 @@ roots:
     database: ~
   - store: otherWine
     path: ~/.var/app/com.usebottles.bottles/data/bottles/bottles/*
+  - store: heroic
+    path: ~/games/launcher/heroic
   - store: otherHome
     path: "~"
 redirects: []
 backup:
-  path: ~/games/saves
+  path: ~/games/saves/ludusavi
   ignoredGames: []
   filter:
     excludeStoreScreenshots: false
@@ -54,7 +56,7 @@ backup:
         level: 10
   onlyConstructive: false
 restore:
-  path: ~/games/saves
+  path: ~/games/saves/ludusavi
   ignoredGames: []
   toggledPaths: {}
   toggledRegistry: {}
@@ -66,10 +68,6 @@ scan:
   showDeselectedGames: true
   showUnchangedGames: true
   showUnscannedGames: true
-cloud:
-  remote: ~
-  path: backups/game-saves
-  synchronize: true
 apps:
   rclone:
     path: /usr/bin/rclone
