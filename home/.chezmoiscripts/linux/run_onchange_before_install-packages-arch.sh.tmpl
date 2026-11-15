@@ -10,7 +10,7 @@
 {{- $packages = concat $packages (list "python" "python-pip" "npm" "cargo") -}}
 {{- $packages = concat $packages (list "xdg-desktop-portal" "xdg-desktop-portal-gtk") -}}
 {{- $packages = concat $packages (list "gnupg" "keepassxc" "libfido2" "libsecret") -}}
-{{- $packages = concat $packages (list "khal" "khard" "vdirsyncer") -}}
+{{- $packages = concat $packages (list "khal" "khard" "pimsync") -}}
 {{- $packages = concat $packages (list "tmux" "tmuxinator") -}}
 {{- $packages = concat $packages (list "neovim" "tree-sitter-cli" "python-pynvim" "luarocks" "ollama-cuda") -}}
 {{- $packages = concat $packages (list "neomutt" "lynx") -}}
@@ -75,22 +75,6 @@ bat cache --build
 
 # create nvidia xorg config
 sudo nvidia-xconfig
-
-# activate services
-sudo systemctl enable nvidia-hibernate.service
-sudo systemctl enable nvidia-suspend.service
-sudo systemctl enable nvidia-resume.service
-sudo systemctl enable thermald.service
-sudo systemctl enable ollama.service
-sudo systemctl enable ly@tty9.service
-sudo systemctl enable paccache.timer
-systemctl --user enable pipewire.socket
-systemctl --user enable pipewire.service
-systemctl --user enable pipewire-pulse.socket
-systemctl --user enable pipewire-pulse.service
-systemctl --user enable wireplumber.service
-systemctl --user enable ssh-agent.socket
-systemctl --user enable vdirsyncer.timer
 
 {{ if .gaming -}}
 sudo usermod --append --groups gamemode $(whoami)

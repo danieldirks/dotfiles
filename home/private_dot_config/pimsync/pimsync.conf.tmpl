@@ -1,0 +1,47 @@
+status_path "~/.local/state/pimsync/status/"
+
+pair calendars {
+    storage_a calendars_remote
+    storage_b calendars_local
+    collections from a
+    collections from b
+}
+
+storage calendars_remote {
+    type caldav
+    url {{ .caldav_url | quote }}
+    username {{ .chezmoi.username | quote }}
+    # password from secret service (keepassxc entry needs attribute: service = pimsync)
+    password {
+        cmd secret-tool lookup service pimsync
+    }
+}
+
+storage calendars_local {
+    type vdir/icalendar
+    path "~/.local/share/calendars/"
+    fileext ".ics"
+}
+
+pair contacts {
+    storage_a contacts_remote
+    storage_b contacts_local
+    collections from a
+    collections from b
+}
+
+storage contacts_remote {
+    type carddav
+    url {{ .caldav_url | quote }}
+    username {{ .chezmoi.username | quote }}
+    # password from secret service (keepassxc entry needs attribute: service = pimsync)
+    password {
+        cmd secret-tool lookup service pimsync
+    }
+}
+
+storage contacts_local {
+    type vdir/vcard
+    path "~/.local/share/contacts/"
+    fileext ".vcf"
+}

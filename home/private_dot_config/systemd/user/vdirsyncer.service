@@ -1,8 +1,0 @@
-[Unit]
-Description=Sync CalDAV calendars and CardDAV contacts with vdirsyncer
-
-[Service]
-Type=oneshot
-# skip silently when secret-tool lookup fails
-ExecCondition=/usr/bin/sh -c 'secret-tool lookup service vdirsyncer >/dev/null'
-ExecStart=/usr/bin/vdirsyncer sync

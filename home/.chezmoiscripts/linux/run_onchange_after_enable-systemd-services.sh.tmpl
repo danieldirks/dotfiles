@@ -1,0 +1,20 @@
+{{- if eq .osid "linux-arch" -}}
+#!/bin/bash
+set -e
+
+sudo systemctl enable nvidia-hibernate.service
+sudo systemctl enable nvidia-suspend.service
+sudo systemctl enable nvidia-resume.service
+sudo systemctl enable thermald.service
+sudo systemctl enable ly@tty9.service
+sudo systemctl enable paccache.timer
+
+systemctl --user daemon-reload
+systemctl --user enable pipewire.socket
+systemctl --user enable pipewire.service
+systemctl --user enable pipewire-pulse.socket
+systemctl --user enable pipewire-pulse.service
+systemctl --user enable wireplumber.service
+systemctl --user enable ssh-agent.socket
+systemctl --user enable pimsync.timer
+{{- end }}

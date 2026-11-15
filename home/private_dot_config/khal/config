@@ -1,6 +1,6 @@
 [calendars]
 
-# vdirsyncer filesystem storage, one vdir per remote collection
+# pimsync vdir storage, one vdir per remote collection
 [[calendar]]
 path = ~/.local/share/calendars/*
 type = discover
