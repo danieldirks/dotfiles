@@ -1,0 +1,20 @@
+[general]
+status_path = "~/.local/state/vdirsyncer/status/"
+
+[pair calendars]
+a = "calendars_remote"
+b = "calendars_local"
+collections = ["from a", "from b"]
+metadata = ["displayname", "color"]
+
+[storage calendars_remote]
+type = "caldav"
+url = {{ .caldav_url | quote }}
+username = {{ .chezmoi.username | quote }}
+# password from secret service (keepassxc entry needs attribute: service = vdirsyncer)
+password.fetch = ["command", "secret-tool", "lookup", "service", "vdirsyncer"]
+
+[storage calendars_local]
+type = "filesystem"
+path = "~/.local/share/calendars/"
+fileext = ".ics"

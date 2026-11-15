@@ -1,11 +1,11 @@
 {{/* variables */}}
 {{- $email       := ""    -}}{{/* system email */}}
+{{- $caldav_url  := ""    -}}{{/* caldav server url, empty to skip calendar sync */}}
 {{- $ephemeral   := false -}}{{/* ephemeral system, i.e. only setup basics */}}
 {{- $gaming      := false -}}{{/* setup gaming environment */}}
 {{- $headless    := false -}}{{/* headless mode */}}
 {{- $location    := ""    -}}{{/* location */}}
 {{- $wsl         := false -}}{{/* system is wsl environment */}}
-{{- $backup_path := ""    -}}{{/* path for backups */}}
 
 {{/* os detection */}}
 {{- $osid := .chezmoi.os -}}
@@ -30,6 +30,7 @@
 {{-     $gaming = promptBoolOnce . "gaming" "setup gaming environment" false -}}
 {{-     $headless = promptBoolOnce . "headless" "setup in headless mode" false -}}
 {{-     $location = promptStringOnce . "location" "location" "London" -}}
+{{-     $caldav_url = promptStringOnce . "caldav_url" "caldav server url" "" -}}
 {{-   end -}}
 {{- end -}}
 
@@ -37,6 +38,7 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
 
 [data]
     email = {{ $email | quote }}
+    caldav_url = {{ $caldav_url | quote }}
     ephemeral = {{ $ephemeral }}
     gaming = {{ $gaming }}
     headless = {{ $headless }}

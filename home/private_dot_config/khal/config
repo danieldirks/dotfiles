@@ -1,0 +1,20 @@
+[calendars]
+
+# vdirsyncer filesystem storage, one vdir per remote collection
+[[calendar]]
+path = ~/.local/share/calendars/*
+type = discover
+
+[default]
+highlight_event_days = true
+
+[view]
+# show only a single month in `khal calendar`
+min_calendar_display = 1
+
+[locale]
+timeformat = %H:%M
+dateformat = %Y-%m-%d
+longdateformat = %Y-%m-%d
+datetimeformat = %Y-%m-%d %H:%M
+longdatetimeformat = %Y-%m-%d %H:%M
