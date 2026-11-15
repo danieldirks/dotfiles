@@ -8,5 +8,6 @@ if ! secret-tool lookup service vdirsyncer >/dev/null 2>&1; then
 fi
 
 vdirsyncer discover calendars
+vdirsyncer discover contacts
 vdirsyncer sync
 {{- end }}

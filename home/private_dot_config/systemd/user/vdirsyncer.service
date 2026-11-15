@@ -1,5 +1,5 @@
 [Unit]
-Description=Sync CalDAV calendars with vdirsyncer
+Description=Sync CalDAV calendars and CardDAV contacts with vdirsyncer
 
 [Service]
 Type=oneshot
