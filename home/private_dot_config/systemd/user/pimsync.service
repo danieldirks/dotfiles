@@ -6,3 +6,6 @@ Type=oneshot
 # skip silently when secret-tool lookup fails
 ExecCondition=/usr/bin/sh -c 'secret-tool lookup service pimsync >/dev/null'
 ExecStart=/usr/bin/pimsync sync
+
+[Install]
+WantedBy=default.target
