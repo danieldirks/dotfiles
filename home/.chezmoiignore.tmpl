@@ -31,3 +31,17 @@ AppData/Roaming/Code
 AppData/Roaming/Hyper
 Library/Application Support/Code
 {{ end }}
+
+{{ if .steamdeck }}
+*
+!.config
+!.librewolf
+.chezmoiscripts/**
+!.chezmoiscripts/linux/install-packages-steamdeck.sh
+.config/*
+!.config/heroic
+!.config/ludusavi
+!.config/MangoHud
+!.config/user-dirs.dirs
+!.config/user-dirs.locale
+{{ end }}

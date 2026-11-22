@@ -10,19 +10,22 @@ language: en-US
 theme: dark
 roots:
   - store: steam
-    path: ~/.local/share/Steam
+    path: <home>/.local/share/Steam
   - store: lutris
-    path: ~/.local/share/lutris
+    path: <home>/.local/share/lutris
     database: ~
   - store: otherWine
-    path: ~/.var/app/com.usebottles.bottles/data/bottles/bottles/*
+    path: <home>/.var/app/com.usebottles.bottles/data/bottles/bottles/*
   - store: heroic
-    path: ~/games/launcher/heroic
+    path: <home>/games/launcher/heroic
   - store: otherHome
-    path: "~"
-redirects: []
+    path: "<home>"
+redirects:
+  - kind: bidirectional
+    source: "<home>"
+    target: "/home/main"
 backup:
-  path: ~/games/saves/ludusavi
+  path: <home>/games/saves/ludusavi
   ignoredGames: []
   filter:
     excludeStoreScreenshots: false
@@ -56,7 +59,7 @@ backup:
         level: 10
   onlyConstructive: false
 restore:
-  path: ~/games/saves/ludusavi
+  path: <home>/games/saves/ludusavi
   ignoredGames: []
   toggledPaths: {}
   toggledRegistry: {}

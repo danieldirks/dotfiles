@@ -6,10 +6,12 @@
 {{- end }}
 
 {{ if eq .chezmoi.os "linux" "darwin" -}}
+{{   if not .steamdeck -}}
 [".tmux/plugins/tpm"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tpm"
     refreshPeriod = "168h"
+{{-   end }}
 {{- end }}
 
 

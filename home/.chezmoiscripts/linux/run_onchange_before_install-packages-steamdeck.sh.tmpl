@@ -1,0 +1,16 @@
+{{- if .steamdeck -}}
+
+{{- $flatpaks := (list "io.gitlab.librewolf-community" "com.nextcloud.desktopclient.nextcloud" "org.keepassxc.KeepassXC") -}}
+{{- $flatpaks = concat $flatpaks (list "com.heroicgameslauncher.hgl") -}}
+{{- $flatpaks = concat $flatpaks (list "com.mtkennerly.ludusavi") -}}
+{{- $flatpaks = concat $flatpaks (list "org.freedesktop.Platform.VulkanLayer.MangoHud") -}}
+
+#!/bin/bash
+set -e
+
+# setup flatpak (should be preconfigured, just in case)
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+flatpak install --user --noninteractive flathub {{ join " " ( $flatpaks | sortAlpha | uniq ) }}
+
+{{- end }}
