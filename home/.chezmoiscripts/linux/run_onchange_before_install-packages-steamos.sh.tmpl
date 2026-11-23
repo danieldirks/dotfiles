@@ -1,9 +1,8 @@
 {{- if eq .osid "linux-steamos" -}}
 
-{{- $flatpaks := (list "io.gitlab.librewolf-community" "com.nextcloud.desktopclient.nextcloud" "org.keepassxc.KeepassXC") -}}
+{{- $flatpaks := (list "io.gitlab.librewolf-community" "com.nextcloud.desktopclient.nextcloud" "org.keepassxc.KeePassXC") -}}
 {{- $flatpaks = concat $flatpaks (list "com.heroicgameslauncher.hgl") -}}
-{{- $flatpaks = concat $flatpaks (list "com.mtkennerly.ludusavi") -}}
-{{- $flatpaks = concat $flatpaks (list "org.freedesktop.Platform.VulkanLayer.MangoHud") -}}
+{{- $flatpaks = concat $flatpaks (list "com.github.mtkennerly.ludusavi") -}}
 
 #!/bin/bash
 set -e
