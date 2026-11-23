@@ -1,4 +1,4 @@
-{{- if .steamdeck -}}
+{{- if eq .osid "linux-steamos" -}}
 
 {{- $flatpaks := (list "io.gitlab.librewolf-community" "com.nextcloud.desktopclient.nextcloud" "org.keepassxc.KeepassXC") -}}
 {{- $flatpaks = concat $flatpaks (list "com.heroicgameslauncher.hgl") -}}

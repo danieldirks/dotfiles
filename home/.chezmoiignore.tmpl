@@ -32,7 +32,7 @@ AppData/Roaming/Hyper
 Library/Application Support/Code
 {{ end }}
 
-{{ if .steamdeck }}
+{{ if eq .osid "linux-steamos" }}
 *
 !.config
 !.librewolf

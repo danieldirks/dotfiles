@@ -5,7 +5,6 @@
 {{- $gaming      := false -}}{{/* setup gaming environment */}}
 {{- $headless    := false -}}{{/* headless mode */}}
 {{- $location    := ""    -}}{{/* location */}}
-{{- $steamdeck   := false -}}{{/* system is a steam deck */}}
 {{- $wsl         := false -}}{{/* system is wsl environment */}}
 
 {{/* os detection */}}
@@ -23,8 +22,7 @@
 {{-   $headless = true -}}
 {{-   $wsl = true -}}
 {{- end -}}
-{{- if env "SteamDeck" -}}
-{{-   $steamdeck = true -}}
+{{- if eq $osid "linux-steamos" -}}
 {{-   $ephemeral = true -}}
 {{-   $gaming = true -}}
 {{- end -}}
@@ -50,5 +48,4 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
     headless = {{ $headless }}
     location = {{ $location | quote }}
     osid = {{ $osid | quote }}
-    steamdeck = {{ $steamdeck }}
     wsl = {{ $wsl }}

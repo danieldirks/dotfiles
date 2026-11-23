@@ -6,7 +6,7 @@
 {{- end }}
 
 {{ if eq .chezmoi.os "linux" "darwin" -}}
-{{   if not .steamdeck -}}
+{{   if ne .osid "linux-steamos" -}}
 [".tmux/plugins/tpm"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tpm"
