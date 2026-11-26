@@ -6,6 +6,7 @@ Library
 
 {{ if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
+.var
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
@@ -36,6 +37,7 @@ Library/Application Support/Code
 *
 !.config
 !.librewolf
+!.var
 .chezmoiscripts/**
 !.chezmoiscripts/linux/install-packages-steamos.sh
 .config/*
